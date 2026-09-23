@@ -1,7 +1,6 @@
 # Research brief — v1 (2026-09-23)
 
-Nguồn soạn: AI hỗ trợ theo yêu cầu tác giả; review gán cho Claude (AI) trong
-tài liệu tác giả cung cấp, được ghi nhận ở D14–D15. Chưa có xác nhận GVHD người thật. So với v0
+Trạng thái: bản nháp nghiên cứu; chưa có xác nhận GVHD người thật. So với v0
 (`119b5ee`): tách RQ1a/b, validity khỏi hypothesis; thêm baseline forecast+Gaussian.
 Lịch sử quyết định: `02_decision_log.md`.
 Thay đổi so với v1 (2026-09-23, D15): D5 có điều kiện định lượng; RQ1b thu gọn.
@@ -12,12 +11,14 @@ lần chọn sai đều gây thiệt hại đáng kể. Cần biết khi nào n�
 khi nào nên từ chối, dựa trên thông tin có sẵn trước hành động.
 
 ## 2. Gap — potential
-Các nhận định sau dựa trên workbook nội bộ, chưa xác minh full text mới:
-routing dưới state cũ/bất định đã có ở Shaikh và Guérin–Orda (Novelty Matrix,
-dòng 5,9); age × margin × harmful routing risk là khoảng trống cần kiểm.
-Conformal cho quyết định đã có ở Kiyani/Zhu (dòng 13–14), nên không claim nền
-tảng guarantee mới. OpenTwin gần nhất (dòng 8); khác biệt về conditioning theo
-age vẫn là suy luận theo workbook, cần đọc §VI trước DP1.
+Routing dưới state cũ/bất định đã có ở Shaikh và Guérin–Orda. OpenTwin v2 đã
+có conformal action gate (§VI–VII-C). Lượt tìm L1.2 phát hiện thêm CERT 2026,
+một đối thủ trực tiếp cho age-aware conformal route certification
+(`01_literature/notes/cert_attri_2026.md`). Vì vậy không claim route certificate
+dưới staleness là đầu tiên. Age × top-2 margin × harmful routing risk là khoảng
+trống **chưa xác nhận**; phải đối chiếu CERT, Zhu và Guérin–Orda trước DP1.
+LEC 2026 đã kiểm soát risk trên tập ACCEPT dưới exchangeability ở bài toán
+model routing; vì vậy selective risk|ACCEPT cũng không thể nhận là ý tưởng mới.
 
 ## 3. Thesis
 Độ đáng tin của quyết định phụ thuộc cả tuổi thông tin, khoảng cách chi phí
@@ -68,12 +69,19 @@ Theo Novelty Matrix hiện tại (mức đọc full text giữ nguyên trong wor
 - Conformal cho quyết định được chọn là mới — Kiyani, Zhu (13–14).
 - Conformal gate cho NDT là đầu tiên — OpenTwin (8).
 - Metric freshness cho DT là mới — AoT/AoS/EAP (17,21).
+- Age-aware conformal certificate cho route quality là đầu tiên — CERT (matrix, dòng 22).
+- ACI riêng từng forecast horizon là mới — Hallberg Szabadváry (matrix, dòng 24).
+- Direct online calibration của decision loss/fallback là mới — Conformal Decision Theory
+  (matrix, dòng 25).
+- Kiểm soát `P(error | ACCEPT)` là mới — LEC (matrix, dòng 31).
 
 ## 9. Assumptions · Limitations · Scope
 Assumptions: traffic exogenous theo xây dựng trong simulation; ngưỡng áp dụng
 đề xuất f_l≤0,1σ_l trên từng link theo D15 chưa được validation (đính chính D16).
 Additive delay; tuổi chung; labels
-calibration chỉ dùng sau khi nhận. Limitations: D1 176 dòng, dải link hẹp,
+calibration chỉ dùng sau khi nhận. Khi gate ABSTAIN, cost thật của route bị từ chối
+chỉ có trong simulation/counterfactual replay; triển khai thật cần cơ chế quan sát
+hoặc off-policy evaluation riêng. Limitations: D1 176 dòng, dải link hẹp,
 SE/nội suy khác sự thật vật lý; bằng chứng chính là simulation; 10 run còn ít
 cho rare events. f_l=R_flow/capacity_l; ngưỡng nhỏ không tự chứng minh feedback
 không ảnh hưởng quyết định. Điều kiện phải được kiểm trong config có controlled flow;

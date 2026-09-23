@@ -8,3 +8,7 @@ Khi cần đóng băng một phiên bản làm căn cứ (ví dụ tại DP1), g
 
 Ghi chú từng paper có thể đặt thêm tại đây (một file/paper nếu cần).
 Không lưu PDF có bản quyền vào git; chỉ lưu ghi chú + link/DOI.
+
+Lượt tìm Phase 1: `search_log.md` (truy vấn, số sàng lọc và giới hạn độ phủ).
+`evolution_map.md` ghi các quan hệ bài toán đã có nguồn; các ghi chú đọc riêng ở `notes/`.
+`l12_validation_2026-09-23.md` lưu kết quả đo và trạng thái từng điều kiện B6.
