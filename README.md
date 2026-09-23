@@ -1,4 +1,4 @@
-# ndt-decision-risk
+# dt4n-decision-risk-project
 
 **Câu hỏi:** Khi nào trạng thái cũ (stale telemetry) của một Network Digital Twin làm
 quyết định routing sai — và có phát hiện được những trường hợp đó trước khi hành động không?
@@ -30,3 +30,13 @@ pytest
 A. Simulation (ndtrisk/) — evidence chính, nhanh, biết ground truth.
 B. Realism — cắm dữ liệu đo (data/) vào simulation.
 C. Emulation (emulation/) — kiểm tra xu hướng trên Mininet, ít cấu hình, làm sau cùng.
+
+## Môi trường đã kiểm
+
+| Python | Cách cài | Kết quả | Ngày |
+|---|---|---|---|
+| 3.14.5 (máy chính) | `pip install -r requirements-lock.txt && pip install -e ".[dev]" --no-deps` | pytest xanh | 2026-09-23 |
+
+Chỉ ghi những phiên bản đã chạy xanh. `requires-python` trong `pyproject.toml` là
+yêu cầu tối thiểu của code, không phải cam kết rằng lockfile cài được trên mọi
+phiên bản đó.

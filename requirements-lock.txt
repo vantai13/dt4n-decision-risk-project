@@ -4,7 +4,6 @@ fonttools==4.65.0
 iniconfig==2.3.0
 kiwisolver==1.5.1
 matplotlib==3.11.2
--e /home/vantai/ndt-decision-risk
 networkx==3.7
 numpy==2.5.3
 packaging==26.3
