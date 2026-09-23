@@ -33,3 +33,8 @@ LLM/agent tạo và không vào IEEE Xplore; nó không thay policy của main t
 CNSM 2027 main track (full paper) là chính; GLOBECOM 2027 dự phòng. Mốc nội bộ:
 xong thí nghiệm 2026-12-31, bản thảo 2027-02-15. Khi CFP 2027 ra: điền lại bảng
 từ CFP thật, tính ngược lịch, chọn vòng sau nếu không kịp.
+
+Đính chính lịch theo D16: ngoài thời gian viết giữa hai mốc trên, D15 còn yêu
+cầu sáu tuần dự phòng sau bản thảo. Với mốc 2027-02-15, deadline cần từ
+2027-03-29 trở đi. Phần “Tính ngược lịch” phía trên là phương án ban đầu;
+quy tắc D15 này áp dụng cho kế hoạch hiện hành. Ngày tính được không phải CFP.

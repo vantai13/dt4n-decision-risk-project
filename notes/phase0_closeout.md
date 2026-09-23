@@ -48,3 +48,21 @@ khi C1–C3 chưa đạt.
   các ô SUY LUẬN trong novelty matrix.
 - Tự dẫn định lý xác suất đảo A1–A7 trước khi viết simulator; e01 chỉ chạy sau L1.3.
 
+## Đính chính sau rà soát — 2026-09-23 (D16)
+
+Bảng trên lưu kết luận tại commit `316ee7f`; các cách diễn đạt sau cần đọc cùng
+đính chính này. Tag `phase-0-complete` vẫn là mốc đạt có điều kiện, C1–C4 chưa
+có bằng chứng hoàn tất trong lần rà soát này.
+
+- Dòng repo có việc `wip-before-archive`/VM còn treo: trạng thái phù hợp là
+  **Đạt có điều kiện (C4)**, không hiểu “F0-1…F0-5 đóng” là mọi việc đã xong.
+- Dòng design: sửa “mỗi eNN một chiều” thành “khung biến/đối chứng đã ghi;
+  e05 là factorial, config e06–e12 còn phải chốt”. Đạt ở mức khung Phase 0,
+  chưa đủ để chạy mọi batch confirmatory.
+- Dòng review dùng trạng thái **Đạt** trong quy trình nội bộ theo D14;
+  bằng chứng là review AI do tác giả chuyển tiếp, không phải phê duyệt học vụ.
+- C1 phải khai đã được cung cấp đáp án VD7–VD8; bài làm lại có thể kiểm hiểu bài,
+  không được ghi là giải mù trước khi xem lời giải.
+- Mốc thí nghiệm là 2026-12-31. Quy tắc deadline−6 tuần so với mốc bản thảo
+  2027-02-15 cho deadline sớm nhất theo kế hoạch là 2027-03-29; chờ CFP thật.
+- D5 và cách diễn giải selective_risk_ratio được giới hạn theo D16/design §7.

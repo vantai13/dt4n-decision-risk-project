@@ -150,3 +150,29 @@ thiết kế v1 có điều kiện xem lại; chưa phải bằng chứng rằng
 - Plan tham chiếu: SHA256 MASTER_PLAN/PHASE_0/PHASE_1 chưa khả dụng vì ba file
   private không có trong workspace. Không thay bằng hash của bản hướng dẫn chat.
 - Revisit when: CFP 2027 công bố; có GVHD thật theo D14; hoặc tại DP1.
+
+### D16 — Đính chính hồ sơ sau review D15 (2026-09-23)
+
+Ghi bởi Codex (AI) khi tác giả yêu cầu rà soát và sửa sai; đây chưa phải phần
+lý do do tác giả tự viết theo yêu cầu học tập ở D15. D14–D15 giữ nguyên như lịch sử.
+
+- Nguồn review: tài liệu chat do tác giả cung cấp, attachment
+  `b03d102d-d6d9-4527-bc21-a912b69b53a2/Pasted text.txt`, tự ghi bên review là
+  Claude (AI). Biên bản là bản nhập từ nguồn này; không xác minh độc lập một
+  cuộc họp, danh tính reviewer hoặc việc tác giả không có GVHD học vụ.
+- D5: f_l=R_flow/capacity_l, áp ngưỡng 0,1σ_l từng link chịu đổi tải. Đây là
+  ngưỡng thiết kế chưa validation; không suy ra traffic exogenous hay ổn định
+  closed-loop chỉ từ bất đẳng thức. Exogeneity trong simulation là giả định
+  cấu trúc; áp dụng vận hành cần sensitivity/validation riêng.
+- e03: selective_risk_ratio không chứa ε trực tiếp nhưng có thể phụ thuộc ε
+  qua ACCEPT của C2. Khóa quy tắc ACCEPT không phụ thuộc ε cho contrast calibration;
+  báo C2 riêng. Ghi rõ cost map, cặp path và nguồn SD khi báo ε/σ_D.
+- Closeout: “mỗi eNN một chiều” không chính xác (e05 là factorial M×age);
+  e06–e12 còn thiếu config chi tiết. Các điều kiện có thể được giữ cố định trong
+  từng contrast, không đồng nghĩa mọi thí nghiệm chỉ có một biến.
+- Lịch: giữ hai mốc nội bộ 2026-12-31 và 2027-02-15. Quy tắc D15 cụ thể là
+  deadline trừ 6 tuần phải không sớm hơn ngày bản thảo; tương đương deadline
+  từ 2027-03-29 trở đi theo lịch hiện tại. Đây là dự phòng sau bản thảo,
+  không phải deadline đã công bố hay ngày hoàn thành thí nghiệm.
+- Nguồn soạn, trạng thái bài tự làm và kiểm tra chưa thực hiện tiếp tục được
+  công khai trong hồ sơ. Không diễn giải tag có điều kiện thành hoàn tất C1–C4.

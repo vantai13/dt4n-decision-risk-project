@@ -157,15 +157,27 @@ trước full sweep; nếu quá ngân sách, sửa grid và ghi ADR trước con
 
 ## 7. Ngoài scope và điều kiện còn mở
 
-Không closed-loop TE, RL/LLM, không theorem conformal mới. GVHD còn cần xác nhận
-ε chưa có SLA. D15 cho phép giả định exogenous ở paper 1 chỉ khi controlled flow
-chiếm f≤0,1σ capacity (với σ=0,05: f≤0,5%); kiểm và log f/σ trong từng config.
+Không closed-loop TE, RL/LLM, không theorem conformal mới. ε chưa có SLA.
+Trong simulation exogenous, traffic được sinh độc lập với action theo xây dựng.
+Để xét khả năng áp dụng ngoài simulation, D15 đề xuất ngưỡng thiết kế
+f_l≤0,1σ_l trên từng link chịu đổi tải, với f_l=R_flow/capacity_l và σ_l là SD
+của utilization nền trên link đó (σ_l=0,05 cho f_l≤0,005=0,5%). Capacity khác
+nhau thì f_l khác nhau; nhiều flow đổi đồng thời phải tính tổng thay đổi tải.
+Ngưỡng này chưa được validation và không đủ để chứng minh exogeneity, ổn định
+closed-loop hay bảo toàn thứ hạng path. Phải báo f_l/σ_l và kiểm sensitivity
+trước khi đưa ra claim vận hành; σ_l=0 thì tỷ số không xác định.
 Closed-loop feedback và route flapping thuộc RQ3 và phải nêu ở Limitations.
 Thiết kế e06–e12, labels và fallback phải hoàn thiện đúng phase trước chạy.
 Đây là các checkpoint có chủ ý, không phải ô lựa chọn bỏ trống.
 
 Do σ_D thay đổi mạnh qua cell e03, không dùng harmful@2ms để claim so sánh ngang
 cell. Claim e03 dùng `selective_risk_ratio`; harmful chỉ mô tả và luôn báo ε/σ_D.
+ε/σ_D dùng SD của D=C_P2−C_P1 cố định trong đúng cost map/cell; với D_lin
+Gaussian dùng SD lý thuyết, còn clipping/D0/D1 báo SD thực nghiệm và nguồn mẫu.
+SD từ test chỉ phục vụ mô tả sau chạy, không dùng tune gate. Ratio không chứa ε
+trực tiếp, nhưng tập ACCEPT vẫn có thể phụ thuộc ε nếu dùng C2. Contrast calibration
+e03 phải khóa cùng quy tắc ACCEPT không phụ thuộc ε (ví dụ gate p̂≤α) cho các cell;
+kết quả C2 phụ thuộc ε báo riêng. Ratio không tự loại mọi khác biệt giữa các cell.
 
 ## 8. Pilot đã biết trước
 

@@ -1,7 +1,7 @@
 # Research brief — v1 (2026-09-23)
 
-Agent soạn theo yêu cầu người dùng; đã được Claude (AI) review theo D14–D15,
-nhưng chưa được GVHD người thật xác nhận. So với v0
+Nguồn soạn: AI hỗ trợ theo yêu cầu tác giả; review gán cho Claude (AI) trong
+tài liệu tác giả cung cấp, được ghi nhận ở D14–D15. Chưa có xác nhận GVHD người thật. So với v0
 (`119b5ee`): tách RQ1a/b, validity khỏi hypothesis; thêm baseline forecast+Gaussian.
 Lịch sử quyết định: `02_decision_log.md`.
 Thay đổi so với v1 (2026-09-23, D15): D5 có điều kiện định lượng; RQ1b thu gọn.
@@ -70,11 +70,13 @@ Theo Novelty Matrix hiện tại (mức đọc full text giữ nguyên trong wor
 - Metric freshness cho DT là mới — AoT/AoS/EAP (17,21).
 
 ## 9. Assumptions · Limitations · Scope
-Assumptions: exogenous traffic được review AI chấp thuận có điều kiện
-f≤0,1σ capacity (D15); additive delay; tuổi chung; labels
+Assumptions: traffic exogenous theo xây dựng trong simulation; ngưỡng áp dụng
+đề xuất f_l≤0,1σ_l trên từng link theo D15 chưa được validation (đính chính D16).
+Additive delay; tuổi chung; labels
 calibration chỉ dùng sau khi nhận. Limitations: D1 176 dòng, dải link hẹp,
 SE/nội suy khác sự thật vật lý; bằng chứng chính là simulation; 10 run còn ít
-cho rare events. Điều kiện f phải được kiểm trong mọi config có controlled flow;
+cho rare events. f_l=R_flow/capacity_l; ngưỡng nhỏ không tự chứng minh feedback
+không ảnh hưởng quyết định. Điều kiện phải được kiểm trong config có controlled flow;
 closed-loop feedback và route flapping thuộc RQ3. Scope: instantaneous routing
 decision; không claim SLA ứng dụng, universal temporal guarantee hoặc closed-loop TE.
 
