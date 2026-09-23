@@ -1,0 +1,75 @@
+query,arxiv_id,published,title,title_pass,abstract_pass,decision
+F2,2508.05705v1,2025-08-07,A Physiologically-Constrained Neural Network Digital Twin Framework for Replicating Glucose Dynamics in Type 1 Diabetes,no,no,loại theo tiêu đề: ngoài phạm vi
+F2,2605.19826v1,2026-05-19,Explainable Wastewater Digital Twins: Adaptive Context-Conditioned Structured Simulators with Self-Falsifying Decision Support,yes,yes,giữ: đọc tiếp
+F2,2606.28625v1,2026-06-26,In-Vehicle Digital Twin-Based Collision Warning Framework with Sybil Attack Detection,no,no,loại theo tiêu đề: ngoài phạm vi
+F2,2605.24662v2,2026-05-23,OpenTwin: Closed-Loop Digital Twins for Trustworthy Policy Deployment in Open RAN,yes,yes,giữ: đọc tiếp
+F2,2511.05610v2,2025-11-06,Conformal Prediction-Driven Adaptive Sampling for Digital Water Twins,yes,yes,giữ: đọc tiếp
+F2,2609.17635v1,2026-09-15,Physics-Constrained Digital Twins for Sensor Integrity in Urban Pedestrian Flow: Detecting Stealthy False Data Injection with Conformal Guarantees,yes,no,loại sau abstract: ngoài trust target/phương pháp
+F2,2206.03846v1,2022-06-08,Sim2real for Reinforcement Learning Driven Next Generation Networks,no,no,loại theo tiêu đề: ngoài phạm vi
+F2,2410.01218v1,2024-10-02,An uncertainty-aware Digital Shadow for underground multimodal CO2 storage monitoring,no,no,loại theo tiêu đề: ngoài phạm vi
+F2,2408.04711v2,2024-08-08,Robust pore-resolved CFD through porous monoliths reconstructed by micro-computed tomography: From digitization to flow prediction,no,no,loại theo tiêu đề: ngoài phạm vi
+F3,2609.07251v1,2026-09-07,Adaptive Conformal Inference Under Delayed Feedback: Coverage Guarantees and a Delay-to-Memory Diagnostic,yes,yes,giữ: đọc tiếp
+F3,2608.03628v1,2026-08-04,ConformalShift: Targeted Event Reordering Against Adaptive ECG Monitoring,yes,yes,giữ: đọc tiếp
+F4,2309.08603v2,2023-09-15,Closing the Loop on Runtime Monitors with Fallback-Safe MPC,yes,yes,giữ: đọc tiếp
+F4,2608.06516v1,2026-08-06,CertBind from Multimodal Connectivity to Certifiable Retrieval Decisions,no,no,loại theo tiêu đề: ngoài phạm vi
+F5,2002.01696v2,2020-02-05,Age of Information in a Decentralized Network of Parallel Queues with Routing and Packets Losses,yes,no,loại sau abstract: ngoài trust target/phương pháp
+F5,2504.07428v1,2025-04-10,Task-oriented Age of Information for Remote Inference with Hybrid Language Models,yes,yes,giữ: đọc tiếp
+F5,2512.00985v2,2025-11-30,Age Optimal Sampling and Routing under Intermittent Links and Energy Constraints,yes,no,loại sau abstract: ngoài trust target/phương pháp
+F5,2404.18084v6,2024-04-28,Graph Attention Reinforcement Learning for Multicast Routing and Age-Optimal Scheduling,yes,no,loại sau abstract: ngoài trust target/phương pháp
+F5,2609.01082v1,2026-09-01,"Update for Decisions, Not Freshness: Goal-Oriented Status Updating and Selective Offloading at the Network Edge",yes,yes,giữ: đọc tiếp
+F5,2111.09217v1,2021-11-17,Information Freshness in Multi-Hop Wireless Networks,no,no,loại theo tiêu đề: ngoài phạm vi
+F5,2209.08711v1,2022-09-19,Online Pricing Incentive to Sample Fresh Information,no,no,loại theo tiêu đề: ngoài phạm vi
+F6,2203.02979v2,2022-03-06,Age of Incorrect Information under Delay,no,no,loại theo tiêu đề: ngoài phạm vi
+F6,2512.04077v1,2025-12-03,Semi-Markov Decision Process Framework for Age of Incorrect Information Minimization,no,no,loại theo tiêu đề: ngoài phạm vi
+F6,2102.03245v1,2021-02-05,Minimizing the Age of Incorrect Information for Real-time Tracking of Markov Remote Sources,no,no,loại theo tiêu đề: ngoài phạm vi
+F6,2212.14381v5,2022-12-29,Analysis of Age of Incorrect Information under Generic Transmission Delay,no,no,loại theo tiêu đề: ngoài phạm vi
+F6,2101.08908v2,2021-01-22,Minimizing Age of Incorrect Information for Unreliable Channel with Power Constraint,no,no,loại theo tiêu đề: ngoài phạm vi
+F6,2207.02926v2,2022-07-06,Minimizing Age of Incorrect Information in the Presence of Timeout,no,no,loại theo tiêu đề: ngoài phạm vi
+F6,2209.14254v3,2022-09-28,Preempting to Minimize Age of Incorrect Information under Transmission Delay,no,no,loại theo tiêu đề: ngoài phạm vi
+F6,2603.28369v1,2026-03-30,Age of Incorrect Information for Generic Discrete-Time Markov Sources,no,no,loại theo tiêu đề: ngoài phạm vi
+F6,2504.10451v1,2025-04-14,Minimizing Functions of Age of Incorrect Information for Remote Estimation,no,no,loại theo tiêu đề: ngoài phạm vi
+F6,2301.06150v3,2023-01-15,Minimizing Age of Incorrect Information over a Channel with Random Delay,no,no,loại theo tiêu đề: ngoài phạm vi
+F6,2303.18128v3,2023-03-31,Age of Incorrect Information With Hybrid ARQ Under a Resource Constraint for N-ary Symmetric Markov Sources,no,no,loại theo tiêu đề: ngoài phạm vi
+F6,1907.06604v2,2019-07-15,The Age of Incorrect Information: A New Performance Metric for Status Updates,yes,yes,giữ: đọc tiếp
+F6,2608.13248v1,2026-08-13,Age of Incorrect Information for Pull-Based State Estimation of General Markov Sources,no,no,loại theo tiêu đề: ngoài phạm vi
+F6,2403.04489v1,2024-03-07,Optimal Denial-of-Service Attacks Against Status Updating,no,no,loại theo tiêu đề: ngoài phạm vi
+F6,2501.13099v1,2025-01-22,Which Sensor to Observe? Timely Tracking of a Joint Markov Source with Model Predictive Control,yes,no,loại sau abstract: ngoài trust target/phương pháp
+F6,2409.16794v2,2024-09-25,Optimal Denial-of-Service Attacks Against Partially-Observable Real-Time Monitoring Systems,no,no,loại theo tiêu đề: ngoài phạm vi
+F6,2405.04431v2,2024-05-07,Optimizing Information Freshness in IoT Systems with Update Rate Constraints: A Token-Based Approach,no,no,loại theo tiêu đề: ngoài phạm vi
+F6,2406.14594v1,2024-06-20,Age of Information Versions: a Semantic View of Markov Source Monitoring,no,no,loại theo tiêu đề: ngoài phạm vi
+F6,2604.00748v2,2026-04-01,Optimal Sampling and Actuation for Real-Time Monitoring of Markov Sources,yes,no,loại sau abstract: ngoài trust target/phương pháp
+F6,2205.09377v1,2022-05-19,Coexistence between Task- and Data-Oriented Communications: A Whittle's Index Guided Multi-Agent Reinforcement Learning Approach,no,no,loại theo tiêu đề: ngoài phạm vi
+F6,2411.07179v1,2024-11-11,Joint Age-State Belief is All You Need: Minimizing AoII via Pull-Based Remote Estimation,yes,yes,giữ: đọc tiếp
+F6,2401.18063v1,2024-01-31,AoII-Optimum Sampling of CTMC Information Sources Under Sampling Rate Constraints,no,no,loại theo tiêu đề: ngoài phạm vi
+F6,2606.30623v1,2026-06-29,When and Which Sensor to Observe? Timely Tracking of a Joint Markov Source,yes,no,loại sau abstract: ngoài trust target/phương pháp
+F6,2212.03087v2,2022-12-06,Fresh-CSMA: A Distributed Protocol for Minimizing Age of Information,no,no,loại theo tiêu đề: ngoài phạm vi
+F6,2606.32010v1,2026-06-30,Dual-Regime Absorbing Markov Chain Theory in Remote Estimation: Age-Minimizing Push Policies,no,no,loại theo tiêu đề: ngoài phạm vi
+F6,2407.08592v1,2024-07-11,Multi-Threshold AoII-Optimum Sampling Policies for CTMC Information Sources,no,no,loại theo tiêu đề: ngoài phạm vi
+F6,2304.00848v3,2023-04-03,"Towards Goal-Oriented Semantic Communications: New Metrics, Framework, and Open Challenges",no,no,loại theo tiêu đề: ngoài phạm vi
+F6,2304.00875v2,2023-04-03,Optimal Semantic-aware Sampling and Transmission in Energy Harvesting Systems Through the AoII,no,no,loại theo tiêu đề: ngoài phạm vi
+F6,2502.14783v1,2025-02-20,Tracking and Assigning Jobs to a Markov Machine,no,no,loại theo tiêu đề: ngoài phạm vi
+F6,2311.06522v4,2023-11-11,Semantic-aware Sampling and Transmission in Energy Harvesting Systems: A POMDP Approach,no,no,loại theo tiêu đề: ngoài phạm vi
+F6,2601.01179v2,2026-01-03,Adaptive Scheduling: A Reinforcement Learning Whittle Index Approach for Wireless Sensor Networks,no,no,loại theo tiêu đề: ngoài phạm vi
+F6,2307.12936v4,2023-07-24,Timely Target Tracking: Distributed Updating in Cognitive Radar Networks,no,no,loại theo tiêu đề: ngoài phạm vi
+F7,2512.01556v3,2025-12-01,LEC: Linear Expectation Constraints for Selection-Conditioned Risk Control in Selective Prediction and Routing Systems,yes,yes,giữ: đọc tiếp
+F7,2608.30757v1,2026-08-31,Which Rules Matter Now? Policy-Centroid Routing Before an Intelligent System Acts,no,no,loại theo tiêu đề: ngoài phạm vi
+F7,2604.08868v1,2026-04-10,MedFormer-UR: Uncertainty-Routed Transformer for Medical Image Classification,no,no,loại theo tiêu đề: ngoài phạm vi
+F7,2603.11957v1,2026-03-12,CHiL(L)Grader: Calibrated Human-in-the-Loop Short-Answer Grading,no,no,loại theo tiêu đề: ngoài phạm vi
+F7,2602.02952v2,2026-02-03,UAT-LITE: Inference-Time Uncertainty-Aware Attention for Pretrained Transformers,no,no,loại theo tiêu đề: ngoài phạm vi
+F7,2609.22048v1,2026-09-18,Available Guardrails: Certifying Selective Prediction across ML Systems,yes,yes,giữ: đọc tiếp
+F7,2603.25450v2,2026-03-26,Cross-Model Disagreement as a Label-Free Correctness Signal,no,no,loại theo tiêu đề: ngoài phạm vi
+F7,2606.25838v1,2026-06-24,Edges Before Embeddings: A Confidence-Aware Blur Gate for Vision-Language Pipelines,no,no,loại theo tiêu đề: ngoài phạm vi
+F7,2604.15271v4,2026-04-16,SegWithU: Uncertainty as Perturbation Energy for Single-Forward-Pass Risk-Aware Medical Image Segmentation,no,no,loại theo tiêu đề: ngoài phạm vi
+F7,2510.15233v1,2025-10-17,Adaptive Individual Uncertainty under Out-Of-Distribution Shift with Expert-Routed Conformal Prediction,no,no,loại theo tiêu đề: ngoài phạm vi
+F7,2607.11983v2,2026-07-13,Removable Defects: The Economics and Limits of Deliberate Deficiency,no,no,loại theo tiêu đề: ngoài phạm vi
+F7,2606.22179v2,2026-06-20,The Score Granularity Gap in Black-Box LLM Classification: A Comparative Study of Confidence Constructions,no,no,loại theo tiêu đề: ngoài phạm vi
+F7,2607.24875v1,2026-07-27,FinAbstain: Uncertainty-Calibrated Multimodal RAG for Selective Financial Forecasting,yes,no,loại sau abstract: ngoài trust target/phương pháp
+F7,2608.14617v1,2026-07-11,"Calibrated Trust, Not Sharper Prediction: An Empirical Test of Uncertainty Fusion",yes,no,loại sau abstract: ngoài trust target/phương pháp
+F9,1902.03552v4,2019-02-10,Sampling and Remote Estimation for the Ornstein-Uhlenbeck Process through Queues: Age of Information and Beyond,yes,yes,giữ: đọc tiếp
+F9,2008.08907v1,2020-08-20,A Value of Information Framework for Latent Variable Models,yes,yes,giữ: đọc tiếp
+F9,2004.12982v1,2020-04-27,Timely Estimation Using Coded Quantized Samples,no,no,loại theo tiêu đề: ngoài phạm vi
+F9,2007.10200v2,2020-07-16,"Sample, Quantize and Encode: Timely Estimation Over Noisy Channels",no,no,loại theo tiêu đề: ngoài phạm vi
+F11,2503.10088v1,2025-03-13,Enhanced Route Planning with Calibrated Uncertainty Set,yes,yes,giữ: đọc tiếp
+F11,2602.07530v2,2026-02-07,Compact Conformal Subgraphs,yes,no,loại sau abstract: ngoài trust target/phương pháp
+F12,2608.08589v1,2026-08-09,RobustDefect-LLM: Explainable and Robustness-Aware Industrial Surface Defect Classification with Decision Support and AI-Assisted Reporting,no,no,loại theo tiêu đề: ngoài phạm vi
+F12,2607.01674v3,2026-07-02,Separating Expert Retention from Autonomous Source Inference in Raw-ECG-Replay-Free Continual ECG Deployment,no,no,loại theo tiêu đề: ngoài phạm vi

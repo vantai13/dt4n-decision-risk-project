@@ -1,0 +1,583 @@
+start_set,direction,openalex_id,year,title,doi,title_filter_match,retained_for_next_read
+Guerin-Orda,backward,W2752885492,1991,Introduction to Algorithms,https://doi.org/10.2307/2583667,0,0
+Guerin-Orda,backward,W2176566884,1993,A generalized processor sharing approach to flow control in integrated services networks: the single-node case,https://doi.org/10.1109/90.234856,0,0
+Guerin-Orda,backward,W2125690626,2021,Combinatorial optimization: networks and matroids,,0,0
+Guerin-Orda,backward,W4238270389,1994,A generalized processor sharing approach to flow control in integrated services networks: the multiple node case,https://doi.org/10.1109/90.298432,0,0
+Guerin-Orda,backward,W2114493937,2002,Probabilistic approximation of metric spaces and its algorithmic applications,https://doi.org/10.1109/sfcs.1996.548477,0,0
+Guerin-Orda,backward,W2027029507,1979,Combinatorial Optimization with Rational Objective Functions,https://doi.org/10.1287/moor.4.4.414,0,0
+Guerin-Orda,backward,W2014411916,1977,Hierarchical routing for large networks Performance evaluation and optimization,https://doi.org/10.1016/0376-5075(77)90002-2,1,0
+Guerin-Orda,backward,W1998544343,1993,Low diameter graph decompositions,https://doi.org/10.1007/bf01303516,0,0
+Guerin-Orda,backward,W2120608001,2002,QoS routing mechanisms and OSPF extensions,https://doi.org/10.1109/glocom.1997.644603,1,0
+Guerin-Orda,backward,W2162689181,1998,Quality of service based routing,https://doi.org/10.1145/285237.285251,1,0
+Guerin-Orda,backward,W2161201881,1998,QoS routing in networks with uncertain parameters,https://doi.org/10.1109/90.748088,1,1
+Guerin-Orda,backward,W2130202407,1999,Routing with end-to-end QoS guarantees in broadband networks,https://doi.org/10.1109/90.779205,1,0
+Guerin-Orda,backward,W1997102717,1991,Algorithms for the quickest path problem and the enumeration of quickest paths,https://doi.org/10.1016/0305-0548(91)90063-w,1,0
+Guerin-Orda,backward,W1965709776,1996,Efficient network QoS provisioning based on per node traffic shaping,https://doi.org/10.1109/90.532860,0,0
+Guerin-Orda,backward,W2152170792,2002,QoS based routing in networks with inaccurate information: theory and algorithms,https://doi.org/10.1109/infcom.1997.635116,1,0
+Guerin-Orda,backward,W2105810661,1995,Topology aggregation for hierarchical routing in ATM networks,https://doi.org/10.1145/210613.210625,1,0
+Guerin-Orda,backward,W2099556589,2002,Near-linear cost sequential and distributed constructions of sparse neighborhood covers,https://doi.org/10.1109/sfcs.1993.366823,0,0
+Guerin-Orda,backward,W1989381030,1996,Fast Distributed Network Decompositions and Covers,https://doi.org/10.1006/jpdc.1996.0159,0,0
+Guerin-Orda,backward,W2001728381,1983,Combinatorial Optimization with Rational Objective Functions: A Communication,https://doi.org/10.1287/moor.8.2.314,0,0
+Guerin-Orda,backward,W3014841294,1998,Quality of service based routing,https://doi.org/10.1145/285243.285251,1,0
+Guerin-Orda,backward,W2092480587,1999,Implementation and performance measurements of QoS routing extensions to OSPF,https://doi.org/10.1109/infcom.1999.751454,1,0
+Guerin-Orda,backward,W2100471534,2002,Spanning tree method for link state aggregation in large communication networks,https://doi.org/10.1109/infcom.1995.515888,0,0
+Guerin-Orda,backward,W2155042491,2002,Optimal partition of QoS requirements on unicast paths and multicast trees,https://doi.org/10.1109/90.986559,1,0
+Guerin-Orda,backward,W2020547589,1992,Fast network decomposition,https://doi.org/10.1145/135419.135456,0,0
+Guerin-Orda,backward,W2112194105,1999,Optimal partition of QoS requirements on unicast paths and multicast trees,https://doi.org/10.1109/infcom.1999.749289,1,0
+Guerin-Orda,backward,W1592064028,1997,Specification of Guaranteed Quality of Service,https://doi.org/10.17487/rfc2212,0,0
+Guerin-Orda,backward,W2243986870,1999,QoS Routing Mechanisms and OSPF Extensions,https://doi.org/10.17487/rfc2676,1,0
+Guerin-Orda,backward,W4210922135,1997,OSPF Version 2,https://doi.org/10.17487/rfc2178,0,0
+Guerin-Orda,backward,W2092796322,1990,Topology distribution cost vs. efficient routing in large networks,https://doi.org/10.1145/99508.99560,1,0
+Guerin-Orda,backward,W2150006066,2002,QoS path management with RSVP,https://doi.org/10.1109/glocom.1997.644606,1,0
+Guerin-Orda,backward,W2147184289,1995,NBBS path selection framework,https://doi.org/10.1147/sj.344.0629,1,0
+Guerin-Orda,forward,W2148837283,2002,Multi-constrained optimal path selection,https://doi.org/10.1109/infcom.2001.916274,0,0
+Guerin-Orda,forward,W2140556610,2002,Lagrange relaxation based method for the QoS routing problem,https://doi.org/10.1109/infcom.2001.916277,0,0
+Guerin-Orda,forward,W2170803695,2012,Logically centralized?,https://doi.org/10.1145/2342441.2342443,0,0
+Guerin-Orda,forward,W2753412869,2017,Unicast QoS Routing Algorithms for SDN: A Comprehensive Survey and Performance Evaluation,https://doi.org/10.1109/comst.2017.2749760,0,0
+Guerin-Orda,forward,W2160658249,2008,Polynomial Time Approximation Algorithms for Multi-Constrained QoS Routing,https://doi.org/10.1109/tnet.2007.900712,0,0
+Guerin-Orda,forward,W2100422827,2010,QoS Routing in Smart Grid,https://doi.org/10.1109/glocom.2010.5683884,0,0
+Guerin-Orda,forward,W1723291864,2002,Networks with advance reservations: the routing perspective,https://doi.org/10.1109/infcom.2000.832180,0,0
+Guerin-Orda,forward,W2130202407,1999,Routing with end-to-end QoS guarantees in broadband networks,https://doi.org/10.1109/90.779205,0,0
+Guerin-Orda,forward,W2035841327,2001,Hop-by-hop quality of service routing,https://doi.org/10.1016/s1389-1286(01)00222-5,0,0
+Guerin-Orda,forward,W2102739699,2006,Distributed multimedia service composition with statistical QoS assurances,https://doi.org/10.1109/tmm.2005.861284,0,0
+Guerin-Orda,forward,W2121842672,2002,Computing shortest paths for any number of hops,https://doi.org/10.1109/tnet.2002.803917,0,0
+Guerin-Orda,forward,W2123222030,2003,Constraint-based routing in the internet: Basic principles and recent research,https://doi.org/10.1109/comst.2003.5342226,0,0
+Guerin-Orda,forward,W2030170468,2007,Finding a Path Subject to Many Additive QoS Constraints,https://doi.org/10.1109/tnet.2006.890089,0,0
+Guerin-Orda,forward,W2147519941,2004,QM2RP: A QoS-Based Mobile Multicast Routing Protocol Using Multi-Objective Genetic Algorithm,https://doi.org/10.1023/b:wine.0000023861.10684.f1,0,0
+Guerin-Orda,forward,W1562224100,2003,Quality of Service Routing,https://doi.org/10.1007/978-3-540-45190-7_3,0,0
+Guerin-Orda,forward,W2164254685,2009,Statistical QoS routing for IEEE 802.11 multihop ad hoc networks,https://doi.org/10.1109/twc.2008.080573,0,0
+Guerin-Orda,forward,W2523771963,2016,QoS Routing enhancement using metaheuristic approach in mobile ad-hoc network,https://doi.org/10.1016/j.comnet.2016.09.023,0,0
+Guerin-Orda,forward,W2055923829,2010,QoS multicast routing using a quantum-behaved particle swarm optimization algorithm,https://doi.org/10.1016/j.engappai.2010.08.001,0,0
+Guerin-Orda,forward,W1510148020,2010,Efficiently Answering Probability Threshold-Based Shortest Path Queries over Uncertain Graphs,https://doi.org/10.1007/978-3-642-12026-8_14,0,0
+Guerin-Orda,forward,W2058968692,2010,Energy-efficient proactive routing in MANET: Energy metrics accuracy,https://doi.org/10.1016/j.adhoc.2010.02.004,0,0
+Guerin-Orda,forward,W2168568937,2002,Quality of service routing in ad hoc networks,https://doi.org/10.1109/wcnc.2000.904639,0,0
+Guerin-Orda,forward,W2091767767,2013,Slice embedding solutions for distributed service architectures,https://doi.org/10.1145/2522968.2522974,0,0
+Guerin-Orda,forward,W2068394611,2014,Traffic uncertainty models in network planning,https://doi.org/10.1109/mcom.2014.6736759,0,0
+Guerin-Orda,forward,W2140647291,2011,Computing a Most Probable Delay Constrained Path: NP-Hardness and Approximation Schemes,https://doi.org/10.1109/tc.2011.61,0,0
+Guerin-Orda,forward,W2003117513,2014,Trust based QOS protocol(TBQP) using meta-heuristic genetic algorithm for optimizing and securing MANET,https://doi.org/10.1109/icroit.2014.6798315,0,0
+Guerin-Orda,forward,W2344975577,2016,The Shortest Path Problem on a Time-Dependent Network With Mixed Uncertainty of Randomness and Fuzziness,https://doi.org/10.1109/tits.2016.2543262,0,0
+Guerin-Orda,forward,W2038778912,2011,Routing with multiple quality-of-services constraints: An approximation perspective,https://doi.org/10.1016/j.jnca.2011.09.009,0,0
+Guerin-Orda,forward,W4200229859,2021,Performance Analysis of DSR and Cache Customized DSR Steering Protocols in Wireless Mobile ADHOC Networks,https://doi.org/10.1109/i-smac52330.2021.9641042,0,0
+Guerin-Orda,forward,W2111010037,2001,Evaluating the impact of stale link state on quality-of-service routing,https://doi.org/10.1109/90.917073,1,1
+Guerin-Orda,forward,W2102234396,2003,Precomputation schemes for QoS routing,https://doi.org/10.1109/tnet.2003.815299,0,0
+Guerin-Orda,forward,W2097985567,2003,Bandwidth-delay constrained path selection under inaccurate state information,https://doi.org/10.1109/tnet.2003.813047,1,1
+Guerin-Orda,forward,W2167778986,2004,Routing With Topology Aggregation in Delay-Bandwidth Sensitive Networks,https://doi.org/10.1109/tnet.2003.822647,0,0
+Guerin-Orda,forward,W2049996330,2000,Source-oriented topology aggregation with multiple QoS parameters in hierarchical networks,https://doi.org/10.1145/369534.369542,0,0
+Guerin-Orda,forward,W2086581750,2002,An efficient algorithm for finding a path subject to two additive constraints,https://doi.org/10.1016/s0140-3664(01)00358-9,0,0
+Guerin-Orda,forward,W1992543918,2004,Advertising Interdomain QoS Routing Information,https://doi.org/10.1109/jsac.2004.836004,0,0
+Guerin-Orda,forward,W2054743918,2012,Solving the fuzzy shortest path problem using multi-criteria decision method based on vague similarity measure,https://doi.org/10.1016/j.asoc.2012.03.013,0,0
+Guerin-Orda,forward,W2045160721,2008,Optimal routing for end-to-end guarantees using Network Calculus,https://doi.org/10.1016/j.peva.2008.04.008,0,0
+Guerin-Orda,forward,W2081699774,2007,A QoS multicast routing protocol for clustering mobile ad hoc networks,https://doi.org/10.1016/j.comcom.2007.01.017,0,0
+Guerin-Orda,forward,W1983784642,2002,A fuzzy genetic algorithm for QoS multicast routing,https://doi.org/10.1016/s0140-3664(02)00183-4,0,0
+Guerin-Orda,forward,W2777532272,2017,Low-Latency Routing Scheme for a Fronthaul Bridged Network,https://doi.org/10.1364/jocn.10.000014,0,0
+Guerin-Orda,forward,W2128645397,2004,Fixed Point Approximation for Multirate Multihop Loss Networks With State-Dependent Routing,https://doi.org/10.1109/tnet.2004.826248,0,0
+Guerin-Orda,forward,W1985725400,2005,Framework for parameter mapping to provide end-to-end QoS guarantees in IntServ/DiffServ architectures,https://doi.org/10.1016/j.comcom.2005.01.008,0,0
+Guerin-Orda,forward,W1992129517,2012,The Shortest Path Problem on a Fuzzy Time-Dependent Network,https://doi.org/10.1109/tcomm.2012.090512.100570,0,0
+Guerin-Orda,forward,W2100369544,2002,A New Path Selection Algorithm for MPLS Networks Based on Available Bandwidth Estimation,https://doi.org/10.1007/3-540-45859-x_20,0,0
+Guerin-Orda,forward,W1526972509,2006,QPSO-Based QoS Multicast Routing Algorithm,https://doi.org/10.1007/11903697_34,0,0
+Guerin-Orda,forward,W2019835624,2010,A Robust GA-based QoS Routing Algorithm for Solving Multi-constrained Path Problem,https://doi.org/10.4304/jcp.5.9.1322-1334,0,0
+Guerin-Orda,forward,W1941615561,2002,Optimizing QoS-Based Multicast Routing in Wireless Networks: A Multi-objective Genetic Algorithmic Approach,https://doi.org/10.1007/3-540-47906-6_3,0,0
+Guerin-Orda,forward,W2162854574,2010,Reducing the effects of routing inaccuracy by means of prediction and an innovative link-state cost,https://doi.org/10.1109/lcomm.2010.05.092312,1,1
+Guerin-Orda,forward,W2165291585,2015,Quality of Service Routing in Manet Using a Hybrid Intelligent Algorithm Inspired by Cuckoo Search,https://doi.org/10.1155/2015/703480,0,0
+Guerin-Orda,forward,W2614073272,2017,Routing in Mobile Ad-Hoc Networks Using Social Tie Strengths and Mobility Plans,https://doi.org/10.1109/wcnc.2017.7925620,0,0
+Guerin-Orda,forward,W4246747895,2007,QuESt: a QoS‐based energy efficient sensor routing protocol,https://doi.org/10.1002/wcm.546,0,0
+Guerin-Orda,forward,W1527820956,2006,QoS Multicast Routing Based on Particle Swarm Optimization,https://doi.org/10.1007/11875581_112,0,0
+Guerin-Orda,forward,W2167091017,2015,The complexity of the Kth largest subset problem and related problems,https://doi.org/10.1016/j.ipl.2015.09.015,0,0
+Guerin-Orda,forward,W2080162900,2012,Taming uncertainties in real-time routing for wireless networked sensing and control,https://doi.org/10.1145/2248371.2248385,1,1
+Guerin-Orda,forward,W1991576917,2007,Asymptotic Delay Analysis for Cross-Layer Delay-Based Routing in Ad Hoc Networks,https://doi.org/10.1155/2007/90879,0,0
+Guerin-Orda,forward,W2038657808,2012,Taming Uncertainties in Real-Time Routing for Wireless Networked Sensing and Control,https://doi.org/10.1109/tsg.2012.2209209,1,0
+Guerin-Orda,forward,W2077341585,2014,"A Virtualized, Programmable Content Delivery Network",https://doi.org/10.1109/mobilecloud.2014.32,0,0
+Guerin-Orda,forward,W2743384428,2016,A Real-Time Routing Algorithm for End-to-End Communication Networks with QoS Requirements,https://doi.org/10.1109/cmcsn.2016.44,0,0
+Guerin-Orda,forward,W2599377167,2017,An efficient binary-search based heuristic for extended Unsplittable Flow Problem,https://doi.org/10.1109/iccnc.2017.7876239,0,0
+Guerin-Orda,forward,W2597902214,2017,Routing algorithm for multiple unsplittable flows between two cloud sites with QoS guarantees,https://doi.org/10.1109/iccnc.2017.7876255,0,0
+Guerin-Orda,forward,W2006543170,2001,A randomized algorithm for finding a path subject to multiple QoS requirements,https://doi.org/10.1016/s1389-1286(00)00209-7,0,0
+Guerin-Orda,forward,W2076024187,2000,An efficient algorithm for finding a path subject to two additive constraints,https://doi.org/10.1145/339331.339427,0,0
+Guerin-Orda,forward,W2126837027,2003,Routing multimedia traffic with qos guarantees,https://doi.org/10.1109/tmm.2003.811627,0,0
+Guerin-Orda,forward,W1527852317,2002,Survey of QoS routing,,0,0
+Guerin-Orda,forward,W1955786626,2003,The enhanced ticket-based routing algorithm,https://doi.org/10.1109/icc.2002.997241,0,0
+Guerin-Orda,forward,W2036299754,2002,A note on practical construction of maximum bandwidth paths,https://doi.org/10.1016/s0020-0190(01)00323-4,0,0
+Guerin-Orda,forward,W2039184466,2006,A QoS multicast routing optimization algorithm based on genetic algorithm,https://doi.org/10.1109/jcn.2006.6182911,0,0
+Guerin-Orda,forward,W1540515562,2003,An efficient multi-objective QoS-routing algorithm for wireless multicasting,https://doi.org/10.1109/vtc.2002.1002796,0,0
+Guerin-Orda,forward,W2166442207,2003,A new scheme for reducing link and signaling costs in mobile ip,https://doi.org/10.1109/tc.2003.1204827,0,0
+Guerin-Orda,forward,W1985178674,2004,A fuzzy-based path ordering algorithm for QoS routing in non-deterministic communication networks,https://doi.org/10.1016/j.fss.2004.03.020,0,0
+Guerin-Orda,forward,W2149235020,2006,End-to-End QoS in Interdomain Routing,https://doi.org/10.1109/icns.2006.45,0,0
+Guerin-Orda,forward,W2105644162,2008,QoS rate allocation in computer networks under uncertainty,https://doi.org/10.1108/03684920810873308,0,0
+Guerin-Orda,forward,W1998312811,2007,Preemption-Aware Instantaneous Request Call Routing for Networks With Book-Ahead Reservation,https://doi.org/10.1109/tmm.2007.906560,0,0
+Guerin-Orda,forward,W2740868655,2017,Low-latency routing for fronthaul network: A Monte Carlo machine learning approach,https://doi.org/10.1109/icc.2017.7996439,0,0
+Guerin-Orda,forward,W2103846192,2005,The stability of paths in a dynamic network,https://doi.org/10.1145/1095921.1095936,0,0
+Guerin-Orda,forward,W2102545943,2007,Mobile agent based approach for QoS routing,https://doi.org/10.1049/iet-com:20050457,0,0
+Guerin-Orda,forward,W2172113322,2008,Localized Quality based QoS routing,,0,0
+Guerin-Orda,forward,W2109756419,2007,A simple automata based model for stable routing in dynamic ad hoc networks,https://doi.org/10.1145/1298275.1298290,0,0
+Guerin-Orda,forward,W2156442470,2005,The role of traffic forecasting in QoS routing - a case study of time-dependent routing,https://doi.org/10.1109/icc.2005.1494351,0,0
+Guerin-Orda,forward,W1968661823,2014,A fast and scalable technique for constructing multicast routing trees with optimized quality of service using a firefly based genetic algorithm,https://doi.org/10.1007/s11042-014-2405-4,0,0
+Guerin-Orda,forward,W2337611092,2010,Exploring Issues for QoS Based Routing Algorithms,,0,0
+Guerin-Orda,forward,W2803564574,2017,"Energy, delay and hop count multi-constraints QoS routing algorithm for wireless ad-hoc networks",https://doi.org/10.1109/icct.2017.8359700,0,0
+Guerin-Orda,forward,W1501925261,2015,Shortest paths in networks with correlated link weights,https://doi.org/10.1109/infcomw.2015.7179461,0,0
+Guerin-Orda,forward,W2155042491,2002,Optimal partition of QoS requirements on unicast paths and multicast trees,https://doi.org/10.1109/90.986559,0,0
+Guerin-Orda,forward,W1737589985,2002,QoS routing: the precomputation perspective,https://doi.org/10.1109/infcom.2000.832181,0,0
+Guerin-Orda,forward,W2129414151,2001,Topology aggregation for directed graphs,https://doi.org/10.1109/90.909026,0,0
+Guerin-Orda,forward,W2155651474,2001,Quality-of-service routing in IP networks,https://doi.org/10.1109/6046.923819,0,0
+Guerin-Orda,forward,W2144049931,2004,Adaptive QoS routing based on prediction of local performance in ad hoc networks,https://doi.org/10.1109/wcnc.2003.1200540,1,0
+Guerin-Orda,forward,W1984733474,2004,A QoS multicast routing protocol for dynamic group topology,https://doi.org/10.1016/j.ins.2004.02.008,0,0
+Guerin-Orda,forward,W2042843286,2003,A QoS-guaranteed multicast routing protocol,https://doi.org/10.1016/s0140-3664(03)00186-5,0,0
+Guerin-Orda,forward,W2122575460,2002,Multiple path routing in networks with inaccurate link state information,https://doi.org/10.1109/icc.2001.936616,1,1
+Guerin-Orda,forward,W1998662322,2003,A dynamic multicast routing satisfying multiple QoS constraints,https://doi.org/10.1002/nem.485,0,0
+Guerin-Orda,forward,W2154355266,2002,Primal-dual algorithms for computing weight-constrained shortest paths and weight-constrained minimum spanning trees,https://doi.org/10.1109/pccc.2000.830328,0,0
+Guerin-Orda,forward,W2106901302,2006,Efficient QoS Partition and Routing of Unicast and Multicast,https://doi.org/10.1109/tnet.2006.886323,0,0
+Guerin-Orda,forward,W2159349608,2005,On the scalability of network management information for inter-domain light-path assessment,https://doi.org/10.1109/tnet.2004.842436,0,0
+Guerin-Orda,forward,W2159201941,2002,A randomized QoS routing algorithm on networks with inaccurate link-state information,https://doi.org/10.1109/icct.2000.890970,1,0
+Guerin-Orda,forward,W2152450697,2004,Delay budget partitioning to maximize network resource usage efficiency,https://doi.org/10.1109/infcom.2004.1354614,0,0
+Guerin-Orda,forward,W2137285201,2004,A Multiservice Traffic Allocation Model for LEO Satellite Communication Networks,https://doi.org/10.1109/jsac.2004.823417,0,0
+Guerin-Orda,forward,W1610162450,2005,Scalable QoS-Based Resource Allocation in Hierarchical Networked Environment,https://doi.org/10.1109/rtas.2005.47,0,0
+Guerin-Orda,forward,W2091418817,2006,Minimax regret spanning arborescences under uncertain costs,https://doi.org/10.1016/j.ejor.2006.07.036,0,0
+Guerin-Orda,forward,W1984011655,2003,On Source-Based Route Computation for Quickest Paths under Dynamic Bandwidth Constraints,https://doi.org/10.1142/s0129054103001868,0,0
+Guerin-Orda,forward,W2122758804,2008,Flexible QoS Route Selection with Diverse Objectives and Constraints,https://doi.org/10.1109/iwqos.2008.37,0,0
+Guerin-Orda,forward,W1589829020,2002,A Multicast Routing Protocol with Multiple QoS Constraints,https://doi.org/10.1007/978-0-387-35600-6_8,0,0
+Guerin-Orda,forward,W2070570335,2001,QoS routing with adaptive updating of link states,https://doi.org/10.1049/el:20010373,1,0
+Guerin-Orda,forward,W2085667666,2015,GMPLS Control Plane With Distributed Multipath RMSA for Elastic Optical Networks,https://doi.org/10.1109/jlt.2015.2388731,0,0
+Guerin-Orda,forward,W2104259704,2004,QoS routing algorithms under inaccurate routing for bandwidth constrained applications,https://doi.org/10.1109/icc.2003.1203899,1,0
+Guerin-Orda,forward,W1998631486,2001,K-pair delay constrained minimum cost routing in undirected networks,https://doi.org/10.5555/365411.365450,0,0
+Guerin-Orda,forward,W2302420033,2004,Scalable qos-based resource allocation,,0,0
+Guerin-Orda,forward,W2546294755,2009,A Novel Hybrid QoS Multicast Routing Based on Clonal Selection and Artificial Fish Swarm Algorithm,https://doi.org/10.1109/dese.2009.61,0,0
+Guerin-Orda,forward,W1864053524,2008,A Fair QoS Scheme for Bandwidth Allocation by Precomputation-based Approach,,0,0
+Guerin-Orda,forward,W1964764874,2008,QoS multicast routing protocol in hierarchical wireless MANET,https://doi.org/10.1007/s11432-008-0019-z,0,0
+Guerin-Orda,forward,W2098989254,2007,Load-Balanced Routing in Wireless Networks: State Information Accuracy Using OLSR,https://doi.org/10.1109/wimob.2007.4390877,0,0
+Guerin-Orda,forward,W1535372989,2016,Optimization problems in correlated networks,https://doi.org/10.1186/s40649-016-0026-y,0,0
+Guerin-Orda,forward,W2125697062,2008,Energy-Efficient MANET Routing: Ideal vs. Realistic Performance,https://doi.org/10.1109/iwcmc.2008.136,0,0
+Guerin-Orda,forward,W2152381136,2006,Capacity-aware state aggregation for interdomain QoS routing,https://doi.org/10.1109/tmm.2006.876280,0,0
+Guerin-Orda,forward,W1949933475,2011,Maximum delay computation for interdomain path selection,https://doi.org/10.1002/nem.799,0,0
+Guerin-Orda,forward,W2054064750,2014,A bandwidth sourcing and task allocation model in telecommunications under stochastic QoS guarantees,https://doi.org/10.1016/j.asoc.2014.08.014,0,0
+Guerin-Orda,forward,W2100769667,2006,A Neural Network Solution to QoS-IP Team-Optimal Dynamic Routing,https://doi.org/10.1109/cdc.2005.1583364,0,0
+Guerin-Orda,forward,W2111973021,2008,RT-P2P: A Scalable Real-Time Peer-to-Peer System with Probabilistic Timing Assurances,https://doi.org/10.1109/euc.2008.24,0,0
+Guerin-Orda,forward,W2141895919,2005,Parallel LSPs for constraint-based routing and load balancing in MPLS networks,https://doi.org/10.1049/ip-com:20040968,0,0
+Guerin-Orda,forward,W1981069398,2014,An Hybrid Prediction-based Routing approach for reducing routing inaccuracy in optical transport networks,https://doi.org/10.1109/noc.2014.6996844,1,0
+Guerin-Orda,forward,W2995141581,2019,Parameterized Optimization in Uncertain Graphs—A Survey and Some Results,https://doi.org/10.3390/a13010003,0,0
+Guerin-Orda,forward,W4283837378,2022,QoS Routing Using Dominant-Distance Vectors,https://doi.org/10.1109/iwqos54832.2022.9812900,0,0
+Guerin-Orda,forward,W4391219562,2024,Decoding Human Development and Environmental Sustainability: A Predictive Analytical Study on Relationship Between HDI and Carbon Emission,https://doi.org/10.1007/978-3-031-36895-0_66,0,0
+Guerin-Orda,forward,W2064276357,2013,An Automaton Model for Stable Routing in Ad-Hoc Network Based on Two States CTMC,https://doi.org/10.1109/ems.2013.92,0,0
+Guerin-Orda,forward,W2063778206,2009,Bandwidth measurement and management for end-to-end connectivity over IP networks,https://doi.org/10.1109/comsnets.2009.4808836,0,0
+Guerin-Orda,forward,W1927270242,2015,Deployment of Mobile Ad-hoc Network Ticket Based QoS Routing Protocol for Healthcare,https://doi.org/10.17485/ijst/2015/v8i15/64868,0,0
+Guerin-Orda,forward,W1834436800,2002,Efficient QoS partition and routing of unicast and multicast,https://doi.org/10.1109/iwqos.2000.847940,0,0
+Guerin-Orda,forward,W1506184069,2002,QoS routing with performance-dependent costs,https://doi.org/10.1109/infcom.2000.832182,0,0
+Guerin-Orda,forward,W2141917424,2002,QoS routing granularity in MPLS networks,https://doi.org/10.1109/mcom.2002.1007409,0,0
+Guerin-Orda,forward,W2088108628,2002,Evaluation of mobility and quality of service interaction,https://doi.org/10.1016/s1389-1286(01)00255-9,0,0
+Guerin-Orda,forward,W2135405958,1999,Incentive compatible pricing strategies for QoS routing,https://doi.org/10.1109/infcom.1999.751478,0,0
+Guerin-Orda,forward,W2031248962,2003,A distributed QoS-Aware multicast routing protocol,https://doi.org/10.1007/s00236-003-0123-x,0,0
+Guerin-Orda,forward,W1998178253,2000,A hierarchical multilayer QoS routing system with dynamic SLA management,https://doi.org/10.1109/49.898740,0,0
+Guerin-Orda,forward,W195442848,2000,Evaluation of Mobility and QoS interaction,,0,0
+Guerin-Orda,forward,W2153888778,2002,Active pipes: service composition for programmable networks,https://doi.org/10.1109/milcom.2001.985981,0,0
+Guerin-Orda,forward,W1598088188,2003,A QoS Routing Mechanism for Reducing the Routing Inaccuracy Effects,https://doi.org/10.1007/3-540-36480-3_7,1,0
+Guerin-Orda,forward,W2098938581,2003,A scalable approach to the partition of QoS requirements in unicast and multicast,https://doi.org/10.1109/infcom.2002.1019314,0,0
+Guerin-Orda,forward,W2044008456,2000,The effect of network hierarchy structure on performance of ATM PNNI hierarchical routing,https://doi.org/10.1016/s0140-3664(99)00247-9,0,0
+Guerin-Orda,forward,W2126507272,2004,Overlay Networks of In Situ Instruments for Probabilistic Guarantees on Message Delays in Wide-Area Networks,https://doi.org/10.1109/jsac.2003.818797,0,0
+Guerin-Orda,forward,W2099307060,2007,Multiconstrained QoS Routing: Greedy is Good,https://doi.org/10.1109/glocom.2007.359,0,0
+Guerin-Orda,forward,W2040656129,2004,Optimal and heuristic algorithms for quality-of-service routing with multiple constraints,https://doi.org/10.1016/j.peva.2003.11.002,0,0
+Guerin-Orda,forward,W2125880789,2002,Enhancing aggregate QoS through alternate routing,https://doi.org/10.1109/glocom.2000.892089,0,0
+Guerin-Orda,forward,W2159954578,2003,Constraint-based path selection methods for on-demand provisioning in WDM networks,https://doi.org/10.1109/infcom.2002.1019329,0,0
+Guerin-Orda,forward,W2188217234,2006,Localized Credit Based QoS Routing : Performance Evaluation Using Simulation,,0,0
+Guerin-Orda,forward,W2295449898,2001,Active routing,https://doi.org/10.1109/49.917714,0,0
+Guerin-Orda,forward,W2100663514,2006,Localized Credit Based QoS Routing : Performance Evaluation Using,https://doi.org/10.1109/anss.2006.23,0,0
+Guerin-Orda,forward,W2099353705,2005,Packet marking for integrated load control,https://doi.org/10.1109/inm.2005.1440821,0,0
+Guerin-Orda,forward,W2126425871,2004,Approximation and heuristic algorithms for delay constrained path selection under inaccurate state information,https://doi.org/10.1109/qshine.2004.11,1,0
+Guerin-Orda,forward,W1511591825,2003,Quality of service routing: heuristics and approximation schemes with a comparative evaluation,https://doi.org/10.1109/iscas.2002.1010339,0,0
+Guerin-Orda,forward,W2148265353,2001,Stochastic control of path optimization for inter-switch handoffs in wireless ATM networks,https://doi.org/10.1109/90.929855,0,0
+Guerin-Orda,forward,W2155725120,2006,Statistical Connection Admission Control Framework based on Achievable Capacity Estimation,https://doi.org/10.1109/icc.2006.254797,0,0
+Guerin-Orda,forward,W2103111466,2002,Admission of high priority real-time calls in an ATM network via bandwidth reallocation and dynamic rerouting of active channels,https://doi.org/10.1109/real.2000.896014,0,0
+Guerin-Orda,forward,W160667336,2002,Alternative Paths vs. Inaccurate Link State Information in Realistic Network Topologies,,1,0
+Guerin-Orda,forward,W2024059974,2008,"A model for the capacitated, hop-constrained, per-packet wireless mesh network design problem",https://doi.org/10.1016/j.ejor.2008.07.020,0,0
+Guerin-Orda,forward,W2063397956,2007,Lazy Flooding: A New Technique for Information Dissemination in Distributed Network Systems,https://doi.org/10.1109/tnet.2006.890125,0,0
+Guerin-Orda,forward,W2097333835,2003,QoS Routing Algorithms under Inaccurate Routing Information for Bandwidth Constrained Applications 1,,1,0
+Guerin-Orda,forward,W2161511746,2005,A probabilistic scheme for hierarchical QoS routing,https://doi.org/10.1109/icon.2001.962378,0,0
+Guerin-Orda,forward,W1555082853,2005,On-demand QoS multicast routing and reservation protocol for MANETs,https://doi.org/10.1109/pimrc.2004.1368771,0,0
+Guerin-Orda,forward,W1831112114,2003,Optimal per-node rate allocation to provide per-flow end-to-end delay guarantees in a network of routers supporting guaranteed service class,https://doi.org/10.1109/icc.2002.997024,0,0
+Guerin-Orda,forward,W1996425673,2007,Guided local search as a network planning algorithm that incorporates uncertain traffic demands,https://doi.org/10.1016/j.comnet.2007.01.017,0,0
+Guerin-Orda,forward,W2055769763,2002,End-to-end QoS routing framework for differentiated services networks,https://doi.org/10.1016/s0140-3664(02)00144-5,0,0
+Guerin-Orda,forward,W2117096508,2006,The Prediction Approach in QoS Routing,https://doi.org/10.1109/icc.2006.254881,0,0
+Guerin-Orda,forward,W2128512936,2008,A QoS Multicast Routing Protocol with Mobile Prediction Based on MAODV in MANETs,https://doi.org/10.1109/csse.2008.513,1,0
+Guerin-Orda,forward,W2162616675,2007,Two additive-constrained path selection in the presence of inaccurate state information,https://doi.org/10.1016/j.comcom.2007.04.020,1,0
+Guerin-Orda,forward,W364550667,2003,A QoS Multicast Routing Protocol for Dynamic Group Topology,https://doi.org/10.1007/978-3-540-45209-6_134,0,0
+Guerin-Orda,forward,W148859381,2005,Performance of binary exponential backoff CSMA in WiFi and optimal routing in mobile ad hoc networks,https://doi.org/10.46298/dmtcs.3375,0,0
+Guerin-Orda,forward,W1590872242,2003,State aggregation using network flows for stochastic networks,https://doi.org/10.1109/glocom.2002.1189067,0,0
+Guerin-Orda,forward,W2158628811,2003,Modified distributed quality-of-service routing in wireless mobile ad-hoc networks,https://doi.org/10.1109/melecon.2002.1014595,0,0
+Guerin-Orda,forward,W2171761346,2003,Network management information for light-path assessment: trade-off between performance and complexity,https://doi.org/10.1109/infcom.2003.1208972,0,0
+Guerin-Orda,forward,W1970271217,2001,Simple alternate routing for differentiated services networks,https://doi.org/10.1016/s1389-1286(01)00224-9,0,0
+Guerin-Orda,forward,W1996685943,2012,Using heuristic algorithms for capacity leasing and task allocation issues in telecommunication networks under fuzzy quality of service constraints,https://doi.org/10.1080/00207721.2012.720298,0,0
+Guerin-Orda,forward,W2005421889,2002,The calculation of average distance in mesh structures,https://doi.org/10.1016/s0898-1221(02)00264-x,0,0
+Guerin-Orda,forward,W2015364884,2007,A kind of topology aggregation algorithm in hierarchical wavelength-routed optical networks,https://doi.org/10.1007/s11107-006-0002-9,0,0
+Guerin-Orda,forward,W2046472986,2004,On the effectiveness of alternative paths in QoS routing,https://doi.org/10.1002/dac.623,0,0
+Guerin-Orda,forward,W205659001,2006,A Novel Genetic Algorithm to Optimize QoS Multicast Routing,https://doi.org/10.1007/978-3-540-37256-1_20,0,0
+Guerin-Orda,forward,W2109717490,2003,Minimum cost routing: Robustness through randomization,https://doi.org/10.1109/isit.2002.1023399,0,0
+Guerin-Orda,forward,W2137159533,2012,A Perfect QoS Routing Algorithm for Finding the Best Path for Dynamic Networks,,0,0
+Guerin-Orda,forward,W142985675,2008,A Feasible Path Selection Qos Routing Algorithm With Two Constraints In Packet Switched Networks,https://doi.org/10.5281/zenodo.1079851,0,0
+Guerin-Orda,forward,W1536309977,2003,Class Dependent Traffic Allocation in a LEO Satellite Network,https://doi.org/10.1023/a:1023451206622,0,0
+Guerin-Orda,forward,W1589975314,2003,Fuzzy based paths ordering algorithm in networks with imperfect QoS information,https://doi.org/10.1109/ictel.2003.1191635,0,0
+Guerin-Orda,forward,W2069268294,2006,Highly responsive and efficient QoS routing using pre- and on-demand computations along with a new normal measure,https://doi.org/10.1016/j.comnet.2006.04.006,0,0
+Guerin-Orda,forward,W2072713897,2013,Novel fuzzy non-dominance shortest path routing and path ordering for QoS aware routing,https://doi.org/10.1109/pimrc.2013.6666732,0,0
+Guerin-Orda,forward,W2080988740,2007,On the advantages of optimal end-to-end QoS budget partitioning,https://doi.org/10.1007/s11235-007-9030-8,0,0
+Guerin-Orda,forward,W2106763763,2003,Path selection in networks with non-deterministic information,https://doi.org/10.1109/icc.2002.997242,0,0
+Guerin-Orda,forward,W2127696323,2007,Two-Phase Modeling of QoS Routing in Communication Networks,https://doi.org/10.1109/icccn.2007.4317985,0,0
+Guerin-Orda,forward,W2129826353,2006,Probabilistic QoS Routing inWiFi P2P Networks,https://doi.org/10.1109/aina.2006.275,0,0
+Guerin-Orda,forward,W2130043149,2004,QoS provision and routing with stochastic guarantees,https://doi.org/10.1109/qshine.2004.44,0,0
+Guerin-Orda,forward,W2138215179,2006,Uncertain Parameters for Multicast Routing Based on a Fuzzy Number Genetic Algorithm,https://doi.org/10.1109/isda.2006.274,1,0
+Guerin-Orda,forward,W4246302536,2005,A Kind of Topology Aggregation Algorithm in Hierarchical Wavelength-Routed Optical Networks,https://doi.org/10.1007/s11107-004-5585-4,0,0
+Guerin-Orda,forward,W1506073411,2004,Path selection under multiple QoS constraints – a practical approach,https://doi.org/10.3233/hsn-2004-241,0,0
+Guerin-Orda,forward,W1549709567,2011,Stability Oriented Routing in Mobile Ad-Hoc Networks Based on Simple Automatons,https://doi.org/10.5772/13315,0,0
+Guerin-Orda,forward,W1552424864,2015,Deadline Aware Retransmission Threshold Setting Protocol in Cyber-Physical Systems,https://doi.org/10.1155/2015/271259,0,0
+Guerin-Orda,forward,W2048407189,2005,QCOLONY: A MULTI-PHEROMONE BEST-FIT QoS ROUTING ALGORITHM AS AN ALTERNATIVE TO SHORTEST-PATH ROUTING ALGORITHMS,https://doi.org/10.1142/s1469026805001544,0,0
+Guerin-Orda,forward,W2139348436,2002,A bandwidth constrained QoS routing algorithm,https://doi.org/10.1109/hpsr.2001.923665,0,0
+Guerin-Orda,forward,W2148102536,2011,Layered Sequential Decision Policies for Cross-Layer Design of Wireless Ad-Hoc Networks,https://doi.org/10.1109/icccn.2011.6005917,0,0
+Guerin-Orda,forward,W2734451758,2017,Multi Metric Performance for OLSR Routing Protocol in Mobile Ad-Hoc Networks,https://doi.org/10.5121/ijwmn.2017.9304,0,0
+Guerin-Orda,forward,W2963364818,2016,Approximation Algorithms for Route Planning with Nonlinear Objectives,https://doi.org/10.1609/aaai.v30i1.10398,0,0
+Guerin-Orda,forward,W3158470355,2004,Incentive Compatible Pricing Strategies for QoS Routing,https://doi.org/10.1023/b:nets.0000015655.31348.1b,0,0
+Guerin-Orda,forward,W1546782532,2005,Shortest paths in stochastic networks,https://doi.org/10.1109/icon.2004.1409216,0,0
+Guerin-Orda,forward,W1947045935,2009,Blocking Probabilities of Multiple Classes in IP Networks with QoS Routing,https://doi.org/10.1007/978-0-387-09703-9_16,0,0
+Guerin-Orda,forward,W1971241558,2008,Network design approaches and tradeoffs in QoS route selection with diverse objectives and constraints,https://doi.org/10.1109/milcom.2008.4753405,0,0
+Guerin-Orda,forward,W1983883077,2013,Research on QoS Routing in the Internet,https://doi.org/10.1109/hpcc.and.euc.2013.153,0,0
+Guerin-Orda,forward,W2023764156,2012,Multicast Routing Algorithm with Multi-QoS Based on Fuzzy Set Thoery,https://doi.org/10.1109/isdea.2012.447,0,0
+Guerin-Orda,forward,W2030541204,2007,Energy level accuracy in mobile Ad-Hoc networks using OLSR,https://doi.org/10.5555/1460047.1460065,0,0
+Guerin-Orda,forward,W2035881227,2010,Routing for multi-constrained path problem with imprecise additive link state information,https://doi.org/10.1109/iccasm.2010.5620849,1,0
+Guerin-Orda,forward,W2130047217,2014,An efficient flooding algorithm for improving network performance in optical WDM networks,https://doi.org/10.1504/ijcse.2014.060675,0,0
+Guerin-Orda,forward,W2134131945,2009,A Laplace Transform-Based Method to Stochastic Path Finding,https://doi.org/10.1109/icc.2009.5198619,0,0
+Guerin-Orda,forward,W2151741837,2006,Management interface for programmable end-to-end 'data connectivity' provisioning,https://doi.org/10.1109/e2emon.2005.1564466,0,0
+Guerin-Orda,forward,W2169860405,2008,QOS multicast routing algorithm with multiple constraints based on GA,https://doi.org/10.1109/icmlc.2008.4620619,0,0
+Guerin-Orda,forward,W2181465389,2009,QoS Routing in Diffserv MPLS Networks,https://doi.org/10.22452/mjcs.vol22no2.5,0,0
+Guerin-Orda,forward,W2288373473,2014,Advance Bandwidth Scheduling in Software-Defined Networks,https://doi.org/10.1109/glocom.2014.7416950,0,0
+Guerin-Orda,forward,W2330014337,2007,Energy Level Accuracy in Mobile Ad-Hoc Networks Using OLSR,https://doi.org/10.4108/wicon.2007.2125,0,0
+Guerin-Orda,forward,W2543941145,2006,Ant Agent-Based Multicast Routing with QoS Guarantees,https://doi.org/10.1109/spca.2006.297583,0,0
+Guerin-Orda,forward,W4241079497,2015,Advance Bandwidth Scheduling in Software-Defined Networks,https://doi.org/10.1109/glocom.2015.7416950,0,0
+Guerin-Orda,forward,W1506988202,2004,MULTISERVICE TRAFFIC ALLOCATION IN LEO SATELLITE COMMUNICATIONS,,0,0
+Guerin-Orda,forward,W1567287426,2006,A Book-Ahead Routing Scheme to Reduce Instantaneous Request Call Blocking and Preemption Rate,https://doi.org/10.1109/icon.2005.1635553,0,0
+Guerin-Orda,forward,W1586524120,2010,Network Centered Multiple Resource Scheduling in e-Science Applications,https://doi.org/10.1007/978-3-642-11733-6_5,0,0
+Guerin-Orda,forward,W1965603130,2014,Media Streams Planning with Uncertain Link Capacities,https://doi.org/10.1109/nca.2014.37,0,0
+Guerin-Orda,forward,W2085069575,2011,A Novel Particle Swarm Algorithm to Optimize QoS Unicast Routing,https://doi.org/10.4028/www.scientific.net/amr.230-232.377,0,0
+Guerin-Orda,forward,W2114429354,2009,Energy-efficient routing in mobile ad hoc networks: a cautionary tale,https://doi.org/10.1504/ijaacs.2009.024284,0,0
+Guerin-Orda,forward,W2143319149,2008,Notice of Violation of IEEE Publication Principles: Research on a Novel Multicast Routing Hybrid Optimization Algorithm and Its Application,https://doi.org/10.1109/euc.2008.191,0,0
+Guerin-Orda,forward,W2146864983,2003,Efficient techniques for QoS based path computation and selection in differentiated service networks,https://doi.org/10.1109/izsbc.2002.991755,0,0
+Guerin-Orda,forward,W2160180223,2008,Accurately Predicting Residual Energy Levels in MANETs,https://doi.org/10.1109/wimob.2008.17,0,0
+Guerin-Orda,forward,W2330826591,2011,To improve the QoS in MANETs through analysis between reactive and proactive routing protocols,https://doi.org/10.5121/cseij.2011.1305,0,0
+Guerin-Orda,forward,W2401751943,2006,QoS-based multicast routing optimization algorithms for Internet,https://doi.org/10.1007/s11767-004-0079-1,0,0
+Guerin-Orda,forward,W2570533745,2017,Dynamic Quality of Service Stability Based Multicast Routing Protocol for MANETs (DQSMRP),https://doi.org/10.5121/csit.2017.70116,0,0
+Guerin-Orda,forward,W2740128461,2015,Construction and Application Of Effective Path Statistics Network,https://doi.org/10.14257/ijhit.2015.8.9.34,0,0
+Guerin-Orda,forward,W2979822874,2019,Error Estimate and Fairness in Resource Allocation With Inaccurate Information Sharing,https://doi.org/10.1109/lnet.2019.2946466,1,0
+Guerin-Orda,forward,W4234712748,2019,Cloud and Cyber Security Through Crypt-Iris-Based Authentication Approach,https://doi.org/10.4018/978-1-5225-8176-5.ch043,0,0
+Guerin-Orda,forward,W2095153631,2002,An effective randomized QoS routing algorithm on networks with inaccurate parameters,https://doi.org/10.1007/bf02949823,1,0
+Guerin-Orda,forward,W1506222972,2006,Ant Agent-Based QoS Multicast Routing in Networks with Imprecise State Information,https://doi.org/10.1007/11802372_36,0,0
+Guerin-Orda,forward,W3050786036,2020,Traffic routing in stochastic network function virtualization networks,https://doi.org/10.1016/j.jnca.2020.102765,0,0
+Guerin-Orda,forward,W1965528277,2013,Multi-constrained Routing Algorithm: A Networking Evaluation,https://doi.org/10.1109/compsacw.2013.107,0,0
+Guerin-Orda,forward,W2037287507,2005,An algorithm based on mobile agent for delay constrained least cost unicast routing,https://doi.org/10.1007/bf02832428,0,0
+Guerin-Orda,forward,W4293863553,2022,Traffic Routing in Stochastic Network Function Virtualization Networks,https://doi.org/10.1007/978-981-19-4815-2_5,0,0
+Guerin-Orda,forward,W2123147821,2001,MQ: an integrated mechanism for multimedia multicasting,https://doi.org/10.1109/6046.909596,0,0
+Guerin-Orda,forward,W1484715824,2003,Genetic Algorithm-Based QoS Multicast Routing for Uncertainty in Network Parameters,https://doi.org/10.1007/3-540-36901-5_44,1,0
+Guerin-Orda,forward,W4238835908,2000,An efficient algorithm for finding a path subject to two additive constraints,https://doi.org/10.1145/345063.339427,0,0
+Guerin-Orda,forward,W2130962615,2002,Performance of the PNNI protocol in large networks,https://doi.org/10.1109/atm.1998.675191,0,0
+Guerin-Orda,forward,W2148094359,2003,Efficient provisioning algorithms for network resource virtualization with qos guarantees,,0,0
+Guerin-Orda,forward,W2148172108,2007,Localized Route Selection for Traffic with Bandwidth Guarantees,https://doi.org/10.1177/0037549707081185,0,0
+Guerin-Orda,forward,W1639158793,2004,QoS multicast routing in networks with uncertain parameter,https://doi.org/10.1109/ipdps.2003.1213449,1,0
+Guerin-Orda,forward,W2121890484,2007,Scalable real-time gateway assignment in mobile mesh networks,https://doi.org/10.1145/1364654.1364680,0,0
+Guerin-Orda,forward,W2166337697,2002,The effect of network hierarchy structure on performance of ATM PNNI hierarchical routing,https://doi.org/10.1109/icccn.1998.739901,0,0
+Guerin-Orda,forward,W184307570,2002,Localized approach to providing quality-of-service,,0,0
+Guerin-Orda,forward,W2156026481,2003,An edge router based protocol for fault tolerant handling of advance reservations,https://doi.org/10.1109/icc.2002.997020,0,0
+Guerin-Orda,forward,W2161533110,2005,Performance analysis of capacity-aware state aggregation for inter-domain QoS routing,https://doi.org/10.1109/glocom.2004.1378224,0,0
+Guerin-Orda,forward,W2101724341,2003,Partial optimization method of topology aggregation for hierarchical QoS routing,https://doi.org/10.1109/icc.2002.997026,0,0
+Guerin-Orda,forward,W2249888017,2005,Models and applications of wireless networks in rural environments,,0,0
+Guerin-Orda,forward,W2470734798,2018,SCOR: Software-defined Constrained Optimal Routing Platform for SDN,https://doi.org/10.14264/uql.2018.820,0,0
+Guerin-Orda,forward,W2951014594,2010,QoS Routing in Smart Grid,https://doi.org/10.48550/arxiv.1003.2142,0,0
+Guerin-Orda,forward,W63101472,2008,An effective routing algorithm for real-time applications,,0,0
+Guerin-Orda,forward,W1542213604,2005,A Clustering-Based Selective Probing Framework to Support Internet Quality of Service Routing,https://doi.org/10.1007/11603771_41,0,0
+Guerin-Orda,forward,W1558682333,2003,QoS routing under adversarial binary uncertainty,https://doi.org/10.1109/icc.2002.997250,1,0
+Guerin-Orda,forward,W1983506731,2005,Reducing Encoder Bit-Rate Variation in MPEG Video,https://doi.org/10.1007/s11265-005-4964-0,0,0
+Guerin-Orda,forward,W2003968982,2002,Non-greedy minimum interference routing algorithm for bandwidth-guaranteed flows,https://doi.org/10.1016/s0140-3664(02)00055-5,0,0
+Guerin-Orda,forward,W2148615012,2002,MODeRN: multicast on-demand QoS-based routing in wireless networks,https://doi.org/10.1109/vetecs.2001.945080,0,0
+Guerin-Orda,forward,W2317711602,2003,A Probability-Based QoS Unicast Routing Algorithm,,0,0
+Guerin-Orda,forward,W1529408936,2004,Distributed load-sensitive routing for computationally-constrained flows,https://doi.org/10.1109/icc.2003.1203892,0,0
+Guerin-Orda,forward,W2124100520,2004,A cognitive framework for performance/resilience optimized multipath routing in networks with unstable topologies,https://doi.org/10.1109/wcnc.2003.1200533,0,0
+Guerin-Orda,forward,W2128510713,2004,Network provisioning as a game against nature: a multicommodity network flow model under uncertain demands,https://doi.org/10.1109/icc.2003.1203878,0,0
+Guerin-Orda,forward,W2143562381,2005,Evaluating the impact of flooding schemes on best-effort traffic,https://doi.org/10.1109/glocom.2005.1577732,0,0
+Guerin-Orda,forward,W2163009448,2002,A robust QoS routing algorithm for hierarchical networks,https://doi.org/10.1109/icct.2000.890967,0,0
+Guerin-Orda,forward,W2170240287,2002,An efficient edge-based congestion management for a differentiated services domain,https://doi.org/10.1109/icccn.2000.885473,0,0
+Guerin-Orda,forward,W2949406175,2015,The Complexity of the Kth Largest Subset Problem and Related Problems,https://doi.org/10.48550/arxiv.1501.06729,0,0
+Guerin-Orda,forward,W765489954,2001,QoS routing in packet networks,,0,0
+Guerin-Orda,forward,W1599207816,2000,Programming Active Networks Using Active Pipes,https://doi.org/10.7936/k7xs5sng,0,0
+Guerin-Orda,forward,W1760267806,2001,QoS Routing with Incomplete Information by Analog Computing Algorithms,https://doi.org/10.1007/3-540-45412-8_10,0,0
+Guerin-Orda,forward,W2035388782,2000,QoS routing with outdated network knowledge,https://doi.org/10.1049/el:20000948,0,0
+Guerin-Orda,forward,W2112867752,2000,Hierarchical source routing using implied costs,https://doi.org/10.1016/s1389-1286(00)00119-5,0,0
+Guerin-Orda,forward,W2113426865,2006,QRP02-4: Probabilistic Path Selection under Inaccuracy via Augmented Shortest Path Algorithms,https://doi.org/10.1109/glocom.2006.427,1,0
+Guerin-Orda,forward,W2153595466,2003,Network management information for light-path assessment,https://doi.org/10.1109/isit.2002.1023398,0,0
+Guerin-Orda,forward,W2169535474,2001,Efficient routing with quality-of-service requirements,https://doi.org/10.1109/iscc.2001.935394,0,0
+Guerin-Orda,forward,W2489966150,2003,Quality of service based end-to-end SiMO routing framework in differentiated services networks,https://doi.org/10.1109/ipccc.2002.995180,0,0
+Guerin-Orda,forward,W2520086776,2004,DiffServ/MPLS Network Design and Management,,0,0
+Guerin-Orda,forward,W258386909,2002,Randomized Routing as a Regularized Solution to the Route Cost Minimization Problem,,0,0
+Guerin-Orda,forward,W2734743339,2013,Aspects technologiques et économiques de la qualité de service dans les alliances de fournisseurs de services,,0,0
+Guerin-Orda,forward,W1497323095,2005,End-to-End ‘Data Connectivity’ Management for Multimedia Networking,https://doi.org/10.1007/11572831_17,0,0
+Guerin-Orda,forward,W1835616846,2001,Bandwidth Reallocation Techniques for Admitting High Priority Real-Time Calls in ATM Networks,https://doi.org/10.1007/3-540-47728-4_54,0,0
+Guerin-Orda,forward,W1835860225,2003,Computing path-tables of quickest paths under different routing mechanisms,https://doi.org/10.1109/icc.2002.997259,0,0
+Guerin-Orda,forward,W1898984292,2007,Slack allocation techniques for intra-path load balancing,https://doi.org/10.3233/hsn-2007-317,0,0
+Guerin-Orda,forward,W1967276780,2002,Robust traffic engineering,https://doi.org/10.1145/605521.605529,0,0
+Guerin-Orda,forward,W2054837456,2007,Quality-of-service provisioning via stochastic path selection under Weibullian link delays,https://doi.org/10.1145/1577222.1577238,0,0
+Guerin-Orda,forward,W2080445565,2005,Routing for multi-constrained path problem with imprecise state information,https://doi.org/10.1109/icact.2005.245900,0,0
+Guerin-Orda,forward,W2107093004,2006,A Premium Traffic Management in DiffServ Through End-to-End Delay Budget Partitioning,https://doi.org/10.4304/jcm.1.3.29-40,0,0
+Guerin-Orda,forward,W2108715580,2006,QoS protocol and algorithm join forces,https://doi.org/10.1109/chinacom.2006.344729,0,0
+Guerin-Orda,forward,W2111280719,2004,A simulation study of combined routing and contention resolution algorithms in connection-oriented OPS network scenario,https://doi.org/10.1109/icton.2004.1360240,0,0
+Guerin-Orda,forward,W2112333629,2004,New routing algorithm to meet IP QoS for new IP router,https://doi.org/10.1109/casset.2004.1322928,0,0
+Guerin-Orda,forward,W2114859250,2004,Neural approximation of team optimal dynamic routing in IP networks,https://doi.org/10.1109/cdc.2004.1429623,0,0
+Guerin-Orda,forward,W2121306061,2005,Advances in QoS Path(s) Selection Problem,https://doi.org/10.1109/iscas.2005.1464550,0,0
+Guerin-Orda,forward,W2128228594,2009,Admission control in computer networks with uncertain parameters,https://doi.org/10.1108/03684920910976970,0,0
+Guerin-Orda,forward,W2151194642,2003,Extended precomputation based selective probing (PCSP) scheme for QoS routing in ad-hoc networks,https://doi.org/10.1109/vetecf.2002.1040434,0,0
+Guerin-Orda,forward,W2156524478,2010,Performance-Oriented Routing in Telecommunication Networks,https://doi.org/10.1109/glocom.2010.5685231,0,0
+Guerin-Orda,forward,W2165815550,2007,State information accuracy in mobile ad-hoc networks using OLSR,https://doi.org/10.22215/etd/2007-07570,0,0
+Guerin-Orda,forward,W2268706524,2015,Approximation Algorithms for Route Planning with Nonlinear Objectives,https://doi.org/10.48550/arxiv.1511.07412,0,0
+Guerin-Orda,forward,W2401453330,2001,Policy-Based Management Providing QoS in a DiffServ Domain.,,0,0
+Guerin-Orda,forward,W2414194445,2009,Topology abstraction service for IP virtual private networks,https://doi.org/10.22215/etd/2009-06496,0,0
+Guerin-Orda,forward,W2536098914,2005,Multi-constrained pre-computation based selective probing (MC-PCSP) scheme for distributed QoS routing,https://doi.org/10.1109/apcc.2004.1391687,0,0
+Guerin-Orda,forward,W4235438896,2014,Stochastic Optimization for Emerging Wireless Networking Paradigms with Imperfect Network State Information,https://doi.org/10.22215/etd/2014-10595,1,0
+Guerin-Orda,forward,W100020758,2006,Algorithm for multi-constrained path selection based on experimental analysis,https://doi.org/10.1016/s1004-4132(07)60040-1,0,0
+Guerin-Orda,forward,W102997583,2010,Encaminhamento inter-domínio com qualidade de serviço,,0,0
+Guerin-Orda,forward,W1129746988,2009,Intra-Domain Statistical Quality of Service Routing,,0,0
+Guerin-Orda,forward,W125368737,2001,Topology Aggregation for Directed,,0,0
+Guerin-Orda,forward,W1513791469,2002,"Source routing in networks with uncertainty: inference, sensitivity and path caching",https://doi.org/10.1109/glocom.2000.892047,1,0
+Guerin-Orda,forward,W1529438033,2004,Cost-based QoS routing,https://doi.org/10.1109/icccn.2003.1284213,0,0
+Guerin-Orda,forward,W1540858800,2015,Controllable Network Architecture Based on SDN,https://doi.org/10.1109/icisce.2015.46,0,0
+Guerin-Orda,forward,W1541275160,2000,다중 QoS 제약형 네트워크에서의 멀티캐스트 코어 선택 알고리즘,,0,0
+Guerin-Orda,forward,W1552965164,2003,An Adaptive Multicast Tree with QoS Support for Heterogeneous Recipients,https://doi.org/10.1023/a:1022813720536,0,0
+Guerin-Orda,forward,W156079436,2005,Resilient interdomain routing with bgp: protocols and reliability engineering,,0,0
+Guerin-Orda,forward,W1568276410,2007,Users Dimensioning and Traffic Modelling in Rural e-Health Services,https://doi.org/10.1007/978-3-540-74833-5_2,0,0
+Guerin-Orda,forward,W1582265327,2009,Principles and Mechanisms for Quality of Service in Networks,https://doi.org/10.1002/9780470611470.ch2,0,0
+Guerin-Orda,forward,W1601668419,2009,Adaptive Network Layer,https://doi.org/10.1002/9780470745724.ch7,0,0
+Guerin-Orda,forward,W1779957395,2010,Algorytmy przeciwdziałania przeciążeniom w sieciach komputerowych z wykorzystaniem zmiennych niepewnych,,0,0
+Guerin-Orda,forward,W1784187196,2007,Revenue-Driven Bandwidth Management for End-to-End Connectivity over IP Networks,https://doi.org/10.1007/978-3-540-77444-0_52,0,0
+Guerin-Orda,forward,W1798404174,2009,Realizing Quality-Of-Service With Link Lifetime Prediction In Mobile Ad Hoc Networks,,0,0
+Guerin-Orda,forward,W1836794222,2011,Maximum Delay Computation under Traffic Matrix Uncertainty and Its Application to Interdomain Path Selection,https://doi.org/10.1007/978-3-642-21527-8_24,1,0
+Guerin-Orda,forward,W185966676,2009,Coerced Delay And Multi Additive Constraints Qos Routing Schemes,https://doi.org/10.5281/zenodo.1085783,0,0
+Guerin-Orda,forward,W1973716874,2007,A evolutionary algorithm for QoS routing under uncertain parameters,https://doi.org/10.2991/iske.2007.218,1,0
+Guerin-Orda,forward,W2037511243,2010,A conservative scheme for distributed low-delay routing in MANETs,https://doi.org/10.1109/pimrc.2010.5671950,0,0
+Guerin-Orda,forward,W2059496655,2006,Flow management for QoS-controlled ‘data connectivity’ provisioning,https://doi.org/10.1016/j.comcom.2006.11.009,0,0
+Guerin-Orda,forward,W2103109503,2008,An Efficient Scheduling Scheme for Assigning Transmission Opportunity in QoS-Guaranteed Wireless LAN,https://doi.org/10.1093/ietfec/e91-a.7.1562,0,0
+Guerin-Orda,forward,W2105948535,2003,A framework for local QoS prediction in mobile wireless networks,https://doi.org/10.1109/vetecf.2003.1286389,0,0
+Guerin-Orda,forward,W2110975049,2005,A cost transformation based routing mechanism and its applications on constraint-routing problems,https://doi.org/10.1109/ngi.2005.1431667,0,0
+Guerin-Orda,forward,W2113226848,2002,A tunable QoS routing algorithm,https://doi.org/10.1109/wcica.2000.862439,0,0
+Guerin-Orda,forward,W2122850754,2006,Adaptive Call Admission Control for Real Time Video Communications Based on Delay Probability Distribution,https://doi.org/10.1109/icniconsmcl.2006.41,0,0
+Guerin-Orda,forward,W2123145358,2008,Online control techniques for optimal management of bandwidth over shared infrastructure networks,https://doi.org/10.1109/lcn.2008.4664206,0,0
+Guerin-Orda,forward,W2127169566,2005,The analysis of QoS assurance in the later-domain services,https://doi.org/10.1109/iti.2005.1491179,0,0
+Guerin-Orda,forward,W2130835518,2004,An efficient scheme for QoS information update among edge routers using multicast,https://doi.org/10.1109/icccn.2003.1284208,0,0
+Guerin-Orda,forward,W2131868681,2002,ICM: the R/sup 2/ED and edge-based congestion management,https://doi.org/10.1109/icc.2001.937034,0,0
+Guerin-Orda,forward,W2136351093,2008,Research on QoS Multicast Routing Optimization Algorithm Based on Hybrid Genetic Algorithm,https://doi.org/10.1109/wicom.2008.1024,0,0
+Guerin-Orda,forward,W2141006364,2004,On route exploration capabilities of multi-path routing in variable topology ad hoc networks,https://doi.org/10.1109/imtc.2004.1351309,0,0
+Guerin-Orda,forward,W2143226428,2006,Pre-computation based selective probing (PCSP) scheme for distributed quality of service (QoS) routing with imprecise state information,https://doi.org/10.1109/jcn.2006.6182907,0,0
+Guerin-Orda,forward,W2143951425,2007,Statistical Bandwidth Sharing in End-to-End Connectivity Management over Bandwidth-provisioned Networks,https://doi.org/10.1109/icccn.2007.4317848,0,0
+Guerin-Orda,forward,W2144278640,2004,A routing algorithm based loading ratio in nodes,https://doi.org/10.1109/ccece.2004.1345107,0,0
+Guerin-Orda,forward,W2145601264,2011,Investigation of QoS Multicast Routing Based on Intelligent Multiple Constrained,https://doi.org/10.5539/cis.v4n4p64,0,0
+Guerin-Orda,forward,W2147321106,2008,An Algorithm for Multicast Optimal Partition of QoS with Uncertain Condition,https://doi.org/10.1109/icnc.2008.914,0,0
+Guerin-Orda,forward,W2149646890,2003,Link and Path Metrics for Broadband Networks: Simulation Studies using the Encourager Program,https://doi.org/10.1007/978-0-387-35673-0_20,0,0
+Guerin-Orda,forward,W2151497822,2008,Stochastically Guaranteed Routing for Additive Link Metrics with Unknown Distributions,https://doi.org/10.1109/iwqos.2008.28,0,0
+Guerin-Orda,forward,W2155000886,2002,SCHEDULING AND MANAGEMENT OF REAL-TIME COMMUNICATION IN POINT-TO-POINT WIDE AREA NETWORKS,,0,0
+Guerin-Orda,forward,W2158364550,2002,Quality of service routing with static priority state advertisement,https://doi.org/10.1109/eurcon.2001.937764,0,0
+Guerin-Orda,forward,W2161477085,2011,The QoS Routing for Anycast Message,https://doi.org/10.1109/isie.2011.131,0,0
+Guerin-Orda,forward,W2168793027,2005,Minimizing the impact of stale link state information on QoS routing,https://doi.org/10.1109/glocom.2005.1577665,1,1
+Guerin-Orda,forward,W2169239569,2002,On resource management in multi-service network,https://doi.org/10.1109/lcn.2001.990770,0,0
+Guerin-Orda,forward,W2171829242,2014,Impact of Variable Bit Rate and Packet Size on the Performance Evaluation of Neighbor Aware AODV and DSDV Routing Protocols for MANET's,https://doi.org/10.5120/16033-5153,0,0
+Guerin-Orda,forward,W2184534360,2001,"INDEXING TERMS: QoS Routing, update of link states",,1,0
+Guerin-Orda,forward,W2186957466,2012,A NEW SOLUTION OF PEER-TO-PEER ANONYMOUS COMMUNICATION,,0,0
+Guerin-Orda,forward,W2186988879,2001,Lagrange Relaxation Based Method for the QoS Routing Problem,,0,0
+Guerin-Orda,forward,W2187265312,2008,Network-Layer Resource Allocation for Wireless Ad Hoc Networks,,0,0
+Guerin-Orda,forward,W2187665435,2000,A Hierarchical Multilayer QoS Routing System with,,0,0
+Guerin-Orda,forward,W2213978027,2011,Mathematical models of QoS management for communication networks,,0,0
+Guerin-Orda,forward,W2267269981,2015,Optimized Secure Protocol for MANET through Biometric Approach,,0,0
+Guerin-Orda,forward,W2267415916,2008,Uma alternativa a inundação baseada em tabelas de dispersão para planos de controle de redes opticas,https://doi.org/10.47749/t/unicamp.2008.437138,0,0
+Guerin-Orda,forward,W2286025681,2015,About a new localized multi-criterion routing algorithm – a solution to assure quality of network,https://doi.org/10.1109/commantel.2015.7394292,0,0
+Guerin-Orda,forward,W2296075906,2015,A fuzzy non-dominance approach for network routing with inaccurate information,,1,0
+Guerin-Orda,forward,W2462344052,2016,Study SIP Protocol on Asterisk Phone System and Offer Solutions to Its Security,https://doi.org/10.11648/j.wcmc.20160403.11,0,0
+Guerin-Orda,forward,W2462621912,2001,References and Further Reading,https://doi.org/10.1007/978-3-7091-6247-7_8,0,0
+Guerin-Orda,forward,W2485531867,2012,Dynamic Routing and Wavelength Assignment in Optical WDM Networks with Ant-Based Mobile Agents,https://doi.org/10.1201/b13081-31,0,0
+Guerin-Orda,forward,W2521976444,2016,Dynamic set of paths for localized QoS routing with bandwidth-constraint,https://doi.org/10.1109/elinfocom.2016.7562943,0,0
+Guerin-Orda,forward,W2524319826,2007,Management and control of scalable and resilient next-generation optical networks,,0,0
+Guerin-Orda,forward,W2539129563,2005,"Qos in cognitive packet networks: adaptive routing, flow and congestion control",,0,0
+Guerin-Orda,forward,W2541870590,2012,AMELIORATION OF BEBA IN DISTRIBUTED MAC PROTOCOL TO REDUCE THE WAITING TIME OF A STATION IN WLAN,,0,0
+Guerin-Orda,forward,W2541908735,2006,QoS routing with inaccurate information based on Hopfield neural network,https://doi.org/10.1109/icnnb.2005.1614786,1,0
+Guerin-Orda,forward,W2543569619,2006,Research on node-state in QoS based networks,https://doi.org/10.1109/iscit.2005.1566796,0,0
+Guerin-Orda,forward,W2545074950,2006,Research on QoS-Based Networks Node-State,https://doi.org/10.1109/icics.2005.1689041,0,0
+Guerin-Orda,forward,W2548913226,2016,Resource Allocation in Self-managing Networks Under Uncertainty,https://doi.org/10.1007/978-3-319-48944-5_30,0,0
+Guerin-Orda,forward,W2550665123,2008,Providing QoS as a Means for Defending DoS Attacks in Active Networks,https://doi.org/10.1109/adcom.2008.4760480,0,0
+Guerin-Orda,forward,W2593181438,2017,Quality of Service Stability Based Multicast Routing Protocol for MANETs,https://doi.org/10.5121/cseij.2017.7101,0,0
+Guerin-Orda,forward,W2615050681,2017,Two chances forwarding in real-time routing for low-duty-cycle sensor networks,https://doi.org/10.1504/ijsnet.2017.10005206,0,0
+Guerin-Orda,forward,W2728032463,2017,Dynamic reconfiguration in multigroup multicast routing under uncertainty,https://doi.org/10.1007/s10732-017-9339-8,1,0
+Guerin-Orda,forward,W2755897443,2017,Quality of Service Routing,https://doi.org/10.1016/b978-0-12-800737-2.00025-9,0,0
+Guerin-Orda,forward,W2901587248,2013,Soft Computing in the Quality of Services Evaluation,https://doi.org/10.4018/978-1-4666-4785-5.ch005,0,0
+Guerin-Orda,forward,W2902408448,2017,Cloud and Cyber Security through Crypt-Iris-Based Authentication Approach,https://doi.org/10.4018/978-1-5225-2154-9.ch021,0,0
+Guerin-Orda,forward,W3059022908,2000,Distributed Quality of Service Routing,https://doi.org/10.1007/3-540-44467-x_40,0,0
+Guerin-Orda,forward,W392994010,2015,Predictable Real-Time Wireless Networking For Sensing And Control,,0,0
+Guerin-Orda,forward,W4211087354,2016,Adaptive Network Layer,https://doi.org/10.1002/9781119096863.ch2,0,0
+Guerin-Orda,forward,W4211097543,2013,Bibliography,https://doi.org/10.1002/9781118649367.biblio,0,0
+Guerin-Orda,forward,W4211166681,2013,Compilation of References,https://doi.org/10.4018/978-1-4666-4785-5.chcrf,0,0
+Guerin-Orda,forward,W4237653033,2004,Bibliography,https://doi.org/10.1016/b978-012428751-8/50022-7,0,0
+Guerin-Orda,forward,W4239571300,2007,Bibliography,https://doi.org/10.1016/b978-012088588-6/50031-0,0,0
+Guerin-Orda,forward,W4241619252,2017,Bibliography,https://doi.org/10.1016/b978-0-12-800737-2.00043-0,0,0
+Guerin-Orda,forward,W4415853492,2025,"Methods, Performance Bounds, and Routing Approaches for In Network Aggregation in Wireless Sensor Networks",https://doi.org/10.64026/jccn/2025020,0,0
+Guerin-Orda,forward,W48236088,2013,Dynamic Resource Provisioning and Survivability Strategies in Optical Networks,,0,0
+Guerin-Orda,forward,W7149186678,2019,Novel notions of fairness and resource allocation for congested networked systems,https://doi.org/10.70675/6ca8ce5ez6cd2z4c82z9e6az68c6bb3ceb79,0,0
+Guerin-Orda,forward,W7164927574,2026,Turning Reliability into Shortest Path: Parameterized Probabilistic Routing for LEO Satellite Networks,https://doi.org/10.1109/wcnc65185.2026.11555231,0,0
+Guerin-Orda,forward,W74015387,2005,Multicast Extensions to QOSPF.,,0,0
+Guerin-Orda,forward,W759399309,2014,Resilience mechanisms for carrier-grade networks,https://doi.org/10.5821/dissertation-2117-95550,0,0
+Guerin-Orda,forward,W825321098,2015,Routing in Optical and Stochastic Networks,https://doi.org/10.4233/uuid:e31a01c0-f549-48c2-bc5b-b03dcc0f2bf2,0,0
+Guerin-Orda,forward,W915124027,2007,A prediction-based routing mechanism for optical and IP/MPLS networks,https://doi.org/10.5821/dissertation-2117-94395,0,0
+Ornee-Sun,backward,W2098432798,1995,Dynamic Programming and Optimal Control,,0,0
+Ornee-Sun,backward,W604181985,1917,A table of integrals,,0,0
+Ornee-Sun,backward,W2102591969,2010,NIST Handbook of Mathematical Functions,,0,0
+Ornee-Sun,backward,W1972485395,1976,"Table of Integrals, Series, and Products",https://doi.org/10.1115/1.3452897,0,0
+Ornee-Sun,backward,W2017957151,1930,On the Theory of the Brownian Motion,https://doi.org/10.1103/physrev.36.823,0,0
+Ornee-Sun,backward,W2170316986,1987,Stochastic Differential Equations: An Introduction with Applications.,https://doi.org/10.2307/2288814,0,0
+Ornee-Sun,backward,W2799087070,1982,Stochastic Processes,,0,0
+Ornee-Sun,backward,W2169071224,1992,Probability: Theory and Examples.,https://doi.org/10.2307/2290301,0,0
+Ornee-Sun,backward,W1967956032,1967,On Nonlinear Fractional Programming,https://doi.org/10.1287/mnsc.13.7.492,0,0
+Ornee-Sun,backward,W2163599171,1988,An Introduction to Signal Detection and Estimation,https://doi.org/10.1007/978-1-4757-3863-6,0,0
+Ornee-Sun,backward,W1993918491,2012,Real-time status: How often should one update?,https://doi.org/10.1109/infcom.2012.6195689,0,0
+Ornee-Sun,backward,W1991513691,1971,Applied Probability Models with Optimization Applications.,https://doi.org/10.2307/2284258,0,0
+Ornee-Sun,backward,W2546505240,2006,Stochastic Differential Equations—An Introduction With Applications,https://doi.org/10.1109/tac.2006.882767,0,0
+Ornee-Sun,backward,W1996097431,1996,Handbook of Brownian Motion — Facts and Formulae,https://doi.org/10.1007/978-3-0348-7652-0,0,0
+Ornee-Sun,backward,W604762380,2006,Optimal stopping and free-boundary problems,https://doi.org/10.1007/978-3-7643-7390-0_3,0,0
+Ornee-Sun,backward,W1504986959,1998,Numerical Methods Using MATLAB,,0,0
+Ornee-Sun,backward,W2744248483,2017,Update or Wait: How to Keep Your Data Fresh,https://doi.org/10.1109/tit.2017.2735804,1,1
+Ornee-Sun,backward,W2005047575,1942,The Brownian Movement and Stochastic Equations,https://doi.org/10.2307/1968873,0,0
+Ornee-Sun,backward,W2103836868,1996,Handbook of Mathematical Formulas and Integrals,https://doi.org/10.1119/1.18427,0,0
+Ornee-Sun,backward,W2768771208,2017,"Age of Information: A New Concept, Metric, and Tool",https://doi.org/10.1561/9781680833614,1,0
+Ornee-Sun,backward,W2791487310,2018,Optimizing Age of Information in Wireless Networks with Throughput Constraints,https://doi.org/10.1109/infocom.2018.8486307,1,0
+Ornee-Sun,backward,W1502450301,1990,Ordinary Differential Equations: An Introduction to Nonlinear Analysis,,0,0
+Ornee-Sun,backward,W2095323819,2015,Effect of Message Transmission Path Diversity on Status Age,https://doi.org/10.1109/tit.2015.2511791,0,0
+Ornee-Sun,backward,W2752845512,2017,Optimal Link Scheduling for Age Minimization in Wireless Systems,https://doi.org/10.1109/tit.2017.2746751,0,0
+Ornee-Sun,backward,W2963082493,2019,Sampling for data freshness optimization: Non-linear age functions,https://doi.org/10.1109/jcn.2019.000035,1,0
+Ornee-Sun,backward,W166675015,2002,"Stochastic Petri Nets: Modelling, Stability, Simulation",https://doi.org/10.1007/b97265,0,0
+Ornee-Sun,backward,W2792823915,2018,On the Age of Information With Packet Deadlines,https://doi.org/10.1109/tit.2018.2818739,1,0
+Ornee-Sun,backward,W2110647183,2011,Remote State Estimation With Communication Costs for First-Order LTI Systems,https://doi.org/10.1109/tac.2011.2139370,0,0
+Ornee-Sun,backward,W566818296,2010,Continuous Time Markov Processes: An Introduction,,0,0
+Ornee-Sun,backward,W2963028458,2018,Age-optimal updates of multiple information flows,https://doi.org/10.1109/infcomw.2018.8406945,0,0
+Ornee-Sun,backward,W2809579289,2018,Age-based Scheduling,https://doi.org/10.1145/3209582.3209602,0,0
+Ornee-Sun,backward,W156433631,2009,Ornstein–Uhlenbeck Processes and Extensions,https://doi.org/10.1007/978-3-540-71297-8_18,0,0
+Ornee-Sun,backward,W2808614360,2018,Information Aging Through Queues: A Mutual Information Perspective,https://doi.org/10.1109/spawc.2018.8445873,0,0
+Ornee-Sun,backward,W2884466981,2019,Remote Estimation Over a Packet-Drop Channel With Markovian State,https://doi.org/10.1109/tac.2019.2926160,1,0
+Ornee-Sun,backward,W2906746203,2018,Tutorial on UAVs: A Blue Sky View onWireless Communication,https://doi.org/10.13052/jmm1550-4646.1443,0,0
+Ornee-Sun,backward,W2296322821,1971,Markovian Decision Processes,https://doi.org/10.1057/jors.1971.45,0,0
+Ornee-Sun,backward,W2112848343,2002,Performance of multiversion concurrency control algorithms in maintaining temporal consistency,https://doi.org/10.1109/cmpsac.1990.139341,0,0
+Ornee-Sun,backward,W2012726532,2008,Paging and Registration in Cellular Networks: Jointly Optimal Policies and an Iterative Algorithm,https://doi.org/10.1109/tit.2007.913566,0,0
+Ornee-Sun,backward,W2893370635,2018,Wireless Scheduling for Information Freshness and Synchrony: Drift-Based Design and Heavy-Traffic Analysis,https://doi.org/10.1109/tnet.2018.2870896,0,0
+Ornee-Sun,backward,W2070638240,2014,Sampling multidimensional Wiener processes,https://doi.org/10.1109/cdc.2014.7039920,1,0
+Ornee-Sun,backward,W2534263264,2017,Optimal communication scheduling and remote estimation over an additive noise channel,https://doi.org/10.1016/j.automatica.2017.10.010,1,0
+Ornee-Sun,backward,W2962975378,2018,Massive UAV-to-Ground Communication and its Stable Movement Control: A Mean-Field Approach,https://doi.org/10.1109/spawc.2018.8445906,0,0
+Ornee-Sun,backward,W2046359489,1994,Constrained Semi-Markov decision processes with average rewards,https://doi.org/10.1007/bf01435458,0,0
+Ornee-Sun,backward,W2088868511,1994,Modelling real interest rates,https://doi.org/10.1016/0378-4266(94)00083-2,0,0
+Ornee-Sun,backward,W2546584265,2016,Optimal Information Control in Cyber-Physical Systems,https://doi.org/10.1016/j.ifacol.2016.10.363,0,0
+Ornee-Sun,backward,W1583497301,2003,Convex Analysis and Optimization,,0,0
+Ornee-Sun,backward,W2944745809,2019,"Channels, Learning, Queueing and Remote Estimation Systems With A Utilization-Dependent Component.",,1,0
+Ornee-Sun,backward,W3133603318,1994,An Introduction to Signal Detection and Estimation,https://doi.org/10.1007/978-1-4757-2341-0,0,0
+Ornee-Sun,backward,W4232753567,2010,Probability,https://doi.org/10.1017/cbo9780511779398,0,0
+Ornee-Sun,backward,W4230072584,1990,Ordinary Differential Equations,https://doi.org/10.1515/9783110853698,0,0
+Ornee-Sun,backward,W2966441493,2019,Joint Status Sampling and Updating for Minimizing Age of Information in the Internet of Things,https://doi.org/10.1109/tcomm.2019.2931538,1,0
+Ornee-Sun,backward,W2970983057,2019,Sampling of the Wiener Process for Remote Estimation Over a Channel With Random Delay,https://doi.org/10.1109/tit.2019.2937336,1,1
+Ornee-Sun,backward,W2997442646,2019,Minimum Age of Information in the Internet of Things With Non-Uniform Status Packet Sizes,https://doi.org/10.1109/twc.2019.2959777,1,0
+Ornee-Sun,backward,W2995358840,2019,Age of Information: A New Metric for Information Freshness,https://doi.org/10.2200/s00954ed2v01y201909cnt023,1,0
+Ornee-Sun,backward,W4244566287,1992,Markov Decision Process,https://doi.org/10.1093/imaman/4.4.395,0,0
+Ornee-Sun,backward,W4299373987,1995,Handbook of Mathematical Formulas and Integrals,https://doi.org/10.1016/c2009-0-21270-0,0,0
+Ornee-Sun,backward,W2964154283,2018,A dynamic jamming game for real-time status updates,https://doi.org/10.1109/infcomw.2018.8407017,0,0
+Ornee-Sun,backward,W4288288631,2019,Forever Young,https://doi.org/10.1145/3323679.3326507,0,0
+Ornee-Sun,backward,W3046993672,2020,Unifying AoI Minimization and Remote Estimation — Optimal Sensor/Controller Coordination with Random Two-way Delay,https://doi.org/10.1109/infocom41043.2020.9155238,1,1
+Ornee-Sun,backward,W2982374486,2019,Moderate maximal inequalities for the Ornstein-Uhlenbeck process,https://doi.org/10.1090/proc/14804,0,0
+Ornee-Sun,backward,W3081244218,2020,Age-of-Information Revisited: Two-way Delay and Distribution-oblivious Online Algorithm,https://doi.org/10.1109/isit44484.2020.9174306,0,0
+Ornee-Sun,backward,W3080107300,2020,Optimal Causal Rate-Constrained Sampling for a Class of Continuous Markov Processes,https://doi.org/10.1109/isit44484.2020.9174333,1,0
+Ornee-Sun,backward,W2964258673,2018,Quantifying Link Stability in Ad Hoc Wireless Networks Subject to\n Ornstein-Uhlenbeck Mobility,https://doi.org/10.48550/arxiv.1811.03410,0,0
+Ornee-Sun,forward,W4401871087,2024,AI Empowered Wireless Communications: From Bits to Semantics,https://doi.org/10.1109/jproc.2024.3437730,0,0
+Ornee-Sun,forward,W4401536718,2024,"Intellicise Wireless Networks From Semantic Communications: A Survey, Research Issues, and Challenges",https://doi.org/10.1109/comst.2024.3443193,0,0
+Ornee-Sun,forward,W4389633715,2023,A Review on Wireless Networked Control System: The Communication Perspective,https://doi.org/10.1109/jiot.2023.3342032,0,0
+Ornee-Sun,forward,W4399766708,2024,"Semantics-Empowered Space-Air-Ground-Sea Integrated Network: New Paradigm, Frameworks, and Challenges",https://doi.org/10.1109/comst.2024.3416309,0,0
+Ornee-Sun,forward,W3214057217,2021,Performance Analysis of Age of Information in Ultra-Dense Internet of Things (IoT) Systems With Noisy Channels,https://doi.org/10.1109/twc.2021.3122841,0,0
+Ornee-Sun,forward,W4391020658,2024,Real-Time Reconstruction of Markov Sources and Remote Actuation Over Wireless Channels,https://doi.org/10.1109/tcomm.2024.3356456,0,0
+Ornee-Sun,forward,W4387609113,2023,A Self-Adaptive Robustness Optimization Method With Evolutionary Multi-Agent for IoT Topology,https://doi.org/10.1109/tnet.2023.3319499,0,0
+Ornee-Sun,forward,W4387397220,2023,Learning and Communications Co-Design for Remote Inference Systems: Feature Length Selection and Transmission Scheduling,https://doi.org/10.1109/jsait.2023.3322620,0,0
+Ornee-Sun,forward,W4395686776,2024,Timely Communications for Remote Inference,https://doi.org/10.1109/tnet.2024.3408673,0,0
+Ornee-Sun,forward,W4390189149,2023,Context-aware Status Updating: Wireless Scheduling for Maximizing Situational Awareness in Safety-critical Systems,https://doi.org/10.1109/milcom58377.2023.10356278,0,0
+Ornee-Sun,forward,W3198509960,2022,Age-Optimal Scheduling Over Hybrid Channels,https://doi.org/10.1109/tmc.2022.3205292,0,0
+Ornee-Sun,forward,W4297882599,2022,How does data freshness affect real-time supervised learning?,https://doi.org/10.1145/3492866.3549711,0,0
+Ornee-Sun,forward,W4384788000,2023,AoI-Minimal Online Scheduling for Wireless-Powered IoT: A Lyapunov Optimization-Based Approach,https://doi.org/10.1109/tgcn.2023.3290007,0,0
+Ornee-Sun,forward,W4225350605,2022,Optimal Sampling for Data Freshness: Unreliable Transmissions With Random Two-Way Delay,https://doi.org/10.1109/tnet.2022.3194417,0,0
+Ornee-Sun,forward,W4312679422,2022,Timeliness of Information for Computation-Intensive Status Updates in Task-Oriented Communications,https://doi.org/10.1109/jsac.2022.3229431,1,0
+Ornee-Sun,forward,W4387150077,2023,A Whittle Index Policy for the Remote Estimation of Multiple Continuous Gauss-Markov Processes over Parallel Channels,https://doi.org/10.1145/3565287.3610263,0,0
+Ornee-Sun,forward,W4388836101,2023,State-aware real-time tracking and remote reconstruction of a Markov source,https://doi.org/10.23919/jcn.2023.000035,0,0
+Ornee-Sun,forward,W4285414102,2022,Real Time Monitoring of Brownian Motions,https://doi.org/10.1109/tcomm.2022.3190874,0,0
+Ornee-Sun,forward,W4402978208,2024,Monitoring Correlated Sources: AoI-Based Scheduling is Nearly Optimal,https://doi.org/10.1109/tmc.2024.3471391,0,0
+Ornee-Sun,forward,W4405909400,2024,Sampling to Achieve the Goal: An Age-aware Remote Markov Decision Process,https://doi.org/10.1109/itw61385.2024.10806969,1,1
+Ornee-Sun,forward,W4283214339,2022,Optimizing Sampling for Data Freshness: Unreliable Transmissions with Random Two-way Delay,https://doi.org/10.1109/infocom48880.2022.9796895,0,0
+Ornee-Sun,forward,W4361760330,2023,Real-Time Monitoring Ornstein–Uhlenbeck Process: Improving Fidelity Under Freshness Guarantees,https://doi.org/10.1109/lcomm.2023.3262545,1,0
+Ornee-Sun,forward,W4392940169,2024,Goal-Oriented Transmission Scheduling for Energy-Efficient Wireless Networked Control in SAGIN: An AoI-Thresholding Mechanism,https://doi.org/10.1109/tvt.2024.3377633,1,0
+Ornee-Sun,forward,W4405056392,2024,Semantic-Aware Sampling and Transmission in Real-Time Tracking Systems: A POMDP Approach,https://doi.org/10.1109/tcomm.2024.3511935,0,0
+Ornee-Sun,forward,W4386025640,2023,To Compute or Not to Compute? Adaptive Smart Sensing in Resource-Constrained Edge Computing,https://doi.org/10.1109/tnse.2023.3306202,0,0
+Ornee-Sun,forward,W4401508594,2024,Monitoring Correlated Sources: AoI-based Scheduling is Nearly Optimal,https://doi.org/10.1109/infocom52122.2024.10621253,0,0
+Ornee-Sun,forward,W4401539202,2024,On the Monotonicity of Information Aging,https://doi.org/10.1109/infocomwkshps61880.2024.10620843,0,0
+Ornee-Sun,forward,W4401693748,2024,Goal-Oriented Communications for Remote Inference Under Two-Way Delay with Memory,https://doi.org/10.1109/isit57864.2024.10619298,1,0
+Ornee-Sun,forward,W4389609139,2023,Sampling for Remote Estimation of the Wiener Process over an Unreliable Channel,https://doi.org/10.1145/3626791,0,0
+Ornee-Sun,forward,W4411983377,2025,On the Cost of Consecutive Estimation Error: Significance-Aware Non-Linear Aging,https://doi.org/10.1109/tit.2025.3585733,0,0
+Ornee-Sun,forward,W4410152900,2025,AoI-Based Optimal Transmission Scheduling for Multiprocess Remote Estimation,https://doi.org/10.1109/tac.2025.3568094,0,0
+Ornee-Sun,forward,W7128640669,2026,From Freshness to Effectiveness : Goal-Oriented Sampling for Remote Decision Making,https://doi.org/10.1109/tit.2026.3663678,1,1
+Ornee-Sun,forward,W4313854360,2023,Distribution-Oblivious Online Algorithms for Age-of-Information Penalty Minimization,https://doi.org/10.1109/tnet.2022.3230009,0,0
+Ornee-Sun,forward,W4285227776,2022,On the Value of Information and Mean Squared Error for Noisy Gaussian Models,https://doi.org/10.1109/lcomm.2022.3188368,0,0
+Ornee-Sun,forward,W4404739269,2024,Age of Incorrect Information With Hybrid ARQ Under a Resource Constraint for N-Ary Symmetric Markov Sources,https://doi.org/10.1109/tnet.2024.3499372,0,0
+Ornee-Sun,forward,W4390576636,2024,Real-Time Monitoring of Chaotic Systems With Known Dynamical Equations,https://doi.org/10.1109/tsp.2023.3347081,0,0
+Ornee-Sun,forward,W4210408378,2022,Age-Driven Spatially Temporally Correlative Updating in the Satellite-Integrated Internet of Things via Markov Decision Process,https://doi.org/10.1109/jiot.2022.3142268,1,0
+Ornee-Sun,forward,W4297882658,2022,Sampling of the wiener process for remote estimation over a channel with unknown delay statistics,https://doi.org/10.1145/3492866.3549732,0,0
+Ornee-Sun,forward,W4289655108,2022,How Useful Is Delayed Feedback in AoI Minimization — A Study on Systems With Queues in Both Forward and Backward Directions,https://doi.org/10.1109/isit50566.2022.9834697,0,0
+Ornee-Sun,forward,W3184551147,2021,Relationship between Age and Value of Information for a Noisy Ornstein–Uhlenbeck Process,https://doi.org/10.3390/e23080940,1,1
+Ornee-Sun,forward,W4387883656,2023,Real-time Remote Reconstruction of a Markov Source and Actuation over Wireless,https://doi.org/10.1109/iccworkshops57953.2023.10283717,0,0
+Ornee-Sun,forward,W4389610338,2023,Peak AoI Minimization With Directional Charging for Data Collection at Wireless-Powered Network Edge,https://doi.org/10.1109/tsc.2023.3341835,0,0
+Ornee-Sun,forward,W4401597602,2024,Version Age-Based Client Scheduling Policy for Federated Learning,https://doi.org/10.1109/icasspw62465.2024.10626990,0,0
+Ornee-Sun,forward,W4406170953,2025,Average AoI Minimization With Directional Charging for Wireless-Powered Network Edge,https://doi.org/10.1109/tmc.2025.3527559,0,0
+Ornee-Sun,forward,W4392114325,2024,Real-Time Dual-Process Remote Estimation With Integrated Multiaccess and HARQ,https://doi.org/10.1109/jiot.2024.3369096,0,0
+Ornee-Sun,forward,W4377001521,2023,Improving Timeliness-Fidelity Tradeoff in Wireless Sensor Networks: Waiting for All and Waiting for Partial Sensor Nodes,https://doi.org/10.1109/tcomm.2023.3277001,0,0
+Ornee-Sun,forward,W4390285198,2023,Sampling of the Wiener Process for Remote Estimation Over a Channel With Unknown Delay Statistics,https://doi.org/10.1109/tnet.2023.3331266,0,0
+Ornee-Sun,forward,W4411358771,2025,Collaborative Decision Making With Hybrid Deep Reinforcement Learning for Connected and Autonomous Vehicles in Mixed Traffic,https://doi.org/10.1109/tits.2025.3577603,1,0
+Ornee-Sun,forward,W4411408829,2025,Utility Loss of Information Minimization for Semantic-Empowered Satellite-Integrated Internet,https://doi.org/10.1109/tcomm.2025.3581106,0,0
+Ornee-Sun,forward,W4323520901,2022,Timely Multi-Process Estimation with Erasures,https://doi.org/10.1109/ieeeconf56349.2022.10051950,0,0
+Ornee-Sun,forward,W4402138951,2024,Information Freshness in Service Queues With Strategic Customers,https://doi.org/10.1177/10591478241281913,0,0
+Ornee-Sun,forward,W4388836103,2023,Sampling for remote estimation of an Ornstein-Uhlenbeck process through channel with unknown delay statistics,https://doi.org/10.23919/jcn.2023.000037,1,0
+Ornee-Sun,forward,W4393404830,2024,Optimal AoI for Systems With Queueing Delay in Both Forward and Backward Directions,https://doi.org/10.1109/tnet.2024.3379895,0,0
+Ornee-Sun,forward,W4405755499,2024,Event-Triggered Communications Over AWGN Channels,https://doi.org/10.1109/tcomm.2024.3522053,0,0
+Ornee-Sun,forward,W4410809433,2025,A Novel Indicator for Quantifying and Minimizing Information Utility Loss of Robot Teams,https://doi.org/10.1109/jsac.2025.3574584,0,0
+Ornee-Sun,forward,W4411687370,2025,Distortion Optimization for Remote Online Estimation of the Wiener Process,https://doi.org/10.1109/twc.2025.3581227,0,0
+Ornee-Sun,forward,W4388145708,2023,Timely Multi-Process Estimation Over Erasure Channels With and Without Feedback: Signal-Independent Policies,https://doi.org/10.1109/jsait.2023.3329431,0,0
+Ornee-Sun,forward,W4388836069,2023,Age-optimal multi-flow status updating with errors: A sample-path approach,https://doi.org/10.23919/jcn.2023.000041,0,0
+Ornee-Sun,forward,W4385329472,2023,Optimizing Average AoI with Directional Charging for Wireless-Powered Network Edge,https://doi.org/10.1109/iwqos57198.2023.10188771,0,0
+Ornee-Sun,forward,W4404035278,2024,Optimal Mobility and Communication Strategy to Maximize the Value of Information in IoT Networks,https://doi.org/10.1109/jiot.2024.3489774,0,0
+Ornee-Sun,forward,W4391558083,2023,"Minimizing AoI of Non-Uniform Multi-Source Real-Time Data Updates: Model Generalization, Analysis and Performance Evaluation",https://doi.org/10.1109/rtss59052.2023.00038,0,0
+Ornee-Sun,forward,W4409156867,2024,Timely Remote Estimation with Memory at the Receiver,https://doi.org/10.1109/ieeeconf60004.2024.10942803,0,0
+Ornee-Sun,forward,W4414538497,2025,AoI-Based Scheduling of Correlated Sources for Timely Inference,https://doi.org/10.1109/icc52391.2025.11162103,0,0
+Ornee-Sun,forward,W3193614165,2021,Status Update for Accurate Remote Estimation: Centralized and Decentralized Schemes,https://doi.org/10.1587/transcom.2021cei0002,0,0
+Ornee-Sun,forward,W4415883708,2025,Multimodal Remote Inference,https://doi.org/10.1109/mass66014.2025.00039,0,0
+Ornee-Sun,forward,W4299850655,2022,Timeliness-Distortion Tradeoff in Wireless Sensor Networks: The Optimal Node Number,https://doi.org/10.1109/icc45855.2022.9839140,0,0
+Ornee-Sun,forward,W4392948434,2024,"Age- and deviation-of-information of hybrid time- and event-triggered systems: What matters more, determinism or resource conservation?",https://doi.org/10.1016/j.peva.2024.102412,0,0
+Ornee-Sun,forward,W4399687995,2024,Sampling for Remote Estimation of the Wiener Process over an Unreliable Channel,https://doi.org/10.1145/3673660.3655077,0,0
+Ornee-Sun,forward,W4401692003,2024,AoI -optimal Scheduling for Arbitrary K -channel Update- Through-Queue Systems,https://doi.org/10.1109/isit57864.2024.10619623,0,0
+Ornee-Sun,forward,W4402031705,2024,AoI-aware transmission control in real-time mmwave energy harvesting systems: a risk-sensitive reinforcement learning approach,https://doi.org/10.1016/j.dcan.2024.08.015,0,0
+Ornee-Sun,forward,W4403532758,2024,Approximation schemes for age of information minimization in UAV grid patrols,https://doi.org/10.1016/j.adhoc.2024.103686,0,0
+Ornee-Sun,forward,W4415883602,2025,2D-AoI: Age-of-Information of Distributed Sensors for Spatio-Temporal Processes,https://doi.org/10.1109/tcomm.2025.3628766,0,0
+Ornee-Sun,forward,W4402834184,2024,Inference-Aware Reconstruction for Short-Packet Transmission in Industrial Metaverse,https://doi.org/10.1109/vtc2024-spring62846.2024.10683305,0,0
+Ornee-Sun,forward,W4413679850,2025,Revisiting Estimation Quality: Significance-Aware Age of Consecutive Error,https://doi.org/10.23919/wiopt66569.2025.11123380,0,0
+Ornee-Sun,forward,W4390189646,2023,Urgency of Information Optimization at Query in an Interactive System,https://doi.org/10.1109/milcom58377.2023.10356383,0,0
+Ornee-Sun,forward,W4289655374,2022,Age-Optimal Causal Labeling of Memoryless Processes,https://doi.org/10.1109/isit50566.2022.9834803,0,0
+Ornee-Sun,forward,W4385478169,2023,Effects of Lossy Compression on the Age of Information in a Low Power Network,https://doi.org/10.1109/wowmom57956.2023.00068,0,0
+Ornee-Sun,forward,W4415367769,2025,Remote Online Estimation of the Wiener Process: A Preprocessing Method to Ensure Distortion Convergence,https://doi.org/10.1109/isit63088.2025.11195334,0,0
+Ornee-Sun,forward,W7134823645,2026,Goal-Oriented Status Updating for Real-Time Remote Inference Over Networks With Two-Way Delay,https://doi.org/10.1109/ton.2026.3670099,1,0
+Ornee-Sun,forward,W4386081035,2023,Learning and Communications Co-Design for Remote Inference Systems: Feature Length Selection and Transmission Scheduling,https://doi.org/10.48550/arxiv.2308.10094,0,0
+Ornee-Sun,forward,W4386450079,2023,Minimizing Real-time Estimation Error in IoT Networks via Noisy Past Observations,https://doi.org/10.1109/iccc57788.2023.10233639,0,0
+Ornee-Sun,forward,W4391741983,2023,Age-Aware Status Updating for Solar Energy Storage Systems,https://doi.org/10.1109/icct59356.2023.10419697,1,0
+Ornee-Sun,forward,W4392187853,2024,Semantic-aware Sampling and Transmission in Real-time Tracking Systems: A POMDP Approach,https://doi.org/10.36227/techrxiv.170906295.55227662/v1,0,0
+Ornee-Sun,forward,W4399254833,2024,Sampling for Remote Estimation of the Wiener Process over an Unreliable Channel,https://doi.org/10.1145/3652963.3655077,0,0
+Ornee-Sun,forward,W4401069645,2024,Analysis on Peak Age of Status Updates in Task-Oriented Machine-Type Communications,https://doi.org/10.1109/twc.2024.3430903,1,0
+Ornee-Sun,forward,W4405975063,2024,Age-of-Information in Tandem Queues with Delayed Feedback: Zero-Wait vs. Pipelining,https://doi.org/10.1109/pimrc59610.2024.10817401,0,0
+Ornee-Sun,forward,W4408609651,2025,Inference-Aware State Reconstruction for Industrial Metaverse Under Synchronous/Asynchronous Short-Packet Transmission,https://doi.org/10.1109/tcomm.2025.3552737,0,0
+Ornee-Sun,forward,W4411996750,2025,Timely Gossiping for Semantic-Based Status Tracking in Robotic Communications,https://doi.org/10.1109/tvt.2025.3585664,0,0
+Ornee-Sun,forward,W7115735109,2025,AoI-Based Scheduling of Correlated Sources for Timely Inference,https://doi.org/10.1109/ton.2025.3643286,0,0
+Ornee-Sun,forward,W7128610548,2026,Entropy-Driven Sampling for Remote Estimation in Internet of Things Systems,https://doi.org/10.1109/jiot.2026.3663721,0,0
+Ornee-Sun,forward,W7154596793,2026,Buffer Management for Timely Reconstruction: Lower Bounds and Near-Optimal Policies,https://doi.org/10.1109/tnse.2026.3684353,0,0
+Ornee-Sun,forward,W7165666298,2026,Monitoring State Transitions in Markovian Systems with Sampling Cost,https://doi.org/10.23919/wiopt71098.2026.11568221,0,0
+Ornee-Sun,forward,W7166518874,2026,Regret-Optimal and Stability-Enhanced Online Sampling of the Wiener Process for Remote Estimation over an Unreliable Channel with Unknown Statistics,https://doi.org/10.1109/infocom59046.2026.11571490,0,0
+Ornee-Sun,forward,W7166554790,2026,Online Wireless Scheduling for Throughput Maximization under Unknown Channel Statistics,https://doi.org/10.1109/infocom59046.2026.11571594,0,0
+Ornee-Sun,forward,W7166563465,2026,Sampling the Ornstein Uhlenbeck Process for Remote Estimation over an Unreliable Channel,https://doi.org/10.1109/infocom59046.2026.11571381,1,0
+Ornee-Sun,forward,W7168355073,2026,A High-Accuracy DOA Estimation Method in the Presence of Phase Noise for Switched Antenna Array Systems,https://doi.org/10.1109/iccworkshops63917.2026.11586284,0,0
+Ornee-Sun,forward,W7202186740,2026,Drift-Adaptive Synchronization for Energy–Fidelity Tradeoffs in Digital Twin IoT Systems,https://doi.org/10.1109/jsyst.2026.3715408,1,1
+Ornee-Sun,forward,W7204175654,2026,Age of Quantum Information: Fidelity-Aware Teleportation Scheduling,https://doi.org/10.1109/isit62367.2026.11653667,0,0
+Ornee-Sun,forward,W7213400182,2026,Value-of-Task-Driven Co-Design of Sensing and Transmission for Industrial Joint Monitoring,https://doi.org/10.1109/iccc70295.2026.11680396,0,0
