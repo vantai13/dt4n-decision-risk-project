@@ -9,3 +9,8 @@ __pycache__/
 results/raw/
 results/**/*.npy
 results/**/*.npz
+
+# plan cá nhân — không public (quyết định Phase 0)
+notes/private/
+# PDF có bản quyền — chỉ lưu ghi chú + link/DOI
+notes/01_literature/**/*.pdf

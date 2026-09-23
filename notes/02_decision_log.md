@@ -98,3 +98,20 @@ thiết kế v1 có điều kiện xem lại; chưa phải bằng chứng rằng
 - Consequences: e01 kiểm oracle, operational là đối chứng hữu hạn mẫu; không tăng W
   đến khi test đẹp. Link chung chuyển thành unit test khi viết simulator ở Phase 2.
 - Revisit when: trace thiếu lịch sử hoặc đổi chế độ; công bố W thực tế, không mượn dữ liệu tương lai.
+
+## ADR — Phase 1
+
+### D13 — Điều chỉnh L1.1 (2026-09-23)
+- Plan tham chiếu: `notes/private/PHASE_1.md`; SHA256 **chưa ghi** vì file private
+  không có trong workspace tại thời điểm kiểm. Không dùng hash của bản hướng dẫn
+  được dán thay cho hash plan gốc.
+- Thay đổi: (1) lượt 3 phần gate OpenTwin dời tới sau L1.5 vì cần kiến thức
+  conformal; L1.1 chỉ làm lượt 1–2 và bảng tương ứng biến. (2) Mẫu ghi chú thêm
+  Five Cs, bảng claim–evidence, nhãn [F]/[I]/[?]; mục 8 thêm "X quan trọng vì…,
+  kiểm bằng…". (3) `.gitignore` chặn `notes/private/` và PDF. (4) Trích OpenTwin
+  theo v2, có thứ tự tác giả khác v1.
+- Lý do: tránh tái hiện gate khi chưa có nền; claim–evidence là kỹ năng chính;
+  tránh rò plan/PDF vào public repository và tránh trích nhầm phiên bản.
+- Phương án bị loại: giữ nguyên thứ tự plan.
+- Revisit when: file `PHASE_1.md` gốc có mặt local; tính SHA256, chỉ ghi hash vào
+  decision log và không commit nội dung plan.
