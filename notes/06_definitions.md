@@ -1,150 +1,225 @@
-# Definitions — v1 draft (2026-09-23)
+# Definitions — v1 (2026-09-23)
 
-Nguồn sự thật DUY NHẤT cho ký hiệu, đơn vị, estimand. Code, `summary.json` và
-§III paper phải dùng đúng các tên ở đây. Thêm/đổi định nghĩa: ghi decision log
-TRƯỚC.
+Nguồn quy ước kỹ thuật cho code, summary.json và paper. Thay đổi phải ghi ADR trước.
+Do agent soạn và kiểm theo yêu cầu người dùng; không phải bài tự làm của tác giả
+hay xác nhận của GVHD. Bộ lựa chọn đã điền, có điều kiện xem lại trong §5.
+Các module simulator/gate/metrics chưa triển khai đầy đủ quy ước này.
 
-> Trạng thái: bản nháp Lesson 0.3, chưa khóa. Các mục `[BẠN CHỌN]` và lời giải
-> VD2–VD6 phải do tác giả nghiên cứu tự điền trước khi commit.
+## 1. Ký hiệu và luật dự đoán
 
-## 1. Ký hiệu
+| Ký hiệu | Định nghĩa | Đơn vị | Tên code |
+|---|---|---|---|
+| Δt | khoảng lấy mẫu lịch sử, mặc định 0,01τ | s | `dt_s` |
+| T_dec | độ dài epoch lấy một quyết định, mặc định 0,1τ | s | `dt_decision_s` |
+| K | số path ứng viên, K≥2 | đếm | `k_paths` |
+| ρ_l | tải/capacity link | không thứ nguyên | `rho` |
+| τ | thời gian tương quan OU; khác thời gian đồng bộ | s | `tau_s` |
+| u, z | thời điểm sinh telemetry mới nhất đã nhận; z=t−u | s | `age_s` |
+| z/τ | tuổi chuẩn hóa | không thứ nguyên | `age_over_tau` |
+| C_k, Ĉ_k | delay path thật tại t và delay twin từ telemetry tại u | ms | `cost_true_ms`, `cost_twin_ms` |
+| e_k | C_k−Ĉ_k, thật trừ twin | ms | `err_ms` |
+| â, â₂ | top-2 theo twin, sắp ổn định; index nhỏ thắng tie | index | `a_twin`, `a_twin2` |
+| a* | argmin của C, index nhỏ thắng tie | index | `a_true` |
+| m̂ | Ĉ_â₂−Ĉ_â ≥0 | ms | `margin_twin_ms` |
+| m | C_â₂−C_â, giữ nguyên cặp của twin | ms | `margin_true_ms` |
+| s_pair | abs(m−m̂) | ms | `score_pair_ms` |
+| s_all | max_k abs(e_k−e_â) | ms | `score_all_ms` |
+| D_ij | C_j−C_i, D_ji=−D_ij | ms | `diff_ms` |
+| W | lịch sử theo thời gian sinh telemetry, mặc định 200τ | s | `hist_window_s` |
+| μ̂, σ̂, r̂(z) | mean, SD, ACF theo cặp có thứ tự | ms, ms, không thứ nguyên | `mu_hat_ms`, `sigma_hat_ms`, `r_hat` |
+| â, b̂, ŝ_res | intercept, slope, residual SD hồi quy trễ | ms, không thứ nguyên, ms | `intercept_ms`, `slope`, `residual_sd_ms` |
+| c, v | tâm và SD dự báo của D_ij hiện tại | ms | `center_ms`, `predictive_sd_ms` |
+| m̃, p̂ | c/v và Φ(−c/v), cặp có hướng (â,â₂) | không thứ nguyên | `margin_norm`, `p_flip_pred` |
+| m̃_naive, p̂_naive | m̂/ŝ(z), Φ(−m̃_naive); ŝ²=mean increment² | không thứ nguyên | `margin_norm_naive`, `p_flip_pred_naive` |
+| q̂ | quantile của score phù hợp trên calibration tách biệt | ms | `qhat_ms` |
+| α | mức danh nghĩa; chính 0,01, phụ 0,05 | tỉ lệ | `alpha` |
+| ε | regret threshold chính 2, sensitivity {0;0,5;1;5} | ms | `eps_ms` |
 
-| Ký hiệu | Tên | Định nghĩa | Đơn vị | Tên trong code |
-|---|---|---|---|---|
-| Δt | bước mô phỏng | — | s | `dt_s` |
-| T_dec | chu kỳ quyết định | controller ra 1 quyết định/OD mỗi T_dec | s | `dt_decision_s` |
-| l, k, K | link, path ứng viên, số path | P[k,l]=1 nếu path k dùng link l | — | `link`, `path`, `k_paths` |
-| ρ_l(t) | utilization link l | tải / capacity | — | `rho` |
-| τ | thời gian tương quan của tải (thế giới synthetic) | r(z)=e^(−z/τ) cho OU | s | `tau_s` |
-| u(t), z(t) | thời điểm sinh telemetry mới nhất twin có; tuổi | z = t − u | s | `age_s` |
-| z/τ | tuổi không thứ nguyên | — | — | `age_over_tau` |
-| C_k(t) | chi phí THẬT của path k tại t | f(ρ(t)), delay model của sự thật | ms | `cost_true_ms` |
-| Ĉ_k(t) | chi phí TWIN của path k tại t | f̂(ρ(u(t))) với last-value hold (D6) | ms | `cost_twin_ms` |
-| e_k(t) | sai số twin | C_k − Ĉ_k (THẬT trừ TWIN) | ms | `err_ms` |
-| â, â₂ | path tốt nhất, thứ hai theo twin | argsort ổn định của Ĉ, tie → index nhỏ | — | `a_twin`, `a_twin2` |
-| a* | path tốt nhất thật | argmin C, tie → index nhỏ | — | `a_true` |
-| m̂ | margin twin | Ĉ_â₂ − Ĉ_â ≥ 0 | ms | `margin_twin_ms` |
-| m | margin thật GIỮA CẶP TOP-2 CỦA TWIN | C_â₂ − C_â (có thể âm) | ms | `margin_true_ms` |
-| s_pair | score cặp | \|m − m̂\| | ms | `score_pair_ms` |
-| s_all | score mọi path | max_a \|e_a − e_â\| (K ≥ 3 BẮT BUỘC dùng cái này) | ms | `score_all_ms` |
-| D_ij(t) | hiệu chi phí cặp có thứ tự | C_j − C_i | ms | `diff_ms` |
-| W | cửa sổ lịch sử để ước lượng tham số | [BẠN CHỌN: giá trị và lý do] | s | `hist_window_s` |
-| μ̂, σ̂, r̂(z) | tham số ước lượng của D_{â,â₂} từ lịch sử twin | ước lượng theo cặp có thứ tự | ms, ms, — | `mu_hat_ms`, `sigma_hat_ms`, `r_hat` |
-| m̃_exact, p̂_exact | normalized margin và xác suất đảo cặp theo luật | c/v, Φ(−c/v) | — | `margin_norm`, `p_flip_pred` |
-| m̃_naive, p̂_naive | bản bỏ hồi quy về trung bình (ablation) | m̂/ŝ(z), Φ(−m̃_naive) | — | `margin_norm_naive`, `p_flip_pred_naive` |
-| q̂(z) | ngưỡng conformal theo bin tuổi | — | ms | `qhat_ms` |
-| α | mức lỗi mục tiêu của gate | — | — | `alpha` |
-| ε | ngưỡng regret coi là “có hại” | [BẠN CHỌN: giá trị và cách neo] | ms | `eps_ms` |
+Oracle cho một cặp cố định trong quá trình Gaussian dừng:
+c=μ+r(z)(m̂−μ), v=σ sqrt(1−r(z)²), p̂=Φ(−c/v).
+Operational dùng hồi quy OLS D(t) theo D(t−z): c=â+b̂ m̂,
+v=SD phần dư (ddof=2 cho hai hệ số). OLS là quy tắc ước lượng được chọn,
+không phải đồng nhất hữu hạn mẫu với cách ước lượng μ̂,σ̂,r̂ riêng.
 
-Với cặp có thứ tự `(i, j)`:
+Dữ liệu fit chỉ gồm cặp telemetry đã nhận tại thời điểm quyết định; endpoint
+không vượt u=t−z. Với A0 lịch sử đều Δt, dùng độ trễ z/Δt nguyên của grid.
+A1/A2 dùng lịch sử timestamp gốc; không coi bản sao last-value hold là mẫu mới;
+quy tắc ghép độ trễ bất quy tắc phải đăng ký ở e06 trước chạy.
+Cửa sổ đóng tại u, đủ W khi t≥W+z. Không fit trên ground truth của test.
 
-```text
-D_ij(t) = C_j(t) − C_i(t)
-c = μ̂_ij + r̂_ij(z)·(m̂ − μ̂_ij)
-v = σ̂_ij·sqrt(1 − r̂_ij(z)^2)
-m̃_exact = c/v
-p̂_exact = Φ(−m̃_exact)
-```
+“Operational exact law” là tên baseline plug-in; exact chỉ áp cho oracle Gaussian
+với conditioning phù hợp. Ở K>2, chọn cặp từ toàn bộ vector có thể thêm thông tin
+so với conditioning trên một D; tính Gaussian của từng cặp không tự bảo đảm
+calibration sau chọn cặp. K=2 cố định cho RQ1a chính; e06 kiểm cả hiệu ứng chọn cặp.
 
-Các tham số được ước lượng từ lịch sử telemetry của twin trong cửa sổ W,
-không dùng ground truth. `r̂_ij(z)` được ước lượng trực tiếp tại độ trễ z.
+Nếu v=0 và mô hình thật sự xác định: p=1[c<0], với c=0 thì strict pair flip bằng 0;
+m̃ để null. Nếu residual SD bằng 0 do thiếu/thoái hóa dữ liệu: p̂=null, ABSTAIN,
+đếm invalid fit; không giả định certainty. Naive có ŝ=0 xử lý tương tự.
+Không clamp p để cứu một fit lỗi.
 
-## 2. Estimand
+## 2. Estimand và estimator
 
-Estimator mặc định: tính trong từng run trên các quyết định hợp lệ (§3), lấy
-trung bình qua S seed và CI 95% theo t, ngoại trừ khi được ghi khác bên dưới.
+Đơn vị quyết định: một OD tại một thời điểm. Đơn vị lặp độc lập: run.
+Mặc định trong mỗi run tính từng OD rồi trung bình đều OD đủ ≥2 path; tổng hợp
+trung bình 10 run và CI t 95%. Đây là trung bình đều môi trường/OD, không traffic-weighted.
 
 | Tên | Estimand | Đơn vị | Vai trò |
 |---|---|---|---|
-| `harmful_error_rate@eps` | P(C_â − C_a* > ε), báo cáo tại nhiều ε | tỉ lệ | CHÍNH |
-| `regret_mean_ms` | E[C_â − C_a*] | ms | CHÍNH |
-| `regret_p95_ms` | phân vị 95% của regret | ms | phụ (đuôi) |
-| `decision_error_rate` | P(â ≠ a*) (= harmful tại ε=0 khi không tie) | tỉ lệ | phụ |
-| `pair_flip_rate` | P(m < 0) | tỉ lệ | RQ1a — thứ luật dự đoán |
-| `contender_rate` | P(a* ∈ {â, â₂}) (=1 khi K=2) | tỉ lệ | RQ1b, đo bẫy K ≥ 3 |
-| `coverage` | P(ACCEPT) | tỉ lệ | RQ2 |
-| `selective_pair_flip_rate` | P(m < 0 \| ACCEPT) | tỉ lệ | RQ2 |
-| `selective_harmful_rate@eps` | P(regret > ε \| ACCEPT) | tỉ lệ | RQ2 |
-| `selective_risk_pred` | E[p̂ \| ACCEPT] | tỉ lệ | RQ1a/RQ2 |
-| `selective_risk_ratio` | selective_pair_flip_rate / selective_risk_pred | — | calibration chính [BẠN CHỌN: hoặc cách 2] |
-| `ece_logbins` | ECE của p̂ với biên bin [1e-4, 1e-3, 1e-2, 1e-1, 1] | tỉ lệ | calibration phụ |
-| `auroc` | AUROC của p̂ với nhãn pair_flip | — | discrimination |
-| `e2e_cost_ms` | E[chi phí action được thực thi]: â nếu ACCEPT, fallback nếu ABSTAIN | ms | RQ2; định nghĩa riêng theo fallback ở L5.1 |
-| `tie_rate` | tỉ lệ quyết định có tie (twin hoặc thật) | tỉ lệ | vệ sinh |
-| `n_decisions`, `n_accept` | số quyết định hợp lệ, số ACCEPT | đếm | vệ sinh |
+| `harmful_error_rate@eps` | P(R>ε), R=C_â−C_a* | tỉ lệ | chính tại ε=2 |
+| `regret_mean_ms` | E[R] | ms | chính |
+| `regret_p95_ms` | phân vị 95% R trong từng run/OD, rồi trung bình các phân vị | ms | phụ, không phải pooled p95 |
+| `decision_error_rate` | P(â≠a*) | tỉ lệ | phụ |
+| `pair_flip_rate` | P(m<0) | tỉ lệ | target của luật hai path |
+| `contender_rate` | P(a* thuộc {â,â₂}) | tỉ lệ | K>2 |
+| `coverage` | P(ACCEPT) | tỉ lệ | risk–coverage |
+| `selective_pair_flip_rate` | P(m<0 given ACCEPT) | tỉ lệ | calibration |
+| `selective_harmful_rate@eps` | P(R>ε given ACCEPT) | tỉ lệ | risk của gate |
+| `selective_risk_pred` | E[p̂ given ACCEPT] | tỉ lệ | calibration |
+| `selective_risk_ratio` | selective_pair_flip_rate/selective_risk_pred | không thứ nguyên | calibration chính |
+| `ece_logbins` | Σ_b n_b/n abs(mean(label)_b−mean(p̂)_b) | tỉ lệ | phụ |
+| `auroc` | AUROC p̂ với nhãn m<0 | không thứ nguyên | discrimination |
+| `e2e_cost_ms` | E[chi phí action thực thi, gồm fallback] | ms | RQ2 sau khóa fallback L5.1 |
+| `tie_rate` | P(ít nhất hai path cùng đạt minimum ở twin hoặc truth) | tỉ lệ | hygiene |
+| `n_decisions`, `n_accept`, `n_pair_flip_accept` | số hợp lệ, ACCEPT, và ACCEPT bị đảo cặp | đếm | hygiene |
 
-Tỉ lệ có điều kiện (`selective_*`):
-`[BẠN CHỌN: mean of per-run ratios / pooled ratio + bootstrap theo run]`.
-Luôn báo cáo số run có `n_accept = 0`.
+Selective: gộp counts qua run trong từng OD; F/A là risk thật, P/A là risk dự đoán
+với P=Σ_ACCEPT p̂; ratio=F/P. Trung bình đều các risk/ratio của OD, báo cáo
+từng OD. Bootstrap 10.000 lần lấy lại toàn bộ run (seed bootstrap 230923), giữ
+cùng chỉ số run khi so paired. Không bootstrap các quyết định riêng lẻ.
 
-## 3. Quy ước
+A=0: selective risk và ratio null; P=0: ratio null. Luôn báo cáo số run/OD
+không ACCEPT, số fit invalid và số bootstrap replicate undefined. Nếu một OD
+target undefined, aggregate đều OD cũng undefined; không âm thầm bỏ OD đó.
+Nếu >5% bootstrap replicate undefined, không xuất CI định lượng. Nếu F=0
+không diễn giải CI bootstrap [0,0] là chắc chắn không rủi ro: báo insufficient events.
+Dưới 25 lỗi ACCEPT/OD trên toàn batch: flag ít sự kiện, không claim calibration
+đạt; mốc 25 chỉ là cảnh báo (iid relative SE≈20%), không đảm bảo precision với chuỗi tương quan.
 
-- Đơn vị phân tích: 1 quyết định = (1 OD, 1 thời điểm quyết định).
-- Đơn vị lặp độc lập: 1 run (seed).
-- Chu kỳ quyết định: `T_dec = [BẠN CHỌN]`, với lý do ghi trong decision log.
-- Quyết định hợp lệ: K ≥ 2, t − z ≥ 0, đủ W giây lịch sử twin. Báo cáo `n_decisions`.
-- OU khởi tạo từ phân phối dừng `[BẠN XÁC NHẬN: hoặc chọn burn-in]`.
-- Tie-break: index nhỏ nhất, cho cả twin và thật. Báo cáo `tie_rate`.
-- Dấu: e = thật − twin; m̂ ≥ 0; m < 0 nghĩa là cặp bị đảo.
-- Chi phí đánh giá tại thời điểm quyết định t; hợp lệ khi T_dec ≪ τ.
-- Luật normalized margin được đánh giá trên `pair_flip_rate`, KHÔNG trên `decision_error_rate`.
-- K ≥ 3: gate dùng `s_all`; báo cáo `contender_rate`.
-- Nhiều OD: trung bình đều trên các OD có ≥ 2 path; kèm phân bố theo OD.
-- Mọi tên có đơn vị mang hậu tố `_s`, `_ms`; không thứ nguyên ghi rõ.
+ECE dùng biên {0,1e−4,1e−3,1e−2,1e−1,1}, trái đóng/phải mở, bin cuối gồm 1;
+bin rỗng trọng số 0. AUROC null khi thiếu một lớp; nêu rõ phân phối tuổi khi trộn.
+Tie là equality chính xác, không dùng tolerance ngầm; numerical assertions riêng dùng atol=1e−12.
+ε=0 trùng decision error chỉ khi không tie. Harmful dùng strict >.
 
-## 4. Ví dụ tính tay
+## 3. Quy ước gate và validity
 
-Làm VD2–VD6 trước khi đọc đáp án trong tài liệu lesson. Ghi cả phép tính và chỗ
-sai ban đầu; không chỉ chép kết quả cuối.
+- C1: ACCEPT khi m̂≥q̂. C2: ACCEPT khi m̂≥q̂−ε.
+- q̂ phải fit từ s_pair cho K=2; s_all cho K≥3. Score thật chỉ biết sau quyết định.
+- Nếu score≤q̂, regret≤max(0,q̂−m̂) cho cặp (s_pair) hoặc mọi path (s_all).
+  C1 cho regret=0; có tie vẫn có thể khác index a*. C2 cho regret≤ε.
+- Coverage conformal marginal không tự suy ra selective risk≤α:
+  P(harmful AND ACCEPT)≤α chỉ cho cận selective≤α/P(ACCEPT) khi assumptions hợp lệ.
+  Temporal dependence và conditioning theo bin cần chứng minh/kiểm riêng.
+- Chi phí được định nghĩa tại t. T_dec nhỏ so với τ chỉ cần nếu diễn giải như
+  delay suốt epoch; instantaneous estimand vẫn tồn tại với T_dec lớn.
+- Forecast chọn action khác hold phải dùng regret/nhãn theo action forecast;
+  không dùng p_flip của cặp hold làm risk mọi path ở K>2.
+- Null e01: Gaussian không clip + affine cost + K=2; Sheppard chỉ kiểm μ_D=0.
+- Link chung triệt tiêu đại số cho một cặp cố định với additive cost, kể cả khi
+  có tương quan; đổi joint distribution hoặc đổi cặp chọn có thể đổi risk.
 
-### VD1 — đã giải
+## 4. VD1–VD6: lời giải tham khảo đã kiểm bằng code
 
-Twin: A=10,0; B=10,2. Thật: A=10,3; B=10,1.
+Agent đã đọc đáp án trong lesson trước khi giải. Đây không phải bài tác giả tự
+làm trước khi xem đáp án; không có ghi chép lỗi cá nhân để tái dựng.
 
-â=A, â₂=B, m̂=0,2; a*=B; decision error=1; regret=0,2 ms;
-m=−0,2; s_pair=0,4.
+| VD | (â,â₂,a*) | m̂ | m | e từng path | s_pair | s_all | error | regret ms | contender |
+|---|---|---:|---:|---|---:|---:|---:|---:|---|
+| 1 | A,B,B | 0,2 | −0,2 | 0,3;−0,1 | 0,4 | 0,4 | 1 | 0,2 | true |
+| 2 | A,B,A | 40 | 35 | 3;−2 | 5 | 5 | 0 | 0 | true |
+| 3 | A,B,B | 0,02 | −0,02 | 0,03;−0,01 | 0,04 | 0,04 | 1 | 0,02 | true |
+| 4 | A,B,A | 2 | 0,4 | 1;−0,6 | 1,6 | 1,6 | 0 | 0 | true |
+| 5 | A,B,C | 1 | 0,5 | 2;1,5;−2 | 0,5 | 4 | 1 | 1 | false |
+| 6 | A,B,B | 0,6 | −0,4 | 0,8;−0,2 | 1 | 1 | 1 | 0,4 | true |
 
-### VD2
+VD2: sai số có dấu là +3 và −2 ms (độ lớn 3 và 2). Lớn hơn VD1 nhưng margin
+40 ms hấp thụ được sai số, quyết định đúng. State error lớn chưa đủ kết luận harmful.
 
-Twin: A=10; B=50. Thật: A=13; B=48. Tính decision error, regret, m̂, m,
-s_pair, sai số state từng path. So sai số state với VD1.
+VD3: với ε=0,5, regret=0,02 nên harmful=0 dù decision error=1.
+Metric đúng/sai không đo được mức nghiêm trọng.
 
-**Lời giải của tôi:**
+VD4: C1 ACCEPT (2≥1,5); quyết định đúng dù score 1,6>1,5.
+Score vượt quantile làm mất chứng nhận cho mẫu, không đồng nghĩa chọn sai.
 
-### VD3
+VD5: với q̂=0,8, gate so margin vẫn ACCEPT (1≥0,8) cho cả hai cách đặt tên score.
+Pair score≤q̂ chỉ chứng nhận thứ tự A/B; global optimum C nằm ngoài cặp.
+All-score=4>q̂: sự kiện coverage thất bại, không có global certificate cho mẫu này.
+Không được dùng truth để đổi ACCEPT thành ABSTAIN. Quantile all-score thực tế
+phải được hiệu chỉnh riêng; chưa có calibration thì chưa biết q̂_all bằng bao nhiêu.
 
-Twin: A=10,00; B=10,02. Thật: A=10,03; B=10,01. ε=0,5 ms: có harmful không?
+VD6: C1 ABSTAIN (0,6<1); C2 ACCEPT (0,6≥1−0,5).
+Score=1≤q̂, cận regret=0,4 ms; thực tế error=1, regret=0,4≤0,5, harmful=0.
+C2 có thể nhận thêm lỗi vô hại; kiểm float bằng tolerance, không sửa inequality định nghĩa.
 
-**Lời giải của tôi:**
+## 5. Sáu lựa chọn v1 (2026-09-23)
 
-### VD4
+### 5.1 T_dec — Q1=a, bổ sung jitter
 
-Twin: A=10; B=12; q̂=1,5. C1: ACCEPT hay ABSTAIN? Thật A=11; B=11,4:
-đúng hay sai? s_pair có ≤ q̂ không? Điều đó nói gì về quan hệ “score vượt q̂”
-và “quyết định sai”?
+- Loại: estimator knob cho RQ1 dừng/exogenous; system parameter cho sticky RQ2.
+- Giá trị: epoch 0,1τ; t_j=t_start+(j+U_j)·0,1τ, U_j uniform[0,1) độc lập
+  và độc lập traffic. Dùng CRN lịch này giữa các phương pháp.
+- Lý do: lấy mẫu dày để quan sát margin nhưng không coi chúng độc lập.
+  Chỉ random một phase/run vẫn khóa pha bên trong run khi chu kỳ commensurate;
+  jitter từng epoch tránh điều đó.
+- Hệ quả: khoảng hai quyết định liên tiếp không cố định; lưu timestamp thật.
+- Xem lại: L5.1 sticky/wait; simulator dùng OU transition đúng theo khoảng thời gian.
 
-**Lời giải của tôi:**
+### 5.2 W — Q2=b, Q8=a
 
-### VD5 — K=3
+- Phương án B: e02 dành cho sai số tham số do W hữu hạn; W_ref=200τ,
+  mức {10,50,200}τ; OLS trễ với residual SD ddof=2.
+- Lý do: không giả định 200τ đủ để hết sai số; đây là nguồn risk cần đo.
+- Validity e01: oracle affine Gaussian kiểm bằng sai số Monte Carlo; operational
+  không khớp oracle không tự động là bug. Mốc calibration quan trọng là ratio ngoài
+  [0,8;1,2], tương ứng sai lệch tương đối 20%, là SESOI thiết kế chứ không độ chính xác đã đạt.
+- Hệ quả: giữ W cố định trước e03–e05; có oracle song song để phân biệt lỗi mô hình
+  với lỗi fit. Không tự tăng W khi thấy test lệch.
+- Xem lại: trace không đủ W hoặc regime shift; dùng horizon có thật, ghi amendment.
 
-Twin: A=10; B=11; C=13. Thật: A=12; B=12,5; C=11. q̂=0,8. Tính m̂, m,
-s_pair, s_all, contender, decision error, regret. C1 dùng s_pair và C1 dùng
-s_all cho kết luận gì?
+### 5.3 Khởi tạo — Q3=a
 
-**Lời giải của tôi:**
+- Giá trị: OU từ N(μ,σ²); warm-up ít nhất W+z_max để có lịch sử cho mọi mức z.
+- Lý do: loại transient của mô hình, phân biệt warm-up lịch sử với burn-in.
+- Hệ quả: trace thật không thể tự tạo phân phối dừng; chia chronological và báo
+  nonstationarity. Markov switching cần joint stationary initialization, chỉ lấy
+  stationary regime label chưa bảo đảm joint process dừng.
+- Xem lại: thêm switching/trace, kiểm phân phối đầu run.
 
-### VD6 — C1 vs C2
+### 5.4 Estimator selective — Q4=b
 
-Twin: A=10; B=10,6; q̂=1,0; ε=0,5. C1 và C2 quyết định gì? Nếu thật A=10,8;
-B=10,4: kiểm s_pair ≤ q̂, decision error, regret, harmful.
+- Giá trị: pooled trong từng OD, bootstrap nguyên run, rồi mean đều OD theo §2.
+- Ngân sách cố định: 100.000 quyết định đánh giá/run, 10 seed; Δt=0,01τ.
+- Lý do: xử lý run có ít ACCEPT, không condition việc dừng theo lỗi quan sát.
+- Kiểm precision: n_accept<10.000/run là cảnh báo coverage thấp; <25 lỗi pooled/OD
+  là cảnh báo không đủ sự kiện. Không loại run hay kéo dài theo hai ngưỡng này.
+- Nếu precision thiếu: báo inconclusive; thiết kế batch mới dựa trên pilot độc lập,
+  khóa horizon trước khi chạy. Bootstrap không chữa được thiếu independent runs.
+- Xem lại: e01 benchmark precision, trước confirmatory.
 
-**Lời giải của tôi:**
+### 5.5 Calibration chính — Q5=a
 
-## 5. Các lựa chọn cần khóa trước khi commit
+- Giá trị: selective_risk_ratio, kèm actual/predicted risk, coverage, counts, CI.
+- Lý do: so quan sát với đúng dự báo trên cùng tập ACCEPT; không nhầm ngưỡng α
+  với risk trung bình dự đoán.
+- Phụ: ECE logbins, reliability, AUROC; ratio không dùng khi predicted risk=0.
+- Hệ quả: gần risk=0 ratio dễ nhiễu; kiểm count và sai số tuyệt đối trước diễn giải.
+- Xem lại: L5.1 nếu cần cam kết risk theo yêu cầu operator.
 
-- W = …; lý do: …
-- T_dec = …; lý do: …
-- ε ∈ {…}; cách neo và lý do: …
-- Estimator cho tỉ lệ có điều kiện = …; lý do: …
-- Metric calibration chính = …; lý do: …
-- Khởi tạo dừng hay burn-in = …; lý do: …
+### 5.6 ε — Q6=a
+
+- Chính: 2 ms; sensitivity {0;0,5;1;5} ms.
+- Neo: thang delay và bất định đo D1; không claim ngưỡng cảm nhận ứng dụng.
+- Số liệu tự tính lại trên 176 dòng, chia rho trái đóng/phải mở:
+
+| rho | n | median delay_mean_ms | median se_batch_mean_ms |
+|---|---:|---:|---:|
+| [0,50;0,70) | 60 | 1,0831 | 0,0524 |
+| [0,70;0,85) | 57 | 3,3434 | 0,1967 |
+| [0,85;0,95) | 35 | 8,0789 | 0,2925 |
+| [0,95;1,05) | 24 | 13,0116 | 0,3029 |
+
+- Lý do: 2 ms cao hơn SE link điển hình vài lần, vẫn nằm trong thang biến động
+  delay nhiều ms; các mức 0,5–5 kiểm sensitivity một bậc độ lớn.
+- Hệ quả: đây không phải chứng minh regret 2 ms vượt bất định path; covariance,
+  nội suy và link chung phải xét riêng. D1 là lookup truth của simulation,
+  không ground truth vật lý hoàn hảo.
+- Xem lại: e06 thang WAN hoặc nguồn SLA; phải khai trước khi đổi mức chính.
