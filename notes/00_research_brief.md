@@ -40,3 +40,5 @@ Guarantee dưới temporal dependence, LLM/agent, RL, federated learning và clo
 ## Literature phải đọc full text trước khi claim novelty
 
 OpenTwin v2 §VI; Zhu et al. ICML 2026 §2; Guérin & Orda 1999; một paper VoI/AoII; patent "canceling predictions".
+
+Mọi thuật ngữ và đại lượng: xem `notes/06_definitions.md`.
