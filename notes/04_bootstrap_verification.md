@@ -78,3 +78,18 @@ Repo `dt4n` nguồn đang có nhiều thay đổi chưa commit và đang chậm 
 
 Repo mới đã được `git init -b main` và gắn remote chính thức:
 `https://github.com/vantai13/dt4n-decision-risk-project.git`.
+
+## Cập nhật 2026-09-23 (Lesson 0.1)
+
+- Đính chính: "chậm origin/main 55 commit" được đo trên `origin/main` chưa fetch.
+  Sau `git fetch`, `70d0e635` chậm `origin/main` 243 commit (`0 243`).
+- Repo cũ: working tree được bảo toàn tại nhánh local `wip-before-archive`, commit
+  `d387f4df694a95719ce5287b99a1246c0060de94`; stash được neo tại nhánh local
+  `wip-stash-before-archive`. Tag local `archive-2026-09` trỏ tới
+  `d45cf4ff26d8c6204a181f0fa77887e087a4d381` trong clone sạch.
+- Push hai nhánh WIP, tag archive và README archive chưa thực hiện được vì máy hiện
+  tại không có xác thực GitHub (HTTPS hỏi username; SSH từ chối public key).
+- VM `dt4n-research-01`: chưa kiểm được vì `gcloud` không có tài khoản active.
+- Remote hiện tại của repo mới:
+  `https://github.com/vantai13/dt4n-decision-risk-project.git`.
+- Lockfile tạo lại bằng `pip freeze --exclude-editable`.
