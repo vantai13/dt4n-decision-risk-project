@@ -115,3 +115,38 @@ thiết kế v1 có điều kiện xem lại; chưa phải bằng chứng rằng
 - Phương án bị loại: giữ nguyên thứ tự plan.
 - Revisit when: file `PHASE_1.md` gốc có mặt local; tính SHA256, chỉ ghi hash vào
   decision log và không commit nội dung plan.
+
+### D14 — Không có GVHD người; AI đóng vai người hướng dẫn thay thế (2026-09-23)
+- Context: đồ án hiện không có GVHD; gate Phase 0 yêu cầu người hướng dẫn duyệt
+  research contract.
+- Options: (a) treo Phase 0 tới khi có GVHD; (b) Claude (AI) đóng vai người hướng
+  dẫn, ghi rõ trong hồ sơ; (c) bỏ bước duyệt.
+- Decision: chọn (b). Mọi quyết định "người hướng dẫn" ở Phase 0–1 là khuyến nghị
+  của AI; tác giả chấp nhận và chịu trách nhiệm. Biên bản luôn ghi rõ `(AI)`.
+- Consequences: đồ án có thể tiến tiếp với quyết định có lý do và provenance,
+  nhưng review không có thẩm quyền học vụ và không phải góc nhìn độc lập. Tài liệu
+  do agent AI soạn rồi AI khác duyệt có thể sai cùng hướng.
+- Revisit when: có GVHD/giảng viên thật hoặc trường yêu cầu; trình lại D5, D11,
+  D15 để xác nhận. Trước khi nộp paper, xin ít nhất một người đọc độc lập.
+
+### D15 — Kết luận review Phase 0 (2026-09-23; người hướng dẫn thay thế theo D14)
+- Scope: chấp thuận RQ1a (e01–e05, gồm trục W) và RQ2; kết quả âm của RQ2 là
+  kết quả hợp lệ. RQ1b thu gọn cho paper 1: Abilene + GÉANT, K thuộc {2,3}, age A1;
+  T3 và K=5 là mở rộng. Ưu tiên e01 → e02–e05 → e07–e09 trên W_ref → e06 thu gọn.
+- D5: chấp thuận exogenous cho paper 1 nếu luồng được điều khiển chiếm
+  f≤0,1σ capacity (σ=0,05 thì f≤0,5%). Ghi System model và Limitations;
+  closed-loop/route flapping thuộc RQ3.
+- ε: giữ 2 ms và sensitivity {0;0,5;1;5}. Vì σ_D giữa các cell e03 thay đổi khoảng
+  0,9–22 ms khi σ=0,05, claim e03 dùng DV không phụ thuộc ε là
+  `selective_risk_ratio`; harmful@ε chỉ mô tả và luôn in kèm ε/σ_D.
+- D11 được chốt: CNSM 2027 main track full paper là chính, GLOBECOM 2027 dự phòng.
+  Mốc nội bộ: xong thí nghiệm 2026-12-31, bản thảo đầy đủ 2027-02-15. Khi CFP ra,
+  nếu deadline trừ 6 tuần sớm hơn khả năng hoàn thành thì chọn vòng sau, không nén.
+- AI: tác giả tự làm ghi chú paper, đạo hàm, dự đoán trước chạy, diễn giải và lý do
+  ADR. AI được tìm tài liệu, định dạng, sửa ngôn ngữ và viết code có test khi tác
+  giả đọc từng dòng. Khai báo theo policy IEEE.
+- Gate Phase 0: ĐẠT CÓ ĐIỀU KIỆN C1–C4 trong `phase0_closeout.md`; DP1 không được
+  PASS khi C1–C3 chưa đạt.
+- Plan tham chiếu: SHA256 MASTER_PLAN/PHASE_0/PHASE_1 chưa khả dụng vì ba file
+  private không có trong workspace. Không thay bằng hash của bản hướng dẫn chat.
+- Revisit when: CFP 2027 công bố; có GVHD thật theo D14; hoặc tại DP1.

@@ -1,30 +1,50 @@
-# Phase 0 closeout — trạng thái chờ (2026-09-23)
+# Phase 0 closeout — 2026-09-23
 
-**Chưa đóng Phase 0. Không được dùng file này để gắn tag `phase-0-complete`.**
+**Kết luận: ĐẠT CÓ ĐIỀU KIỆN (C1–C4).** Người hướng dẫn thay thế: Claude
+(AI), theo D14; kết luận này không thay xác nhận học vụ của GVHD người thật.
 
-Plan tham chiếu: PHASE_0 sha256 **chưa tính được** — file private không có trong
-workspace đã kiểm. Không đưa plan private lên git chỉ để lấy hash; khi tìm thấy,
-tính hash local rồi chỉ ghi chuỗi hash vào đây.
+Plan tham chiếu: PHASE_0 SHA256 **chưa khả dụng** vì file private không có trong
+workspace khi đóng gate. Khi tìm thấy, chỉ bổ sung hash bằng một đính chính;
+không commit plan và không thay bằng hash của nội dung chat.
 
-| Validity | Trạng thái | Bằng chứng / phần thiếu |
+## Validity
+
+| Điều kiện | Trạng thái | Bằng chứng |
 |---|---|---|
-| Repo cũ archive, repo mới khớp thực tế | đạt có lưu ý | tag `archive-2026-09`; WIP bundle đã verify, một nhánh chưa push |
-| Brief v1 + elevator test | **chưa đạt** | brief có; elevator test người thật chưa làm |
-| Definitions + VD tự làm | **chưa đạt** | definitions có; VD7–VD8 hiện là lời giải agent, không phải bài tự làm |
-| Design: W_ref không suy biến | đạt ở mức thiết kế | D12; design §1; pilot sanity 4 triệu mẫu |
-| D2–D12 có ADR | đạt về tài liệu, D11 tạm thời | D11 còn chờ CFP 2027 và GVHD; D12 đã chốt kỹ thuật |
-| GVHD đồng ý research contract | **chưa đạt** | chưa có cuộc họp/biên bản thật |
+| Repo cũ archive; repo mới khớp thực tế; F0-1…F0-5 đóng | Đạt | tag `archive-2026-09` → `d45cf4f`; bundle WIP SHA256 `1a08c2f9f2b4a9c125854c96af718d657ab1246b5fa1eeba82d9389530145028` + bản Drive; `wip-stash-before-archive` đã push; `wip-before-archive` → C4 |
+| Brief v1: RQ tách loại, hypothesis có số, kill criteria | Đạt có điều kiện (C2, C3) | `00_research_brief.md` tại `cd04954`, sửa D12 tại `de4030b`; elevator test chưa làm |
+| Definitions: estimand đủ cột, không trùng tên | Đạt có điều kiện (C1) | `06_definitions.md` v1; VD2–VD8 hiện là lời giải agent và đã khai báo |
+| Design: W_ref cụ thể, không suy biến; mỗi eNN một chiều | Đạt | `05_experiment_design.md` §1: κ_ref=0,5, b=4,281255 ms; D12 |
+| D2–D12 có ADR; research contract được review | Đạt (người hướng dẫn thay thế) | `02_decision_log.md` D2–D15; `meetings/2026-09-23.md`; giới hạn thẩm quyền theo D14 |
 
-| Outcome | Ghi lại |
+## Điều kiện
+
+| Mã | Việc | Hạn | Cách kiểm |
+|---|---|---|---|
+| C1 | Tự giải tay VD7, VD8, không code/AI; gửi người hướng dẫn chấm | Trước khi mở L1.3 | Thêm nguyên văn bài tự giải vào `06_definitions.md` §4 dưới mục “Tự giải của tác giả”, tách khỏi đáp án agent |
+| C2 | Elevator test 2 phút với một người thật ngoài ngành | Trước DP1 | Câu người nghe nhắc lại, nguyên văn, trong brief §11 |
+| C3 | Tự trả lời 7 câu bảo vệ bằng lời mình, không nhìn `08_phase0_defense_prep.md` | Buổi review DP1 | Người hướng dẫn hỏi vặn; ghi câu trả lời và nhận xét vào biên bản DP1 |
+| C4 | Push `wip-before-archive` bằng SSH hoặc PAT có scope `workflow`; kiểm VM GCP trước khi xóa/snapshot | Trước Phase 6 | `git ls-remote`; dòng append-only trong `04_bootstrap_verification.md` |
+
+Nếu một điều kiện quá hạn: thêm dòng đính chính cuối file theo mẫu
+`Cx không đạt hạn, gate mở lại`; không sửa bảng lịch sử trên. DP1 không được PASS
+khi C1–C3 chưa đạt.
+
+## Outcome
+
+| Mục | Ghi lại |
 |---|---|
-| Venue chính / dự phòng | đề xuất CNSM 2027 / GLOBECOM 2027; chưa được GVHD chốt |
-| Ngày muộn nhất xong thí nghiệm | chưa thể tính vì CFP 2027 chưa công bố |
-| Quyết định của GVHD | chưa có |
-| Số claim confirmatory dự kiến | tối đa 6; contrast cụ thể chưa đăng ký |
+| Venue chính / dự phòng | CNSM 2027 main/full / GLOBECOM 2027, theo D15 |
+| Ngày muộn nhất xong thí nghiệm | Mốc nội bộ 2026-12-31; tính lại theo deadline−6 tuần khi CFP 2027 ra |
+| Bản thảo đầy đủ | Mốc nội bộ 2027-02-15 |
+| Quyết định người hướng dẫn thay thế | D15: RQ1b thu gọn; D5 với f≤0,1σ; e03 dùng DV không phụ thuộc ε; venue và ranh giới AI |
+| ε | 2 ms chính; sensitivity {0;0,5;1;5} ms; e03 báo kèm ε/σ_D |
+| Số claim confirmatory | ≤6; dự kiến RQ1a:3, RQ1b:1, RQ2:2; e01 là validity; đăng ký cụ thể trước từng batch |
 
-## Mang sang Phase 1 khi gate đạt
+## Mang sang Phase 1
 
-- Đọc/kiểm full text các paper gần nhất và cập nhật novelty bằng bằng chứng trực tiếp.
-- Tự dẫn luật Gaussian và điều kiện conditioning/selection cho K=2 rồi K>2.
-- Chỉ bắt đầu implementation simulator sau khi các validity còn thiếu được xác nhận.
+- C1 trước L1.3; C2 và C3 trước DP1.
+- Đọc full text OpenTwin v2, Zhu et al. và Guérin–Orda; xác nhận hoặc bác bỏ
+  các ô SUY LUẬN trong novelty matrix.
+- Tự dẫn định lý xác suất đảo A1–A7 trước khi viết simulator; e01 chỉ chạy sau L1.3.
 

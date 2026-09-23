@@ -1,8 +1,10 @@
 # Research brief — v1 (2026-09-23)
 
-Agent soạn theo yêu cầu người dùng; chờ tác giả/GVHD review. So với v0
+Agent soạn theo yêu cầu người dùng; đã được Claude (AI) review theo D14–D15,
+nhưng chưa được GVHD người thật xác nhận. So với v0
 (`119b5ee`): tách RQ1a/b, validity khỏi hypothesis; thêm baseline forecast+Gaussian.
 Lịch sử quyết định: `02_decision_log.md`.
+Thay đổi so với v1 (2026-09-23, D15): D5 có điều kiện định lượng; RQ1b thu gọn.
 
 ## 1. Problem
 Controller chọn đường bằng telemetry cũ có thể chọn sai, nhưng không phải mọi
@@ -25,8 +27,9 @@ và mức regret chấp nhận được, chứ không chỉ sai số state.
 - RQ1a — characterization/mechanism: operational Gaussian law lệch calibration
   bao nhiêu khi W hữu hạn, cost phi tuyến, traffic heavy-tail, model sai?
   Evidence: fixed two-path OFAT và factorial nhỏ e02–e05.
-- RQ1b — generalization: kết luận giữ thế nào qua topology, OD, K và tuổi thực?
-  Evidence: e06, báo cáo từng context và contender_rate; tách pair/global risk.
+- RQ1b — generalization: kết luận giữ thế nào qua Abilene/GÉANT, OD, K={2,3}
+  và tuổi A1? Evidence chính: e06 thu gọn, báo cáo từng context và contender_rate;
+  tách pair/global risk. K=5 và trace T3 là mở rộng nếu còn thời gian.
 - RQ2 — comparative: gate C2 có tăng coverage tại cùng selective harmful risk
   so với forecast-to-now + Gaussian gate và các baseline đã định?
   Evidence: paired seeds/CRN, calibration budget bằng nhau, regime luật lệch.
@@ -67,11 +70,13 @@ Theo Novelty Matrix hiện tại (mức đọc full text giữ nguyên trong wor
 - Metric freshness cho DT là mới — AoT/AoS/EAP (17,21).
 
 ## 9. Assumptions · Limitations · Scope
-Assumptions: exogenous traffic (chờ GVHD); additive delay; tuổi chung; labels
+Assumptions: exogenous traffic được review AI chấp thuận có điều kiện
+f≤0,1σ capacity (D15); additive delay; tuổi chung; labels
 calibration chỉ dùng sau khi nhận. Limitations: D1 176 dòng, dải link hẹp,
 SE/nội suy khác sự thật vật lý; bằng chứng chính là simulation; 10 run còn ít
-cho rare events. Scope: instantaneous routing decision; không claim SLA ứng dụng,
-universal temporal guarantee hoặc closed-loop TE.
+cho rare events. Điều kiện f phải được kiểm trong mọi config có controlled flow;
+closed-loop feedback và route flapping thuộc RQ3. Scope: instantaneous routing
+decision; không claim SLA ứng dụng, universal temporal guarantee hoặc closed-loop TE.
 
 ## 10. Kill criteria và checkpoint dự kiến
 DP1: nếu không còn ≥1 điểm khác biệt kiểm được sau đọc các full text gần nhất,
@@ -82,7 +87,7 @@ gate cải thiện thực dụng. DP4: nếu direction đảo giữa contexts, b
 chung, báo cáo phạm vi. Đây là mapping đề xuất, chưa đối chiếu plan riêng tư.
 
 ## 11. Còn mở
-GVHD xác nhận exogenous và ε; full-text novelty; fallback và protocol nhãn thực;
+GVHD người thật chưa xác nhận D5/ε; full-text novelty; fallback và protocol nhãn thực;
 chi phí trace/history. Elevator test với người ngoài ngành: chưa thực hiện.
 W_ref đã sửa theo D12 để κ_ref=0,5 trong D_lin; κ realized dưới D0/D1/clipping
 và phân phối κ ở e06 phải được đo, không giả định đã giữ nguyên.

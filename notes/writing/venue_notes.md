@@ -28,8 +28,8 @@ LLM/agent tạo và không vào IEEE Xplore; nó không thay policy của main t
   dùng deadline 2026 như deadline 2027.
 - ICC 2027: deadline 2026-10-02 chỉ còn 9 ngày tại ngày lập bảng, nên loại.
 
-## Quyết định tạm thời
+## Quyết định (2026-09-23, D15)
 
-D11 chỉ là đề xuất CNSM 2027 chính/GLOBECOM 2027 dự phòng, chờ CFP đúng năm và
-GVHD. Không nén thiết kế hoặc cắt evidence chỉ để đuổi một deadline.
-
+CNSM 2027 main track (full paper) là chính; GLOBECOM 2027 dự phòng. Mốc nội bộ:
+xong thí nghiệm 2026-12-31, bản thảo 2027-02-15. Khi CFP 2027 ra: điền lại bảng
+từ CFP thật, tính ngược lịch, chọn vòng sau nếu không kịp.

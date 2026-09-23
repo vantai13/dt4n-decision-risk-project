@@ -87,10 +87,10 @@ Kiểm variance/ACF thực đạt và tỷ lệ clipping; không chọn lại se
 |---|---|---|---|---|---|
 | e01 | Null có khớp oracle? | age grid, zero/nonzero mean | pair flip, predicted flip, Sheppard khi mean=0 | G0,K2,T0,D_lin,M0, no clip | validity |
 | e02 | W hữu hạn làm risk lệch bao nhiêu? RQ1a | W/tau={10,50,200} | selective_risk_ratio, coverage, fit variability | W_ref trừ W, z/tau=0,3 | characterization; hướng pilot đã thấy |
-| e03 | Ranh giới phi tuyến? RQ1a | rho_bar={0,5;0,7;0,85;0,9}, sigma={0,02;0,05}, age grid; D_lin/D0/D1 | selective_risk_ratio, harmful, regret | G1,K2,T0,A0; oracle/proxy và operational báo riêng | confirmatory sau chốt miền D1 |
+| e03 | Ranh giới phi tuyến? RQ1a | rho_bar={0,5;0,7;0,85;0,9}, sigma={0,02;0,05}, age grid; D_lin/D0/D1 | selective_risk_ratio chính; harmful mô tả kèm ε/σ_D; regret | G1,K2,T0,A0; oracle/proxy và operational báo riêng | confirmatory sau chốt miền D1 |
 | e04 | Heavy-tail tác động thế nào? RQ1a | Gaussian vs innovation t(df=3,5) | selective_risk_ratio, reliability, harmful | D_lin, phương sai/ACF mục tiêu, W_ref còn lại | confirmatory sau generator validity |
 | e05 | Model mismatch tương tác age? RQ1a | M0/M1 × age grid | harmful, regret, interaction contrast | truth D1 ở cả M0/M1; twin map thay, cùng traffic | factorial nhỏ |
-| e06 | Transfer topology/OD/K? RQ1b | K={2,3,5} khi đủ path, topology, T1,A1/A2 | pair vs global error, contender, calibration; phân phối κ | cùng ngân sách và ε; không ép κ trên topology thật | chốt config cuối P3 |
+| e06 | Transfer topology/OD/K? RQ1b | paper 1: Abilene/GÉANT, K={2,3}, age A1; K=5,T3 là mở rộng | pair vs global error, contender, calibration; phân phối κ | cùng ngân sách và ε; không ép κ trên topology thật | scope thu gọn theo D15; chốt config cuối P3 |
 | e07–e09 | Gate hơn baseline mạnh? RQ2 | phương pháp/C1/C2/fallback | selective harmful, coverage, e2e cost | paired traffic và dữ liệu calibration | chốt chi tiết L5.1 |
 | e10–e11 | Trace/realism transfer | T3 và evidence thực có | các estimand đã khóa | chronological split, horizon có thật | chốt sau kiểm nguồn/license |
 | e12 | Emulation kiểm xu hướng | subset cell đã đăng ký | harmful/regret/coverage | time-box 2 tuần | P6, sau simulator |
@@ -158,8 +158,14 @@ trước full sweep; nếu quá ngân sách, sửa grid và ghi ADR trước con
 ## 7. Ngoài scope và điều kiện còn mở
 
 Không closed-loop TE, RL/LLM, không theorem conformal mới. GVHD còn cần xác nhận
-exogenous traffic; ε chưa có SLA. Thiết kế e06–e12, labels và fallback phải hoàn
-thiện đúng phase trước chạy. Đây là các checkpoint có chủ ý, không ô lựa chọn bỏ trống.
+ε chưa có SLA. D15 cho phép giả định exogenous ở paper 1 chỉ khi controlled flow
+chiếm f≤0,1σ capacity (với σ=0,05: f≤0,5%); kiểm và log f/σ trong từng config.
+Closed-loop feedback và route flapping thuộc RQ3 và phải nêu ở Limitations.
+Thiết kế e06–e12, labels và fallback phải hoàn thiện đúng phase trước chạy.
+Đây là các checkpoint có chủ ý, không phải ô lựa chọn bỏ trống.
+
+Do σ_D thay đổi mạnh qua cell e03, không dùng harmful@2ms để claim so sánh ngang
+cell. Claim e03 dùng `selective_risk_ratio`; harmful chỉ mô tả và luôn báo ε/σ_D.
 
 ## 8. Pilot đã biết trước
 
