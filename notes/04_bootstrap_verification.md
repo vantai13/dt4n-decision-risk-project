@@ -101,3 +101,17 @@ Repo mới đã được `git init -b main` và gắn remote chính thức:
   khi đổi `HEAD`; trạng thái checkout dở đã được cất trong stash recovery. Repo nguồn
   được trả về nhánh sạch `wip-before-archive`; việc chuẩn bị tag/README archive được
   thực hiện trong clone sạch `/home/vantai/dt4n-archive-work`.
+
+## Cập nhật backup ngoài máy 2026-09-23
+
+- Bundle: `/home/vantai/backup/dt4n-wip-2026-09-23.bundle` (9,061,555 byte).
+- SHA-256: `1a08c2f9f2b4a9c125854c96af718d657ab1246b5fa1eeba82d9389530145028`.
+- `git bundle verify`: OK; chứa `wip-before-archive` tại `d387f4df6` và
+  `wip-stash-before-archive` tại `c2445f397`.
+- Bản off-machine đã tải lên Google Drive:
+  https://drive.google.com/file/d/1FFhmFlThiCcbHLNuMf292bxBdq1z7SLE/view?usp=drivesdk
+- GitHub đã có tag annotated `archive-2026-09` → `d45cf4ff26d8c6204a181f0fa77887e087a4d381`,
+  README archive trên `main` tại `f7aa249`, và nhánh `wip-stash-before-archive`.
+- Nhánh `wip-before-archive` chưa push được: GitHub từ chối vì Personal Access Token
+  hiện tại thiếu scope `workflow` để cập nhật `.github/workflows/tests.yml`. Nhánh này
+  vẫn được giữ cả trong bundle local và bản bundle trên Google Drive.
