@@ -4,9 +4,23 @@
 Compared with Phase 20, the true cost comes from the measured truth table while
 the twin still uses ``link_model_v2``. Therefore ``err(z=0)`` is model error,
 not a bug. Only the perfect-twin control is required to be exactly zero.
+
+[20R2.5-P4] DAI LUONG NAO bang 0 -- cau tren MO HO, va chinh su mo ho do da
+cho mot MENH DE LUON DUNG dung ten "doi chung" (NC1b: so c_true.argmin voi
+chinh no). "Twin hoan hao" KHONG co nghia err = 0 o moi z: twin hoan hao ve
+MO HINH van dung du lieu CU. Hop dong DUNG, cuong che boi perfect_twin_control:
+
+    err_model == 0 . rms_e_model == 0 . err_total(z) == err_stale(z) moi z
+    err_total(z = 0) == 0
+    + doi chung cua doi chung: ton tai z > 0 co err_total > 0
+
+Tuc "exactly zero" o tren la noi ve err_model va ve err_total TAI z = 0, KHONG
+phai ve err_total tai moi z.
 """
 
 from __future__ import annotations
+
+from measurements.explicit_choice import MUST_CHOOSE, require_choice
 
 import argparse
 import hashlib
@@ -27,15 +41,100 @@ from twin import topology_v7 as T7
 
 
 DT = 0.005
-TAU = 1.0
+
+# CHI dung cho doi chung hoi quy 20R/21R/22/23. KHONG duoc dung lam mac
+# dinh cho run moi: moi run T2 phai truyen --tau tuong minh.
+# Xem docs/GLOSSARY.md muc "tau_load".
+TAU_LOAD_LEGACY = 1.0
+# Bi danh giu nguyen hop dong import: cert/build_calib_set_v2.py va
+# cert/build_calib_set_v3.py import truc tiep ten `TAU`. Doi ten cung
+# o day se pha lo chung nhan, khong phai cai T2.2 nham toi.
+TAU = TAU_LOAD_LEGACY
+
 N = 200_000
 CONTROL_N = 50_000
-BLOCK_S = 5.0
+
+# --- A-T2-3: module nay PHAI tu khai estimand cua no --------------------
+# Lich su: cot `rms_e_model` cua module nay (all_action / delay_ms) da bi doc
+# nham thanh `rms_e_model` cua cert/tau_sweep.py (margin / cost_ms), lam T2.6
+# luot 2 do sai dai luong so voi du doan da ky.
+# Xem docs/GLOSSARY.md muc "SO DANG KY ESTIMAND".
+ESTIMAND_ID = "RMS_ALLACTION_DELAY"
+
+# ESTIMAND_ID o tren la nhan MUC ARTIFACT, va no KHONG DU DO PHAN GIAI: mot
+# artifact cua run_cell mang MOT nhan, trong khi per_z[] cua no chua BA dai
+# luong khac THANG va khac DON VI. Dung nhan muc-artifact de phan quyet mot
+# du doan la lap lai DUNG loi A-T2-3, chi o do phan giai thap hon.
+#
+# Vi vay 20R2 khai theo TRUONG. Day moi la thu duoc trich dan khi phan quyet.
+ESTIMAND_BY_FIELD = {
+    # ti le hang sai, khong thu nguyen, [0, 1]
+    "err_total": "DECISION_ERR_BY_AGE",
+    "err_model": "DECISION_ERR_BY_AGE",
+    "err_stale": "DECISION_ERR_BY_AGE",
+    # [20R2.7-B1] HIEU TI LE VI PHAM, KHONG thu nguyen, [-1, 1]. Chu thich cu
+    # ghi "chi phi, ms -- DI QUA ham chi phi" la SAI: _viol (dong 388) la mot
+    # phep so NGUONG tra BOOLEAN, va dong 567 lay HIEU HAI TRUNG BINH cua no.
+    # Ham chi phi chi cham vao GIAN TIEP qua viec chon argmin.
+    "d_sla": "SLA_VIOL_BY_AGE",
+    # [20R2.9-C/F4] Optional S2 threshold-map output. Keep this in the source
+    # registry so registry coverage cannot pass while silently skipping it.
+    "d_sla_at_threshold": "SLA_VIOL_BY_AGE_BY_THRESHOLD",
+    # do tre thuan, ms -- w_loss KHONG cham toi duoc
+    "rms_e_model": "RMS_ALLACTION_DELAY",
+    "rms_e_stale": "RMS_ALLACTION_DELAY",
+    "cov_e": "RMS_ALLACTION_DELAY",
+}
+
+# Kenh (c): block conformal PHAI theo thoi gian tuong quan, khong phai
+# theo giay. cert/tau_sweep.py da lam dung tu 22.6; day la day bi thieu.
+BLOCKS_PER_TAU = 5.0
+# Bi danh: measurements/band_v2.py:31 va test_phase20r6_band.py:423 doc
+# `BLOCK_S`. Gio no TU DAN ra tu quy tac 5*tau thay vi la hang so 5 giay.
+BLOCK_S = BLOCKS_PER_TAU * TAU_LOAD_LEGACY
 N_BOOT = 2000
+# --- LUOI z: HAI luoi, chon TUONG MINH  [20R2-D3] --------------------------
+#
+# Luoi LEGACY. GIU NGUYEN GIA TRI: 166 artifact cua T2 dieu kien theo no, va
+# 20R2.3 dung chung lam neo hoi quy. Doi so o day = pha neo.
+# A3' cua prereg 20R2 chi ra: luoi nay phu KHIT mien LEGACY [0.055, 0.550],
+# nen chay 20R2 tren no la lang le tra loi cau hoi cua truc cu.
 Z_GRID = (0.0, 0.05, 0.10, 0.20, 0.30, 0.55)
 Z_EXTRAP = (1.0, 2.0, 4.0)
 Z_ALL = Z_GRID + Z_EXTRAP
+
+# Luoi 20R2, KY tai docs/phase-20R2/00-preregistration.md muc 4.
+# Phu KHIT mien MEASURED [0.115, 0.615] (san that d_base = 0.115) thay vi
+# mien legacy.
+Z_GRID_20R2_MEASURED = (0.115, 0.170, 0.241, 0.305, 0.366,
+                        0.430, 0.491, 0.555, 0.615)
+Z_CONTROL_20R2 = (0.0,)          # doi chung: err(z=0) = err_model = SAN mo hinh
+Z_ALL_20R2 = Z_CONTROL_20R2 + Z_GRID_20R2_MEASURED + Z_EXTRAP    # 13 diem
+
+# max(Z_ALL) == max(Z_ALL_20R2) == 4.0 CO CHU DICH: scoring_window_start lay
+# max cua luoi, nen HAI luoi cham diem tren CUNG dai hang. Doi max cua mot
+# ben se lam hai luoi khong so duoc voi nhau -- xem docstring
+# scoring_window_start ve loi "hai nhanh cham tren hai dai hang khac nhau".
+Z_GRIDS = {"legacy": Z_ALL, "20r2_measured": Z_ALL_20R2}
 Z_SCALED_RATIOS = (0.10, 0.30, 0.55, 1.00)
+
+
+def z_grid_id_of(z_values: Sequence[float]) -> str:
+    """SUY RA ten luoi tu CHINH cac diem z da chay -- khong nhan loi khai.
+
+    Trong decision_error_v2, truc AoI KHONG di qua mot bo sinh nao; no di vao
+    DUY NHAT qua VIEC CHON LUOI z (T2-L8 dinh chinh co che). Nen ten luoi LA
+    nhan truc AoI cua artifact nay, va no phai duoc SUY RA nhu moi nhan khac
+    (validity.py, Luat 2: nhan phai duoc suy ra, khong duoc khai bao).
+
+    Do duoc 20R2.5-P5: mot sidecar sinh voi luoi LEGACY qua MOI kiem tang LIVE
+    vi khong cai nao nhin thay truc AoI. Ham nay la thu cai chan can.
+    """
+    got = tuple(round(float(z), 12) for z in z_values)
+    for name, grid in Z_GRIDS.items():
+        if got == tuple(round(float(z), 12) for z in grid):
+            return name
+    return "UNREGISTERED_Z_GRID"
 
 TRUTH_TABLE = "results/LIVE/phase-20R/truth_table.parquet"
 CALIBRATION = "results/LIVE/phase-20R/sla_calibration.json"
@@ -66,16 +165,65 @@ def z_key(z_s: float) -> str:
     return "%.3f" % float(z_s)
 
 
-def load_calibration(path: str = CALIBRATION) -> List[Dict[str, Any]]:
+def load_calibration(path: str = MUST_CHOOSE) -> List[Dict[str, Any]]:
+    path = require_choice(path, 'calibration_path')
     with open(path, "r", encoding="utf-8") as f:
         report = json.load(f)
     return [dict(row) for row in report["cells"]]
 
 
-def z_values_for(tau: float = TAU, scaled: bool = False) -> Tuple[float, ...]:
+def block_s_for_tau(tau: float) -> float:
+    """Kenh (c): kich thuoc block conformal theo thoi gian tuong quan.
+
+    'one block is always 5 tau, not always 5 seconds' -- cert/tau_sweep.py,
+    Lesson 22.6. Giu 5 giay cung khi tau doi se lam so block moi seed sai,
+    va conformal mat rang buoc calib/test.
+    """
+    tau = float(tau)
+    if tau <= 0.0:
+        raise ValueError("tau phai duong")
+    return BLOCKS_PER_TAU * tau
+
+
+def z_values_for(tau: float = TAU, scaled: bool = False,
+                 z_grid: str = "legacy") -> Tuple[float, ...]:
+    """Luoi z cua mot nhanh.
+
+    `z_grid` CHI anh huong nhanh fixed. Nhanh scaled sinh z tu ti so nhan tau
+    nen no khong doc luoi nao ca -- ghi ra day de khong ai tuong `--z-grid`
+    doi duoc nhanh scaled.
+    """
     if not scaled:
-        return tuple(float(z) for z in Z_ALL)
+        try:
+            grid = Z_GRIDS[z_grid]
+        except KeyError:
+            raise ValueError(
+                "z_grid khong hop le: %r. Chon mot trong %s"
+                % (z_grid, sorted(Z_GRIDS))) from None
+        return tuple(float(z) for z in grid)
     return tuple(round(float(ratio) * float(tau), 12) for ratio in Z_SCALED_RATIOS)
+
+
+def scoring_window_start(tau: float, dt: float) -> int:
+    """Hang dau tien duoc cham diem -- DOC LAP VOI NHANH.
+
+    Cu: common_start = max(z_values)/dt, lay tu luoi z cua NHANH DANG CHAY.
+        fixed  dung Z_ALL          -> hang 800 voi MOI tau (4.0 s)
+        scaled dung Z_SCALED*tau   -> hang 100 o tau=0.5, 5600 o tau=28
+    => hai nhanh cham diem tren HAI DAI HANG KHAC NHAU, va do lech DOI DAU
+       theo tau (scaled som hon o tau nho, muon hon o tau lon). Mot doi chung
+       co do lech doi dau theo truc dang quet thi khong doc duoc.
+    Bang chung: rms_e_model KHONG phu thuoc z chut nao ma van khac ~0.05%
+                giua hai nhanh -- chi xay ra neu cua so khac nhau.
+
+    LUU Y: viec bo qua cac hang dau KHONG phai de cat transient. ar1_matrix
+    khoi tao x[0] = mu + sigma*N(0,1), tuc TU PHAN PHOI DUNG (sla_calib_v2
+    dong 125), nen khong co burn-in. Cua so nay chi can du de lag_rows >= 0
+    cho MOI muc z cua CA HAI nhanh. Neu ai do doi khoi tao x[0], dong nay
+    phai duoc xet lai.
+    """
+    z_union = set(z_values_for(tau, scaled=False)) | set(z_values_for(tau, scaled=True))
+    return max(int(round(float(z) / float(dt))) for z in z_union)
 
 
 def z_over_tau(z_s: float, tau: float) -> float:
@@ -94,7 +242,8 @@ def resolve_sigma(cal_cell: Mapping[str, Any], sigma_override: Optional[float] =
     return float(cal_cell["sigma_rho"]), "calibration"
 
 
-def feasible_cells(path: str = CALIBRATION, include_pc1: bool = True) -> List[Dict[str, Any]]:
+def feasible_cells(path: str = MUST_CHOOSE, include_pc1: bool = True) -> List[Dict[str, Any]]:
+    path = require_choice(path, 'calibration_path')
     rows = []
     for cell in load_calibration(path):
         if not cell.get("feasible"):
@@ -115,7 +264,7 @@ def extra_calibrated_cells(
 ) -> List[Dict[str, Any]]:
     if not rho_bars:
         return []
-    cv2 = C.CostV2(strict_reliable=True)
+    cv2 = C.CostV2(strict_reliable=True, fit_path='results/LIVE/phase-L/link_model_v2_fit.json')
     rows: List[Dict[str, Any]] = []
     for mode in modes:
         for rho_bar in rho_bars:
@@ -131,13 +280,14 @@ def extra_calibrated_cells(
 
 
 def measurement_cells(
-    calibration_path: str = CALIBRATION,
+    calibration_path: str = MUST_CHOOSE,
     include_pc1: bool = True,
     rho_bar_extra: Sequence[float] = (),
     n: int = N,
     dt: float = DT,
     tau: float = TAU,
 ) -> List[Dict[str, Any]]:
+    calibration_path = require_choice(calibration_path, 'calibration_path')
     rows = feasible_cells(calibration_path, include_pc1=include_pc1)
     existing = {(str(row["mode"]), round(float(row["rho_bar"]), 12)) for row in rows}
     extra = []
@@ -213,7 +363,8 @@ def rho_matrix_from_cell(
     n: int = N,
     dt: float = DT,
     source: str = RHO_SOURCE,
-) -> np.ndarray:
+    return_diagnostics: bool = False,
+):
     """Return ``rho[t, link]`` for a Phase 20R operating cell.
 
     ``calibration_ar1`` matches ``sla_calib_v2`` and ``predict_err_quick``:
@@ -222,7 +373,8 @@ def rho_matrix_from_cell(
     common-mode rho can lock the path ranking and create artificial err ~= 0.
     """
     if source == "calibration_ar1":
-        return SLA.ar1_matrix(mode, rho_bar, sigma, tau=tau, dt=dt, n=n, seed=seed)
+        return SLA.ar1_matrix(mode, rho_bar, sigma, tau=tau, dt=dt, n=n, seed=seed,
+                              return_diagnostics=return_diagnostics)
     if source != "scalar_ou":
         raise ValueError("unknown rho source %r" % source)
     traj = ou_trajectory(
@@ -234,10 +386,14 @@ def rho_matrix_from_cell(
         dt=float(dt),
     )
     rho_t = np.asarray(traj.rho, dtype=float)
-    return np.stack(
+    out = np.stack(
         [np.clip(rho_t + C.LINK_OFFSET[link], C.RHO_MIN, C.RHO_MAX) for link in T7.LINK_NAMES],
         axis=1,
     )
+
+    if return_diagnostics:
+        return out, {"n_clipped_ratio": math.nan, "sigma_hat": math.nan, "cycles": math.nan}
+    return out
 
 
 def _viol(delay: np.ndarray, loss: np.ndarray, t_delay_ms: float, t_loss: float) -> np.ndarray:
@@ -261,7 +417,7 @@ def _cell_arrays(
     sigma, sigma_source = resolve_sigma(cal_cell, sigma_override=sigma_override, a_override=a_override)
     w_loss = float(w_loss_override) if w_loss_override is not None else float(cal_cell["w_loss"])
     tt.reset_clip_log()
-    rho_mat = rho_matrix_from_cell(
+    rho_mat, ar1_diag = rho_matrix_from_cell(
         mode,
         float(cal_cell["rho_bar"]),
         sigma,
@@ -270,6 +426,7 @@ def _cell_arrays(
         n=n,
         dt=dt,
         source=rho_source,
+        return_diagnostics=True,
     )
     d_true, l_true, c_true = tt.path_tables(mode, rho_mat, w_loss)
     d_fresh, l_fresh, c_fresh = cv2.tables_batch(rho_mat, mode, w_loss)
@@ -287,7 +444,10 @@ def _cell_arrays(
         "n": int(n),
         "dt": float(dt),
         "rho_source": str(rho_source),
-        "clip_fraction": dict(tt.clip_log),
+        "tt_domain_clip": dict(tt.clip_log),
+        "ar1_clip_ratio": float(ar1_diag["n_clipped_ratio"]),
+        "ar1_sigma_hat": float(ar1_diag["sigma_hat"]),
+        "ar1_cycles": float(ar1_diag["cycles"]),
         "d_true": d_true,
         "l_true": l_true,
         "c_true": c_true,
@@ -343,8 +503,15 @@ def run_cell(
     sigma_override: Optional[float] = None,
     a_override: Optional[float] = None,
     w_loss_override: Optional[float] = None,
+    sla_grid: Optional[Sequence[Tuple[float, float]]] = None,
 ) -> Dict[str, Any]:
     check_z_grid(z_values, dt)
+    if sla_grid is not None:
+        sla_grid = tuple((float(td), float(tl)) for td, tl in sla_grid)
+        if (not sla_grid or len(set(sla_grid)) != len(sla_grid)
+                or any(not math.isfinite(td) or not math.isfinite(tl)
+                       or td <= 0 or not 0 <= tl <= 1 for td, tl in sla_grid)):
+            raise ValueError('sla_grid must contain distinct finite delay/loss thresholds')
     mode = str(cal_cell["mode"])
     rho_bar = float(cal_cell["rho_bar"])
     sigma, sigma_source = resolve_sigma(cal_cell, sigma_override=sigma_override, a_override=a_override)
@@ -383,15 +550,20 @@ def run_cell(
         "n": int(n),
         "dt": float(dt),
         "rho_source": str(rho_source),
-        "clip_fraction": dict(arrays["clip_fraction"]),
+        "estimand_id": ESTIMAND_ID,
+        "tt_domain_clip": dict(arrays["tt_domain_clip"]),
+        "ar1_clip_ratio": float(arrays["ar1_clip_ratio"]),
+        "ar1_cycles": float(arrays["ar1_cycles"]),
         "per_z": {},
     }
     rows = np.arange(int(n))
-    common_start = max(int(round(float(z_s) / float(dt))) for z_s in z_values)
+    common_start = scoring_window_start(tau, dt)
+    if common_start >= int(n):
+        raise ValueError("scoring window exceeds trace length")
     err_model_const = float((a_fresh[common_start:int(n)] != a_true[common_start:int(n)]).mean())
     for z_s in z_values:
         k = int(round(float(z_s) / float(dt)))
-        if k >= int(n):
+        if k > common_start or k >= int(n):
             raise ValueError("z %.3f exceeds trace length" % float(z_s))
         current = rows[common_start:int(n)]
         lag_rows = current - k
@@ -416,7 +588,98 @@ def run_cell(
             "cov_e": float(np.mean(e_model * e_stale)),
             "extrapolated": bool(float(z_s) in Z_EXTRAP),
         }
+    if sla_grid is not None:
+        # S2 changes only the scoring thresholds, never costs, actions or RNG.
+        # One (n, paths) boolean array at a time, not 108 arrays retained together.
+        out['sla_grid'] = []
+        current = rows[common_start:int(n)]
+        truth_actions = a_true[current]
+        for td, tl in sla_grid:
+            grid_viol = _viol(d_true, arrays['l_true'], td, tl)
+            truth_rate = float(grid_viol[current, truth_actions].mean())
+            for z_s in z_values:
+                k = int(round(float(z_s) / float(dt)))
+                twin_actions = a_fresh[current - k]
+                twin_rate = float(grid_viol[current, twin_actions].mean())
+                out['sla_grid'].append({
+                    'z_s': float(z_s), 't_delay_ms': td, 't_loss': tl,
+                    'd_sla_at_threshold': twin_rate - truth_rate,
+                    'viol_rate_truth': truth_rate, 'viol_rate_twin': twin_rate,
+                    'estimand_id': ESTIMAND_BY_FIELD['d_sla_at_threshold'],
+                })
+            del grid_viol
     return out
+
+
+class PerfectTwin:
+    """Twin HOAN HAO VE MO HINH: tra dung bang chi phi cua CHINH su that.
+
+    Day la DOI CHUNG DUNG CU (do duong ong run_cell), khong phai do khoa hoc.
+    Vi twin == su that nen err_model PHAI = 0. Nhung twin van dung du lieu CU
+    (lag k buoc), nen err_total(z) = err_stale(z), KHONG phai 0 -- chi tai
+    z = 0 moi bang 0.
+
+    Thay cho NC1b [20R2.5-P4], von so `c_true.argmin` voi CHINH `a_true =
+    c_true.argmin`, tuc mot MENH DE LUON DUNG, va khong he goi run_cell.
+    """
+
+    def __init__(self, tt: "TruthTable"):
+        self.tt = tt
+
+    def tables_batch(self, rho_mat: np.ndarray, mode: str, w_loss: float):
+        return self.tt.path_tables(mode, rho_mat, w_loss)
+
+
+def perfect_twin_control(
+    calibration_path: str,
+    *,
+    tau: float,
+    n: int,
+    seed: int,
+    z_values: Sequence[float],
+    a_override: float,
+    truth_path: str = TRUTH_TABLE,
+) -> Dict[str, Any]:
+    """Doi chung dung cu chay QUA CHINH run_cell -- nen no cham toi lag,
+    cua so cham diem va dispatch luoi z, la nhung thu NC1b khong cham toi.
+
+    HOP DONG (moi o, moi z):
+      err_model == 0 . rms_e_model == 0 . err_total == err_stale
+      err_total(z = 0) == 0
+      + DOI CHUNG CUA DOI CHUNG: ton tai z > 0 co err_total > 0, neu khong thi
+        lag khong lam gi ca va hop dong thoa mot cach TAM THUONG.
+
+    Kill test 2026-09-10, cay loi lech-mot `lag_rows = current - k - 1`:
+      doi chung nay err_total(z=0) = 0.026315 (BAT duoc) . NC1b = 0.0 (MU).
+    """
+    tt = TruthTable(truth_path)
+    twin = PerfectTwin(tt)
+    violations: List[Dict[str, Any]] = []
+    max_err_pos = 0.0
+    n_checked = 0
+    for cell in feasible_cells(calibration_path, include_pc1=True):
+        r = run_cell(tt, twin, cell, seed=seed, tau=tau, n=n,
+                     z_values=z_values, a_override=a_override)
+        for zk, m in r["per_z"].items():
+            n_checked += 1
+            broken = []
+            if m["err_model"] != 0.0:
+                broken.append("err_model != 0")
+            if m["rms_e_model"] != 0.0:
+                broken.append("rms_e_model != 0")
+            if m["err_total"] != m["err_stale"]:
+                broken.append("err_total != err_stale")
+            if m["z_steps"] == 0 and m["err_total"] != 0.0:
+                broken.append("err_total(z=0) != 0")
+            if m["z_steps"] > 0:
+                max_err_pos = max(max_err_pos, float(m["err_total"]))
+            if broken:
+                violations.append({
+                    "cell": "%s@%.3f" % (cell["mode"], float(cell["rho_bar"])),
+                    "z": zk, "broken": broken})
+    return {"tau": float(tau), "n": int(n), "seed": int(seed),
+            "n_checked": n_checked, "violations": violations,
+            "max_err_total_z_positive": max_err_pos}
 
 
 def block_bootstrap_paired(
@@ -502,8 +765,8 @@ def _fixed_metric_series(arrays: Mapping[str, Any], z_s: float, max_k: int) -> D
 
 def fixed_summary_with_bootstrap(
     truth_path: str = TRUTH_TABLE,
-    calibration_path: str = CALIBRATION,
-    out_path: str = SUMMARY_OUT,
+    calibration_path: str = MUST_CHOOSE,
+    out_path: str = MUST_CHOOSE,
     n: int = N,
     seeds: Sequence[int] = (101, 102, 103, 104, 105),
     tau: float = TAU,
@@ -515,11 +778,15 @@ def fixed_summary_with_bootstrap(
     a_override: Optional[float] = None,
     w_loss_override: Optional[float] = None,
 ) -> pd.DataFrame:
+    calibration_path = require_choice(calibration_path, 'calibration_path')
+    out_path = require_choice(out_path, 'out_path')
     check_z_grid(z_values, DT)
     block_len = int(round(float(block_s) / DT))
-    max_k = max(int(round(z / DT)) for z in z_values)
+    max_k = scoring_window_start(tau, DT)  # A-T2-2: same window as run_cell
+    if max_k >= int(n) or any(int(round(z / DT)) > max_k for z in z_values):
+        raise ValueError("invalid scoring window for trace or z grid")
     tt = TruthTable(truth_path)
-    cv2 = C.CostV2(strict_reliable=False)
+    cv2 = C.CostV2(strict_reliable=False, fit_path='results/LIVE/phase-L/link_model_v2_fit.json')
     out_rows: List[Dict[str, Any]] = []
     for cell in feasible_cells(calibration_path, include_pc1=True):
         arrays_by_seed = [
@@ -550,7 +817,7 @@ def fixed_summary_with_bootstrap(
             per_seed_means = {key: [] for key in by_metric_blocks}
             clip_max = 0.0
             for arrays in arrays_by_seed:
-                clip_max = max(clip_max, max(arrays["clip_fraction"].values()) if arrays["clip_fraction"] else 0.0)
+                clip_max = max(clip_max, max(arrays["tt_domain_clip"].values()) if arrays["tt_domain_clip"] else 0.0)
                 series = _fixed_metric_series(arrays, z_s, max_k)
                 for key, values in series.items():
                     if key.startswith("rms_"):
@@ -579,7 +846,7 @@ def fixed_summary_with_bootstrap(
                 "block_len": int(block_len),
                 "n_boot": int(n_boot),
                 "rho_source": str(rho_source),
-                "clip_fraction_max": float(clip_max),
+                "tt_domain_clip_max": float(clip_max),
                 "extrapolated": bool(float(z_s) in Z_EXTRAP),
             }
             for key, means in per_seed_means.items():
@@ -629,8 +896,8 @@ def _sawtooth_metric_series(arrays: Mapping[str, Any]) -> Dict[str, np.ndarray]:
 
 def sawtooth_summary(
     truth_path: str = TRUTH_TABLE,
-    calibration_path: str = CALIBRATION,
-    out_path: str = SAWTOOTH_OUT,
+    calibration_path: str = MUST_CHOOSE,
+    out_path: str = MUST_CHOOSE,
     n: int = N,
     seeds: Sequence[int] = (101, 102, 103, 104, 105),
     tau: float = TAU,
@@ -641,10 +908,12 @@ def sawtooth_summary(
     a_override: Optional[float] = None,
     w_loss_override: Optional[float] = None,
 ) -> Dict[str, Any]:
+    calibration_path = require_choice(calibration_path, 'calibration_path')
+    out_path = require_choice(out_path, 'out_path')
     check_z_grid(Z_ALL, DT)
     block_len = int(round(float(block_s) / DT))
     tt = TruthTable(truth_path)
-    cv2 = C.CostV2(strict_reliable=False)
+    cv2 = C.CostV2(strict_reliable=False, fit_path='results/LIVE/phase-L/link_model_v2_fit.json')
     rows = []
     summary_rows = []
     for cell in feasible_cells(calibration_path, include_pc1=True):
@@ -675,7 +944,7 @@ def sawtooth_summary(
                 a_override=a_override,
                 w_loss_override=w_loss_override,
             )
-            clip_max = max(clip_max, max(arrays["clip_fraction"].values()) if arrays["clip_fraction"] else 0.0)
+            clip_max = max(clip_max, max(arrays["tt_domain_clip"].values()) if arrays["tt_domain_clip"] else 0.0)
             series = _sawtooth_metric_series(arrays)
             age_means.append(float(np.mean(series["age_s"])))
             age_min = min(age_min, float(np.min(series["age_s"])))
@@ -691,7 +960,7 @@ def sawtooth_summary(
                 "w_loss_source": str(arrays["w_loss_source"]),
                 "n": int(n),
                 "rho_source": str(rho_source),
-                "clip_fraction_max": float(max(arrays["clip_fraction"].values()) if arrays["clip_fraction"] else 0.0),
+                "tt_domain_clip_max": float(max(arrays["tt_domain_clip"].values()) if arrays["tt_domain_clip"] else 0.0),
                 "age_mean_s": float(np.mean(series["age_s"])),
                 "age_min_s": float(np.min(series["age_s"])),
                 "age_max_s": float(np.max(series["age_s"])),
@@ -718,7 +987,7 @@ def sawtooth_summary(
             "block_len": int(block_len),
             "n_boot": int(n_boot),
             "rho_source": str(rho_source),
-            "clip_fraction_max": float(clip_max),
+            "tt_domain_clip_max": float(clip_max),
             "age_mean_s": float(np.mean(age_means)),
             "age_min_s": float(age_min),
             "age_max_s": float(age_max),
@@ -760,6 +1029,7 @@ def _control_one(
     n: int,
     seed: int,
     rho_source: str,
+    tau: float,
 ) -> Dict[str, Any]:
     mode = str(cal_cell["mode"])
     rho_mat = rho_matrix_from_cell(
@@ -767,7 +1037,10 @@ def _control_one(
         float(cal_cell["rho_bar"]),
         float(cal_cell["sigma_rho"]),
         int(seed),
-        tau=TAU,
+        # KHONG duoc la TAU: hang so do la 1.0, nen `--control --tau 10` se
+        # im lang sinh rho o tau=1.0. NC3_one_step_churn phu thuoc TRUC TIEP
+        # vao tau, va mot doi chung o tau SAI te hon khong co doi chung.
+        tau=float(tau),
         n=int(n),
         dt=DT,
         source=rho_source,
@@ -776,6 +1049,12 @@ def _control_one(
     _d_true, _l_true, c_true = tt.path_tables(mode, rho_mat, float(cal_cell["w_loss"]))
     a_true = c_true.argmin(axis=1)
 
+    # [20R2.5-P4] MENH DE LUON DUNG: `a_true` o tren CHINH LA c_true.argmin,
+    # nen bieu thuc nay bang 0 vi DAI SO, khong vi dung cu dung. No cung khong
+    # goi run_cell, nen khong cham toi lag / cua so cham diem / dispatch luoi z.
+    # Kill test (lech-mot trong run_cell): cai nay 0.0, doi chung that 0.026315.
+    # GIU LAI de khong pha bang so lich su; phep kiem dung cu THAT la
+    # perfect_twin_control (tools/20r2_5_perfect_twin.py).
     nc1b = float((c_true.argmin(axis=1) != a_true).mean())
     rng = np.random.default_rng(99)
     nc2 = float((rng.integers(0, T7.K, size=int(n)) != a_true).mean())
@@ -786,24 +1065,36 @@ def _control_one(
         "seed": int(seed),
         "n": int(n),
         "rho_source": str(rho_source),
+        "tau_rho": float(tau),
         "NC1b_perfect_twin": nc1b,
         "NC2_random_twin": nc2,
         "NC3_one_step_churn": nc3,
-        "clip_fraction": dict(tt.clip_log),
+        "tt_domain_clip": dict(tt.clip_log),
     }
 
 
 def controls(
     tt: TruthTable,
     cv2: C.CostV2,
-    calibration_path: str = CALIBRATION,
+    calibration_path: str = MUST_CHOOSE,
     n: int = CONTROL_N,
     seed: int = 100,
     rho_source: str = RHO_SOURCE,
+    *,
+    tau: float,
 ) -> Dict[str, Any]:
+    """Doi chung am. `tau` la KEYWORD-ONLY va KHONG co mac dinh.
+
+    Keyword-only vi da co 5 tham so dung truoc: mot `tau` theo vi tri se
+    doc duoc la mot con so vo nghia tai cho goi. Khong mac dinh vi tau la
+    TRUC, khong phai tien nghi -- mot mac dinh im lang o day chinh la
+    duong ma tau=1.0 len vao 20R/21R/22/23 ma khong ai ky (T2.0 muc F4).
+    """
+    calibration_path = require_choice(calibration_path, 'calibration_path')
     check = check_z_grid(list(Z_ALL), DT)
     cells = feasible_cells(calibration_path, include_pc1=True)
-    rows = [_control_one(tt, cv2, cell, n=n, seed=seed, rho_source=rho_source) for cell in cells]
+    rows = [_control_one(tt, cv2, cell, n=n, seed=seed,
+                         rho_source=rho_source, tau=tau) for cell in cells]
     pc1 = [row for row in rows if row["mode"] == "cbr"]
     return {
         "phase": "20R.5",
@@ -812,6 +1103,7 @@ def controls(
         "n": int(n),
         "seed": int(seed),
         "rho_source": str(rho_source),
+        "tau_rho": float(tau),
         "z_grid_check": check,
         "summary": {
             "NC1b_max_abs": float(max(abs(row["NC1b_perfect_twin"]) for row in rows)) if rows else math.nan,
@@ -841,7 +1133,10 @@ def flatten_cell_result(result: Mapping[str, Any]) -> List[Dict[str, Any]]:
                 "dt": result["dt"],
                 "z_key": z,
                 **metrics,
-                "clip_fraction_max": max(result["clip_fraction"].values()) if result["clip_fraction"] else 0.0,
+                "tt_domain_clip_max": max(result["tt_domain_clip"].values()) if result["tt_domain_clip"] else 0.0,
+                "ar1_clip_ratio": result["ar1_clip_ratio"],
+                "ar1_cycles": result["ar1_cycles"],
+                "extrapolation_contaminated": result["mode"] in ("poisson", "h2") and abs(result["rho_bar"] - 0.96) < 1e-9,
             }
         )
     return rows
@@ -849,8 +1144,8 @@ def flatten_cell_result(result: Mapping[str, Any]) -> List[Dict[str, Any]]:
 
 def run_fixed_grid(
     truth_path: str = TRUTH_TABLE,
-    calibration_path: str = CALIBRATION,
-    out_path: str = FIXED_OUT,
+    calibration_path: Optional[str] = None,   # [20R2.5-P2] khong con mac dinh
+    out_path: str = MUST_CHOOSE,
     n: int = N,
     seeds: Sequence[int] = (101, 102, 103, 104, 105),
     tau: float = TAU,
@@ -861,8 +1156,16 @@ def run_fixed_grid(
     w_loss_override: Optional[float] = None,
     rho_bar_extra: Sequence[float] = (),
 ) -> pd.DataFrame:
+    out_path = require_choice(out_path, 'out_path')
+    if calibration_path is None:
+        # [20R2.5-P2] PHAM VI: chi duong goi nay. fixed_summary_with_bootstrap,
+        # sawtooth_summary va compute_margin_cv VAN con mac dinh -- xem §16.
+        raise ValueError(
+            "calibration_path phai truyen TUONG MINH: no CHON TRUC SLA. Mac dinh "
+            "cu (self_calibrated) da lam se pilot 20R2 do bang chap nhan tren "
+            "truc SAI ma khong bao mot loi nao [20R2.5-P2].")
     tt = TruthTable(truth_path)
-    cv2 = C.CostV2(strict_reliable=False)
+    cv2 = C.CostV2(strict_reliable=False, fit_path='results/LIVE/phase-L/link_model_v2_fit.json')
     rows = []
     cells = measurement_cells(calibration_path, include_pc1=True, rho_bar_extra=rho_bar_extra, n=n, tau=tau)
     for cell in cells:
@@ -929,26 +1232,44 @@ def write_validity_sidecar(
                 {"%s@%.3f" % (r.mode, r.rho_bar) for r in table.itertuples()}
             ),
             "w_loss_values": w_set,
-            "validity": sla_only_validity_block(
-                sla_path=calibration_path,
-                w_loss=w_set[0] if len(w_set) == 1 else float("nan"),
-                z_grid=z_values,
-                note=(
-                    "err_total/err_stale/d_sla PHU THUOC truc SLA; "
-                    "rms_e_model/rms_e_stale/cov_e KHONG -- chung tinh tren "
-                    "DELAY THUAN (d_true - d_fresh), khong qua ham chi phi, "
-                    "nen w_loss khong cham toi duoc. Do duoc (G23-203): "
-                    "max|diff| = 0.0 qua doi truc SLA."
+            "run_config": {          # [20R2.5] SUY RA tu bang vua sinh, khong khai
+                "tau_rho": sorted({float(x) for x in table["tau_rho"]}),
+                "n": sorted({int(x) for x in table["n"]}),
+                "seeds": sorted({int(x) for x in table["seed"]}),
+                "sigma_rho_source": sorted({str(x) for x in table["sigma_rho_source"]}),
+            },
+            "validity": {
+                # A-T2-3: artifact nao khong khai estimand_id thi khong duoc
+                # dung de phan quyet mot du doan da ky.
+                "estimand_id": ESTIMAND_ID,
+                # [20R2.5-P5] §12.7 da phat hien nhan muc-artifact KHONG du do
+                # phan giai va da them ESTIMAND_BY_FIELD -- nhung khong noi nao
+                # GHI no ra. Artifact van mang mot nhan cho ba dai luong khac
+                # thang. Day la cho ghi no.
+                "estimand_by_field": dict(ESTIMAND_BY_FIELD),
+                # [20R2.5-P5] SUY RA tu diem z THUC SU chay, khong nhan loi khai.
+                "z_grid_id": z_grid_id_of(z_values),
+                **sla_only_validity_block(
+                    sla_path=calibration_path,
+                    w_loss=w_set[0] if len(w_set) == 1 else float("nan"),
+                    z_grid=z_values,
+                    note=(
+                        "err_total/err_stale/d_sla PHU THUOC truc SLA; "
+                        "rms_e_model/rms_e_stale/cov_e KHONG -- chung tinh tren "
+                        "DELAY THUAN (d_true - d_fresh), khong qua ham chi phi, "
+                        "nen w_loss khong cham toi duoc. Do duoc (G23-203): "
+                        "max|diff| = 0.0 qua doi truc SLA."
+                    ),
                 ),
-            ),
+            },
         },
     )
     return side
 
 
 def compute_margin_cv(
-    calibration_path: str = CALIBRATION,
-    out_path: str = MARGIN_CV_OUT,
+    calibration_path: str = MUST_CHOOSE,
+    out_path: str = MUST_CHOOSE,
     n: int = N,
     seeds: Sequence[int] = (101, 102, 103),
     tau_values: Sequence[float] = (TAU,),
@@ -958,7 +1279,9 @@ def compute_margin_cv(
     w_loss_override: Optional[float] = None,
     rho_bar_extra: Sequence[float] = (),
 ) -> pd.DataFrame:
-    cv2 = C.CostV2(strict_reliable=False)
+    calibration_path = require_choice(calibration_path, 'calibration_path')
+    out_path = require_choice(out_path, 'out_path')
+    cv2 = C.CostV2(strict_reliable=False, fit_path='results/LIVE/phase-L/link_model_v2_fit.json')
     rows: List[Dict[str, Any]] = []
     for tau in tau_values:
         cells = measurement_cells(calibration_path, include_pc1=True, rho_bar_extra=rho_bar_extra, n=n, tau=float(tau))
@@ -1096,8 +1419,8 @@ def bootstrap_seed_mean_margin_cv(
 
 
 def compute_margin_cv_ci(
-    calibration_path: str = CALIBRATION,
-    out_path: str = MARGIN_CV_CI_OUT,
+    calibration_path: str = MUST_CHOOSE,
+    out_path: str = MUST_CHOOSE,
     n: int = N,
     seeds: Sequence[int] = (101, 102, 103),
     tau_values: Sequence[float] = (TAU,),
@@ -1109,10 +1432,12 @@ def compute_margin_cv_ci(
     block_s: float = BLOCK_S,
     n_boot: int = N_BOOT,
 ) -> Dict[str, Any]:
+    calibration_path = require_choice(calibration_path, 'calibration_path')
+    out_path = require_choice(out_path, 'out_path')
     block_len = int(round(float(block_s) / DT))
     if block_len <= 0:
         raise ValueError("block_s too small")
-    cv2 = C.CostV2(strict_reliable=False)
+    cv2 = C.CostV2(strict_reliable=False, fit_path='results/LIVE/phase-L/link_model_v2_fit.json')
     rows: List[Dict[str, Any]] = []
     for tau in tau_values:
         cells = measurement_cells(calibration_path, include_pc1=True, rho_bar_extra=rho_bar_extra, n=n, tau=float(tau))
@@ -1201,7 +1526,15 @@ def parse_float_list(text: str) -> Tuple[float, ...]:
 def main(argv: Optional[Sequence[str]] = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--truth-table", default=TRUTH_TABLE)
-    ap.add_argument("--calibration", default=CALIBRATION)
+    # [20R2.5-P2] KHONG CO MAC DINH. Mac dinh cu = sla_calibration.json, tuc
+    # truc SLA self_calibrated (DEPRECATED, S14). Day la lan thu NAM cung mot
+    # co che: DEFAULT_TAU, axis=AXIS_LEGACY, sigma=V3.SIGMA, --z-grid, va gio
+    # --calibration. Do duoc: se pilot 20R2 da chay tren no du prereg §3 ky
+    # exogenous -- xem docs/phase-20R2/00-preregistration.md §16.
+    ap.add_argument("--calibration", required=True,
+                    help="file SLA -- CHON TRUC SLA. 20R2: "
+                         "results/LIVE/phase-20R/sla_manifest_exogenous_S-B.json. "
+                         "Phat lai T2: results/LIVE/phase-20R/sla_calibration.json")
     ap.add_argument("--control", action="store_true", help="run mandatory controls first")
     ap.add_argument("--control-out", default=CONTROLS_OUT)
     ap.add_argument("--run-fixed", action="store_true", help="run fixed-z grid artifact")
@@ -1212,7 +1545,8 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     ap.add_argument("--out", default=FIXED_OUT)
     ap.add_argument("--summary-out", default=SUMMARY_OUT)
     ap.add_argument("--sawtooth-out", default=SAWTOOTH_OUT)
-    ap.add_argument("--n", type=int, default=N)
+    ap.add_argument("--n", type=int, default=None,
+                    help="mac dinh: n_for_tau(tau, dt) -- giu >= 10 block moi seed")
     ap.add_argument("--control-n", type=int, default=CONTROL_N)
     ap.add_argument("--seeds", default="101,102,103,104,105")
     ap.add_argument("--rho-source", choices=("calibration_ar1", "scalar_ou"), default=RHO_SOURCE)
@@ -1220,11 +1554,27 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     ap.add_argument("--a-override", type=float, default=None, help="set sigma_rho to a * sigma_max for every calibration cell")
     ap.add_argument("--w-loss-override", type=float, default=None)
     ap.add_argument("--rho-bar-extra", default="", help="comma-separated extra rho_bar values for h2/poisson H7 diagnostics")
-    ap.add_argument("--tau", default=str(TAU), help="single tau or comma-separated tau list for --compute-margin-cv")
-    ap.add_argument("--z-grid-scaled", action="store_true", help="use z/tau ratios 0.10,0.30,0.55,1.00")
+    ap.add_argument("--tau", required=True,
+                    help="THOI GIAN TUONG QUAN cua tai, GIAY. BAT BUOC, khong co "
+                         "mac dinh (mot mac dinh im lang chinh la nguyen nhan F4). "
+                         "Nhan mot tau hoac danh sach ngan cach bang dau phay cho "
+                         "--compute-margin-cv.")
+    ap.add_argument("--z-grid", choices=sorted(Z_GRIDS), required=True,
+                    help="luoi z cho nhanh fixed. KHONG CO MAC DINH: mot mac "
+                         "dinh im lang o day da dat dieu kien len toan bo T2 "
+                         "ma khong ai ky [20R2-D3]. `legacy` phu mien "
+                         "[0.055,0.550]; `20r2_measured` phu mien measured "
+                         "[0.115,0.615] theo prereg 20R2 muc 4.")
+    ap.add_argument("--z-mode", choices=("fixed", "scaled"), required=True,
+                    help="fixed = NHANH B: z co dinh theo sync_period, KHONG co gian "
+                         "theo tau (che do van hanh that, chua ai quet). "
+                         "scaled = NHANH A: z/tau co dinh 0.10,0.30,0.55,1.00 "
+                         "(tai tao 20R cu). Bat buoc chon tuong minh de lua chon "
+                         "nay di vao provenance thay vi bi chon ngam.")
     ap.add_argument("--n-boot", type=int, default=N_BOOT)
     ap.add_argument("--boot-metrics", default=None, help="accepted for audit compatibility; all metrics are bootstrapped")
-    ap.add_argument("--block-s", type=float, default=BLOCK_S)
+    ap.add_argument("--block-s", type=float, default=None,
+                    help="mac dinh: 5*tau (block_s_for_tau)")
     args = ap.parse_args(argv)
     if args.sigma_override is not None and args.a_override is not None:
         ap.error("--sigma-override and --a-override are mutually exclusive")
@@ -1236,13 +1586,19 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     if not (args.compute_margin_cv or args.compute_margin_cv_ci) and len(tau_values) != 1:
         ap.error("--tau may be a list only with --compute-margin-cv or --compute-margin-cv-ci")
     tau = tau_values[0]
-    z_values = z_values_for(tau, args.z_grid_scaled)
+    z_values = z_values_for(tau, scaled=(args.z_mode == "scaled"),
+                            z_grid=args.z_grid)
+    if args.n is None:
+        args.n = SLA.n_for_tau(tau, DT)
+    if args.block_s is None:
+        args.block_s = block_s_for_tau(tau)
     rho_bar_extra = parse_float_list(args.rho_bar_extra)
 
     tt = TruthTable(args.truth_table)
-    cv2 = C.CostV2(strict_reliable=False)
+    cv2 = C.CostV2(strict_reliable=False, fit_path='results/LIVE/phase-L/link_model_v2_fit.json')
     if args.control:
-        report = controls(tt, cv2, args.calibration, n=args.control_n, rho_source=args.rho_source)
+        report = controls(tt, cv2, args.calibration, n=args.control_n,
+                          rho_source=args.rho_source, tau=tau)
         write_json(args.control_out, report)
         print(json.dumps(report["summary"], indent=2, sort_keys=True))
         print("controls -> %s" % args.control_out)

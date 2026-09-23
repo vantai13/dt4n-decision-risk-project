@@ -18,3 +18,10 @@ Không sửa. Nếu cần biến đổi, viết code đọc chúng và ghi outpu
 
 Dữ liệu RAW (CSV sweep, trace Phase 20) KHÔNG được mang sang; chúng vẫn nằm trong
 repo cũ tại `results/RAW/` và `results/SUPERSEDED/calib/` ở commit trên.
+
+## Kiểm lại ngày 2026-09-23
+
+Checksum của cả 3 file trùng với nội dung tại tag local `archive-2026-09`
+(commit `d45cf4ff26d8c6204a181f0fa77887e087a4d381`), tức dữ liệu không đổi từ
+`70d0e635` tới trạng thái cuối hiện có trên `origin/main` của dt4n. Tag đang chờ
+push vì máy kiểm tra chưa có xác thực GitHub.

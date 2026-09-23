@@ -1,6 +1,8 @@
 # reference/ — code cũ để ĐỌC, không để CHẠY
 
-Snapshot từ repo dt4n tại commit `70d0e635b8189d20cdd5bae947257e0ff6c383a4`.
+Snapshot từ repo dt4n tại tag local `archive-2026-09` (commit `d45cf4ff26d8c6204a181f0fa77887e087a4d381`), lấy bằng `git show <tag>:<path>`.
+Tag đã được chuẩn bị từ clone sạch ngày 2026-09-23 nhưng chưa push do máy hiện tại chưa có xác thực GitHub.
+Bản trước đó (commit `70d0e635`) bị thay ngày 2026-09-23 vì chậm 243 commit; xem decision log.
 
 **Quy tắc:** không `import` bất cứ thứ gì từ thư mục này. Không sửa file ở đây.
 Khi viết lại một chức năng trong `ndtrisk/`, mở file tương ứng ở đây để đối chiếu logic,
