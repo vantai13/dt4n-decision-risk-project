@@ -93,3 +93,11 @@ Repo mới đã được `git init -b main` và gắn remote chính thức:
 - Remote hiện tại của repo mới:
   `https://github.com/vantai13/dt4n-decision-risk-project.git`.
 - Lockfile tạo lại bằng `pip freeze --exclude-editable`.
+- Kiểm tại repo làm việc: `20 passed in 0.95s` trên Python 3.14.5.
+- Kiểm từ clone sạch cục bộ tại commit `4caf4383707fe9c452997f39490e3e3c2331a0f9`:
+  cài 19 dependency từ lockfile, cài editable với `--no-deps`, rồi pytest
+  `20 passed in 0.36s`; working tree clone sạch.
+- Fast-forward trực tiếp tại `/home/vantai/dt4n` gặp thư mục read-only và dừng trước
+  khi đổi `HEAD`; trạng thái checkout dở đã được cất trong stash recovery. Repo nguồn
+  được trả về nhánh sạch `wip-before-archive`; việc chuẩn bị tag/README archive được
+  thực hiện trong clone sạch `/home/vantai/dt4n-archive-work`.
