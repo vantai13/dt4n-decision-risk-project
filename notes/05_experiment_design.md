@@ -8,6 +8,8 @@ không giả định đã đọc MASTER_PLAN riêng tư hoặc đã có config c
 ## 1. Thế giới tham chiếu
 
 W_ref = G1 · T0 · D_lin · A0 · M0, với hai path ứng viên cố định P1,P2.
+Theo D12, cộng propagation offset hằng số b vào P1 để giữ độ khó
+κ=μ_D/σ_D=κ_ref=0,5. Offset chỉ dịch mean của D=C_P2−C_P1, không đổi variance.
 
 | Tham số | Giá trị | Lý do |
 |---|---|---|
@@ -15,6 +17,8 @@ W_ref = G1 · T0 · D_lin · A0 · M0, với hai path ứng viên cố định P
 | K | 2: P1=uA-ac-vC, P2=uA-ad-vD | null hai-path, không confound chọn top-2 từ K>2 |
 | rho_bar | 0,70 mọi link | còn cách biên 0,99 đủ xa, có độ cong để so D0 |
 | sigma | 0,05 | biên trên cách 5,8 SD tại W_ref |
+| kappa_ref | 0,5 | tránh W_ref dễ đến mức always-trust đã đạt harmful budget 1% |
+| b trên P1 | 4,281255 ms | μ_D=5,5; σ_D=2,437490; b=μ_D−0,5σ_D |
 | tau | 1 s | chuẩn hóa thời gian bằng z/tau |
 | dt | 0,01 tau | grid lịch sử đủ mịn cho lag nhỏ nhất 0,01 tau |
 | T_dec | epoch 0,1 tau, một uniform timestamp/epoch | phủ pha telemetry |
@@ -31,6 +35,26 @@ D0_l(rho)=base_l+h_l/(1−rho).
 D_lin_l(rho)=base_l+h_l/(1−rho_bar)+h_l(rho−rho_bar)/(1−rho_bar)^2.
 Đổi rho_bar thì tiếp tuyến đổi có chủ ý, chỉ so D_lin/D0 paired trong cùng cell.
 Không gọi chênh giữa hai rho_bar khác nhau là effect chỉ của curvature.
+
+Với mỗi cell e03, tính μ_D và σ_D từ D_lin chưa clip, rồi cộng offset b dưới đây
+vào cả truth và twin của P1. Số làm tròn 6 chữ số; implementation phải tính từ
+công thức, không đọc lại số làm tròn.
+
+| rho_bar | sigma | μ_D (ms) | σ_D (ms) | b trên P1 (ms) |
+|---:|---:|---:|---:|---:|
+| 0,50 | 0,02 | 3,500000 | 0,350999 | 3,324501 |
+| 0,50 | 0,05 | 3,500000 | 0,877496 | 3,061252 |
+| 0,70 | 0,02 | 5,500000 | 0,974996 | 5,012502 |
+| 0,70 | 0,05 | 5,500000 | 2,437490 | 4,281255 |
+| 0,85 | 0,02 | 10,500000 | 3,899984 | 8,550008 |
+| 0,85 | 0,05 | 10,500000 | 9,749960 | 5,625020 |
+| 0,90 | 0,02 | 15,500000 | 8,774964 | 11,112518 |
+| 0,90 | 0,05 | 15,500000 | 21,937411 | 4,531295 |
+
+D_lin không clip đạt κ=0,5 theo xây dựng. Khi chạy đối chứng có clip, D0 hoặc D1,
+luôn đo và báo κ realized; không tuyên bố offset giữ κ chính xác sau biến đổi phi tuyến.
+e06 không áp offset lên topology thật: báo phân phối κ theo OD/cặp, phân tầng kết quả
+theo κ và không quy mọi khác biệt giữa topology cho sự phá vỡ của luật.
 
 e01 dùng G0 hai link/path có cùng base=0 và h=1 ms để mean margin=0 cho Sheppard;
 có bài kiểm công thức signed nonzero mean riêng trước khi áp cho G1 bất đối xứng.
@@ -66,7 +90,7 @@ Kiểm variance/ACF thực đạt và tỷ lệ clipping; không chọn lại se
 | e03 | Ranh giới phi tuyến? RQ1a | rho_bar={0,5;0,7;0,85;0,9}, sigma={0,02;0,05}, age grid; D_lin/D0/D1 | selective_risk_ratio, harmful, regret | G1,K2,T0,A0; oracle/proxy và operational báo riêng | confirmatory sau chốt miền D1 |
 | e04 | Heavy-tail tác động thế nào? RQ1a | Gaussian vs innovation t(df=3,5) | selective_risk_ratio, reliability, harmful | D_lin, phương sai/ACF mục tiêu, W_ref còn lại | confirmatory sau generator validity |
 | e05 | Model mismatch tương tác age? RQ1a | M0/M1 × age grid | harmful, regret, interaction contrast | truth D1 ở cả M0/M1; twin map thay, cùng traffic | factorial nhỏ |
-| e06 | Transfer topology/OD/K? RQ1b | K={2,3,5} khi đủ path, topology, T1,A1/A2 | pair vs global error, contender, calibration | cùng ngân sách và ε | chốt config cuối P3 |
+| e06 | Transfer topology/OD/K? RQ1b | K={2,3,5} khi đủ path, topology, T1,A1/A2 | pair vs global error, contender, calibration; phân phối κ | cùng ngân sách và ε; không ép κ trên topology thật | chốt config cuối P3 |
 | e07–e09 | Gate hơn baseline mạnh? RQ2 | phương pháp/C1/C2/fallback | selective harmful, coverage, e2e cost | paired traffic và dữ liệu calibration | chốt chi tiết L5.1 |
 | e10–e11 | Trace/realism transfer | T3 và evidence thực có | các estimand đã khóa | chronological split, horizon có thật | chốt sau kiểm nguồn/license |
 | e12 | Emulation kiểm xu hướng | subset cell đã đăng ký | harmful/regret/coverage | time-box 2 tuần | P6, sau simulator |
@@ -147,3 +171,7 @@ thiện đúng phase trước chạy. Đây là các checkpoint có chủ ý, kh
   cùng mẫu, nên không dùng làm bằng chứng confirmatory tách riêng curvature.
 - Độ lồi/Jensen cho kết quả về mean, không tự chứng minh hướng sai của conditional
   flip risk. Hướng risk phải kiểm, tránh gọi pilot thành định lý.
+- Kiểm D12 do agent chạy ngày 2026-09-23: NumPy RNG seed 20260923,
+  n=4.000.000, Gaussian OU exact, κ=0,5, σ_D=2,437490, z/tau=0,3:
+  pair flip=0,2054485; harmful@2ms=0,03101175; mean regret=0,222038 ms.
+  Đây là sanity check để loại thiết kế suy biến, không phải kết quả confirmatory.

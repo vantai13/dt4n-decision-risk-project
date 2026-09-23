@@ -25,6 +25,8 @@ Các module simulator/gate/metrics chưa triển khai đầy đủ quy ước n�
 | s_pair | abs(m−m̂) | ms | `score_pair_ms` |
 | s_all | max_k abs(e_k−e_â) | ms | `score_all_ms` |
 | D_ij | C_j−C_i, D_ji=−D_ij | ms | `diff_ms` |
+| κ | μ_D/σ_D có dấu theo cặp có hướng; độ khó quyết định | không thứ nguyên | `decision_difficulty` |
+| b | propagation offset hằng số cộng vào P1 để điều khiển κ ở D_lin | ms | `path_offset_ms` |
 | W | lịch sử theo thời gian sinh telemetry, mặc định 200τ | s | `hist_window_s` |
 | μ̂, σ̂, r̂(z) | mean, SD, ACF theo cặp có thứ tự | ms, ms, không thứ nguyên | `mu_hat_ms`, `sigma_hat_ms`, `r_hat` |
 | â, b̂, ŝ_res | intercept, slope, residual SD hồi quy trễ | ms, không thứ nguyên, ms | `intercept_ms`, `slope`, `residual_sd_ms` |
@@ -149,6 +151,27 @@ phải được hiệu chỉnh riêng; chưa có calibration thì chưa biết q
 VD6: C1 ABSTAIN (0,6<1); C2 ACCEPT (0,6≥1−0,5).
 Score=1≤q̂, cận regret=0,4 ms; thực tế error=1, regret=0,4≤0,5, harmful=0.
 C2 có thể nhận thêm lỗi vô hại; kiểm float bằng tolerance, không sửa inequality định nghĩa.
+
+### VD7–VD8 — lời giải tham khảo của agent, không thay bài làm tay
+
+Người dùng yêu cầu agent điền và kiểm. Hai lời giải sau là đáp án tham khảo đã xem
+đề trong Lesson 0.5; không ghi nhận là tác giả đã tự làm không dùng code/AI.
+
+VD7: â=A, â₂=B, a*=B; m̂=0,8 ms, m=−0,9 ms. Sai số e_A=1,5,
+e_B=−0,2, e_C=−1,8 ms. Vì vậy s_pair=1,7 ms và
+s_all=max(|e_A−e_A|,|e_B−e_A|,|e_C−e_A|)=max(0;1,7;3,3)=3,3 ms.
+Contender=true, decision error=1,
+regret=0,9 ms, harmful tại ε=1 ms bằng 0 (strict regret>ε). C1 ABSTAIN vì
+0,8<1,5; C2 ACCEPT vì 0,8≥1,5−1. C2 chỉ hứa regret≤ε trên sự kiện
+s_all≤q̂; mẫu này có 3,3>1,5 nên certificate không áp dụng. Kết quả thực tế vẫn
+0,9≤1 là đúng một cách ngẫu nhiên, không phải lời hứa đã được chứng nhận.
+
+VD8: r=0,741, v=2sqrt(1−r²)≈1,343 ms trong cả hai trường hợp.
+Với μ_D=0: c=0+0,741(1−0)=0,741; m̃≈0,552; p̂≈Phi(−0,552)≈0,291.
+Với μ_D=4: c=4+0,741(1−4)=1,777; m̃≈1,323; p̂≈Phi(−1,323)≈0,093.
+Cùng margin cũ và cùng tuổi nhưng conditional mean-reversion hướng về hai mean
+khác nhau, nên risk khác. W_ref cũ có κ lớn, khiến mean lấn át fluctuation và làm
+decision quá dễ; D12 giữ κ_ref=0,5 trong các cell đối chứng.
 
 ## 5. Sáu lựa chọn v1 (2026-09-23)
 

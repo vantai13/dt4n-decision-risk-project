@@ -78,5 +78,8 @@ hiệu quả gate. Các pilot được cung cấp bởi lesson được phân bi
 - Độ lồi không tự chứng minh hướng sai calibration; không đòi mọi CI95% pointwise
   đồng thời phủ để rồi quy mọi sai lệch thành bug.
 
-Kiểm định confirmatory vẫn cần đăng ký config/contrast ở đúng phase. Không có
-biên bản GVHD, elevator test hay kết quả e01–e12 được suy diễn là đã hoàn tất.
+Sau review Lesson 0.5, W_ref v1 được phát hiện có κ≈2,256 nên quá dễ cho H2.
+D12 thay bằng κ_ref=0,5 qua propagation offset; bảng số và pilot kiểm không suy biến
+nằm ở `05_experiment_design.md` §1, §8 và `03_experiment_log.md`. Kiểm định
+confirmatory vẫn cần đăng ký config/contrast ở đúng phase. Không có biên bản GVHD,
+elevator test hay kết quả e01–e12 được suy diễn là đã hoàn tất.

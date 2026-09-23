@@ -64,6 +64,32 @@ thiết kế v1 có điều kiện xem lại; chưa phải bằng chứng rằng
 - Revisit when: pilot độc lập báo precision kém; chỉ đổi horizon cho một batch mới,
   không gộp pilot vào confirmatory. Holm cho tối đa 6 claim được đăng ký cụ thể trước test.
 
+### D11 — Venue (đề xuất, chờ GVHD chốt)
+- Context: ICC 2027 đóng bài ngày 2026-10-02, không đủ thời gian tạo evidence;
+  CFP CNSM/GLOBECOM 2027 chưa công bố tại ngày 2026-09-23.
+- Options: CNSM 2027; GLOBECOM 2027; ICC 2027; lùi sang vòng sau.
+- Decision: đề xuất CNSM 2027 là venue chính và GLOBECOM 2027 là dự phòng;
+  không nộp ICC 2027. Đây chưa phải quyết định của GVHD và phải kiểm lại CFP 2027.
+- Consequences: thiết kế giữ RQ1a/RQ1b/RQ2 cho khổ CNSM dài; nếu chọn GLOBECOM
+  phải thu hẹp RQ1b hoặc chuyển validation mở rộng sang bản sau, không cắt evidence cốt lõi.
+- Revisit when: CFP 2027 xuất bản hoặc GVHD chọn venue/yêu cầu tốt nghiệp khác.
+
+### D12 — Độ khó quyết định κ = μ_D/σ_D
+- Context: W_ref v1 có κ≈2,256 (P1/P2, rho_bar=0,70, sigma=0,05), khiến
+  harmful@2ms≈0,33% ở z/tau=0,3 theo pilot được review cung cấp; always-trust đã
+  dưới budget 1%, nên H2 suy biến. κ cũng đổi khi quét tải, gây confound e03.
+- Options: (a) giữ nguyên; (b) cộng propagation offset hằng số vào P1 để giữ κ_ref;
+  (c) đổi cặp path hoặc bandwidth.
+- Decision: chọn (b), κ_ref=0,5. Trong mỗi cell, đặt
+  b=μ_D(rho_bar)−0,5σ_D(rho_bar) và cộng b vào P1. κ=0,5 vẫn có path ưu thế nhẹ,
+  nhưng tạo đủ lỗi để phân biệt gate; pilot độc lập 4.000.000 mẫu tại z/tau=0,3
+  cho pair flip=20,54% và harmful@2ms=3,10%.
+- Consequences: cô lập độ khó khỏi tải trong đối chứng D_lin, không đổi phương sai,
+  tương quan hoặc độ cong; offset là tham số tổng hợp chứ không phải topology vật lý
+  nguyên bản và phải khai trong paper. Với clipping/D0/D1 phải báo κ thực hiện được.
+- Revisit when: e06 trên topology thật; không chỉnh κ để làm đẹp kết quả mà đo,
+  phân tầng/báo cáo phân phối κ và so residual sau khi điều kiện hóa theo κ.
+
 ### W, calibration và khởi tạo
 - Context: tham số ước lượng hữu hạn không được đảm bảo exact ngay trong null Gaussian.
 - Options: W là validity hoặc một trục nghiên cứu.

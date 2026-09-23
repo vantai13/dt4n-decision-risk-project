@@ -84,4 +84,6 @@ chung, báo cáo phạm vi. Đây là mapping đề xuất, chưa đối chiếu
 ## 11. Còn mở
 GVHD xác nhận exogenous và ε; full-text novelty; fallback và protocol nhãn thực;
 chi phí trace/history. Elevator test với người ngoài ngành: chưa thực hiện.
+W_ref đã sửa theo D12 để κ_ref=0,5 trong D_lin; κ realized dưới D0/D1/clipping
+và phân phối κ ở e06 phải được đo, không giả định đã giữ nguyên.
 Mọi thuật ngữ và đại lượng: xem `notes/06_definitions.md`.
