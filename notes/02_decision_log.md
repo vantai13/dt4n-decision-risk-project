@@ -176,3 +176,17 @@ lý do do tác giả tự viết theo yêu cầu học tập ở D15. D14–D15 
   không phải deadline đã công bố hay ngày hoàn thành thí nghiệm.
 - Nguồn soạn, trạng thái bài tự làm và kiểm tra chưa thực hiện tiếp tục được
   công khai trong hồ sơ. Không diễn giải tag có điều kiện thành hoàn tất C1–C4.
+
+### D17 — Hoàn thành Lesson 1.1 theo xác nhận của tác giả (2026-09-23)
+
+- Evidence: `notes/01_literature/notes/opentwin_2026_v2.md` có Five Cs,
+  5 claim–evidence, bảng biến, tám câu hỏi, câu định vị và §/trang cho kết quả số;
+  dòng OpenTwin trong `novelty_matrix.xlsx` đã chuyển các điểm CHƯA kiểm/SUY LUẬN
+  thành kết quả đọc full text có dẫn §VI, §VII-C và §VIII.
+- Author check: tác giả xác nhận đã tự đọc §VI, Theorem 3, Fig. 5–6, kiểm note và
+  trình bày gate trong 3 phút. Đây là self-attestation, không phải kiểm tra độc lập.
+- Decision: L1.1 DONE; pass 3 rút gọn đã đủ, pass 3 đầy đủ phần gate chờ L1.5
+  theo D13. Kết luận “age+margin chưa ai làm” vẫn chưa khóa trước L1.2/DP1.
+- Administrative exception: `notes/private/PHASE_1.md` không có trong workspace
+  và không tìm thấy dưới `/home/vantai`, nên SHA256 ở D13 vẫn chưa khả dụng.
+  Không tạo hash từ attachment hoặc bản hướng dẫn thay cho plan gốc.

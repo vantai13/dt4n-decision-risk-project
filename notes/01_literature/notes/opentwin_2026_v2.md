@@ -1,8 +1,9 @@
 # Zhang et al. 2026 — OpenTwin (v2)
 
-> **Trạng thái:** AI-assisted full-text prefill từ PDF v2 do tác giả cung cấp.
-> Tác giả **chưa tự đọc/kiểm lại** note này. Không ghi đây là bài tự đọc.
-> Các kết luận novelty dưới đây là input cho tác giả review, chưa phải DP1 conclusion.
+> **Trạng thái:** Bản nháp ban đầu có hỗ trợ từ PDF v2. Ngày 2026-09-23,
+> tác giả xác nhận đã tự đọc §VI, Theorem 3, Fig. 5–6, kiểm lại ghi chú và
+> trình bày gate trong 3 phút. Đây là kết quả L1.1; kết luận novelty toàn cục
+> vẫn chờ kill-search L1.2 và quyết định DP1.
 
 | Trường | Giá trị |
 |---|---|
@@ -10,7 +11,7 @@
 | Tác giả (v2) | [F] Zifan Zhang; Md Sharif Hossen; Dara Ron; Vijay K. Shah; Yuchen Liu |
 | Nguồn | [F] arXiv:2605.24662v2; DOI 10.48550/arXiv.2605.24662 |
 | Trạng thái | [F] preprint; v2 sửa 2026-08-28 |
-| Lượt đã đọc | AI full-text prefill; tác giả: pass 1 □ · pass 2 □ · pass 3 chờ L1.5 |
+| Lượt đã đọc | Tác giả xác nhận: pass 1 ✓ · pass 2 ✓ · pass 3 rút gọn ✓; pass 3 đầy đủ phần gate chờ L1.5 theo D13 |
 | Ngày | 2026-09-23 |
 | Mức đe doạ novelty | **Cao** — đã có per-action DT trust gate, online calibration, drift/freshness handling và formal false-approval bound |
 
@@ -156,10 +157,14 @@ Nhãn: **[F]** paper nói trực tiếp, có §/trang · **[I]** suy luận củ
 8. **Baseline? Có always-trust không?**  
    [F] Có **always-admit xApp** trong gate evaluation; ngoài ra fixed-radius reference cho calibration, periodic resync/fixed-time detectors cho freshness, và perfect-foresight oracle/reference trong energy experiment (§VIII-D/E, pp.10–11).
 
-## Việc tác giả cần tự kiểm trước khi đánh dấu Lesson 1.1 DONE
+## Checklist hoàn thành Lesson 1.1
 
-- [ ] Tự đọc §VI pp.6–7 và giải thích gate bằng lời trong 3 phút.
-- [ ] Tự đọc Theorem 3 p.8 và nói rõ vì sao joint false approval ≠ selective risk.
-- [ ] Tự kiểm Fig.5–6, đặc biệt coverage/admit-rate trade-off.
-- [ ] Nếu đồng ý với note, đổi trạng thái pass 1/pass 2 và cập nhật novelty matrix.
-- [ ] Không dùng câu “OpenTwin không xử lý staleness”; dùng câu chính xác hơn: **“OpenTwin handles temporal drift/freshness online but does not explicitly condition action admission on telemetry age.”**
+- [x] Tác giả xác nhận đã đọc §VI pp.6–7 và giải thích gate bằng lời trong 3 phút.
+- [x] Tác giả xác nhận đã đọc Theorem 3 p.8 và phân biệt joint false approval với selective risk.
+- [x] Tác giả xác nhận đã kiểm Fig.5–6, gồm coverage/admit-rate trade-off.
+- [x] Tác giả đồng ý với note; dòng OpenTwin trong novelty matrix đã cập nhật kèm §/trang.
+- [x] Dùng phát biểu chính xác: **“OpenTwin handles temporal drift/freshness online but does not explicitly condition action admission on telemetry age.”**
+
+Xác nhận hoàn thành ở đây là self-attestation của tác giả trong trao đổi ngày
+2026-09-23. Pass 3 đầy đủ về conformal gate vẫn là công việc của L1.5, không phải
+điều kiện còn thiếu của L1.1 theo D13.
