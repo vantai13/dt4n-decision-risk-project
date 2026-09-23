@@ -7,7 +7,7 @@ Ngày chạy: 2026-09-23 (Asia/Saigon).
 - Repo nguồn: `https://github.com/vantai13/dt4n.git`
 - Commit nguồn: `70d0e635b8189d20cdd5bae947257e0ff6c383a4`
 - Cơ chế lấy file: `git show <commit>:<path>`; working tree chưa commit của repo cũ không được trộn vào snapshot.
-- Ngoại lệ có chủ ý: novelty matrix `.xlsx` được bổ sung từ working tree theo Bước 5 của hướng dẫn.
+- Ngoại lệ có chủ ý: workbook literature được bổ sung từ working tree theo Bước 5 của hướng dẫn. Bản Almasan-only ban đầu đã được thay bằng `Paper_Breakdown_DT4N_One_Comparison_Table_updated.xlsx` (9 sheet, có `Novelty Matrix`; SHA-256 `2736294d1f04909d134042c9ac2f1d905e79853fa92d15f86a5f8d5c9eae2a73`).
 
 ## Kết quả chạy
 
@@ -15,8 +15,8 @@ Lệnh test:
 
 ```text
 $ .venv/bin/pytest -q
-..................                                                       [100%]
-18 passed in 0.37s
+....................                                                     [100%]
+20 passed in 0.96s
 ```
 
 Kiểm checksum dữ liệu:
@@ -45,10 +45,10 @@ truth_table.parquet bytes=19642
 Kích thước repo sau `git gc`:
 
 ```text
-du -sh --exclude=.venv . = 936K
-content_only (không tính .venv/.git) = 660K
-git_metadata = 276K
-tracked_files = 49
+du -sh --exclude=.venv . = 1.1M
+content_only (không tính .venv/.git) = 712K
+git_metadata = 344K
+tracked_files = 50
 ```
 
 Môi trường:
@@ -69,14 +69,12 @@ Danh sách phiên bản Python đầy đủ nằm ở `requirements-lock.txt`.
 | `tests/test_margin.py` | 16 golden test cho decision margin |
 | `requirements-lock.txt` | phiên bản dependency thực tế đã cài |
 | `notes/00_research_brief.md` | problem, RQ1/RQ2, assumptions và kill criteria |
+| `notes/01_literature/Paper_Breakdown_DT4N_One_Comparison_Table_updated.xlsx` | novelty matrix và breakdown các prior work |
 | `notes/04_bootstrap_verification.md` | báo cáo tổng hợp lần chạy này |
 
 ## Phần cố ý chưa làm
 
 Repo `dt4n` nguồn đang có nhiều thay đổi chưa commit và đang chậm hơn `origin/main` 55 commit ở thời điểm kiểm tra. Vì vậy không tag/archive, không sửa README, không đổi tên thư mục nguồn và không push trạng thái đó. Đây là biện pháp tránh làm mất hoặc gắn sai provenance cho công việc đang dở.
 
-Repo mới đã được `git init -b main`, commit local và gắn remote
-`git@github.com:vantai13/ndt-decision-risk.git`. Push chưa thành công vì máy hiện tại
-không có GitHub CLI và GitHub từ chối SSH key với lỗi
-`Permission denied (publickey)`. Cần tạo repo private trên GitHub và cấu hình thông tin
-xác thực trước khi chạy lại `git push -u origin main`.
+Repo mới đã được `git init -b main` và gắn remote chính thức:
+`https://github.com/vantai13/dt4n-decision-risk-project.git`.
