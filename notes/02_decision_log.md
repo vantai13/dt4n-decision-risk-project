@@ -190,3 +190,23 @@ lý do do tác giả tự viết theo yêu cầu học tập ở D15. D14–D15 
 - Administrative exception: `notes/private/PHASE_1.md` không có trong workspace
   và không tìm thấy dưới `/home/vantai`, nên SHA256 ở D13 vẫn chưa khả dụng.
   Không tạo hash từ attachment hoặc bản hướng dẫn thay cho plan gốc.
+
+### D18 — Tiêu chí DP1 (đăng ký MUỘN, 2026-09-23)
+
+- Ghi chú trung thực: tiêu chí này lẽ ra phải ghi trước khi đọc paper đầu tiên;
+  OpenTwin v2 đã được đọc (D17) trước khi ghi. Văn bản tiêu chí bên dưới được
+  chép nguyên văn từ hướng dẫn L1.2 do tác giả cung cấp ngày 2026-09-23. File
+  `notes/private/PHASE_1.md` không có trên máy, nên SHA256 vẫn **chưa khả dụng**;
+  không thay bằng hash của attachment hoặc tự tạo một bản plan giả.
+- DP1 = PASS nếu mỗi candidate contribution được giữ có >= 1 điểm khác biệt loại
+  problem/method đã kiểm full text so với MỌI paper gần nhất (OpenTwin v2,
+  Zhu et al., Guérin--Orda), VÀ lý thuyết L1.3--L1.5 cho thấy câu trả lời không
+  hiển nhiên.
+- DP1 = NARROW nếu chỉ characterization (RQ1) còn điểm khác biệt, còn gate (RQ2)
+  trùng một paper gần nhất.
+- DP1 = PIVOT nếu không contribution nào còn điểm khác biệt problem/method.
+- Chỉ ``setting khác'' KHÔNG đủ cho PASS.
+- Bổ sung từ L1.1: paper nào được phân loại ``rất gần'' trong search log cũng
+  phải qua phép so này trước DP1.
+- Trạng thái tại thời điểm ghi: **chưa quyết định DP1**; CERT và LEC đã được xếp
+  rất gần, backlog snowballing và phần full text bắt buộc vẫn chưa hoàn tất.
