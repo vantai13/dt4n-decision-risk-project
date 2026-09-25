@@ -1,0 +1,27 @@
+[1] Queue model check: K counts packets in system; testbed packets are fixed
+rho  MM1K_loss  MM1K_wait_S  MD1K_loss  MD1K_wait_S
+0.80     1.8448%        2.998     0.2743%        1.930
+0.90     4.3732%        4.017     1.4467%        3.206
+1.00     8.3333%        5.026     4.9090%        4.925
+
+[2] Validation against Mininet poisson|4Mbps|q=10 (K=q+1=11)
+rho  MD1K_loss  Mininet_loss  MD1K_wait_S  Mininet_wait_S
+0.80     0.2743%       0.2212%        1.930           1.235
+0.90     1.4467%       1.1319%        3.206           2.444
+1.00     4.9090%       4.4000%        4.925           4.291
+
+[3] One-step decision check (rates use all decision epochs)
+harm budget=1%; missed means missed events / all epochs
+sd_log_s  method     harmful    missed    switch
+    0.00  fixed       0.9525%   4.9600%  56.9655%
+    0.00  scaled      0.9525%   4.9600%  56.9655%
+    0.00  posterior   0.9525%   4.9600%  56.9655%
+    0.25  fixed       0.9760%   4.9690%  56.8720%
+    0.25  scaled      0.9675%   4.9120%  57.0825%
+    0.25  posterior   0.9570%   4.9385%  57.0615%
+    0.50  fixed       0.9815%   5.4475%  55.7715%
+    0.50  scaled      0.9835%   4.9245%  57.1560%
+    0.50  posterior   0.9860%   4.9100%  57.3100%
+    1.00  fixed       0.9580%   6.0460%  53.9325%
+    1.00  scaled      0.9575%   4.2945%  58.0570%
+    1.00  posterior   0.9565%   4.2800%  58.4130%
