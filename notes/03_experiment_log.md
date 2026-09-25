@@ -102,3 +102,18 @@ Mẫu cho mỗi thí nghiệm (copy khối dưới):
 - **Diễn giải:** ủng hộ K2 (b) có hiệu chỉnh KKT, K17 (đại lượng H2 là mức đảo thứ tự), K21 (κ). Thế giới đồ chơi,
   không nói gì về độ lớn hiệu ứng trong mạng.
 - **Không dùng cho:** claim RQ1/RQ2.
+
+## 2026-09-25 — P03 H2 indices (EXPLORATORY, Phase 0 v2 / L0.4)
+
+- **Câu hỏi:** chỉ số nào theo đúng khoảng cách ngưỡng tĩnh–oracle (K17)?
+- **Dự đoán trước khi chạy:** sd_log_s báo động giả ở thế giới B (s tăng cùng Î) — đã dự đoán trong L0.2.
+  Lỗi của Spearman trên mọi epoch ở thế giới C (do kẹp p±) được PHÁT HIỆN khi chạy, không có dự đoán trước.
+- **Config + seed:** `experiments/pilot/p03_h2_indices.py`; dùng lại thế giới và luật P02 (seed 9101–9103), thêm D (9104).
+- **Kết quả:** `experiments/pilot/results/p03_h2_indices_output.txt`. Khoảng cách (điểm %): A 8,181; B 0,054; C 0; D 0,042.
+  rd_kappa: 0,104; 0; 0; 0,004. sd_log_s_cond: 0,699; 0,068; 0; 0,082. sd_log_s: 0,699; 0,565; 0; 0,228.
+  rd_all: 0,078; 0; 0,195; 0,005.
+- **Repeatability:** output trên Python 3.14.5, NumPy 2.5.3, SciPy 1.18.1 trùng byte; MD5
+  `4c0b95cadc42c3b6b156c52b19a09d0d`.
+- **Diễn giải:** ủng hộ định nghĩa rd_kappa và sd_log_s_cond; loại rd_all; sd_log_s chỉ là biến phụ. Thế giới đồ chơi,
+  không nói gì về độ lớn trong mạng.
+- **Không dùng cho:** claim RQ1/RQ2.

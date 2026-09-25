@@ -8,6 +8,7 @@ Code nháp sinh ra các con số trong mục "Kết quả sơ bộ" của thuy�
 | `switch_or_stay_diagnostic.py` | `results/switch_or_stay_diagnostic.txt` | thuyết minh v14 §6.1 | trùng byte |
 | `p01_load_information.py` | `results/p01_load_information_output.txt` | không trích trong thuyết minh | pilot khám phá của tác giả, có log riêng |
 | `p02_objective_rules.py` | `results/p02_objective_rules_output.txt` | ADR K2, K21; memo L0.3 (không trích trong thuyết minh) | tạo 2026-09-25 |
+| `p03_h2_indices.py` | `results/p03_h2_indices_output.txt` | 06_definitions v2 Phần 6; ADR K17 bổ sung | tạo 2026-09-25 |
 
 Quy tắc: không dùng các file ở đây làm bằng chứng cho RQ1/RQ2. Logic đáng giữ sẽ được viết lại
 sạch, có test, trong `ndtrisk/` ở các phase sau (L2.1, Phase 3).

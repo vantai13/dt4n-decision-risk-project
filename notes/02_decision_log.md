@@ -15,6 +15,7 @@
 | 2026-09-25 | PIVOT-v14: đổi sang switch-or-stay (ADR "Phase 0 v2" cuối file) | Vùng trust gate đã có OpenTwin v2, CERT, LEC; câu hỏi mới có kết quả giá trị ở cả hai chiều | Giữ v1, thu hẹp novelty |
 | 2026-09-25 | L0.2: brief v2 (bản nháp AI, tác giả kiểm); K17, K22, DP1-v2 (ADR cuối file) | Chuyển câu hỏi v14 thành RQ/H bác bỏ được; sửa đại lượng H2 và họ ngưỡng tĩnh theo pilot đã cứu | Giữ nguyên H2 theo thuyết minh v14 |
 | 2026-09-25 | L0.3: đề xuất K2 (mục tiêu b, hiệu chỉnh KKT), K3 (loss nhãn riêng), K21 (κ = 0,01); pilot P02 | Oracle là nghiệm của mục tiêu; kiểm bằng số phát hiện hai bẫy hiệu chỉnh | Tune η để "đạt" α (tiêu hết ngân sách) |
+| 2026-09-25 | L0.4: definitions v2; K6 (F chính), K7 (đơn vị S, tham số link), K17 bổ sung (rd_kappa, loại rd_all); pilot P03 | Một tên = một estimand; chỉ số H2 được kiểm trước khi định nghĩa | Định nghĩa trong code |
 
 ## ADR — L0.3/L0.4, ngày 2026-09-23
 
@@ -334,3 +335,38 @@ Hai file này không cần sao chép vào `notes/private/` của repo, không y�
 - **Decision (đề xuất):** (b), κ = 0,01; báo κ = 0 làm độ nhạy. Áp cho MỌI luật, kể cả ngưỡng tĩnh và oracle.
 - **Consequences:** P02-C: đổi 84,83% → 10,00%, missed +0,010 điểm %. P02-A: đổi 42,55% → 42,51%, missed không đổi.
 - **Revisit when:** có c_switch có nguồn cho ứng dụng mục tiêu (VoIP), hoặc κ làm đổi thứ tự các luật ở một ô.
+
+## ADR — Phase 0 v2 / L0.4 (2026-09-25)
+
+### K6 — Nội dung của thông tin F (CHỐT cho phase lõi)
+
+- **Context:** Oracle chỉ là cận trên khi thấy ít nhất mọi thứ policy thấy (F_oracle ⊇ F_policy). Oracle ước lượng
+  bằng bin thực nghiệm chỉ khả thi khi F nhỏ. Probe dùng để chấm điểm, không được rò sang policy.
+- **Options:** (a) F đầy đủ (mọi cửa sổ quá khứ) cho mọi policy; (b) F chính rút gọn cho MỌI policy và oracle, F mở rộng
+  là thí nghiệm phụ; (c) thêm telemetry độ dài hàng đợi.
+- **Decision:** (b). F chính = {ρ̂ của mỗi link trên cur và alt ở cửa sổ mới nhất; z; path hiện tại}, cộng tri thức
+  tĩnh {S, K, prop, tham số OU ước lượng trên đoạn calibration trước run} (mức tri thức theo K18, L0.5).
+  ρ̂ = (gói truyền + gói drop trong W)·S/W (tải đề nghị). F mở rộng = F chính + 19 cửa sổ trước (tổng 20).
+  Không có trong F: probe, độ dài hàng đợi, tải thật.
+- **Consequences:** oracle bin trên (ρ̂_cur, ρ̂_alt, z, path) (bỏ z khi tuổi cố định); test không rò rỉ ở Phase 4
+  kiểm policy không đọc probe.
+- **Revisit when:** F4/F5 cho thấy F chính làm twin và oracle cùng "mù" ở vùng quan trọng (khoảng cách twin–oracle
+  chủ yếu do thiếu lịch sử) → chạy F mở rộng.
+
+### K7 — Đơn vị thời gian và tham số link (DỰ THẢO; khoá ở DP0)
+
+- **Context:** Nhiễu đếm và bộ nhớ hàng đợi đều tỉ lệ với S, nên tốc độ testbed 4 Mb/s quyết định nguồn bất định chiếm
+  ưu thế (Π_noise = 5,78 ở 4 Mb/s; 1,16 ở 100 Mb/s). Testbed là HTB token bucket, không phải M/D/1/K (PIVOT mục 8).
+- **Options:** (a) DES tính bằng giây theo testbed 4 Mb/s; (b) DES tính theo đơn vị S, tham số thời gian chọn theo
+  nhóm Π tại điểm neo F1.
+- **Decision (dự thảo):** (b). S = 1; K ∈ {11 (nông), 100 (sâu)} theo đơn vị S; gói cố định. Testbed 4 Mb/s là một
+  điểm trong không gian Π (K = 100 ↔ 302 ms), chỉ dùng cho validation.
+- **Consequences:** mọi bảng báo cả K (đơn vị S) và thời gian buffer ở điểm neo; F1 phải trả về điểm neo dưới dạng Π.
+- **Revisit when:** DP0.
+
+### K17 bổ sung — Định nghĩa chỉ số H2 (2026-09-25)
+
+- Pilot P03 (exploratory, 4 thế giới đồ chơi): `sd_log_s` báo động giả (B: 0,565; D: 0,228 dù khoảng cách ≈ 0);
+  Spearman trên MỌI epoch hỏng ở mạng rảnh (C: 0,195 dù khoảng cách = 0) do kẹp p± ở sàn Monte Carlo.
+- Ứng viên (b) được định nghĩa lại: `rd_kappa` = 1 − Spearman(Î, log-odds) trên tập cân nhắc {p+ > κ}.
+  Ứng viên (c) `sd_log_s_cond` giữ nguyên. `rd_all` bị loại. Quy tắc chọn ở DP0 không đổi.

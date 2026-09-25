@@ -3,7 +3,7 @@
 > Bản nháp do Claude (AI) soạn ngày 2026-09-25 theo yêu cầu tác giả; tác giả kiểm từng mục trước khi dùng
 > làm căn cứ. Thay đổi so với v1 (`notes/archive/v1_trust_gate/00_research_brief.md`): đơn vị quyết định là
 > đổi/giữ; câu hỏi "khi nào ngưỡng tĩnh là đủ"; H2 dùng mức đảo thứ tự; RQ2 lấy sai mô hình làm trục chính.
-> Lý do: `02_decision_log.md` (PIVOT-v14, K17, K22). Thuật ngữ: `06_definitions.md` (v2 ở L0.4).
+> Lý do: `02_decision_log.md` (PIVOT-v14, K17, K22). Thuật ngữ: `06_definitions.md` (v2).
 
 ## 1. Problem
 
@@ -42,13 +42,13 @@ luật xác suất dùng λ ≥ 0 nhỏ nhất đạt harm ≤ α (không tiêu 
 
 | RQ | Câu hỏi | Loại | Bằng chứng |
 |---|---|---|---|
-| RQ1 | Khoảng cách missed-tại-α giữa ngưỡng tĩnh tốt nhất (họ tuyệt đối + tương đối, tune từng ô) và oracle một bước cùng thông tin lớn đến đâu; thay đổi thế nào theo độ sâu buffer (tính theo S), độ gần knee, burstiness, jitter tuổi, nhiễu đếm? | characterization + mechanism | Quét có kiểm soát + OFAT; decision-level; CI paired theo seed |
+| RQ1 | Khoảng cách theo tiêu chí K2 (missed + κ·đổi) tại α giữa ngưỡng tĩnh tốt nhất (họ tuyệt đối + tương đối, tune từng ô) và oracle một bước cùng thông tin lớn đến đâu; thay đổi thế nào theo độ sâu buffer (tính theo S), độ gần knee, burstiness, jitter tuổi, nhiễu đếm? | characterization + mechanism | Quét có kiểm soát + OFAT; decision-level; CI paired theo seed |
 | RQ1-op | Chỉ số đảo thứ tự tính từ output twin có dự báo được khoảng cách trước khi chạy oracle không? | characterization vận hành | Tương quan hạng chỉ số–khoảng cách qua các ô; chỉ số khoá ở DP0 |
 | RQ2 | Ở ô có khoảng cách ≥ SESOI, luật posterior-odds dùng bất định lan truyền qua twin chịu được bao nhiêu sai mô hình và dịch chuyển chế độ (ngưỡng đóng băng) trước khi vượt α hoặc mất lợi thế so với luật học từ dữ liệu và luật lai? | comparative + robustness | Baseline tune công bằng; knowledge parity; ≥ 1 thực tế ngoài họ mô hình |
 
 ## 6. Hypotheses — số là dự thảo, khoá ở DP0 / prereg (sau F3)
 
-SESOI_claim: khoảng cách ≥ max(0,5 điểm %; 20% × missed của ngưỡng tĩnh). SESOI_DP0: ≥ 2 điểm % HOẶC ≥ 20%.
+SESOI_claim: khoảng cách ≥ max(0,5 điểm %; 20% × J của ngưỡng tĩnh). SESOI_DP0: ≥ 2 điểm % HOẶC ≥ 20%.
 "Vượt ngân sách": cận dưới CI95 của harm thực tế > 1,25α; "giữ ngân sách": cận trên ≤ 1,25α.
 
 - **H1 (đối chứng):** Thế giới tuyến tính–Gaussian với s không đổi → |khoảng cách| ≤ 2 SE Monte Carlo, cả ở

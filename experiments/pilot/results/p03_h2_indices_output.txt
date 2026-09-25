@@ -1,0 +1,5 @@
+thế giới           gap điểm %  sd_log_s  sd_cond   rd_all  rd_kappa
+A_rang_buoc_can         8.181     0.699    0.699   0.0779    0.1043
+B_bat_dinh_ti_le        0.054     0.565    0.068   0.0000    0.0000
+C_mang_ranh             0.000     0.000    0.000   0.1951    0.0000
+D_chi_vung_giu          0.042     0.228    0.082   0.0052    0.0036
