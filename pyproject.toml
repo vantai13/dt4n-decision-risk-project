@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "ndtrisk"
 version = "0.1.0"
-description = "Decision-level trustworthiness of Network Digital Twins under stale telemetry"
+description = "Switch-or-stay decisions of a Network Digital Twin under stale telemetry"
 requires-python = ">=3.10"
 dependencies = [
   "numpy>=1.26",

@@ -12,6 +12,7 @@
 | 2026-09-23 | Hạ tầng: mọi phase chạy trên máy cá nhân; chỉ L6.3 (`e12`, Mininet) cần server; VM GCP stop sau khi kiểm | Tầng A/B chỉ cần NumPy; chi phí server đáng kể với sinh viên | Giữ VM chạy suốt đồ án |
 | 2026-09-23 | Đã push tag `archive-2026-09`, README archive và `wip-stash-before-archive`; `wip-before-archive` được backup bằng git bundle đã verify, có bản off-machine trên Google Drive nhưng chưa push vì token thiếu scope `workflow` | Không ghi “đã push 2 nhánh” khi GitHub chỉ nhận một; bundle bảo toàn commit `d387f4df6` trong lúc chờ bổ sung scope | Bỏ qua lỗi push hoặc sửa lịch sử WIP để né workflow |
 | 2026-09-23 | D2–D10 và L0.3/L0.4: tiếp nhận bộ lựa chọn kỹ thuật do agent soạn theo yêu cầu trực tiếp; xem ADR bên dưới và definitions/design v1 | Người dùng yêu cầu tự kiểm tra và điền; không coi đây là bài tự giải hoặc xác nhận của GVHD | Tiếp tục để trống phiếu |
+| 2026-09-25 | PIVOT-v14: đổi sang switch-or-stay (ADR "Phase 0 v2" cuối file) | Vùng trust gate đã có OpenTwin v2, CERT, LEC; câu hỏi mới có kết quả giá trị ở cả hai chiều | Giữ v1, thu hẹp novelty |
 
 ## ADR — L0.3/L0.4, ngày 2026-09-23
 
@@ -210,3 +211,48 @@ lý do do tác giả tự viết theo yêu cầu học tập ở D15. D14–D15 
   phải qua phép so này trước DP1.
 - Trạng thái tại thời điểm ghi: **chưa quyết định DP1**; CERT và LEC đã được xếp
   rất gần, backlog snowballing và phần full text bắt buộc vẫn chưa hoàn tất.
+
+## ADR — Phase 0 v2: pivot sang switch-or-stay (2026-09-25)
+
+### PIVOT-v14 — Đổi đơn vị quyết định và câu hỏi trung tâm
+
+- **Context:** Hướng v1 (brief v1, D2–D12) hỏi trust gate theo tuổi × top-2 margin có tăng coverage
+  tại cùng selective harmful risk không. L1.1–L1.2 cho thấy các mảnh chính đã có: OpenTwin v2
+  (conformal action gate cho NDT), CERT (route certificate theo tuổi), LEC (risk trên tập ACCEPT).
+  Khác biệt còn lại hẹp; ngữ nghĩa ABSTAIN (static/sticky/wait) chưa có phương án vận hành rõ.
+- **Options:** (a) giữ v1, thu hẹp novelty; (b) switch-or-stay: đơn vị quyết định là đổi/giữ, mốc là
+  đường hiện tại; câu hỏi "khi nào hysteresis cố định là đủ" (thuyết minh v12 → v14); (c) dừng hướng này.
+- **Decision:** (b).
+- **Consequences:** metric chính là missed improvement tại ngân sách harmful switch (mục tiêu chờ chốt,
+  K2); ground truth là DES M/D/1/K có verify; cần oracle cùng thông tin; top-2 margin, coverage,
+  W_ref/κ_ref không còn dùng. Literature L1.1–L1.2 giữ nguyên giá trị.
+- **Giữ nguyên:** simulation là bằng chứng chính; `data/mininet_calibration/`; `lessons_from_dt4n.md`.
+- **Mốc:** tag `pre-pivot-v14` → `28ab59e951f3d579f0e16e84ab08dd26cbe8342c`.
+- **Revisit when:** DP0 cho PIVOT (fixed đủ ở mọi nơi), hoặc DP1 tìm thấy bài trả lời đúng RQ1.
+
+### Ghi nhận kèm pivot (2026-09-25)
+
+1. **ĐÍNH CHÍNH thuyết minh v14 §6.1.** Loss/chờ "M/D/1/K" 0,274% và 4,909% là một lần mô phỏng
+   (một seed, 300k gói), không phải nghiệm. Nghiệm chuỗi Markov nhúng, K = 11, S = 1:
+   ρ = 0,8 → loss 0,235337%, chờ 1,878268 S; ρ = 1,0 → loss 4,615385%, chờ 4,836022 S. Kiểm độc lập bằng
+   Monte Carlo 12 seed (0–11): TB 0,238306% / 4,648667%; 0,274333% và 4,909000% là giá trị LỚN NHẤT.
+   Sửa ở v15; tự tái lập ở L2.1.
+2. **Hiệu lực quyết định cũ.** D2–D12: hết hiệu lực, thay bằng khung K1–K21 (Phase 0 v2).
+   D13, D16, D17, D18: lịch sử; phần literature vẫn dùng. D15: phần scope/ε/κ hết hiệu lực; venue
+   (CNSM 2027 / GLOBECOM 2027) và ranh giới dùng AI giữ tạm, trình lại ở L0.6. D14: xem mục 3.
+3. **Người hướng dẫn.** Thuyết minh NCKH ghi TS. Huỳnh Văn Đặng là cán bộ hướng dẫn; tính tới
+   2026-09-25 chưa có buổi làm việc nào với GVHD người thật được ghi biên bản. D14 giữ hiệu lực tới buổi làm việc đầu tiên (L0.6).
+4. **Điều kiện gate v1 (C1–C4).** C1, C3: đóng vì gắn với definitions và câu hỏi bảo vệ v1, không còn
+   áp dụng. C2 (elevator test): chuyển sang brief v2 (L0.2). C4 (push `wip-before-archive`, kiểm VM):
+   còn mở — `git ls-remote` ngày 2026-09-25 không thấy nhánh này trên GitHub; hạn trước Phase 7.
+5. **Lưu trữ.** 7 tài liệu hợp đồng v1 → `notes/archive/v1_trust_gate/` (giữ tên); `margin.py` và
+   `test_margin.py` → `reference/v1_trust_gate/`; stub v1 trong `ndtrisk/` đã xoá (xem tag).
+6. **Plan private.** MASTER_PLAN v2 và PHASE_0 v2 không có trong `notes/private/` hoặc `/home/vantai`
+   tại thời điểm kiểm, nên SHA256 chưa khả dụng; không dùng hash của attachment hay bản hướng dẫn thay thế.
+7. **Artefact số liệu của thuyết minh.** Tìm thấy và commit tại
+   `experiments/pilot/switch_or_stay_diagnostic.py` và `results/switch_or_stay_diagnostic.txt`;
+   chạy lại ngày 2026-09-25: output trùng byte. Pilot fixed-vs-scaled dùng chung script, seed 42.
+8. **Testbed không phải M/D/1/K.** Testbed dt4n = HTB token bucket (burst 1600 B) + bfifo q × 1512 B;
+   CBR ρ = 0,6 cho OWD 0,142 ms < S = 3,024 ms. Câu "gói cố định nên hàng đợi lõi là M/D/1/K"
+   (thuyết minh v14 §3) đúng cho DES, không đúng cho testbed. Sửa ở v15; vai trò Mininet chốt ở
+   K7/K14/K20 (L0.4–L0.6). Ý nghĩa cột dữ liệu: `data/mininet_calibration/PROVENANCE.md`.
