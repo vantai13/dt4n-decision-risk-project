@@ -13,6 +13,7 @@
 | 2026-09-23 | Đã push tag `archive-2026-09`, README archive và `wip-stash-before-archive`; `wip-before-archive` được backup bằng git bundle đã verify, có bản off-machine trên Google Drive nhưng chưa push vì token thiếu scope `workflow` | Không ghi “đã push 2 nhánh” khi GitHub chỉ nhận một; bundle bảo toàn commit `d387f4df6` trong lúc chờ bổ sung scope | Bỏ qua lỗi push hoặc sửa lịch sử WIP để né workflow |
 | 2026-09-23 | D2–D10 và L0.3/L0.4: tiếp nhận bộ lựa chọn kỹ thuật do agent soạn theo yêu cầu trực tiếp; xem ADR bên dưới và definitions/design v1 | Người dùng yêu cầu tự kiểm tra và điền; không coi đây là bài tự giải hoặc xác nhận của GVHD | Tiếp tục để trống phiếu |
 | 2026-09-25 | PIVOT-v14: đổi sang switch-or-stay (ADR "Phase 0 v2" cuối file) | Vùng trust gate đã có OpenTwin v2, CERT, LEC; câu hỏi mới có kết quả giá trị ở cả hai chiều | Giữ v1, thu hẹp novelty |
+| 2026-09-25 | L0.2: brief v2 (bản nháp AI, tác giả kiểm); K17, K22, DP1-v2 (ADR cuối file) | Chuyển câu hỏi v14 thành RQ/H bác bỏ được; sửa đại lượng H2 và họ ngưỡng tĩnh theo pilot đã cứu | Giữ nguyên H2 theo thuyết minh v14 |
 
 ## ADR — L0.3/L0.4, ngày 2026-09-23
 
@@ -256,3 +257,43 @@ lý do do tác giả tự viết theo yêu cầu học tập ở D15. D14–D15 
    CBR ρ = 0,6 cho OWD 0,142 ms < S = 3,024 ms. Câu "gói cố định nên hàng đợi lõi là M/D/1/K"
    (thuyết minh v14 §3) đúng cho DES, không đúng cho testbed. Sửa ở v15; vai trò Mininet chốt ở
    K7/K14/K20 (L0.4–L0.6). Ý nghĩa cột dữ liệu: `data/mininet_calibration/PROVENANCE.md`.
+
+### Bổ sung mục 6 của "Ghi nhận kèm pivot" — 2026-09-25
+
+Tác giả xác nhận MASTER_PLAN v2 và PHASE_0 v2 đã được lưu ở vị trí khác trên máy cá nhân.
+Hai file này không cần sao chép vào `notes/private/` của repo, không yêu cầu SHA256 trong repo này.
+Điều kiện quản lý plan local của L0.1 được đánh dấu **PASS theo xác nhận của tác giả**;
+đây là self-attestation, không phải kiểm chứng byte độc lập. Mục 6 trước đó được giữ nguyên như lịch sử.
+
+## ADR — Phase 0 v2 / L0.2 (2026-09-25)
+
+### K17 — Đại lượng dự báo trong H2 (ĐỀ XUẤT; chọn ở DP0, khoá ở prereg RQ1)
+
+- **Context:** H2 ở thuyết minh v14 dùng sd(log s). Họ tịnh tiến là điều kiện đủ, không cần: ngưỡng tĩnh vẫn tối ưu
+  khi odds đơn điệu theo Î dù s thay đổi. Pilot v14 (`experiments/pilot/switch_or_stay_diagnostic.py`, phần [3]) rút
+  `scale` độc lập với `truth`, nên chưa kiểm trường hợp s và Î cùng tăng gần knee.
+- **Options:** (a) giữ sd(log s); (b) `rank_disagreement` = 1 − Spearman(Î, log-odds); (c) `sd_log_s_cond`.
+- **Decision:** (b) và (c) là ứng viên chính, (a) là biến phụ. Chọn chỉ số chính ở DP0 bằng seed pilot (không dùng
+  lại cho thí nghiệm chính); khoá trong prereg RQ1.
+- **Consequences:** F2 tính cả ba; bản twin của chỉ số được báo cho RQ1-op.
+- **Revisit when:** F2 cho thấy cả ba chỉ số không phân biệt được các ô.
+
+### K22 — "Ngưỡng tĩnh" trong RQ1 gồm cả tuyệt đối và tương đối
+
+- **Context:** Pilot P01 (exploratory, 2026-09-24): trên đường cong đo Mininet (poisson, 6 Mb/s, q = 13), T'/T chỉ
+  5,5–8,3 khi ρ từ 0,55 tới 1,0 (M/M/1: 2,2 → 66,7). T'/T gần hằng nghĩa là bất định của delay tỉ lệ với độ lớn
+  delay, nên ngưỡng tương đối kiểu RON bù phần lớn độ không đồng đều. So riêng với ngưỡng tuyệt đối có thể tạo
+  "khoảng cách" chỉ do thiếu chuẩn hoá theo độ lớn.
+- **Options:** (a) chỉ ngưỡng tuyệt đối H trên Î; (b) họ tĩnh = {H trên Î; r trên Î/Ĉ_cur}, lấy cái tốt hơn trong
+  từng ô; (c) thêm ngưỡng kết hợp tuyệt đối + tương đối.
+- **Decision:** (b). `gap_fixed_oracle` = missed(tốt nhất của họ tĩnh, tune từng ô) − missed(oracle), cùng α.
+- **Consequences:** đối thủ khó hơn; kết luận "cần thích nghi" có nghĩa hơn. (c) là mở rộng nếu F2 cho thấy (b) yếu.
+- **Revisit when:** F2 cho thấy ngưỡng tương đối không bao giờ tốt hơn ngưỡng tuyệt đối trong DES.
+
+### DP1-v2 — Tiêu chí DP1 cho hướng v2 (cập nhật danh sách bài của D18)
+
+- Khung giữ nguyên D18: PASS / NARROW / PIVOT; "setting khác" không đủ cho PASS.
+- Ghi TRƯỚC khi đọc full text các bài mới. Bài gần nhất phải đối chiếu full text trước DP1: Seshadri–Katz 2003;
+  Liyanage et al. 2026 (arXiv 2604.21483); Almohammedi et al. 2026 (arXiv 2607.22857); Fischer–Vöcking 2005/2009;
+  OpenTwin v2; CERT; Lekeufack et al. 2024; Zhu et al. 2026.
+- Forward citation của Seshadri–Katz và Fischer–Vöcking là bắt buộc trước DP1.
