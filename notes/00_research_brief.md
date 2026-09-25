@@ -30,12 +30,13 @@ Twin có nên thay ngưỡng tĩnh bằng quyết định theo từng lần hay 
 các quyết định so với cải thiện dự đoán; mức đảo thứ tự đó do cơ chế hàng đợi và telemetry của chính mạng
 quyết định và ước lượng được từ output của twin.
 
-## 4. Mục tiêu tối ưu — ĐỀ XUẤT, chờ GVHD (ADR K2, L0.3)
+## 4. Mục tiêu tối ưu — ĐỀ XUẤT, chờ GVHD (ADR K2, K3, K21; L0.3)
 
-Tối thiểu hoá tỉ lệ missed improvement (giữ khi I_D > ε) với ràng buộc tỉ lệ harmful switch (đổi khi
-I_D < −ε) ≤ α; cả hai chia cho MỌI epoch quyết định. Loss báo riêng (K3). Mặc định phân tích: α = 1%,
-ε/S = 0,5; báo thêm α ∈ {0,5; 2}% và ε/S ∈ {0,25; 1; 2}, ε ∈ {0,5; 1; 2; 5; 10} ms.
-Nếu GVHD chọn delay kỳ vọng: RQ2 chuyển trọng tâm sang sửa tâm E[I_D | F].
+Tối thiểu hoá tỉ lệ missed improvement (giữ khi I_D > ε) cộng κ × tỉ lệ đổi (κ = 0,01), với ràng buộc tỉ lệ
+harmful switch (đổi khi I_D < −ε) ≤ α; cả ba chia cho MỌI epoch quyết định. Mọi luật hiệu chỉnh bằng cùng tiêu chí;
+luật xác suất dùng λ ≥ 0 nhỏ nhất đạt harm ≤ α (không tiêu hết ngân sách khi ràng buộc lỏng). Loss là nhãn riêng,
+δ = 1 điểm % (K3). Mặc định phân tích: α = 1%, ε/S = 0,5; báo thêm α ∈ {0,5; 2}%, ε/S ∈ {0,25; 1; 2},
+ε ∈ {0,5; 1; 2; 5; 10} ms, κ = 0. Nếu GVHD chọn delay kỳ vọng: RQ2 chuyển trọng tâm sang sửa tâm E[I_D | F].
 
 ## 5. Research questions
 

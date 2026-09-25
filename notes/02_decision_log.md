@@ -14,6 +14,7 @@
 | 2026-09-23 | D2–D10 và L0.3/L0.4: tiếp nhận bộ lựa chọn kỹ thuật do agent soạn theo yêu cầu trực tiếp; xem ADR bên dưới và definitions/design v1 | Người dùng yêu cầu tự kiểm tra và điền; không coi đây là bài tự giải hoặc xác nhận của GVHD | Tiếp tục để trống phiếu |
 | 2026-09-25 | PIVOT-v14: đổi sang switch-or-stay (ADR "Phase 0 v2" cuối file) | Vùng trust gate đã có OpenTwin v2, CERT, LEC; câu hỏi mới có kết quả giá trị ở cả hai chiều | Giữ v1, thu hẹp novelty |
 | 2026-09-25 | L0.2: brief v2 (bản nháp AI, tác giả kiểm); K17, K22, DP1-v2 (ADR cuối file) | Chuyển câu hỏi v14 thành RQ/H bác bỏ được; sửa đại lượng H2 và họ ngưỡng tĩnh theo pilot đã cứu | Giữ nguyên H2 theo thuyết minh v14 |
+| 2026-09-25 | L0.3: đề xuất K2 (mục tiêu b, hiệu chỉnh KKT), K3 (loss nhãn riêng), K21 (κ = 0,01); pilot P02 | Oracle là nghiệm của mục tiêu; kiểm bằng số phát hiện hai bẫy hiệu chỉnh | Tune η để "đạt" α (tiêu hết ngân sách) |
 
 ## ADR — L0.3/L0.4, ngày 2026-09-23
 
@@ -297,3 +298,39 @@ Hai file này không cần sao chép vào `notes/private/` của repo, không y�
   Liyanage et al. 2026 (arXiv 2604.21483); Almohammedi et al. 2026 (arXiv 2607.22857); Fischer–Vöcking 2005/2009;
   OpenTwin v2; CERT; Lekeufack et al. 2024; Zhu et al. 2026.
 - Forward citation của Seshadri–Katz và Fischer–Vöcking là bắt buộc trước DP1.
+
+## ADR — Phase 0 v2 / L0.3 (2026-09-25)
+
+### K2 — Mục tiêu chính (ĐỀ XUẤT — chờ GVHD, L0.6)
+
+- **Context:** Oracle là nghiệm của mục tiêu. Delay kỳ vọng (a) cho luật không phụ thuộc độ rộng s; ngân sách harm
+  trên mọi epoch (b) cho luật p+/p−; precision (c) cho luật p+/(p− − α). Hướng v1 dùng dạng (c) (selective harmful
+  risk trên ACCEPT); LEC và Zhu et al. 2026 bảo đảm các dạng gần (c).
+- **Options:** (a); (b); (c).
+- **Decision (đề xuất):** (b) — tối thiểu missed + κ·tỉ lệ đổi với harm ≤ α, cả ba chia cho mọi epoch; α = 1% mặc định.
+  Mọi luật hiệu chỉnh bằng cùng tiêu chí; luật xác suất dùng λ ≥ 0 nhỏ nhất đạt harm ≤ α (không tiêu hết ngân sách).
+- **Consequences:** oracle = đổi ⇔ p+ − λ·p− > κ. Cách viết "tune η để đạt α" trong MASTER_PLAN L2.3/L4.5 được hiểu
+  là "λ nhỏ nhất để harm ≤ α". Hàm `calibrated_threshold` trong pilot v14 chọn tập đổi lớn nhất thỏa ngân sách
+  (tiêu hết ngân sách); code F2 không dùng lại cách đó. Delay trung bình báo như kết quả phụ ("giá của an toàn").
+- **Bằng chứng:** P02 (exploratory). Thế giới C: tiêu hết ngân sách → harm 1,000%, đổi 95,64%, missed 0;
+  KKT → harm 0, đổi 84,83%. Thế giới A: (a) cho harm 5,24%.
+- **Revisit when:** GVHD chọn (a) hoặc (c); hoặc F2 cho thấy ràng buộc không cắn ở mọi ô gần điểm neo.
+
+### K3 — Harm về loss (ĐỀ XUẤT — chờ GVHD)
+
+- **Context:** Delay tính trên gói nhận được, nên path mất nhiều gói trông tốt hơn về delay (survivorship).
+  Gộp delay và loss cần trọng số có nguồn; w_loss = 2500 của dt4n không có nguồn.
+- **Options:** (a) nhãn phụ riêng: đổi gây hại về loss khi loss_alt − loss_cur > δ; (b) utility delay + w·loss; (c) bỏ loss.
+- **Decision (đề xuất):** (a), δ = 1 điểm %; độ nhạy δ ∈ {0,5; 2} điểm %. `harmful_loss_rate` báo cạnh mọi kết quả delay.
+- **Lý do δ:** 1% loss thường được dùng làm ngưỡng chất lượng thoại trong hướng dẫn thiết kế QoS (mở nguồn gốc trước khi trích).
+- **Revisit when:** có trọng số vận hành có nguồn, hoặc F2 cho thấy harm về loss chiếm phần lớn harm.
+
+### K21 — Lần đổi vô ích (ĐỀ XUẤT — chờ GVHD)
+
+- **Context:** Khi p− ≈ 0, luật (b) thuần đổi cả khi p+ ≈ 0: không tốn ngân sách harm nhưng tốn chi phí thật
+  (reordering, flap). P02 thế giới C: KKT với κ = 0 đổi 84,83% epoch, 76,64% epoch là lần đổi có p+ < 5%.
+- **Options:** (a) κ = 0, chỉ báo switch rate; (b) κ nhỏ trong tiêu chí chung missed + κ·đổi; (c) c_switch có nguồn đưa
+  vào I; (d) ngân sách switch rate thứ hai.
+- **Decision (đề xuất):** (b), κ = 0,01; báo κ = 0 làm độ nhạy. Áp cho MỌI luật, kể cả ngưỡng tĩnh và oracle.
+- **Consequences:** P02-C: đổi 84,83% → 10,00%, missed +0,010 điểm %. P02-A: đổi 42,55% → 42,51%, missed không đổi.
+- **Revisit when:** có c_switch có nguồn cho ứng dụng mục tiêu (VoIP), hoặc κ làm đổi thứ tự các luật ở một ô.

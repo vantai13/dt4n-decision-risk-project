@@ -86,3 +86,19 @@ Mẫu cho mỗi thí nghiệm (copy khối dưới):
   TB 0,238306%, SD 0,019628%, max 0,274333%); ρ=1,0 → 4,615385% (TB 4,648667%,
   SD 0,114709%, max 4,909000%). Số trong thuyết minh v14 = max của 12 seed.
 - **Không dùng cho:** claim RQ1/RQ2.
+
+## 2026-09-25 — P02 objective rules (EXPLORATORY, Phase 0 v2 / L0.3)
+
+- **Câu hỏi:** ba mục tiêu (a)/(b)/(c) cho luật khác nhau thế nào; hai bẫy hiệu chỉnh (tiêu hết ngân sách,
+  đổi vô ích) có xuất hiện không?
+- **Dự đoán trước khi chạy:** các khẳng định về (a), (b), (c) và Bài 1–3 đã có trong PHASE_0 v2 L0.3 (lý thuyết).
+  Hai bẫy hiệu chỉnh được PHÁT HIỆN khi chạy, không có dự đoán đăng ký trước. Ghi đúng như vậy.
+- **Config + seed:** `experiments/pilot/p02_objective_rules.py`; seed 9101–9103, chỉ cho pilot này.
+- **Kết quả:** `experiments/pilot/results/p02_objective_rules_output.txt`. A: gap ngưỡng tĩnh–oracle 8,30 điểm %;
+  B: 0,055 điểm % (thứ tự không đảo); B: (c) vô nghiệm; C: tiêu hết ngân sách cho harm 1,000% vô ích; κ = 0,01 giảm
+  đổi 84,83% → 10,00%.
+- **Repeatability:** output trên Python 3.14.5, NumPy 2.5.3, SciPy 1.18.1 trùng byte với bản in trong L0.3;
+  MD5 `79ff41710627db1e220b6b55a3a9df3c`.
+- **Diễn giải:** ủng hộ K2 (b) có hiệu chỉnh KKT, K17 (đại lượng H2 là mức đảo thứ tự), K21 (κ). Thế giới đồ chơi,
+  không nói gì về độ lớn hiệu ứng trong mạng.
+- **Không dùng cho:** claim RQ1/RQ2.
