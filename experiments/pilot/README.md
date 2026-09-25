@@ -10,6 +10,7 @@ Code nháp sinh ra các con số trong mục "Kết quả sơ bộ" của thuy�
 | `p02_objective_rules.py` | `results/p02_objective_rules_output.txt` | ADR K2, K21; memo L0.3 (không trích trong thuyết minh) | tạo 2026-09-25 |
 | `p03_h2_indices.py` | `results/p03_h2_indices_output.txt` | 06_definitions v2 Phần 6; ADR K17 bổ sung | tạo 2026-09-25 |
 | `p04_evaluation_protocol.py` | `results/p04_evaluation_protocol_output.txt` | 05_evaluation_protocol v1 mục 2–3; ADR K16 | tạo 2026-09-25 |
+| `p05_token_bucket_testbed.py` | `results/p05_token_bucket_testbed_output.txt` | K20 (đề xuất sửa); thuyết minh v15 §6.1 | tạo 2026-09-25 |
 
 Quy tắc: không dùng các file ở đây làm bằng chứng cho RQ1/RQ2. Logic đáng giữ sẽ được viết lại
 sạch, có test, trong `ndtrisk/` ở các phase sau (L2.1, Phase 3).

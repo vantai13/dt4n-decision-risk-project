@@ -17,6 +17,7 @@
 | 2026-09-25 | L0.3: đề xuất K2 (mục tiêu b, hiệu chỉnh KKT), K3 (loss nhãn riêng), K21 (κ = 0,01); pilot P02 | Oracle là nghiệm của mục tiêu; kiểm bằng số phát hiện hai bẫy hiệu chỉnh | Tune η để "đạt" α (tiêu hết ngân sách) |
 | 2026-09-25 | L0.4: definitions v2; K6 (F chính), K7 (đơn vị S, tham số link), K17 bổ sung (rd_kappa, loại rd_all); pilot P03 | Một tên = một estimand; chỉ số H2 được kiểm trước khi định nghĩa | Định nghĩa trong code |
 | 2026-09-25 | L0.5: evaluation protocol v1; K5, K10, K13, K16, K18, K19 chốt/đề xuất; K14, K20 chờ GVHD; pilot P04 | Công bằng về tập quyết định và tri thức; quỹ đạo tham chiếu phải thực tế | Tham chiếu ngẫu nhiên; chỉ trajectory-level |
+| 2026-09-25 | L0.6: buổi làm việc MÔ PHỎNG (AI đóng vai GVHD); đề xuất sửa K20 (X1′ token bucket trong DES); K23 (nhẹ hoá hồ sơ); pilot P05; Phase 0 v2 đóng có điều kiện | Diễn tập trước buổi họp thật; P05 cho thấy token bucket khớp testbed | Gắn tag phase-0v2-complete ngay |
 
 ## ADR — L0.3/L0.4, ngày 2026-09-23
 
@@ -415,3 +416,32 @@ Hai file này không cần sao chép vào `notes/private/` của repo, không y�
 
 - Thêm vai trò cho Mininet: thực tế X1 ngoài họ mô hình cho RQ2 (e08), vì testbed là HTB token bucket (PIVOT mục 8).
   Giữ time-box. Dự phòng X2: tải dựng từ trace thật.
+
+## ADR — Phase 0 v2 / L0.6 (2026-09-25)
+
+### Ghi nhận buổi làm việc MÔ PHỎNG
+
+- Claude (AI) đóng vai GVHD theo yêu cầu tác giả; biên bản: `notes/meetings/2026-09-25_simulated_gvhd.md`.
+  KHÔNG phải quyết định học vụ. K2, K3, K14, K15, K20, K21 giữ trạng thái ĐỀ XUẤT, thêm ghi chú "đã phản biện mô phỏng";
+  chuyển sang CHỐT chỉ sau buổi làm việc với GVHD thật. D14 giữ hiệu lực tới buổi đó.
+
+### K20 — Thực tế ngoài họ mô hình (ĐỀ XUẤT SỬA — thay đề xuất ở L0.5)
+
+- **Context:** Port pipeline sang Mininet tốn khoảng 2–3 tuần, rủi ro trễ hạn. P05 (exploratory): token bucket kiểu HTB
+  (burst 1600 B, bfifo) khớp OWD testbed với sai số trung bình 3,3%, tối đa 6,3%; M/D/1/K (chỉ thời gian chờ) lệch 57%.
+- **Options:** (a) X1 Mininet là thực tế ngoài họ chính; (b) X1′ token bucket trong DES là chính, Mininet xác nhận
+  ≤ 2 cấu hình; (c) X2 tải từ trace.
+- **Decision (đề xuất):** (b); X2 dự phòng.
+- **Consequences:** Phase 3 dựng thêm hàng đợi token bucket; điều kiện nhận: tái lập P05 (sai số TB ≤ 5% trên dải ρ đã đo).
+  K14: Mininet giữ vai trò xác nhận thứ tự và dấu, time-box.
+- **Revisit when:** X1′ không tái lập được P05; hoặc GVHD yêu cầu Mininet trong lõi.
+
+### K23 — Nhẹ hoá hồ sơ từ Phase 1 (ĐỀ XUẤT)
+
+- ADR chỉ khi đổi RQ, giả thuyết, metric, baseline, dữ liệu hoặc F; mọi thứ khác ghi một dòng trong experiment log.
+  Mỗi phase một closeout ≤ 1 trang. Pilot mới chỉ khi trả lời một câu hỏi thiết kế cụ thể.
+- **Revisit when:** DP0.
+
+### Phase 0 v2 — đóng có điều kiện
+
+- Closeout: `notes/phase0v2_closeout.md`. Tag `phase-0v2-complete` chỉ gắn khi điều kiện G1–G3 đóng.

@@ -133,3 +133,14 @@ Mẫu cho mỗi thí nghiệm (copy khối dưới):
 - **Diễn giải:** ủng hộ K16 (tham chiếu thực tế), K10 và điều kiện F_oracle ⊇ F_policy. Thế giới đồ chơi; chênh lệch delay rất
   nhỏ; không nói gì về độ lớn trong mạng.
 - **Không dùng cho:** claim RQ1/RQ2.
+
+## 2026-09-25 — P05 token bucket so với testbed (EXPLORATORY, Phase 0 v2 / L0.6)
+
+- **Câu hỏi:** mô hình token bucket kiểu HTB có giải thích số đo testbed tốt hơn M/D/1/K không (ứng viên X1′, K20)?
+- **Dự đoán trước khi chạy:** L0.1 đã suy ra testbed là token bucket từ OWD của CBR; dự đoán token bucket khớp tốt hơn.
+  Mức khớp cụ thể không được dự đoán trước. Một lần chạy thử với seed 0–2 trước khi chốt script (không lưu).
+- **Config + seed:** `experiments/pilot/p05_token_bucket_testbed.py`; seed 9115–9117; poisson, 4 Mb/s, q = 10.
+- **Kết quả:** `experiments/pilot/results/p05_token_bucket_testbed_output.txt`. |OWD| lệch: token bucket TB 3,3%, max 6,3%;
+  M/D/1/K TB 57,0%, max 135,8%. Loss của token bucket thấp hơn số đo ở tải vừa (ρ = 0,8: 0,129% so với 0,221%), hội tụ ở tải cao.
+- **Diễn giải:** ủng hộ K20 đề xuất sửa (X1′); giải thích phần lệch nêu ở thuyết minh v14. Mới kiểm một cấu hình.
+- **Không dùng cho:** claim RQ1/RQ2.

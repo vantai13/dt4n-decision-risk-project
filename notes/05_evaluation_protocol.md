@@ -60,7 +60,8 @@
 | M0 | Twin cùng họ mô hình sinh dữ liệu, tham số ước lượng | verification | e05 |
 | M1 | Twin sai K | sai trong họ | e07 |
 | M2 | Twin giả Poisson khi thật là H2 | sai trong họ | e07 |
-| X1 | Mininet: HTB token bucket (burst 1600 B) + bfifo | sai ngoài họ | e08 |
+| X1′ | Token bucket kiểu HTB trong DES (burst 1600 B, bfifo), khớp truth_table (P05) | sai ngoài họ — CHÍNH (đề xuất K20) | e08 |
+| X1 | Mininet: HTB token bucket + bfifo | xác nhận thứ tự và dấu, ≤ 2 cấu hình | e08 |
 | X2 | Tải dựng từ trace thật (phụ thuộc dài hạn) | sai ngoài họ, dự phòng nếu X1 không khả thi | e08 |
 
 ## 6. Baseline và giải thích thay thế nó loại trừ
@@ -104,7 +105,7 @@ Không dải nào được dùng cho mục đích khác. Test tự động kiể
 | e05 | So sánh trong cùng chế độ + ablation | cả hai | M0 | verification | RQ2 (H3a M0) |
 | e06 | Dịch chuyển chế độ, tham số đóng băng | cả hai | M0 | confirmatory | RQ2, H3b |
 | e07 | Twin sai mô hình | cả hai | M1, M2 | confirmatory | RQ2, H3a (M1) |
-| e08 | Thực tế ngoài họ | cả hai | X1 (hoặc X2) | confirmatory | RQ2, H3b |
+| e08 | Thực tế ngoài họ | cả hai | X1′ (Mininet X1 xác nhận ≤ 2 cấu hình; X2 dự phòng) | confirmatory | RQ2, H3b |
 
 Số claim confirmatory: ≤ 6 (H2a, H2b, H2c, H3a-M1, H3b).
 
