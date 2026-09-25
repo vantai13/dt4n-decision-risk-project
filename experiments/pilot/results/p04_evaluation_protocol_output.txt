@@ -1,0 +1,17 @@
+N = 40000, M = 400, L = 2, ε = 0.5, α = 1%, κ = 0.01; seed 9105–9114
+fix = tĩnh H (F chính); orc = oracle (F chính); ext = odds (F mở rộng, 2 cửa sổ)
+J_dl: decision-level trên nửa test; J_tr, delay: trajectory-level (mỗi luật tự đi, bắt đầu ở A)
+
+== Quỹ đạo tham chiếu (hiệu chỉnh + decision-level): ngẫu nhiên
+luật    J_dl TB   J_tr TB  delay TB
+fix    18.6462%  13.1587%    4.6445
+orc    18.3749%  12.6168%    4.6436
+ext    16.5393%  13.5996%    4.6550
+số seed (trên 10): J_dl ext<orc 10, orc<fix 8 | J_tr ext<orc 0, orc<fix 10 | delay ext<orc 0
+
+== Quỹ đạo tham chiếu (hiệu chỉnh + decision-level): thực tế
+luật    J_dl TB   J_tr TB  delay TB
+fix    12.1047%  11.7063%    4.6311
+orc    11.9070%  11.4386%    4.6310
+ext    11.4236%  11.2457%    4.6282
+số seed (trên 10): J_dl ext<orc 10, orc<fix 10 | J_tr ext<orc 7, orc<fix 8 | delay ext<orc 8

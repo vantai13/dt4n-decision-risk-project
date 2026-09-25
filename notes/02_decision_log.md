@@ -16,6 +16,7 @@
 | 2026-09-25 | L0.2: brief v2 (bản nháp AI, tác giả kiểm); K17, K22, DP1-v2 (ADR cuối file) | Chuyển câu hỏi v14 thành RQ/H bác bỏ được; sửa đại lượng H2 và họ ngưỡng tĩnh theo pilot đã cứu | Giữ nguyên H2 theo thuyết minh v14 |
 | 2026-09-25 | L0.3: đề xuất K2 (mục tiêu b, hiệu chỉnh KKT), K3 (loss nhãn riêng), K21 (κ = 0,01); pilot P02 | Oracle là nghiệm của mục tiêu; kiểm bằng số phát hiện hai bẫy hiệu chỉnh | Tune η để "đạt" α (tiêu hết ngân sách) |
 | 2026-09-25 | L0.4: definitions v2; K6 (F chính), K7 (đơn vị S, tham số link), K17 bổ sung (rd_kappa, loại rd_all); pilot P03 | Một tên = một estimand; chỉ số H2 được kiểm trước khi định nghĩa | Định nghĩa trong code |
+| 2026-09-25 | L0.5: evaluation protocol v1; K5, K10, K13, K16, K18, K19 chốt/đề xuất; K14, K20 chờ GVHD; pilot P04 | Công bằng về tập quyết định và tri thức; quỹ đạo tham chiếu phải thực tế | Tham chiếu ngẫu nhiên; chỉ trajectory-level |
 
 ## ADR — L0.3/L0.4, ngày 2026-09-23
 
@@ -370,3 +371,47 @@ Hai file này không cần sao chép vào `notes/private/` của repo, không y�
   Spearman trên MỌI epoch hỏng ở mạng rảnh (C: 0,195 dù khoảng cách = 0) do kẹp p± ở sàn Monte Carlo.
 - Ứng viên (b) được định nghĩa lại: `rd_kappa` = 1 − Spearman(Î, log-odds) trên tập cân nhắc {p+ > κ}.
   Ứng viên (c) `sd_log_s_cond` giữ nguyên. `rd_all` bị loại. Quy tắc chọn ở DP0 không đổi.
+
+## ADR — Phase 0 v2 / L0.5 (2026-09-25)
+
+### K16 — Đơn vị so sánh và quỹ đạo tham chiếu (CHỐT cho phase lõi)
+
+- **Context:** Luật chạy tuần tự đối mặt tập quyết định khác nhau; oracle một bước không chắc là cận trên ở tầng
+  trajectory. P04 (exploratory, 10 seed): hiệu chỉnh trên tham chiếu ngẫu nhiên làm luật tốt nhất ở decision-level
+  (10/10) thành tệ nhất khi chạy thật (0/10); tham chiếu thực tế giữ thứ hạng (7/10 về J, 8/10 về delay).
+- **Options:** (a) chỉ trajectory-level; (b) decision-level, tham chiếu ngẫu nhiên; (c) decision-level, tham chiếu =
+  quỹ đạo luật tĩnh đã tune, cộng trajectory-level phụ.
+- **Decision:** (c). Hiệu chỉnh và đánh giá dùng cùng loại tham chiếu. Độ nhạy: tham chiếu ngẫu nhiên và quỹ đạo oracle.
+  Thứ hạng khác nhau giữa hai tầng được báo cáo như phát hiện.
+- **Revisit when:** e05 cho thấy kết luận đổi dấu giữa các loại tham chiếu ở phần lớn ô.
+
+### K10 — Oracle (CHỐT cách làm; khả thi xác nhận ở DP0)
+
+- Oracle dùng F chính (K6) và đúng mô hình sinh dữ liệu (M0); luật đổi ⇔ p+ − λ·p− > κ, λ theo K2 trên seed calibration.
+- p± ước lượng bằng bin thực nghiệm trên seed 30000–39999; nested Monte Carlo đối chiếu trên ≥ 1 cấu hình (e02).
+- Chỉ là cận trên ở decision-level, theo kỳ vọng, so với luật dùng F chính. F mở rộng cần oracle riêng.
+
+### K5 — Luồng điều khiển (CHỐT)
+
+- Probe ảo Poisson trên MỖI path, không chiếm tải; r_p sao cho kỳ vọng ≥ 100 probe mỗi path mỗi khoảng giữ.
+  Policy không được đọc probe. Trên Mininet: probe thật cỡ nhỏ, ghi rõ khác biệt.
+
+### K13 — Tách seed (CHỐT, bổ sung)
+
+- Pilot 9000–9999 (không dùng lại); ước lượng oracle 30000–39999; calibration 10000–19999; test 20000–29999.
+  Danh sách seed đã dùng: `05_evaluation_protocol.md` mục 7.
+
+### K18 — Knowledge parity (CHỐT)
+
+- Bảng "ai được báo gì khi chế độ đổi": `05_evaluation_protocol.md` mục 4. Tham số OU của twin và dữ liệu cho luật
+  data-driven lấy từ cùng đoạn calibration.
+
+### K19 — Baseline lai (CHỐT)
+
+- Lai đóng băng: đổi ⇔ Î/s_twin > q, q hiệu chỉnh theo K2. Lai ACI: q cập nhật online bằng nhãn của epoch đã kết thúc.
+  Cùng với history đóng băng/ACI tạo bảng 2×2 {thang đo từ dữ liệu / mô hình} × {đóng băng / online}.
+
+### K14 (xem lại) và K20 — Vai trò Mininet và thực tế ngoài họ (ĐỀ XUẤT — chờ GVHD)
+
+- Thêm vai trò cho Mininet: thực tế X1 ngoài họ mô hình cho RQ2 (e08), vì testbed là HTB token bucket (PIVOT mục 8).
+  Giữ time-box. Dự phòng X2: tải dựng từ trace thật.

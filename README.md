@@ -11,9 +11,11 @@ kết thúc tại tag `pre-pivot-v14`; tài liệu v1 ở `notes/archive/v1_trus
 ## Đọc theo thứ tự
 
 1. `notes/00_research_brief.md` — brief v2 (2026-09-25; bản nháp AI, tác giả kiểm)
-2. `notes/02_decision_log.md` — vì sao chọn, vì sao đổi
-3. `notes/03_experiment_log.md` — dự đoán trước khi chạy, kết quả sau khi chạy
-4. `notes/01_literature/` — related work, novelty matrix
+2. `notes/06_definitions.md` — ký hiệu, estimand, quy ước (v2)
+3. `notes/05_evaluation_protocol.md` — so sánh thế nào mới công bằng (v1)
+4. `notes/02_decision_log.md` — vì sao chọn, vì sao đổi
+5. `notes/03_experiment_log.md` — dự đoán trước khi chạy, kết quả sau khi chạy
+6. `notes/01_literature/` — related work, novelty matrix
 
 ## Cài đặt
 

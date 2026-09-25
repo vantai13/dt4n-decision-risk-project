@@ -117,3 +117,19 @@ Mẫu cho mỗi thí nghiệm (copy khối dưới):
 - **Diễn giải:** ủng hộ định nghĩa rd_kappa và sd_log_s_cond; loại rd_all; sd_log_s chỉ là biến phụ. Thế giới đồ chơi,
   không nói gì về độ lớn trong mạng.
 - **Không dùng cho:** claim RQ1/RQ2.
+
+## 2026-09-25 — P04 evaluation protocol (EXPLORATORY, Phase 0 v2 / L0.5)
+
+- **Câu hỏi:** (1) hai tầng đánh giá có thể cho thứ hạng khác nhau không, và vì sao; (2) luật có nhiều thông tin hơn
+  oracle có thắng oracle không.
+- **Dự đoán trước khi chạy:** (2) đã được dự đoán trong PHASE_0 v2 L0.5. (1) chỉ dự đoán "có thể lệch"; việc đảo thứ hạng
+  hoàn toàn khi tham chiếu ngẫu nhiên, và cách sửa bằng tham chiếu thực tế, được PHÁT HIỆN khi chạy thử (1 seed → 10 seed
+  → thêm tham chiếu thực tế) trước khi chốt script. Ghi đúng như vậy: đây là ngã rẽ ở mức pilot, dùng để thiết kế giao thức.
+- **Config + seed:** `experiments/pilot/p04_evaluation_protocol.py`; seed 9105–9114.
+- **Kết quả:** `experiments/pilot/results/p04_evaluation_protocol_output.txt`. Tham chiếu ngẫu nhiên: J_dl ext < orc 10/10,
+  nhưng J_tr ext < orc 0/10, delay 0/10. Tham chiếu thực tế: J_dl ext < orc 10/10, orc < fix 10/10; J_tr ext < orc 7/10,
+  orc < fix 8/10; delay ext < orc 8/10.
+- **Repeatability:** output trùng byte; MD5 `c8823fd5e37851f424a436964a5f67c9`.
+- **Diễn giải:** ủng hộ K16 (tham chiếu thực tế), K10 và điều kiện F_oracle ⊇ F_policy. Thế giới đồ chơi; chênh lệch delay rất
+  nhỏ; không nói gì về độ lớn trong mạng.
+- **Không dùng cho:** claim RQ1/RQ2.
