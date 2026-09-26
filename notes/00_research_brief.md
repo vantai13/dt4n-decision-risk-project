@@ -104,4 +104,5 @@ Lekeufack 2024) · probabilistic twin (Kapteyn et al. 2021) · "tổng quát cho
 - **Elevator test (kịch bản):** "Khi mạng chọn đường cho một cuộc gọi, nó dựa vào số đo đã cũ và có nhiễu. Người ta thường đặt
   luật đơn giản: chỉ đổi nếu đường mới tốt hơn ít nhất X mili giây hoặc X phần trăm. Em hỏi: luật đơn giản đó thua cách tốt nhất
   có thể bao nhiêu mili giây, ở loại mạng nào, và twin có tự biết trước điều đó không."
-  **Kết quả:** chưa làm — tác giả phải tự thử với một người thật và ghi nguyên văn câu họ nhắc lại.
+  **Kết quả (2026-09-26):** tác giả xác nhận đã tự hiểu và chủ động miễn phép thử với người nghe khác. Đây là
+  self-attestation của tác giả, không phải bằng chứng từ một người nghe độc lập.

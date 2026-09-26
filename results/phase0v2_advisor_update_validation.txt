@@ -46,6 +46,8 @@ Result: exit 0; 12 pages; A4; 228990 bytes; no undefined citations/references.
 Output: notes/private/thuyet_minh/Thuyet_minh_NCKH_DoanVanTai_v15.pdf
 SHA-256: ee51c7318671fa8949135ba51f6e13259d4fa6ac63d41c5fa8c66bc37d7d8550
 
-7. Deliberately not completed
-- Elevator test G2: requires a real listener and the author's verbatim record.
-- phase-0v2-complete tag: blocked until G2 is complete.
+7. Closeout update (2026-09-26)
+- The author explicitly waived the independent-listener elevator test and
+  self-attested that the research question is understood.
+- G2 is therefore closed as WAIVED BY AUTHOR, not recorded as an independently
+  passed listener test.

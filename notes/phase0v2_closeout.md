@@ -34,17 +34,17 @@
 - **Đọc full text** danh sách DP1-v2; forward citation Seshadri–Katz, Fischer–Vöcking.
 - **Điều kiện học tập:** tự viết lại lõi P02 (`odds_kkt`, `fixed_common`) không nhìn code, so md5 `79ff4171…`.
 
-## Cập nhật 2026-09-25 — sau nhận xét GVHD: CHỜ G2
+## Cập nhật 2026-09-26 — sau nhận xét GVHD: ĐÓNG
 
 | Điều kiện | Trạng thái |
 |---|---|
 | G1: GVHD quyết định K2, K3, K14, K20, K21, phạm vi, SESOI, framing, lịch | ✅ nhận xét bằng văn bản (`meetings/2026-09-25_gvhd_feedback.md`); K15 còn mở, không chặn |
-| G2: elevator test với người thật | ☐ chưa làm — tác giả phải ghi ngày và câu người nghe nhắc lại trong brief mục 11 |
+| G2: elevator test với người thật | ✅ WAIVED BY AUTHOR (2026-09-26) — tác giả xác nhận đã tự hiểu; không có bằng chứng người nghe độc lập |
 | G3: D14 | ✅ hết hiệu lực |
 | Tồn đọng C4 (dt4n) | mở, hạn trước Phase 7 |
 
-Tài liệu Phase 0 đóng băng tới DP0 (20/10/2026); chỉ thêm dòng đính chính. Chưa gắn tag `phase-0v2-complete`
-cho tới khi G2 có bằng chứng thật.
+Tài liệu Phase 0 đóng băng tới DP0 (20/10/2026); chỉ thêm dòng đính chính. Tác giả đã yêu cầu đóng Phase 0 và
+gắn tag `phase-0v2-complete`, đồng thời chấp nhận giới hạn rằng G2 là self-attestation chứ không phải phép thử độc lập.
 
 ## Mang sang Phase 1 (thay danh sách cũ)
 
