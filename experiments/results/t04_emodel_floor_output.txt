@@ -1,0 +1,10 @@
+Độ dốc lớn nhất: 0.1231 điểm R/ms tại Ta = 241.5 ms
+  mất 1 điểm R cần ít nhất   8.1 ms trễ thêm (ở vùng nhạy nhất)
+  mất 3 điểm R cần ít nhất  24.4 ms trễ thêm (ở vùng nhạy nhất)
+  mất 5 điểm R cần ít nhất  40.6 ms trễ thêm (ở vùng nhạy nhất)
+Ta = 120 ms: Idd =   0.00 điểm R;  0.0004 điểm R/ms
+Ta = 150 ms: Idd =   0.16 điểm R;  0.0159 điểm R/ms
+Ta = 200 ms: Idd =   3.04 điểm R;  0.1005 điểm R/ms
+Ta = 250 ms: Idd =   8.92 điểm R;  0.1226 điểm R/ms
+Ta = 300 ms: Idd =  14.76 điểm R;  0.1094 điểm R/ms
+Ta = 400 ms: Idd =  24.07 điểm R;  0.0779 điểm R/ms

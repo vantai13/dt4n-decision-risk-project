@@ -217,10 +217,12 @@ Mẫu cho mỗi thí nghiệm (copy khối dưới):
 
 ## 2026-09-26 — L1.4 · F1 điểm vận hành
 
-- **Dự đoán (TRƯỚC khi chạy f01):** (1) tại anchor CLEAN 4 Mb/s, `σ=0,03`, `τ=10 s`, `Π_noise` lớn hơn
+- **Đính chính 2026-09-26:** ba mục dưới đây **không phải dự đoán mù**; output f01 đã xuất hiện trong phiên hướng
+  dẫn L1.4 khi mentor kiểm script, trước khi chúng được ghi vào log. Kết quả F1 không đổi; rút nhãn “dự đoán trước”.
+- **Kỳ vọng đã biết trước khi chạy lại f01:** (1) tại anchor CLEAN 4 Mb/s, `σ=0,03`, `τ=10 s`, `Π_noise` lớn hơn
   tham chiếu 5,78, khoảng 6,00, vì `z_eff≈0,919 s<1 s`; (2) tại 8 Mb/s, tỉ số `sd_p95/sd_p05` lớn nhất ở
   `(σ,τ)=(0,10;2 s)`, khoảng 1,142 nên vượt 1,10; (3) tại 8 Mb/s, `Π_relax>1` chỉ ở `(ρ̄,τ)` bằng
-  `(0,95;0,5 s)` và `(0,95;2 s)`. Tại thời điểm ghi chưa chạy `f01`.
+  `(0,95;0,5 s)` và `(0,95;2 s)`.
 - **Dữ liệu:** `data/aoi_measured/aoi_v7_estimates.json`, lấy byte-exact bằng `git show archive-2026-09`, SHA-256
   `5f3e6a01173bb82802a397b260251bc8098b7bbffdb8571966655fd071fca64f`; không seed.
 - **Time-box raw:** không tìm thấy `rho_offered_long.csv` hoặc thư mục `aoi_v7_campaign` trên máy hiện tại; dừng,
@@ -234,3 +236,25 @@ Mẫu cho mỗi thí nghiệm (copy khối dưới):
   “gần như toàn nhiễu” là có điều kiện. X2 từ dt4n không khả thi; giữ phương án Pareto/MAWI cho GVHD.
 - **Construct:** AoI asset là `t−t_m`, nên `z=AoI+W/2`; `txRate` là tải đi qua, còn definitions cần tải đề nghị.
 - **Phạm vi:** F1 là spike định hướng, không claim RQ1/RQ2; các đề xuất K7/K8/K9/K20 chưa thành ADR (K23).
+
+## 2026-09-26 — L1.5 · KHOÁ SESOI (trước mọi output F2)
+
+- **Ứng dụng mục tiêu:** VoIP; ITU-T Y.1541 (12/2011) lớp 0 và E-model ITU-T G.107 (06/2015) §7.4 với lớp
+  nhạy trễ mặc định (`sT=1`, `mT=100 ms`).
+- **Sàn tuyệt đối:** `m=8,1 ms`. Đường chọn: E-model ở vùng nhạy nhất, với lựa chọn thiết kế bảo thủ
+  `ΔR_min=1` điểm; `m=ΔR_min/max(dIdd/dTa)`. ITU cung cấp mô hình, không quy định `ΔR_min=1`. Quy đổi:
+  `2,68 S @ 4 Mb/s`, `5,36 S @ 8 Mb/s`, `66,97 S @ 100 Mb/s` cho gói 1512 byte.
+- **Sàn tương đối:** `r=10%`, là phán đoán thiết kế: thích nghi phải thu hồi ít nhất một phần mười headroom mới
+  đáng chi phí tính `Ī,p−` mỗi epoch; không trình bày như ngưỡng ITU.
+- **Quy tắc CI:** theo seed paired, `D_abs=gap−m`, `D_rel=gap−r·headroom`. “Có ý nghĩa” khi cả hai cận dưới
+  CI95 lớn hơn 0; “không đáng kể” khi ít nhất một cận trên nhỏ hơn 0; còn lại là “chưa kết luận” và chỉ được thêm
+  seed theo F3, không đổi `m,r`.
+- **Ô chính DP0 (khóa trước F2):** P1 anchor gần nhất trong lưới: `4 Mb/s, K=11, ρ̄=0,85, σ=0,03, τ=10 s`,
+  tuổi cố định tại trung bình CLEAN (`z_eff≈0,919 s`); P2 contrast cơ chế đã dự đoán: `4 Mb/s, K=100, ρ̄=0,95,
+  σ=0,10, τ=2 s`, cùng tuổi. Các ô còn lại chỉ lập bản đồ mô tả và không quyết định DP0.
+- **Báo phụ, không dùng quyết định:** `m/2=4,05 ms`, `2m=16,2 ms`; `r∈{5%;20%}`.
+- **Kiểm trước khóa:** tại commit `fd26a99`, `git log --all` và tìm tên file đều không thấy `experiments/f02*`,
+  `notes/feasibility/F2*` hoặc `experiments/results/f02*`.
+- **Vấn đáp sở hữu:** chưa thực hiện trong phiên này; không ghi đạt thay tác giả.
+- **Kiểm t04:** `experiments/results/t04_emodel_floor_output.txt`; độ dốc lớn nhất `0,1231 điểm R/ms` tại
+  `Ta=241,5 ms`, suy ra `1/0,1231=8,1 ms` cho `ΔR_min=1`. Không seed; đây là kiểm lý thuyết, không phải F2.

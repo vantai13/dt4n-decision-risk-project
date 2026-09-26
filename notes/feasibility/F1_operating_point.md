@@ -68,4 +68,48 @@ không được diễn giải thay nhau. Bảng đầy đủ và ba đại lư�
 
 ## 8. SESOI
 
-Để trống cho L1.5: lập luận ngưỡng ý nghĩa thực tiễn theo ms và tỉ lệ headroom.
+### 8.1. Ứng dụng và nguồn chuẩn
+
+Ứng dụng mục tiêu là VoIP, nhất quán với elevator test. [ITU-T Y.1541 (12/2011)](https://www.itu.int/rec/T-REC-Y.1541-201112-I/en)
+lớp 0 đặt upper bound 100 ms cho mean IPTD, 50 ms cho IPDV và `10⁻³` cho IPLR; VoIP/VTC là ví dụ ứng dụng.
+IPTD chỉ là phần mạng, trong khi người dùng chịu trễ miệng-tới-tai gồm cả codec, packetization và jitter buffer.
+
+[ITU-T G.107 (06/2015)](https://www.itu.int/rec/T-REC-G.107-201506-I/en) §7.4 định nghĩa E-model và suy giảm
+do trễ thuần `Idd`. Bản gốc đã được mở và đối chiếu trực tiếp với `t04_emodel_floor.py`: mặc định `sT=1`,
+`mT=100 ms`, và lớp mặc định phải dùng cho carrier-grade/enterprise telephony hoặc khi chưa biết nhóm người dùng.
+
+### 8.2. Sàn tuyệt đối m
+
+Với mặc định G.107, `Idd=0` khi `Ta≤100 ms`; sau đó đường cong gần như phẳng tới khoảng 150 ms. T04 tìm được độ
+dốc cực đại `0,1231 điểm R/ms` tại `Ta≈241,5 ms`. Chọn thiết kế `ΔR_min=1` điểm—một thay đổi nhỏ, theo hướng dễ
+phát hiện hiệu ứng—cho
+
+```text
+m = 1 / max(dIdd/dTa) = 8,1 ms.
+```
+
+ITU chuẩn hóa công thức E-model nhưng **không** quy định rằng một điểm R là SESOI; `ΔR_min=1` là lựa chọn nghiên cứu
+được khóa trước F2. Vì dùng độ dốc lớn nhất, gap dưới 8,1 ms làm đổi dưới một điểm R ở mọi mức `Ta` trong miền quét.
+Gap vượt m chỉ *có thể* cảm nhận được tùy tổng trễ, không đảm bảo người dùng nhận ra.
+
+Các con đường không chọn là 5% ngân sách Y.1541 (`5 ms`, hệ số 5% tùy ý) và một service time (`3,024 ms` tại
+4 Mb/s, không phải lý do ứng dụng). Quy đổi `m` là `2,68S`, `5,36S`, `66,97S` tại 4/8/100 Mb/s. Do đó m là ngưỡng
+cao so với hàng đợi link nhanh; kết luận “ngưỡng tĩnh đủ cho VoIP trong miền kiểm” là kết quả hợp lệ, không phải thất bại.
+
+### 8.3. Sàn tương đối r và quy tắc CI
+
+Khóa `r=10%` như phán đoán thiết kế: thích nghi phải lấy lại ít nhất một phần mười headroom mới đáng chi phí tính
+phân phối mỗi epoch. `r=5%` và `20%` chỉ báo phụ. Theo từng seed paired:
+
+```text
+D_abs = gap − 8,1 ms
+D_rel = gap − 0,10·headroom
+```
+
+- Có ý nghĩa khi cận dưới CI95 của cả hai đại lượng lớn hơn 0.
+- Không đáng kể khi cận trên CI95 của ít nhất một đại lượng nhỏ hơn 0.
+- Các trường hợp khác chưa kết luận; thêm seed theo F3, không đổi ngưỡng.
+
+Ô chính DP0 đã khóa trong experiment log: P1 là anchor lưới gần nhất (`K=11, ρ̄=0,85, σ=0,03, τ=10 s`);
+P2 là contrast buffer sâu/gần bão hòa (`K=100, ρ̄=0,95, σ=0,10, τ=2 s`), cả hai tại 4 Mb/s và tuổi CLEAN
+cố định trung bình. Các ô khác chỉ mô tả. Báo phụ dùng `m/2`, `2m`, `r∈{5%;20%}` và không quyết định DP0.
