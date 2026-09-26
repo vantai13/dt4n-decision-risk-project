@@ -172,7 +172,10 @@ def show_validity(name, cell, n_nan, clip, res):
         for i in range(len(edges) - 1):
             sel = k == i
             if sel.sum() >= 30:
-                cells_txt.append(f"{r['pdn'][sel].mean():.3f}→{r['harm'][sel].mean():.3f}")
+                n = int(sel.sum())
+                p_obs = float(r["harm"][sel].mean())
+                se = np.sqrt(p_obs * (1.0 - p_obs) / n)
+                cells_txt.append(f"{r['pdn'][sel].mean():.3f}→{p_obs:.3f} (n={n}, SE={se:.3f})")
         print(f"       độ tin cậy p− (dự đoán→thực, gộp seed test): {'  '.join(cells_txt)}")
 
 
