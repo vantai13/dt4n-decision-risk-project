@@ -1,16 +1,15 @@
-# Evaluation protocol — v1 (2026-09-25)
+# Evaluation protocol — v1.1 (2026-09-25)
 
-> Bản nháp do Claude (AI) soạn theo yêu cầu tác giả (L0.5); tác giả kiểm. Trả lời TRƯỚC khi có số liệu chính:
-> so trên tập quyết định nào, ai thấy gì, ai biết gì, trong thực tế nào, bằng baseline nào, với seed nào.
-> Thuật ngữ: `06_definitions.md` v2. Quyết định: K5, K6, K10, K13, K14, K16, K18, K19, K20 (`02_decision_log.md`).
-> Bản v1 cũ của hướng trust gate: `notes/archive/v1_trust_gate/05_experiment_design.md`.
+> Soạn với hỗ trợ của công cụ AI; tác giả kiểm và chịu trách nhiệm nội dung. v1.1 theo nhận xét GVHD 2026-09-25:
+> tiêu chí K2 bằng ms, phạm vi theo tầng, X1′ và X2, Mininet là mục cắt đầu tiên. Đóng băng tới DP0.
+> Thuật ngữ: `06_definitions.md`. Bản v1 cũ của hướng trust gate: `notes/archive/v1_trust_gate/05_experiment_design.md`.
 
 ## 1. Bốn tầng công bằng
 
 | Tầng | Yêu cầu | Cách đảm bảo |
 |---|---|---|
 | Cùng dữ liệu | Mọi luật chạy trên cùng quỹ đạo traffic | CRN: cùng seed traffic cho mọi luật trong một run; so sánh paired theo seed |
-| Cùng ngân sách tune | Cùng seed calibration, cùng tiêu chí K2 (missed + κ·đổi, harm ≤ α), cùng κ | Một hàm hiệu chỉnh chung cho mọi luật |
+| Cùng ngân sách tune | Cùng seed calibration, cùng tiêu chí K2 (gain với ngân sách harm), cùng c | Một hàm hiệu chỉnh chung cho mọi luật |
 | Cùng tập quyết định | Mọi luật đối mặt cùng đường hiện tại ở mỗi epoch | Decision-level với quỹ đạo tham chiếu (mục 2) |
 | Cùng tri thức | Không luật nào được biết cấu trúc mà luật khác không được biết | Bảng knowledge parity (mục 4) |
 
@@ -18,7 +17,7 @@
 
 - **Decision-level (CHÍNH).** Quỹ đạo tham chiếu = quỹ đạo của luật tĩnh đã tune (hiện trạng vận hành) trên cùng traffic.
   Ở mỗi epoch, mọi luật quyết định một bước từ đúng trạng thái đó. Hiệu chỉnh (λ, H, r, q) và đánh giá dùng CÙNG loại
-  tham chiếu (seed calibration cho hiệu chỉnh, seed test cho đánh giá). Mọi metric chính (J, missed, harm, gap, G,
+  tham chiếu (seed calibration cho hiệu chỉnh, seed test cho đánh giá). Mọi metric chính (gain, harm, gap, G,
   harm_excess_shift, chỉ số H2) ở tầng này. Oracle là cận trên ở tầng này, theo kỳ vọng.
 - **Độ nhạy:** lặp decision-level với tham chiếu ngẫu nhiên (đường hiện tại tung đồng xu) và tham chiếu = quỹ đạo oracle.
 - **Trajectory-level (PHỤ).** Mỗi luật tự đi quỹ đạo riêng: switch_rate, flap_rate, delay_mean_ms, delay_p95_ms, loss_rate.
@@ -31,7 +30,7 @@
 | Luật | Thấy | KHÔNG thấy |
 |---|---|---|
 | Ngưỡng tĩnh (tuyệt đối H, tương đối r) | F chính → Î, Ĉ_cur | probe, tải thật, hàng đợi, nhãn |
-| Twin posterior-odds | F chính + tri thức tĩnh (mục 4) | như trên |
+| Luật K2 của twin | F chính + tri thức tĩnh (mục 4) | như trên |
 | Lai đóng băng / lai ACI | F chính → Î, s_twin; ACI: nhãn của epoch ĐÃ kết thúc | nhãn chưa kết thúc |
 | Data-driven (history đóng băng / ACI) | F chính + nhãn của epoch đã kết thúc | như trên |
 | Oracle | F chính + đúng mô hình sinh dữ liệu (M0) | trạng thái ẩn, nhiễu tương lai |
@@ -55,32 +54,29 @@
 
 ## 5. Các thực tế đánh giá (K20)
 
-| Mã | Thực tế | Loại | Dùng ở |
-|---|---|---|---|
-| M0 | Twin cùng họ mô hình sinh dữ liệu, tham số ước lượng | verification | e05 |
-| M1 | Twin sai K | sai trong họ | e07 |
-| M2 | Twin giả Poisson khi thật là H2 | sai trong họ | e07 |
-| X1′ | Token bucket kiểu HTB trong DES (burst 1600 B, bfifo), khớp truth_table (P05) | sai ngoài họ — CHÍNH (đề xuất K20) | e08 |
-| X1 | Mininet: HTB token bucket + bfifo | xác nhận thứ tự và dấu, ≤ 2 cấu hình | e08 |
-| X2 | Tải dựng từ trace thật (phụ thuộc dài hạn) | sai ngoài họ, dự phòng nếu X1 không khả thi | e08 |
+| Mã | Thực tế | Loại | Tầng | Dùng ở |
+|---|---|---|---|---|
+| M0 | Twin cùng họ mô hình sinh dữ liệu, tham số ước lượng | verification | 1–2 | e03, e05 |
+| M1 | Twin sai K | sai trong họ | 2 | e07 |
+| X1′ | Token bucket kiểu HTB trong DES (burst 1600 B, bfifo), khớp truth_table (P05) | sai ngoài họ: hàng đợi | 2 | e08 |
+| X2 | Tải dựng từ trace thật — chỉ khi F1 tìm được chuỗi thời gian | sai ngoài họ: traffic (kiểm giả định OU) | 2–3 | e08 |
+| M2 | Twin giả Poisson khi thật là H2 | sai trong họ | 3 | e07 |
+| X1 | Mininet | xác nhận thứ tự và dấu, ≤ 2 cấu hình; mục cắt đầu tiên | 3 | e08 |
 
 ## 6. Baseline và giải thích thay thế nó loại trừ
 
-| Baseline | Bắt buộc? | Loại trừ giải thích |
+| Baseline | Tầng | Loại trừ giải thích |
 |---|---|---|
-| Luôn đổi; không bao giờ đổi | có | Cận dưới/trên hiển nhiên; kiểm pipeline |
-| Tĩnh tốt nhất của họ tuyệt đối + tương đối, tune từng ô (K22) | có | "Chỉ cần chỉnh ngưỡng theo cấu hình / theo độ lớn" (Seshadri–Katz; RON) |
-| Forecast-to-now + ngưỡng tĩnh | có | "Sửa tâm (Jensen, dự báo tới hiện tại) là đủ" |
-| Delta method (ngưỡng ∝ s bậc nhất) | có | "Độ rộng bậc nhất là đủ, không cần lan truyền đầy đủ" |
-| Twin posterior-odds | có (phương pháp) | — |
-| Lai đóng băng; lai ACI (K19) | có | "Lợi ích chỉ do hình dạng bất định, không do thang đo tuyệt đối" |
-| History đóng băng; history + ACI | có | "Dữ liệu gần đây tự học được thang đo" |
-| Oracle (F chính) | có | Cận trên ở decision-level |
-| Tĩnh toàn cục (một H cho mọi ô) | nếu kịp | "Tune từng ô có cần không" |
-| Chỉ theo tuổi | nếu kịp | "Chỉ tuổi dữ liệu là đủ" |
-| Rủi ro μ + k·s kèm ngưỡng tĩnh (kiểu Liyanage 2026) | nếu kịp | "Thực tiễn risk-aware hiện có đã đủ" |
-| Hold-down (trajectory) | nếu kịp | "Chỉ cần chống flap" |
-| H động MIMD (Seshadri–Katz) | nếu kịp | "Một H động đơn giản là đủ" |
+| Luôn đổi; không bao giờ đổi | 1 | Cận hiển nhiên; kiểm pipeline |
+| Tĩnh tốt nhất tuyệt đối + tương đối, tune từng ô (K22) | 1 | "Chỉ cần chỉnh ngưỡng theo cấu hình / theo độ lớn" |
+| Forecast-to-now + ngưỡng tĩnh | 1 | "Sửa tâm là đủ" |
+| Delta method | 1 | "Độ rộng bậc nhất là đủ" |
+| Oracle (F chính) | 1 | Cận trên ở decision-level |
+| Luật K2 của twin (Ī − λ·p− > c) | 2 | — (phương pháp) |
+| Lai đóng băng (Î/s_twin > q) | 2 | "Lợi ích chỉ do hình dạng bất định, không do thang đo tuyệt đối" |
+| History đóng băng | 2 | "Dữ liệu gần đây tự học được thang đo" |
+| History + ACI; lai + ACI | 3 | Hiệu chỉnh online dưới dịch chuyển |
+| Tĩnh toàn cục; chỉ theo tuổi; μ + k·s kiểu Liyanage/Burbano; hold-down; MIMD | 3 (nếu kịp) | Như bảng v1 |
 
 ## 7. Seed (K13)
 
@@ -95,19 +91,19 @@ Không dải nào được dùng cho mục đích khác. Test tự động kiể
 
 ## 8. Bảng thí nghiệm
 
-| Mã | Nội dung | Tầng | Thực tế | Vai trò | RQ / H |
-|---|---|---|---|---|---|
-| e00 | DES khớp nghiệm M/D/1/K, P–K; step test | — | — | verification | — |
-| e01 | H1 qua pipeline thật | decision | tuyến tính–Gauss | verification | H1 |
-| e02 | Độ tin cậy của p± oracle (reliability diagram) | decision | M0 | verification | — |
-| e03 | Bản đồ gap_fixed_oracle | decision | M0 | confirmatory | RQ1, H2a, H2b, H2c |
-| e04 | Cô lập cơ chế (OFAT) | decision | M0 | một phần confirmatory | RQ1 |
-| e05 | So sánh trong cùng chế độ + ablation | cả hai | M0 | verification | RQ2 (H3a M0) |
-| e06 | Dịch chuyển chế độ, tham số đóng băng | cả hai | M0 | confirmatory | RQ2, H3b |
-| e07 | Twin sai mô hình | cả hai | M1, M2 | confirmatory | RQ2, H3a (M1) |
-| e08 | Thực tế ngoài họ | cả hai | X1′ (Mininet X1 xác nhận ≤ 2 cấu hình; X2 dự phòng) | confirmatory | RQ2, H3b |
+| Mã | Nội dung | Tầng đánh giá | Thực tế | Vai trò | Tầng phạm vi | RQ / H |
+|---|---|---|---|---|---|---|
+| e00 | DES khớp nghiệm M/D/1/K (lát cắt) và P–K; step test | — | — | verification | 1 | — |
+| e01 | H1 qua pipeline thật | decision | tuyến tính–Gauss | verification | 1 | H1 |
+| e02 | Độ tin cậy của p± oracle | decision | M0 | verification | 1 | — |
+| e03 | Bản đồ gap_fixed_oracle_ms | decision | M0 | confirmatory | 1 | RQ1, H2a–c |
+| e04 | OFAT cơ chế (có biến thể "chỉ nhiễu đếm") | decision | M0 | một phần confirmatory | 1 | RQ1 |
+| e05 | RQ2 cùng chế độ + ablation | cả hai | M0 | verification | 2 | H3 (M0) |
+| e07 | Twin sai mô hình | cả hai | M1 (tầng 2); M2 (tầng 3) | confirmatory | 2–3 | H3 |
+| e08 | Thực tế ngoài họ | cả hai | X1′, X2 (tầng 2); Mininet (tầng 3) | confirmatory | 2–3 | H3 |
+| e06 | Dịch chuyển chế độ, tham số đóng băng | cả hai | M0 | confirmatory | 3 | H3′ |
 
-Số claim confirmatory: ≤ 6 (H2a, H2b, H2c, H3a-M1, H3b).
+Claim confirmatory cho NCKH (tầng 1–2): H2a, H2b, H2c, H3. Tầng 3: H3′.
 
 ## 9. Ngoài scope
 

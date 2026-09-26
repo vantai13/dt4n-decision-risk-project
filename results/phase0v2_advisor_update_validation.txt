@@ -1,0 +1,51 @@
+Phase 0 v2 advisor-update validation
+Run date: 2026-09-26 (Asia/Saigon)
+Interpreter: /home/vantai/ndt-decision-risk/.venv/bin/python, Python 3.14.5
+
+1. Automated tests
+Command: .venv/bin/python -m pytest -q
+Result: 4 passed in 0.87s
+
+2. Documentation guards
+- Obsolete banners/status in brief/definitions/protocol: 0 matches
+- kappa in current research brief: 0 matches
+- Tracked PDF/private files: 0
+- Append-only deletions in decision/experiment logs, excluding live K rows: 0
+- git diff --check: PASS
+
+3. Numerical diagnosis: M/D/1/K double-precision matrix
+K=11, rho=0.5: loss=1.15494068875232614e-06; Wq/S=0.499976217653
+K=11, rho=0.8: loss=2.35336842945799152e-03; Wq/S=1.87826752486
+K=100, rho=0.5: loss=-4.44089209850062616e-16; Wq/S=0.5
+K=100, rho=0.8: loss=-4.66293670342565747e-15; Wq/S=2
+70-digit reference, K=100, rho=0.5: loss=3.152953974817870000000000e-55
+70-digit reference, K=100, rho=0.8: loss=5.183435927044154649658259e-20
+Conclusion: the binary64 matrix expression suffers catastrophic cancellation
+and produces a negative loss for deep buffers, while high precision is positive.
+
+4. Two incompatible "knee" definitions
+K=11: loss first exceeds 0.1% at rho=0.757605514; argmax dW/drho at rho=0.984554011
+K=100: loss first exceeds 0.1% at rho=0.986659859; argmax dW/drho at rho=0.999831457
+Conclusion: do not use an unqualified knee variable; use Pi_knee.
+
+5. Existing exploratory pilots (not RQ1/RQ2 evidence)
+P02, N=400000 per world:
+- World A, expectation-only rule: harm=5.241% (> alpha=1%).
+- World C, budget-filling rule: harm=1.000%, switch=95.64%.
+- World C, KKT with kappa=0: harm=0%, switch=84.83%.
+- World C, old kappa=0.01 rule: harm=0%, switch=10.00%, missed=0.010%.
+These results retain mechanism value only; P02 used the superseded objective.
+
+P05, 3 seeds x 200000 packets, rho=0.60..1.04:
+- Token-bucket mean absolute relative OWD error: 3.3%; max: 6.3%.
+- M/D/1/K mean absolute relative OWD error: 57.0%; max: 135.8%.
+
+6. Proposal PDF
+Build command: latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
+Result: exit 0; 12 pages; A4; 228990 bytes; no undefined citations/references.
+Output: notes/private/thuyet_minh/Thuyet_minh_NCKH_DoanVanTai_v15.pdf
+SHA-256: ee51c7318671fa8949135ba51f6e13259d4fa6ac63d41c5fa8c66bc37d7d8550
+
+7. Deliberately not completed
+- Elevator test G2: requires a real listener and the author's verbatim record.
+- phase-0v2-complete tag: blocked until G2 is complete.

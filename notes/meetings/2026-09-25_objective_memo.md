@@ -1,7 +1,18 @@
-# Memo: chọn mục tiêu tối ưu (2026-09-25)
+# Memo: chọn mục tiêu tối ưu — cập nhật sau nhận xét GVHD (2026-09-25)
 
 > Soạn bởi Claude (AI) theo yêu cầu tác giả, cho buổi làm việc đầu tiên với GVHD (L0.6).
 > Số liệu: `experiments/pilot/p02_objective_rules.py` (pilot lý thuyết, exploratory, thế giới đồ chơi).
+> **Kết quả quyết định:** GVHD chọn mục tiêu (d) bên dưới; phần (a)–(c) được giữ làm lịch sử trước quyết định.
+
+## Quyết định đã chốt: (d) gain theo ms với ngân sách harm
+
+Tối đa hoá E[a·(I_D − c)] với E[a·1{I_D < −ε}] ≤ α trên mọi epoch. Luật tối ưu một bước là
+đổi ⇔ E[I_D | F] − λ·p− > c, với λ ≥ 0 (ms) nhỏ nhất đạt ngân sách. Chính: c = 0; độ nhạy
+c ∈ {0,25; 1}·S. Khi α → ∞, λ = 0 và luật trở thành tối ưu delay kỳ vọng.
+
+Lý do construct validity: mục tiêu cũ phạt bỏ lỡ 0,7 ms và 30 ms như nhau, còn gain đo trực tiếp thứ người dùng
+cảm nhận. Metric chính đổi thành `gain_ms`; `headroom_ms` là cận trên và chuẩn hoá SESOI; missed chỉ còn là metric phụ.
+Nguồn nhận xét: `2026-09-25_gvhd_feedback.md`; ADR: K2/K21 trong `../02_decision_log.md`.
 
 ## Câu hỏi cần thầy quyết định
 

@@ -10,9 +10,9 @@ kết thúc tại tag `pre-pivot-v14`; tài liệu v1 ở `notes/archive/v1_trus
 
 ## Đọc theo thứ tự
 
-1. `notes/00_research_brief.md` — brief v2 (2026-09-25; bản nháp AI, tác giả kiểm)
-2. `notes/06_definitions.md` — ký hiệu, estimand, quy ước (v2)
-3. `notes/05_evaluation_protocol.md` — so sánh thế nào mới công bằng (v1)
+1. `notes/00_research_brief.md` — brief v2.1
+2. `notes/06_definitions.md` — ký hiệu, estimand, quy ước (v2.1)
+3. `notes/05_evaluation_protocol.md` — so sánh thế nào mới công bằng (v1.1)
 4. `notes/02_decision_log.md` — vì sao chọn, vì sao đổi
 5. `notes/03_experiment_log.md` — dự đoán trước khi chạy, kết quả sau khi chạy
 6. `notes/01_literature/` — related work, novelty matrix
@@ -44,6 +44,12 @@ A. Mô phỏng sự kiện rời rạc (DES) — bằng chứng chính, biết g
 B. Realism inputs — tham số và phân bố đo được (tuổi telemetry, log tải) cắm vào DES.
 C. Mininet — kiểm thứ tự phương pháp và dấu hiệu ứng trên hàng đợi Linux thật. Testbed dùng HTB
    token bucket, khác cơ chế với mô hình M/D/1/K của DES. Làm sau cùng, có time-box.
+
+## Sử dụng công cụ AI
+
+Tài liệu trong `notes/` và các pilot trong `experiments/pilot/` được soạn với hỗ trợ của công cụ AI (Claude); tác giả chạy lại,
+kiểm và chịu trách nhiệm nội dung. Nguồn gốc từng pilot ghi trong khối PROVENANCE đầu file. Code trong `ndtrisk/` chỉ được
+thêm khi tác giả tự dẫn được công thức và giải thích được từng dòng (điều kiện của GVHD, 2026-09-25).
 
 ## Môi trường đã kiểm
 

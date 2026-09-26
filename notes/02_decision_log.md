@@ -1,5 +1,33 @@
 # Decision log
 
+## Trạng thái hiện hành K1–K23 (bảng hiện trạng — các dòng `| K` được sửa; phần còn lại của file chỉ thêm)
+
+| ID | Nội dung | Trạng thái | Ghi chú |
+|---|---|---|---|
+| K1 | Đơn vị quyết định đổi/giữ | CHỐT | |
+| K2 | Mục tiêu: max E[a(I_D − c)], harm ≤ α trên mọi epoch, KKT | CHỐT (GVHD 2026-09-25) | Revisit nếu F3 cần > 30 seed |
+| K3 | Loss nhãn riêng, δ = 10⁻³ | CHỐT có điều kiện | Y.1541 (12/2011) còn hiệu lực; RFC 5976 xác nhận Class 0 ≤ 10⁻³; δ ≥ độ phân giải |
+| K4 | Lưới ε | CHỐT | |
+| K5 | Luồng điều khiển; nhãn DES bằng tích phân chính xác | CHỐT | Probe chỉ cho Mininet (≥ 1000/khoảng giữ) |
+| K6 | F chính / F mở rộng | CHỐT | |
+| K7 | Đơn vị S, tham số link | DỰ THẢO | DP0 20/10 |
+| K8 | W, d, a, H_hold | MỞ | DP0 |
+| K9 | Lưới OU | MỞ | DP0 |
+| K10 | Oracle | CHỐT cách làm | Khả thi ở DP0 |
+| K11 | Engine của twin | MỞ | DP0 |
+| K12 | Thống kê | CHỐT | F3 xác nhận số seed |
+| K13 | Tách seed | CHỐT | |
+| K14 | Mininet: xác nhận ≤ 2 cấu hình, cắt đầu tiên | CHỐT (GVHD) | |
+| K15 | Đầu ra | MỞ | Mặc định: báo cáo NCKH; paper = tầng 3 |
+| K16 | Decision-level, tham chiếu hiện trạng | CHỐT | |
+| K17 | Chỉ số H2: rd_score, sd_log_s_cond, self_gap_twin | CHỐT định nghĩa | Chọn ở DP0 |
+| K18 | Knowledge parity | CHỐT | |
+| K19 | Baseline lai | CHỐT | ACI ở tầng 3 |
+| K20 | X1′ (tầng 2); X2 nếu F1 có chuỗi thời gian | CHỐT (GVHD) | |
+| K21 | Chi phí đổi c (ms): c = 0; độ nhạy {0,25; 1}·S | CHỐT (GVHD) | Thay κ |
+| K22 | Họ tĩnh tuyệt đối + tương đối | CHỐT | |
+| K23 | Đóng băng tài liệu Phase 0; không ADR mới tới DP0 | CHỐT (GVHD) | |
+
 | Ngày | Quyết định | Lý do | Thay thế đã cân nhắc |
 |---|---|---|---|
 | 2026-09-23 | Tách sang repo mới; repo dt4n archive tại `70d0e635b818` | Lõi khoa học ~1.2k dòng bị chìm trong ~150k dòng quy trình | Dọn dẹp tại chỗ (rủi ro kéo theo nợ cũ) |
@@ -18,6 +46,7 @@
 | 2026-09-25 | L0.4: definitions v2; K6 (F chính), K7 (đơn vị S, tham số link), K17 bổ sung (rd_kappa, loại rd_all); pilot P03 | Một tên = một estimand; chỉ số H2 được kiểm trước khi định nghĩa | Định nghĩa trong code |
 | 2026-09-25 | L0.5: evaluation protocol v1; K5, K10, K13, K16, K18, K19 chốt/đề xuất; K14, K20 chờ GVHD; pilot P04 | Công bằng về tập quyết định và tri thức; quỹ đạo tham chiếu phải thực tế | Tham chiếu ngẫu nhiên; chỉ trajectory-level |
 | 2026-09-25 | L0.6: buổi làm việc MÔ PHỎNG (AI đóng vai GVHD); đề xuất sửa K20 (X1′ token bucket trong DES); K23 (nhẹ hoá hồ sơ); pilot P05; Phase 0 v2 đóng có điều kiện | Diễn tập trước buổi họp thật; P05 cho thấy token bucket khớp testbed | Gắn tag phase-0v2-complete ngay |
+| 2026-09-25 | Quyết định sau nhận xét GVHD: K2 → gain (ms); c thay κ; tầng phạm vi; quy tắc SESOI; "cũ và nhiễu"; DP0 + DP1 20/10; đóng Phase 0 v2 | Construct validity của metric; neo đơn vị vật lý; tập trung vào tầng 1 | Giữ mục tiêu (b) với κ |
 
 ## ADR — L0.3/L0.4, ngày 2026-09-23
 
@@ -445,3 +474,57 @@ Hai file này không cần sao chép vào `notes/private/` của repo, không y�
 ### Phase 0 v2 — đóng có điều kiện
 
 - Closeout: `notes/phase0v2_closeout.md`. Tag `phase-0v2-complete` chỉ gắn khi điều kiện G1–G3 đóng.
+
+## Quyết định sau nhận xét của GVHD (2026-09-25)
+
+Nguồn: nhận xét bằng văn bản của GVHD, nguyên văn tại `notes/meetings/2026-09-25_gvhd_feedback.md`. Các khẳng định kỹ thuật
+đã được tái lập độc lập bằng tính toán riêng (hỗ trợ AI) trước khi ghi; script chính thức thuộc L2.1 và L3.5.
+D14 hết hiệu lực: đồ án có GVHD nhận xét trực tiếp; AI chỉ là công cụ hỗ trợ.
+
+### K2 — Mục tiêu chính (CHỐT; thay đề xuất (b) của L0.3)
+
+- **Context:** (b) đếm mọi lần bỏ lỡ như nhau: bỏ lỡ 0,7 ms và bỏ lỡ 30 ms cùng bị phạt 1 (construct validity).
+- **Options:** (a) delay kỳ vọng; (b) missed với ngân sách harm; (d) gain (ms) với ngân sách harm.
+- **Decision:** (d): max E[a·(I_D − c)] với E[a·1{I_D < −ε}] ≤ α trên mọi epoch; đổi ⇔ E[I_D|F] − λ·p− > c, λ ≥ 0 (ms)
+  nhỏ nhất đạt ngân sách. α → ∞ cho (a). Họ tịnh tiến ⇒ điểm đơn điệu theo Î ⇒ H1 giữ nguyên.
+- **Consequences:** metric chính gain_ms, headroom_ms; missed thành phụ; definitions v2.1; K17 định nghĩa lại trên u.
+  P02–P04 dùng (b): kết luận cơ chế (KKT, tham chiếu, F lồng nhau) giữ; độ lớn không chuyển sang (d).
+- **Revisit when:** F3 cho thấy cần > 30 seed để phân giải SESOI → quay về (b) với κ = 0.
+
+### K3 — Loss (CHỐT có điều kiện)
+
+- Đổi gây hại về loss ⇔ loss_alt − loss_cur > δ, δ = 10⁻³. ITU-T Y.1541 (12/2011) đặt loss ratio tuyệt đối ≤ 10⁻³
+  cho Class 0; bản chuẩn còn hiệu lực, và RFC 5976 tóm tắt Class 0 cho ứng dụng real-time như VoIP.
+- Điều kiện: (i) δ ≥ độ phân giải đo — thỏa trong DES nhờ nhãn tích phân; Mininet cần ≥ 1000 probe mỗi path mỗi khoảng giữ.
+  Y.1541 đặt mức tuyệt đối; dùng làm ngưỡng chênh lệch là lựa chọn phân tích: một lần đổi "tiêu" cả ngân sách loss của lớp VoIP.
+
+### K21 — Chi phí mỗi lần đổi (CHỐT; thay κ)
+
+- κ có đơn vị "sự kiện missed mỗi lần đổi", không neo vật lý. Thay bằng c (ms) trong mục tiêu K2. Chính c = 0; độ nhạy
+  c ∈ {0,25; 1}·S. Switch rate và flap báo ở tầng trajectory, bắt buộc ở mọi ô khi c = 0.
+
+### K14, K20 — Thực tế ngoài họ (CHỐT)
+
+- X1′ (token bucket trong DES, P05) cho sai mô hình hàng đợi — tầng 2. X2 (tải dựng từ trace thật) cho sai mô hình traffic,
+  chỉ khi F1 tìm được chuỗi thời gian — OU là giả định yếu nhất và X1′ không kiểm được nó. Mininet chỉ xác nhận ≤ 2 cấu hình,
+  là mục cắt đầu tiên.
+
+### Phạm vi, SESOI, framing, lịch, hồ sơ, điều kiện hiểu bài (CHỐT)
+
+- **Tầng:** 1 (bắt buộc NCKH): RQ1 + RQ1-op, 16 ô. 2: RQ2 cùng chế độ + X1′. 3 (paper): dịch chuyển, ACI, M2, H2, Mininet.
+- **SESOI:** khoảng cách có ý nghĩa ⇔ vượt cả sàn m ms (lý do ứng dụng) và r × headroom E[(I_D − c)⁺]. Con số m, r khoá ở
+  mốc 13/10, sau F1 và TRƯỚC khi chạy F2, ghi có ngày trong experiment log.
+- **Framing:** "stale and noisy telemetry" (telemetry cũ và nhiễu).
+- **Lịch:** DP0 gộp DP1 ngày 20/10/2026; mốc giữa kỳ 13/10/2026.
+- **Hồ sơ (K23 siết):** đóng băng tài liệu Phase 0 tới DP0 (chỉ thêm dòng đính chính); bảng trạng thái ở đầu file; không ADR mới tới DP0.
+- **Hiểu bài (điều kiện cứng):** không dòng nào vào `ndtrisk/` nếu tác giả chưa tự dẫn được công thức và giải thích được từng dòng.
+
+### Đính chính kỹ thuật (từ nhận xét GVHD)
+
+1. Giải M/D/1/K bằng ma trận (phép kiểm L0.1, P05) cho loss âm ở buffer sâu (K = 100). Số K = 11 trong đính chính không bị
+   ảnh hưởng. `mdk.py` (L2.1) dùng phương trình lát cắt và có test ở K = 100.
+2. "Knee" có hai định nghĩa cho kết quả khác xa (K = 11: 0,76 và 0,985). Không dùng knee làm biến; dùng Π_knee.
+3. Π_noise dùng z_eff trong phương sai, trái quy tắc của definitions; chỉ là chỉ số bậc độ lớn.
+4. Nhãn DES tính bằng tích phân chính xác của V(t) (L3.5); tương đương vô hạn probe Poisson (PASTA).
+5. Spearman đo thứ tự toàn cục, khoảng cách phụ thuộc thứ tự gần biên → thêm ứng viên `self_gap_twin` (K17).
+6. Hàng xóm mới: Burbano et al. 2025 (arXiv 2511.10146), cùng nhóm Liyanage → thêm vào danh sách đọc full text của DP1-v2.

@@ -1,10 +1,9 @@
-# Definitions — v2 (2026-09-25)
+# Definitions — v2.1 (2026-09-25)
 
-> Nguồn sự thật duy nhất cho ký hiệu, đơn vị và estimand của hướng switch-or-stay. Bản nháp do Claude (AI) soạn
-> theo yêu cầu tác giả (L0.4); tác giả kiểm từng mục. Docstring trong `ndtrisk/`, cột trong `summary.json` và §III
-> báo cáo phải dùng đúng các định nghĩa ở đây. **Sửa file này TRƯỚC khi sửa code.**
-> Bản v1 (top-2 margin): `notes/archive/v1_trust_gate/06_definitions.md`.
-> Quyết định liên quan: K2, K3, K6, K7, K17, K21, K22 (`02_decision_log.md`).
+> Nguồn sự thật duy nhất cho ký hiệu, đơn vị và estimand. Soạn với hỗ trợ của công cụ AI; tác giả kiểm và chịu trách
+> nhiệm nội dung. v2.1 theo nhận xét GVHD 2026-09-25: mục tiêu bằng ms, c thay κ, nhãn DES bằng tích phân chính xác,
+> chỉ số H2 trên điểm quyết định. **Sửa file này TRƯỚC khi sửa code.** Đóng băng tới DP0.
+> Bản v1 (top-2 margin): `notes/archive/v1_trust_gate/06_definitions.md`. Quyết định: K2, K3, K5, K6, K7, K17, K21, K22.
 
 ## Phần 1 — Dòng thời gian của một quyết định
 
@@ -51,12 +50,13 @@
 | p+, p− | xác suất có điều kiện | P(I_D > ε \| F), P(I_D < −ε \| F) | — | `p_plus`, `p_minus` |
 | s | bất định | sd(I_D \| F) | ms | `sd_imp_ms` |
 | M | số mẫu Monte Carlo | dùng ước lượng p± | — | `n_mc` |
-| ε, δ | ngưỡng "đáng kể" | delay; loss (K3: δ = 0,01) | ms, — | `eps_ms`, `delta_loss` |
+| ε, δ | ngưỡng "đáng kể" | delay; loss: δ = 10⁻³ (K3, ITU-T Y.1541, lớp thời gian thực) | ms, — | `eps_ms`, `delta_loss` |
 | α | ngân sách harm | trên MỌI epoch (K2) | — | `alpha` |
-| κ | giá mỗi lần đổi | đơn vị: "sự kiện missed" trên một lần đổi (K21: 0,01) | — | `kappa` |
-| λ | giá của harm | nhân tử Lagrange; λ ≥ 0 nhỏ nhất đạt harm ≤ α (K2) | — | `lambda_harm` |
+| Ī | cải thiện kỳ vọng | E[I_D \| F]; khác Î gần bão hoà (Jensen) | ms | `imp_exp_ms` |
+| c | chi phí mỗi lần đổi | chính c = 0; độ nhạy {0,25; 1}·S (K21) | ms | `c_switch_ms` |
+| λ | giá của harm | ms kỳ vọng sẵn sàng bỏ ra để tránh một lần đổi gây hại; λ ≥ 0 nhỏ nhất đạt harm ≤ α (K2) | ms | `lambda_harm_ms` |
+| u | điểm quyết định | u = Ī − λ·p−; luật K2: đổi ⇔ u > c | ms | `score_ms` |
 | H, r | ngưỡng tĩnh | tuyệt đối: đổi ⇔ Î > H; tương đối: đổi ⇔ Î/Ĉ_cur > r (K22) | ms, — | `h_fixed_ms`, `r_rel` |
-| η | ngưỡng odds (dạng cũ) | chỉ dùng khi κ = 0: đổi ⇔ p+/p− > η, η = λ | — | `eta` |
 
 ## Phần 3 — Estimand
 
@@ -65,40 +65,48 @@ trajectory-level: xem K16 (L0.5).
 
 | Tên (= tên cột) | Estimand | Tầng | Đơn vị | Vai trò |
 |---|---|---|---|---|
-| `harmful_switch_rate` | P(đổi ∧ I_D < −ε) | decision | tỉ lệ | **chính** (ràng buộc ≤ α) |
-| `missed_improvement_rate` | P(giữ ∧ I_D > ε) | decision | tỉ lệ | **chính** |
-| `switch_rate` | P(đổi) | decision | tỉ lệ | chính (trong J) |
-| `objective_j` | missed_improvement_rate + κ·switch_rate | decision | tỉ lệ | **tiêu chí K2** |
-| `gap_fixed_oracle` | J(tốt nhất của họ tĩnh K22, tune từng ô) − J(oracle), cùng α, cùng tập quyết định | decision | điểm % | **RQ1 chính** |
-| `gap_missed` | như trên nhưng chỉ missed | decision | điểm % | phụ (so với thuyết minh) |
-| `recovery_ratio` | (J_tĩnh − J_luật) / (J_tĩnh − J_oracle); chỉ báo khi gap ≥ SESOI_claim | decision | — | RQ2 |
-| `harm_excess_shift` | harmful_switch_rate ở test − α, λ đóng băng từ calibration | decision | điểm % | **RQ2** (tiêu chí thất bại chính) |
-| `harmful_per_switch` | P(I_D < −ε \| đổi) | decision | tỉ lệ | phụ (so với v1, LEC) |
+| `gain_ms` | E[a·(I_D − c)] trên mọi epoch | decision | ms | **chính (mục tiêu K2)** |
+| `headroom_ms` | E[(I_D − c)⁺]: gain của người biết trước I_D; cận trên của mọi luật | decision | ms | chuẩn hoá, quy tắc SESOI |
+| `harmful_switch_rate` | P(đổi ∧ I_D < −ε) | decision | tỉ lệ | **chính (ràng buộc ≤ α)** |
+| `gap_fixed_oracle_ms` | gain(oracle) − gain(tốt nhất của họ tĩnh K22, tune từng ô), cùng α, cùng tập quyết định | decision | ms | **RQ1 chính** |
+| `gap_rel_headroom` | gap_fixed_oracle_ms / headroom_ms | decision | — | RQ1, quy tắc SESOI |
+| `recovery_ratio` | (gain_luật − gain_tĩnh) / (gain_oracle − gain_tĩnh); chỉ báo khi khoảng cách có ý nghĩa | decision | — | RQ2 |
+| `price_of_safety_ms` | gain(oracle, α = ∞) − gain(oracle, α) | decision | ms | phụ ("giá của an toàn") |
+| `lambda_harm_ms` | λ đã hiệu chỉnh | decision | ms | chẩn đoán |
+| `harm_excess_shift` | harmful_switch_rate ở test − α, tham số đóng băng | decision | điểm % | tầng 3 |
+| `missed_improvement_rate` | P(giữ ∧ I_D > ε) | decision | tỉ lệ | phụ (so với v14) |
+| `harmful_per_switch` | P(I_D < −ε \| đổi) | decision | tỉ lệ | phụ |
 | `frac_harm_possible` | P(I_D < −ε) trên tập quyết định | decision | tỉ lệ | kiểm ràng buộc có thể cắn (≥ 2α) |
-| `lambda_harm` | λ đã hiệu chỉnh | decision | — | chẩn đoán (giá của harm) |
-| `rd_kappa`, `rd_kappa_twin` | Phần 6 | decision | — | H2 (ứng viên chính) |
-| `sd_log_s_cond`, `sd_log_s_cond_twin` | Phần 6 | decision | — | H2 (ứng viên chính) |
+| `harmful_loss_rate` | P(đổi ∧ loss_alt − loss_cur > δ) | decision | tỉ lệ | phụ (K3) |
+| `rd_score`, `sd_log_s_cond`, `self_gap_twin` (+ `_twin`) | Phần 6 | decision | —, ms | H2, RQ1-op |
 | `sd_log_s` | sd(log s) trên mọi epoch | decision | — | phụ |
-| `harmful_loss_rate` | P(đổi ∧ I_L < −δ) | decision | tỉ lệ | phụ (K3) |
-| `flap_rate` | P(đổi ngược trong ≤ 3 epoch \| đổi) | trajectory | tỉ lệ | phụ |
-| `delay_mean_ms`, `delay_p95_ms` | delay probe nhận được trên path luồng thật sự đi | trajectory | ms | phụ |
-| `loss_rate` | tỉ lệ probe mất trên path luồng thật sự đi | trajectory | tỉ lệ | phụ |
-| `n_epochs`, `n_nan_epochs` | số epoch đánh giá; số epoch có path mất toàn bộ probe | cả hai | epoch | bắt buộc báo |
+| `switch_rate`, `flap_rate` | P(đổi); P(đổi ngược trong ≤ 3 epoch \| đổi) | trajectory | tỉ lệ | phụ; bắt buộc báo khi c = 0 |
+| `delay_mean_ms`, `delay_p95_ms`, `loss_rate` | của luồng trên path nó thật sự đi | trajectory | ms, tỉ lệ | phụ |
+| `n_epochs`, `n_nan_epochs` | số epoch đánh giá; số epoch nhãn không xác định | cả hai | epoch | bắt buộc báo |
 
-Estimator mặc định: tính estimand trong mỗi run → trung bình qua seed → CI t (paired theo seed khi so hai luật).
+Estimator mặc định: tính trong mỗi run → trung bình qua seed → CI t (paired theo seed khi so hai luật).
+**Quy tắc SESOI:** khoảng cách có ý nghĩa ⇔ gap_fixed_oracle_ms ≥ m VÀ gap_rel_headroom ≥ r (m, r khoá ngày 13/10, trước F2).
 
 ## Phần 4 — Quy ước
 
 1. **Mẫu số:** mọi epoch được đánh giá (K2). Đổi K2 thì sửa ở đây trước khi sửa code.
 2. **Vùng chết:** |I_D| ≤ ε thì không harmful, không missed.
 3. **Hoà:** giá trị đúng bằng ngưỡng thì GIỮ.
-4. **Epoch không xác định:** path mất toàn bộ probe → D = NaN, epoch loại khỏi estimand delay (cả tử và mẫu),
-   vẫn tính cho estimand loss; báo `n_nan_epochs`. Ở decision-level, mọi luật cùng tập epoch nên loại trừ công bằng.
+4. **Epoch không xác định:** hệ thống đầy suốt khoảng giữ (DES) hoặc mất toàn bộ probe (Mininet) → D = NaN, epoch loại khỏi
+   estimand delay (cả tử và mẫu), vẫn tính cho loss; báo `n_nan_epochs`.
 5. **Warm-up:** bỏ epoch trong thời gian burn-in hàng đợi và epoch chưa có cửa sổ telemetry đầu tiên; báo `n_epochs`.
 6. **Đơn vị:** phân tích theo epoch; lặp độc lập theo seed (không coi epoch là mẫu độc lập).
 7. **p± ước lượng:** kẹp ở sàn 1/(M+1); luôn báo M hoặc kích thước bin.
 8. **Tên:** đại lượng có đơn vị mang hậu tố `_s`, `_ms`, `_bps`; không thứ nguyên ghi rõ (`pi_noise`, `eps_over_s`).
 9. **Probe là công cụ chấm điểm:** không policy nào được đọc probe (kiểm bằng test không rò rỉ ở Phase 4).
+10. **Nhãn trong DES:** D và loss trên khoảng giữ tính bằng tích phân chính xác của workload V(t) (tuyến tính từng khúc):
+    D = prop + S + trung bình theo thời gian của V trên phần thời gian hệ thống chưa đầy; loss = tỉ lệ thời gian hệ thống đầy.
+    Theo PASTA, bằng trung bình của vô hạn probe Poisson. Estimand là delay trung bình theo thời gian; luồng CBR thật có thể
+    lệch nhẹ. Probe lấy mẫu chỉ dùng cho Mininet, cần ≥ 1/δ = 1000 probe mỗi path mỗi khoảng giữ để phân giải δ.
+11. **Không dùng "knee" làm biến.** Hai định nghĩa cho kết quả khác xa (K = 11: 0,76 theo "loss > 0,1%" và 0,985 theo
+    "dW/dρ cực đại"). Dùng Π_knee.
+12. **Nghiệm M/D/1/K** tính bằng phương trình lát cắt (chỉ cộng số dương). Không giải bằng ma trận khi loss nhỏ
+    (cho loss âm ở K = 100).
 
 ## Phần 5 — Nhóm không thứ nguyên
 
@@ -112,6 +120,8 @@ Estimator mặc định: tính estimand trong mỗi run → trung bình qua seed
 | ε/S | ngưỡng / thời gian phục vụ | `eps_over_s` |
 | K | buffer tính theo đơn vị S ("nông" 11, "sâu" 100) | `k_sys` |
 
+Π_noise là **chỉ số bậc độ lớn**: công thức dùng z_eff trong phương sai, trái quy tắc Phần 1; không dùng cho kết luận định lượng.
+
 Ghi chú: MASTER_PLAN từng dùng độ trôi không dự báo σ·√(2(1 − e^(−z/τ))). Với W = 0,5 s, ρ̄ = 0,9, σ = 0,03,
 τ = 10 s, z_eff = 1 s, hai cách cho Π_noise = 5,78 và 5,64 ở 4 Mb/s. File này dùng 5,78 (công thức trên).
 
@@ -123,22 +133,19 @@ Giá trị tham chiếu (cùng tham số):
 | 100 Mb/s | 0,121 ms | 1,16 | 0,046 s | 0,005 | 12,1 ms |
 | 1 Gb/s | 0,012 ms | 0,37 | 0,005 s | 0,0005 | 1,2 ms |
 
-## Phần 6 — Chỉ số cho H2 (K17)
+## Phần 6 — Chỉ số cho H2 (K17, định nghĩa lại theo K2)
 
-Tính trong MỘT ô cấu hình, trên các epoch e = 1…N của một run, rồi trung bình qua seed.
-
-- **Tập cân nhắc** E_κ = {e : p+_e > κ}: epoch mà luật K2 có thể đổi. Ngoài E_κ, không luật K2 nào đổi.
-- **log-odds** = log(max(p+, 1/(M+1))) − log(max(p−, 1/(M+1))).
-- **`rd_kappa`** = 1 − Spearman(Î, log-odds) trên E_κ (hạng trung bình khi hoà). Bằng 0 khi thứ tự theo Î trùng thứ
-  tự theo odds; nếu |E_κ| < 3 thì đặt 0.
-- **`sd_log_s_cond`** = trung bình có trọng số (theo số epoch) của sd(log s) trong 20 bin phân vị của Î.
-- **`sd_log_s`** = sd(log s) trên mọi epoch (phụ).
-- **Bản oracle** dùng p±, s của oracle (phân tích H2a). **Bản twin** (`_twin`) dùng p±, s do twin tính; người vận hành
-  tính được, không cần oracle (RQ1-op, H2c).
-- **Không dùng** `rd_all` (Spearman trên mọi epoch). P03, thế giới C: rd_all = 0,195 dù khoảng cách = 0, vì kẹp p± ở
-  sàn Monte Carlo tạo hoà hàng loạt.
-- Bằng chứng: `experiments/pilot/p03_h2_indices.py` (exploratory). Chọn chỉ số chính giữa `rd_kappa` và
-  `sd_log_s_cond` ở DP0 bằng seed pilot; khoá trong prereg RQ1.
+- **Điểm quyết định** u_e = Ī_e − λ·p−_e tại λ vận hành (λ của oracle hoặc của twin, theo bản chỉ số).
+- **Tập cân nhắc** E_c = {e : Ī_e > c}: epoch mà luật K2 có thể đổi (ngoài E_c, u ≤ c với mọi λ ≥ 0).
+- **`rd_score`** = 1 − Spearman(Î, u) trên E_c (hạng trung bình khi hoà; |E_c| < 3 → 0). Bằng 0 khi thứ tự theo Î trùng thứ tự
+  theo u, tức ngưỡng tĩnh trên Î tối ưu.
+- **`sd_log_s_cond`**: sd(log s) trong 20 bin phân vị của Î, trung bình có trọng số theo số epoch.
+- **`self_gap_twin`**: twin dùng chính Ī, p− của nó để tính gain dự đoán của luật K2 trừ gain dự đoán của ngưỡng tĩnh tốt nhất,
+  cùng ngân sách dự đoán (ms). Dưới M0 đúng theo cấu trúc (verification); dưới X1′, X2 mới mang thông tin.
+- Bản oracle dùng Ī, p±, s của oracle; bản twin (`_twin`) dùng của twin. `sd_log_s` là biến phụ.
+- Lịch sử: `rd_kappa` (v2, theo mục tiêu (b)) được thay bằng `rd_score`. Bài học của P03 giữ nguyên: tính trên tập cân nhắc;
+  cẩn thận hoà điểm do kẹp p± ở sàn Monte Carlo.
+- Chọn chỉ số chính giữa `rd_score`, `sd_log_s_cond`, `self_gap_twin` ở DP0 bằng seed pilot; khoá trong prereg RQ1.
 
 ## Phần 7 — Ví dụ tính tay
 
@@ -151,13 +158,13 @@ Tính trong MỘT ô cấu hình, trên các epoch e = 1…N của một run, r�
 nên phải báo trên cả lưới ε.
 
 **VD3.** Đường hiện tại A; policy đã đổi. A nhận 95/100 probe, trung bình 30 ms; B nhận 80/100, trung bình 20 ms.
-ε = 2 ms, δ = 0,01.
+ε = 2 ms, δ = 10⁻³.
 → I_D = +10 ms (tốt về delay). loss_A = 0,05; loss_B = 0,20; I_L = −0,15 < −δ → **harmful về loss**. B trông tốt về
 delay một phần vì 20% probe bị drop (thường là những gói lẽ ra chờ lâu nhất) không được tính: survivorship.
 
-**VD4.** Một run 1000 epoch. Policy đổi 120 lần, 9 lần harmful; 60 epoch giữ trong khi I_D > ε; κ = 0,01.
-→ `harmful_switch_rate` = 0,9% (≤ α = 1% ✓); `harmful_per_switch` = 7,5% (✗ nếu hiểu α theo precision);
-`missed_improvement_rate` = 6,0%; `switch_rate` = 12%; `objective_j` = 6,0% + 0,01 × 12% = 6,12%.
+**VD4.** Một run 1000 epoch, c = 0. Policy đổi 120 lần, tổng I_D trên các lần đổi là 240 ms; 9 lần có I_D < −ε.
+→ `gain_ms` = 240/1000 = 0,24 ms; `harmful_switch_rate` = 0,9% (≤ α = 1% ✓); `harmful_per_switch` = 7,5%.
+Nếu `headroom_ms` = 0,80 ms thì luật này đạt 30% headroom.
 
 **VD5.** W = 0,5 s, T_poll = 0,5 s, d = 0,1 s, a = 0,05 s, H_hold = 0,5 s; quyết định không đồng bộ với telemetry.
 → t − t_m ∈ [0,1; 0,6) → z ∈ [0,35; 0,85) s → z_eff ∈ [0,65; 1,15) s, trung bình 0,9 s. Jitter tuổi rộng đúng
@@ -170,3 +177,6 @@ T_poll = 0,5 s. Nếu quyết định ngay khi telemetry tới: z = d + W/2 = 0,
 Hạng theo Î: A 1, B 2, C 3. Hạng theo odds: C 1, A 2, B 3. Hiệu hạng d = (−1; −1; 2), Σd² = 6.
 Spearman = 1 − 6·Σd² / (n(n² − 1)) = 1 − 36/24 = −0,5 → rd = 1,5. Chỉ với {A, B}: Spearman = 1 → rd = 0.
 C có Î lớn nhất nhưng bất định lớn hơn hẳn, nên đảo thứ tự. Đó là loại heterogeneity làm ngưỡng tĩnh thua.
+
+**VD8 (vì sao K2 dùng ms).** P và Q cùng p+ = 0,9, p− ≈ 0; E[I_D | F] của P là 0,7 ms, của Q là 30 ms. Mục tiêu (b) phạt bỏ lỡ
+P và bỏ lỡ Q như nhau (mỗi cái 1 missed); mục tiêu K2 phân biệt 0,7 ms và 30 ms, đúng thứ người dùng VoIP cảm nhận.

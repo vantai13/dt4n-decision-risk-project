@@ -14,3 +14,6 @@ Code nháp sinh ra các con số trong mục "Kết quả sơ bộ" của thuy�
 
 Quy tắc: không dùng các file ở đây làm bằng chứng cho RQ1/RQ2. Logic đáng giữ sẽ được viết lại
 sạch, có test, trong `ndtrisk/` ở các phase sau (L2.1, Phase 3).
+
+> Ghi chú 2026-09-25: P02–P04 dùng mục tiêu (b) (missed tại ngân sách harm). K2 đã chuyển sang gain (ms). Các pilot giữ làm
+> bằng chứng cơ chế; độ lớn của chúng không chuyển sang mục tiêu mới.
