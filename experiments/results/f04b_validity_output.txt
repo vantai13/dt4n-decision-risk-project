@@ -1,0 +1,25 @@
+f04b | engine numba | mode validity | 1500 epoch/seed | seed cal 8, test 8, oracle 199
+
+=== P1  (K=11, ρ̄=0.85, σ=0.03, τ=10.0 s) | epoch đầy trọn khoảng giữ: 0 | tỉ lệ tải OU < 0: 0.0e+00 | Î giống hệt giữa hai thế giới: OK
+  [des] họ tĩnh 'rel' | harm tĩnh 1.15±0.18% | harm K2 1.21±0.27% | lệch oracle TB(I−Ī) +0.08±0.14 ms | P(I<−ε) 0.397 | ô thưa 0.000
+       độ tin cậy p− (dự đoán→thực, gộp seed test): 0.287→0.333  0.404→0.398
+  [psa] họ tĩnh 'rel' | harm tĩnh 0.50±0.10% | harm K2 0.97±0.17% | lệch oracle TB(I−Ī) +0.02±0.09 ms | P(I<−ε) 0.260 | ô thưa 0.000
+       độ tin cậy p− (dự đoán→thực, gộp seed test): 0.084→0.098  0.208→0.208  0.379→0.366  0.607→0.537
+
+=== P2  (K=100, ρ̄=0.95, σ=0.1, τ=2.0 s) | epoch đầy trọn khoảng giữ: 0 | tỉ lệ tải OU < 0: 0.0e+00 | Î giống hệt giữa hai thế giới: OK
+  [des] họ tĩnh 'abs' | harm tĩnh 0.99±0.22% | harm K2 0.83±0.16% | lệch oracle TB(I−Ī) -0.66±5.38 ms | P(I<−ε) 0.699 | ô thưa 0.000
+       độ tin cậy p− (dự đoán→thực, gộp seed test): 0.064→0.037  0.220→0.232  0.472→0.481  0.835→0.840
+  [psa] họ tĩnh 'rel' | harm tĩnh 0.87±0.17% | harm K2 0.79±0.13% | lệch oracle TB(I−Ī) -1.39±4.04 ms | P(I<−ε) 0.591 | ô thưa 0.000
+       độ tin cậy p− (dự đoán→thực, gộp seed test): 0.222→0.212  0.465→0.477  0.753→0.759
+
+=== K100_r0.85_s10t2  (K=100, ρ̄=0.85, σ=0.1, τ=2.0 s) | epoch đầy trọn khoảng giữ: 0 | tỉ lệ tải OU < 0: 0.0e+00 | Î giống hệt giữa hai thế giới: OK
+  [des] họ tĩnh 'rel' | harm tĩnh 0.93±0.22% | harm K2 1.07±0.21% | lệch oracle TB(I−Ī) +0.57±1.50 ms | P(I<−ε) 0.505 | ô thưa 0.000
+       độ tin cậy p− (dự đoán→thực, gộp seed test): 0.067→0.120  0.214→0.234  0.451→0.443  0.750→0.746
+  [psa] họ tĩnh 'rel' | harm tĩnh 0.89±0.23% | harm K2 1.03±0.26% | lệch oracle TB(I−Ī) +1.41±1.90 ms | P(I<−ε) 0.499 | ô thưa 0.000
+       độ tin cậy p− (dự đoán→thực, gộp seed test): 0.077→0.086  0.209→0.202  0.451→0.435  0.736→0.726
+
+=== K100_r0.95_s03t10  (K=100, ρ̄=0.95, σ=0.03, τ=10.0 s) | epoch đầy trọn khoảng giữ: 0 | tỉ lệ tải OU < 0: 0.0e+00 | Î giống hệt giữa hai thế giới: OK
+  [des] họ tĩnh 'abs' | harm tĩnh 1.03±0.21% | harm K2 1.18±0.22% | lệch oracle TB(I−Ī) -1.68±7.33 ms | P(I<−ε) 0.588 | ô thưa 0.000
+       độ tin cậy p− (dự đoán→thực, gộp seed test): 0.239→0.272  0.496→0.497  0.715→0.713
+  [psa] họ tĩnh 'rel' | harm tĩnh 0.94±0.24% | harm K2 1.01±0.28% | lệch oracle TB(I−Ī) +0.66±4.55 ms | P(I<−ε) 0.610 | ô thưa 0.000
+       độ tin cậy p− (dự đoán→thực, gộp seed test): 0.267→0.278  0.505→0.500  0.699→0.700

@@ -1,0 +1,10 @@
+engine: numba | Python 3.14.5 | NumPy 2.5.3
+(1) Numba trùng từng bit với Python thuần trên 300.000 gói: True
+(2) tốc độ: Python 3.40 triệu gói/s | engine 123.1 triệu gói/s (nhanh hơn 36×)
+(3) khớp nghiệm dừng mdk.py (10 seed × 1.000.000 gói, đơn vị S):
+    ρ=0.80 K= 11: W_q 1.8781±0.0062 vs 1.8783 khớp | loss 0.00232±0.00006 vs 0.00235 khớp
+    ρ=0.95 K=100: W_q 9.4150±0.1929 vs 9.4959 khớp | loss: không đủ sự kiện (~20 drop)
+    ρ=1.00 K= 11: W_q 4.8279±0.0135 vs 4.8360 khớp | loss 0.04605±0.00039 vs 0.04615 khớp
+(4) thời gian một cặp seed f04b (2 path × 1500 epoch, gồm sinh tải, gói, hàng đợi, nhãn):
+    P2 (ρ̄=0.95): 0.072 s/cặp seed → một ô (215 seed) ≈ 15 s mô phỏng; 16 ô ≈ 0.07 CPU-giờ (chưa gồm phần đánh giá)
+    P1 (ρ̄=0.85): 0.067 s/cặp seed → một ô (215 seed) ≈ 14 s mô phỏng; 16 ô ≈ 0.06 CPU-giờ (chưa gồm phần đánh giá)
