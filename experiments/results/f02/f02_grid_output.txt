@@ -1,0 +1,28 @@
+K11_r0.5_s03t10  gap  -0.000±0.001 | head   0.044 | rel | λ   0.00 | harm_pos 0.000 | bias +0.00 | rd 0.304 sdls 0.040 sgt +0.016
+K11_r0.5_s10t2   gap  -0.001±0.002 | head   0.184 | rel | λ   0.00 | harm_pos 0.092 | bias -0.02 | rd 0.141 sdls 0.159 sgt +0.002
+K11_r0.7_s03t10  gap  -0.001±0.002 | head   0.134 | rel | λ   0.00 | harm_pos 0.024 | bias +0.02 | rd 0.325 sdls 0.046 sgt +0.002
+K11_r0.7_s10t2   gap  +0.028±0.011 | head   0.590 | rel | λ   4.97 | harm_pos 0.332 | bias -0.03 | rd 0.311 sdls 0.162 sgt +0.026
+K11_r0.85_s03t10 gap  -0.004±0.004 | head   0.310 | rel | λ   0.00 | harm_pos 0.270 | bias -0.02 | rd 0.422 sdls 0.042 sgt +0.004
+K11_r0.85_s10t2  gap  +0.009±0.016 | head   1.327 | rel | λ  10.20 | harm_pos 0.477 | bias +0.10 | rd 0.221 sdls 0.112 sgt +0.029
+K11_r0.95_s03t10 gap  -0.002±0.006 | head   0.443 | abs | λ   0.41 | harm_pos 0.368 | bias -0.01 | rd 0.215 sdls 0.027 sgt +0.002
+K11_r0.95_s10t2  gap  +0.009±0.014 | head   1.715 | rel | λ  12.40 | harm_pos 0.509 | bias +0.08 | rd 0.073 sdls 0.048 sgt +0.016
+K100_r0.5_s03t10 gap  +0.000±0.001 | head   0.045 | rel | λ   0.00 | harm_pos 0.000 | bias +0.00 | rd 0.234 sdls 0.041 sgt +0.016
+K100_r0.5_s10t2  gap  +0.001±0.002 | head   0.190 | abs | λ   0.00 | harm_pos 0.094 | bias -0.02 | rd 0.119 sdls 0.177 sgt +0.002
+K100_r0.7_s03t10 gap  +0.001±0.002 | head   0.126 | rel | λ   0.00 | harm_pos 0.043 | bias -0.02 | rd 0.281 sdls 0.056 sgt +0.004
+K100_r0.7_s10t2  gap  +0.009±0.024 | head   0.862 | rel | λ   8.15 | harm_pos 0.368 | bias +0.08 | rd 0.309 sdls 0.500 sgt +0.053
+K100_r0.85_s03t10 gap  +0.019±0.016 | head   0.715 | rel | λ   2.34 | harm_pos 0.426 | bias -0.11 | rd 0.585 sdls 0.087 sgt +0.026
+K100_r0.85_s10t2 gap  +0.222±0.290 | head  13.011 | rel | λ 120.82 | harm_pos 0.525 | bias -0.70 | rd 0.411 sdls 0.234 sgt +0.790
+K100_r0.95_s03t10 gap  -0.012±0.142 | head  10.386 | abs | λ  30.63 | harm_pos 0.585 | bias +0.44 | rd 0.365 sdls 0.138 sgt +0.051
+K100_r0.95_s10t2 gap  +0.957±0.736 | head  39.943 | rel | λ 263.24 | harm_pos 0.581 | bias +1.01 | rd 0.361 sdls 0.111 sgt +0.573
+P1/base       gap  -0.000±0.002 | D_abs -8.100±0.002 | D_rel -0.029±0.002 | KHÔNG ĐÁNG KỂ
+P1/age_only   gap  -0.003±0.002 | D_abs -8.103±0.002 | D_rel -0.011±0.003 | KHÔNG ĐÁNG KỂ
+P1/noise_only gap  -0.001±0.003 | D_abs -8.101±0.003 | D_rel -0.030±0.005 | KHÔNG ĐÁNG KỂ
+P1/control    gap  +0.000±0.000 | D_abs -8.100±0.000 | D_rel -0.000±0.000 | KHÔNG ĐÁNG KỂ
+P2/base       gap  +0.358±0.751 | D_abs -7.742±0.751 | D_rel -3.471±0.724 | KHÔNG ĐÁNG KỂ
+P2/age_only   gap  +1.413±0.594 | D_abs -6.687±0.594 | D_rel -1.998±0.509 | KHÔNG ĐÁNG KỂ
+P2/noise_only gap  +1.063±0.809 | D_abs -7.037±0.809 | D_rel -2.264±0.695 | KHÔNG ĐÁNG KỂ
+P2/control    gap  +0.000±0.000 | D_abs -8.100±0.000 | D_rel -0.048±0.018 | KHÔNG ĐÁNG KỂ
+Spearman(rd_score, gap) qua 16 ô = +0.132
+Spearman(sd_log_s_cond, gap) qua 16 ô = +0.524
+Spearman(self_gap_twin, gap) qua 16 ô = +0.665
+Thời gian 165 s; đầy đủ (mọi c): experiments/results/f02/f02_results.json

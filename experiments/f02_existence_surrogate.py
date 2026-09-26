@@ -234,7 +234,10 @@ def tune_lambda(preds, c):
 def h2_indices(o, ibar, pdn, sd, lam, c):
     u = ibar - lam * pdn
     ec = ibar > c
-    rd = 0.0 if ec.sum() < 3 else 1.0 - stats.spearmanr(o["Ihat"][ec], u[ec]).statistic
+    ihat_ec, u_ec = o["Ihat"][ec], u[ec]
+    # Spearman không xác định khi một hạng là hằng; quy ước 0 vì không quan sát được đảo thứ tự.
+    degenerate = ec.sum() < 3 or np.ptp(ihat_ec) == 0 or np.ptp(u_ec) == 0
+    rd = 0.0 if degenerate else 1.0 - stats.spearmanr(ihat_ec, u_ec).statistic
     edges = np.quantile(o["Ihat"], np.linspace(0, 1, 21))
     b = np.clip(np.searchsorted(edges, o["Ihat"], side="right") - 1, 0, 19)
     ls = np.log(np.maximum(sd, 1e-9))

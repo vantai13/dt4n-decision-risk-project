@@ -281,3 +281,14 @@ Mẫu cho mỗi thí nghiệm (copy khối dưới):
   `M_MC=128`. Đây là surrogate PSA định hướng, không phải claim RQ1/RQ2.
 - **Dòng phương pháp K23:** quỹ đạo tham chiếu dùng luật tĩnh tune theo `J`; oracle bin học dọc chính quỹ đạo đó.
   Chú thích definitions “self_gap_twin đúng theo cấu trúc dưới M0” không áp dụng khi twin mô hình bỏ lịch sử chọn path.
+- **Grid (chạy sau commit tiền đăng ký `e2de7aa`):** 16 ô hoàn tất trong 165 s. Không ô nào vượt `m=8,1 ms`;
+  gap lớn nhất `0,957±0,736 ms` tại `K=100,ρ̄=0,95,σ=0,10,τ=2 s`. P1 base `−0,000±0,002 ms`, P2 base
+  `+0,358±0,751 ms`; cả hai “KHÔNG ĐÁNG KỂ”. P2 `frac_harm_possible=0,586≥2α`, nên P2 trượt GO vì SESOI,
+  không phải vì thiếu cơ hội harm.
+- **Biến thể:** P2 age_only `1,413±0,594 ms`, noise_only `1,063±0,809 ms`, control 0; tất cả không đáng kể.
+  Dự đoán bỏ tuổi làm gap giảm bị bác bỏ. Chỉ số Spearman: `self_gap_twin=0,665`, `sd_log_s_cond=0,524`,
+  `rd_score=0,132`; dự đoán chỉ số chính đúng.
+- **Sự cố phụ:** lần grid đầu có 6 `NaN` ở `rd_score` với `c=0,25S` do mảng hạng hằng; metric chính `c=0`
+  không ảnh hưởng. Quy ước suy biến `rd_score=0`, chạy lại cùng seed; JSON cuối không có non-finite và gap không đổi.
+- **Đề xuất sau F2:** PIVOT định hướng “ngưỡng tĩnh đủ trong miền surrogate”; chưa chốt DP0 cho tới khi L1.7 kiểm
+  PSA-vs-DES tại P2. F2 là feasibility, không claim RQ1/RQ2.
