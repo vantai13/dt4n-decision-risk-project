@@ -319,3 +319,36 @@ Mẫu cho mỗi thí nghiệm (copy khối dưới):
   tại P2 phải được kiểm lại bằng DES hai path (L1.7 bước 2).
 - **Provenance:** mã được cung cấp trong tài liệu hướng dẫn do AI soạn; Codex tích hợp, chạy và lưu output; đây là
   spike định hướng, không phải `e00` hay kết quả RQ.
+
+## 2026-09-27 — L1.7 · f04b TIỀN ĐĂNG KÝ: gap và phân rã ba khoảng trong DES, ghép cặp với PSA (TRƯỚC outcome)
+
+- **Đã chạy trước khi ghi:** `f04_benchmark`; `f04b --mode validity` (chỉ phép kiểm công cụ). Chưa chạy
+  `--mode power` hoặc `--mode outcome`; chưa tồn tại `f04b_results.json`. Output `f04` một link đã biết trước,
+  nên Q1–Q2 là dự đoán có thông tin, không phải mù hoàn toàn.
+- **Ô và lý do chọn:** P1 (neo đã khoá), P2 (tương phản đã khoá), `K100_r0.85_s10t2`,
+  `K100_r0.95_s03t10` — chọn theo trần chặt surrogate `≥m` trong f02b, không theo gap.
+- **Seed:** như F2 (calibration 9701–9708, test 9711–9718, oracle 9801–9999), khoá luồng 710–713;
+  benchmark 9731–9740.
+- **Validity trước outcome:** engine Numba trùng bit với Python và khớp `mdk.py`; mọi nhãn xác định, tải không bị
+  kẹp, `Î` giống hệt giữa DES/PSA, oracle không có ô thưa. Bin `K100_r0.85_s10t2` DES thấp nhất có
+  `0,067→0,120`, nhưng `n=50`, `SE=0,046`, nên độ lệch `0,053<2SE=0,092`: chưa đủ bằng chứng lệch reliability.
+- **Dự đoán do Codex soạn theo ủy quyền của tác giả, trước outcome, dựa trên f04 và T1–T3:**
+  - **Q1:** tại P2, headroom DES **nhỏ hơn** PSA. PSA phản ứng tức thì với burst và tạo chênh lệch path cực đoan;
+    workload DES có quán tính nên làm trơn các cực trị trong khoảng giữ.
+  - **Q2:** khoảng thông tin `headroom−K2(∞)` của DES **nhỏ hơn** PSA. Trong f04, số đếm dự báo DES tốt hơn PSA
+    (`R²=0,445` so với `0,236`) vì phần dư đếm mang tín hiệu về workload.
+  - **Q3:** gap thích nghi DES tại P2 thuộc khoảng **1–4 ms**. Trí nhớ hàng đợi tạo dị phương sai/trạng thái mà
+    ngưỡng một chiều bỏ lỡ, nên dự kiến lớn hơn mức dưới 1 ms của surrogate nhưng vẫn thấp hơn SESOI `8,1 ms`.
+  - **Q4:** dự đoán **0 ô K=100** có phán quyết “CÓ Ý NGHĨA”; DES có thể tăng gap nhưng chưa đủ vượt đồng thời
+    sàn tuyệt đối và `10%` headroom với chỉ 8 seed test.
+  - **Q5:** **có**, P1 trong DES vẫn không thể đạt `m`: buffer nông, dao động tải nhỏ và telemetry gần như chỉ
+    cung cấp một thứ tự một chiều, nên headroom khả dụng dự kiến vẫn dưới `8,1 ms`.
+- **Luật quyết định (khoá trước outcome):**
+  1. Ít nhất một ô K=100 “CÓ Ý NGHĨA” trong DES → đề xuất NARROW có tín hiệu: RQ1 thu về vùng `K·S≫m`, chỉ dùng DES.
+  2. Không ô nào có ý nghĩa nhưng ít nhất một ô “CHƯA KẾT LUẬN” → thêm seed theo `--mode power`, không đổi `m`,
+     `r` hoặc ô.
+  3. Mọi ô “KHÔNG ĐÁNG KỂ” → đề xuất PIVOT “ngưỡng tĩnh đủ, và vì sao”; phần “vì sao” là bảng phân rã DES.
+  4. Bất kể kết quả: khoảng nào có DES−PSA với CI loại trừ 0 → ghi vào F2 rằng PSA không dùng làm bằng chứng cho
+     khoảng đó.
+- **Provenance:** phần dự đoán này do Codex soạn theo yêu cầu thực hiện thay của tác giả; không trình bày là bài
+  tự viết của tác giả. Quyền sở hữu lý thuyết/vấn đáp vẫn cần tác giả tự luyện riêng.
