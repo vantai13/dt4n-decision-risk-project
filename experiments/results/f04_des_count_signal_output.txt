@@ -1,0 +1,17 @@
+Epoch: 11824 | delay DES TB 85.9 ms, sd 95.7 ms
+
+(1) Cái gì dự báo delay trong khoảng giữ (R² NGOÀI MẪU)?
+    R²(D_DES | cường độ tải thật m (trần của surrogate)    ) = 0.583
+    R²(D_DES | số đếm ρ̂ (thứ twin thật sự thấy)           ) = 0.445
+    R²(D_DES | workload V lúc cuối cửa sổ (không có trong F)) = 0.827
+
+(2) 'Nhiễu đếm' có tương quan với trạng thái hàng đợi không?
+    corr(ρ̂ − m, V(t_m)) = +0.211   (surrogate giả định = 0)
+    corr(ρ̂ − m, D − E[D|m]) = +0.191   (surrogate giả định = 0)
+
+(3) PSA (surrogate) so với DES trên CÙNG quỹ đạo tải
+    TB: DES 85.9 | PSA 95.7 ms;  corr(DES, PSA) = 0.607
+    R²(D | ρ̂) ngoài mẫu: DES 0.445 | PSA 0.236
+    PSA ∈ [  0, 30) ms: n =  5403, DES − PSA =  +19.3 ms
+    PSA ∈ [ 30,150) ms: n =  3028, DES − PSA =  +13.2 ms
+    PSA ∈ [150,400) ms: n =  3393, DES − PSA =  -76.7 ms

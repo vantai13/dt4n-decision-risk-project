@@ -292,3 +292,30 @@ Mẫu cho mỗi thí nghiệm (copy khối dưới):
   không ảnh hưởng. Quy ước suy biến `rd_score=0`, chạy lại cùng seed; JSON cuối không có non-finite và gap không đổi.
 - **Đề xuất sau F2:** PIVOT định hướng “ngưỡng tĩnh đủ trong miền surrogate”; chưa chốt DP0 cho tới khi L1.7 kiểm
   PSA-vs-DES tại P2. F2 là feasibility, không claim RQ1/RQ2.
+
+## 2026-09-26 — f02b/f02c: chẩn đoán độ ổn định F2 (VALIDITY, post hoc; phán quyết F2 KHÔNG đổi)
+
+- **Câu hỏi:** công cụ đo F2 có đủ độ phân giải cho các diễn giải ở F2 §4–§7 không? SESOI có đạt được ở từng ô không?
+- **Loại:** chẩn đoán sau khi thấy kết quả; không có dự đoán mù; không đổi `m`, `r`, ô chính hoặc tiêu chí.
+- **Seed/khoá:** tái dùng seed F2; khoá luồng 902 (tái lập gap `+0,358` trùng F2) và 950–953 (cùng seed, luồng mới).
+- **f02b:** 18/24 ô/biến thể có trần chặt `<m`; 5/24 có trần xấp xỉ `<m`; 1/24 kiểm được
+  (`K100_r0.95_s10t2`; cùng cấu hình ở luồng P2 thì trần xấp xỉ `7,156<m`). P2: thích nghi `0,358` | an toàn
+  `6,798` | thông tin `26,983 ms`.
+- **f02c:** khoảng 3% epoch bất đồng; đóng góp TB `+12,3`, sd `153,5 ms`; 5 luồng cùng cấu hình cho gap
+  `−0,274…+0,768 ms`; họ tĩnh nhảy `abs/rel` giữa luồng. CRN: `age_only−base=+0,147±0,546`;
+  `noise_only−base=+0,182±0,937 ms`.
+- **Diễn giải:** phán quyết SESOI tại P1/P2 vững; so sánh tinh (biến thể, xếp hạng ô, H2) không phân giải được.
+  H2(b) và dự đoán “K=11 không đáng kể” không bác bỏ được dưới `m=8,1 ms` ở 4 Mb/s.
+- **Provenance:** mã được cung cấp trong tài liệu hướng dẫn do AI soạn; Codex tích hợp nguyên mẫu, chạy lại và lưu
+  output. Không ghi thay rằng tác giả đã tự viết hoặc tự kiểm từng dòng.
+
+## 2026-09-26 — L1.7 · f04: số đếm có phải nhiễu? PSA vs DES tại P2 (một link)
+
+- **Không mù:** output đã xuất hiện trong tài liệu hướng dẫn trước khi ghi mục này.
+- **Seed:** 9721–9724; `4×1500 s`; 11.824 epoch. R² ngoài mẫu (fit 2 seed, chấm 2 seed).
+- **Kết quả:** `R²(D|m)=0,583`; `R²(D|ρ̂)=0,445`; `R²(D|V)=0,827`; `corr(ρ̂−m,D−E[D|m])=+0,191`;
+  `corr(DES,PSA)=0,607`; `R²(D|ρ̂)` DES `0,445` so với PSA `0,236`; DES−PSA `+19,3/+13,2/−76,7 ms`.
+- **Diễn giải:** tại P2, PSA không dùng được để kết luận; nhiễu đếm mang một phần tín hiệu hàng đợi. Kết luận F2
+  tại P2 phải được kiểm lại bằng DES hai path (L1.7 bước 2).
+- **Provenance:** mã được cung cấp trong tài liệu hướng dẫn do AI soạn; Codex tích hợp, chạy và lưu output; đây là
+  spike định hướng, không phải `e00` hay kết quả RQ.

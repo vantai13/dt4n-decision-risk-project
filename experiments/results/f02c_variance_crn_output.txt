@@ -1,0 +1,23 @@
+A. Giải phẫu phương sai (P2, luồng 902 = đúng F2)
+    gap = +0.358 ms; λ = 290.1 ms; họ tĩnh chọn 'rel', J(abs) = 80.35, J(rel) = 78.99 ms
+    epoch bất đồng mỗi seed: [43, 34, 48, 57, 46, 41, 48, 31] / 1500
+    đóng góp ở epoch bất đồng: TB +12.3 ms, sd 153.5 ms  (tín hiệu/nhiễu ≈ 0.08)
+    harm(K2) − harm(tĩnh) theo seed (điểm %): [ 0.33 -0.13 -0.27 -0.07 -0.33  0.    0.07 -0.13]
+    => mỗi 0,1 điểm % harm 'đáng giá' ≈ λ × 0,001 = 0.29 ms gain
+
+B. Cùng cấu hình P2, khác luồng ngẫu nhiên
+    luồng 950 (họ tĩnh 'rel')          -0.274 ± 0.805 ms
+    luồng 951 (họ tĩnh 'rel')          +0.768 ± 0.798 ms
+    luồng 952 (họ tĩnh 'rel')          +0.345 ± 0.376 ms
+    luồng 953 (họ tĩnh 'abs')          +0.556 ± 0.951 ms
+    SD giữa 5 luồng của ước lượng gap = 0.390 ms (min -0.274, max +0.768)
+
+C. Biến thể: KHÔNG paired (như F2) so với CRN (cùng luồng tải + nhiễu)
+    base       không paired            +0.358 ± 0.751 ms
+    base       CRN                     +0.358 ± 0.751 ms
+    age_only   không paired            +1.413 ± 0.594 ms
+    age_only   CRN                     +0.505 ± 0.257 ms
+    noise_only không paired            +1.063 ± 0.809 ms
+    noise_only CRN                     +0.540 ± 0.409 ms
+    age_only − base (CRN, ghép cặp)    +0.147 ± 0.546 ms
+    noise_only − base (CRN, ghép cặp)  +0.182 ± 0.937 ms

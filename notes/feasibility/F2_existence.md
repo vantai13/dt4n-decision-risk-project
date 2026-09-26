@@ -59,3 +59,12 @@ gap lớn nhất trên lưới cũng thấp hơn m hơn bảy lần. Dự đoán
 Theo quy tắc đã đăng ký, kết quả hướng tới **PIVOT: ngưỡng tĩnh đủ trong miền surrogate đã kiểm, và vì sao**.
 Đây chưa phải kết luận cuối: L1.7 phải so PSA với DES tại P2, kiểm hướng/mức sai lệch và xác nhận rằng kết quả âm
 không phải artefact của surrogate. Không thay SESOI, không chọn lại ô chính và không nâng F2 thành bằng chứng confirmatory.
+
+## Đính chính 2026-09-26 (sau f02b/f02c; phán quyết không đổi)
+
+- §5, §7: **rút lại** “bỏ tuổi làm gap tăng”, “dự đoán bị bác bỏ” và “hai cơ chế không cộng tuyến”. Các biến thể
+  dùng luồng ngẫu nhiên khác nhau. Với CRN, hiệu paired là `+0,147±0,546` và `+0,182±0,937 ms`: không phân biệt
+  được. Dự đoán chưa được kiểm, không phải bị bác bỏ. `noise_only` còn `z_eff=0,5 s`, không phải tuổi 0.
+- §4: 13/16 ô lưới có trần chặt `<m`; phán quyết ở các ô đó là hệ quả của cận trên, không phải bằng chứng so sánh.
+- §6: `Spearman(self_gap_twin,headroom)=0,759` lớn hơn `Spearman(self_gap_twin,gap)=0,665`; chuẩn hoá theo
+  headroom còn `0,418`. Không dùng làm bằng chứng chọn K17 cho tới khi kiểm trên gap chuẩn hoá, chỉ trong ô kiểm được.
