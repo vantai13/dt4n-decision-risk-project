@@ -116,7 +116,8 @@ if __name__ == "__main__":
         assert abs(static_gain - reference_static) <= 0.002
         assert abs(adaptive_gain - reference_k2) <= 0.002
         assert abs(gap - reference_gap) <= 0.002
-        assert abs(lam - reference_lam) <= 0.02  # bảng chỉ báo lambda đến 0,01 ms
+        # Bảng đối chiếu in lambda đến 0,01 ms: nửa đơn vị chữ số cuối là 0,005 ms.
+        assert abs(lam - reference_lam) <= 0.005
 
         print(
             f"{kind:>5} | {static_gain:8.4f} {adaptive_gain:8.4f} {lam:8.2f} {gap:8.4f} | "

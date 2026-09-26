@@ -202,8 +202,35 @@ Mẫu cho mỗi thí nghiệm (copy khối dưới):
 - **Kết quả t03b:** `experiments/results/t03b_jensen_demo_output.txt`; Jensen ở K=11 là `+0,07`, `+0,05`,
   `+0,02 ms`; ở K=100 là `+0,40`, `+5,90`, `+25,91 ms` cho tải trung bình 0,85/0,93/0,97.
 - **Sự cố khi chạy:** lần đầu dừng sau A vì bộ tự kiểm áp nhầm dung sai gain `0,002 ms` cho `λ` chỉ được báo
-  đến hai chữ số. Tách dung sai `λ` thành `0,02 ms`, không đổi thuật toán/dữ liệu; lần chạy sau đạt.
+  đến hai chữ số. Ban đầu tách dung sai `λ` thành `0,02 ms`, không đổi thuật toán/dữ liệu; review L1.4 siết tiếp
+  xuống `0,005 ms`, đúng nửa đơn vị chữ số cuối của đáp án in đến `0,01 ms`. Hai giá trị `9,9113` và `38,8953`
+  vẫn đạt; việc siết chỉ làm phép kiểm khó hơn.
 - **Đính chính:** B có gap đúng bằng 0 (`0,0008` là artefact lưới); mức giảm missed `8,3 điểm %` thuộc mục tiêu
   cũ, còn K2 là khoảng `7,9 điểm % ≈ 0,095 ms` ở A.
 - **Đề xuất F2:** báo bốn bậc tĩnh, K2 có ràng buộc, K2 không ràng buộc và headroom để tách giá trị thích nghi,
   giá của an toàn và giá trị thông tin; không tạo ADR (K23). Đây vẫn là toy/minh họa, không phải claim RQ1/RQ2.
+
+## 2026-09-26 — L1.4 bước 0: trạng thái luyện sở hữu
+
+- Chưa có bằng chứng trong repository rằng tác giả đã làm bài luyện kín sách 30 phút để viết lại `static_best` và
+  `k2_rule`. Không ghi đạt thay cho tác giả; cần bổ sung kết quả thật trước buổi vấn đáp 2026-10-13.
+
+## 2026-09-26 — L1.4 · F1 điểm vận hành
+
+- **Dự đoán (TRƯỚC khi chạy f01):** (1) tại anchor CLEAN 4 Mb/s, `σ=0,03`, `τ=10 s`, `Π_noise` lớn hơn
+  tham chiếu 5,78, khoảng 6,00, vì `z_eff≈0,919 s<1 s`; (2) tại 8 Mb/s, tỉ số `sd_p95/sd_p05` lớn nhất ở
+  `(σ,τ)=(0,10;2 s)`, khoảng 1,142 nên vượt 1,10; (3) tại 8 Mb/s, `Π_relax>1` chỉ ở `(ρ̄,τ)` bằng
+  `(0,95;0,5 s)` và `(0,95;2 s)`. Tại thời điểm ghi chưa chạy `f01`.
+- **Dữ liệu:** `data/aoi_measured/aoi_v7_estimates.json`, lấy byte-exact bằng `git show archive-2026-09`, SHA-256
+  `5f3e6a01173bb82802a397b260251bc8098b7bbffdb8571966655fd071fca64f`; không seed.
+- **Time-box raw:** không tìm thấy `rho_offered_long.csv` hoặc thư mục `aoi_v7_campaign` trên máy hiện tại; dừng,
+  không suy tỉ lệ đuôi khi thiếu raw.
+- **Kết quả:** `experiments/results/f01_operating_point_output.txt`; cả ba dự đoán đạt. CLEAN/PROD có
+  `d=0,1181/0,0995 s`, `T_poll=W=H=0,5003 s`; CLEAN có TB răng cưa dự đoán `0,3682 s` so với đo `0,3689 s`.
+  Anchor `(4 Mb/s,σ=0,03,τ=10 s)` cho `Π_noise=6,00`; cực đại tuổi tại 8 Mb/s là `1,142` ở `(0,10;2 s)`;
+  tại 8 Mb/s chỉ `(ρ̄=0,95,τ∈{0,5;2 s})` có `Π_relax>1`.
+- **Tải:** dt4n chỉ có tải tự sinh AR(1)/M/G/∞; `τ,σ` vẫn là giả định. Với M/G/∞,
+  `R/σ²=L/(r_fW)` không phụ thuộc `C`; `σ=0,03` tại 4 Mb/s tương ứng khoảng `r_f=4 kb/s`, nên kết luận L1.2
+  “gần như toàn nhiễu” là có điều kiện. X2 từ dt4n không khả thi; giữ phương án Pareto/MAWI cho GVHD.
+- **Construct:** AoI asset là `t−t_m`, nên `z=AoI+W/2`; `txRate` là tải đi qua, còn definitions cần tải đề nghị.
+- **Phạm vi:** F1 là spike định hướng, không claim RQ1/RQ2; các đề xuất K7/K8/K9/K20 chưa thành ADR (K23).
