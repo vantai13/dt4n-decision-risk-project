@@ -172,3 +172,38 @@ Mẫu cho mỗi thí nghiệm (copy khối dưới):
   nghiệm tuyến tính trong cấu hình pilot. `z_eff` không đủ cho kỳ vọng khi có nhiễu; đề xuất F1 báo thêm `R/V(W)`,
   tỉ lệ phương sai giải thích và độ không đồng đều do tuổi (không tạo ADR, theo K23).
 - **Phạm vi:** không thêm code OU vào `ndtrisk/`; đây là kiểm công thức, không phải thí nghiệm RQ1/RQ2.
+
+## 2026-09-26 — L1.1 · t01 kiểm `mdk.py` bằng DES workload
+
+- **Điều kiện lý thuyết:** tác giả xác nhận đã tự tính và nháp sáu phần dẫn xuất ngoài repository; T1 ghi lại các
+  kết quả và provenance triển khai.
+- **Dự đoán NT-1 (TRƯỚC khi chạy):** nghiệm giải tích phải nằm trong CI 95% của loss và `W_q` ở `(ρ,K)` bằng
+  `(0,5;2)`, `(0,8;11)`, `(1,0;11)` và `(0,9;30)`. Loss ở `(0,95;100)` và `(0,8;30)` sẽ không đủ sự kiện để
+  kiểm: số drop kỳ vọng lần lượt là `8,18` và `2,60`; `(0,9;30)` có khoảng `920,59` drop nên kiểm được.
+- **Seed/config:** 9001–9020, 200.000 arrival/seed, `S=1`; tại thời điểm ghi dự đoán chưa chạy `t01`.
+- **Kết quả:** `experiments/results/t01_mdk_des_check_output.txt`; nghiệm giải tích nằm trong CI 95% ở mọi đại
+  lượng có đủ sự kiện. `(0,95;100)` và `(0,8;30)` được đánh dấu đúng là không đủ drop; `(0,9;30)` kiểm được cả
+  loss và `W_q`. Output chạy lặp lại phải trùng byte vì seed cố định.
+- **Diễn giải:** lát cắt ổn định phân phối nhúng; `poisson.sf`, tổng đuôi, dạng toàn số dương khi `ρ≥1` và Little
+  trực tiếp lần lượt chặn các lỗi triệt tiêu số. Đây là kiểm công thức/nền DES, không phải kết quả RQ1/RQ2.
+
+## 2026-09-26 — L1.3 · t03 luật K2 + t03b minh họa Jensen
+
+- **Điều kiện lý thuyết:** tác giả xác nhận đã tự làm phần chứng minh/tính nháp ngoài repository và yêu cầu hiện
+  thực hóa pseudocode. Vì vậy không mô tả `t03` là code tự viết không có AI; `T3_objective.md` ghi provenance.
+- **Dự đoán (TRƯỚC khi chạy):** `λ>0` ở A và B vì ràng buộc harm cắn; `λ=0` ở C vì luật `Î>0` đã an toàn.
+  Khoảng cách K2 − ngưỡng tĩnh chỉ dương ở A: `s` độc lập với `Î` làm đảo thứ tự. B có `s` thay đổi nhưng điểm
+  K2 vẫn tăng theo `Î`; C có ngân sách thừa. Tại thời điểm ghi dự đoán chưa chạy `t03` hoặc `t03b`.
+- **Seed/config:** 9101–9103 cho ba thế giới, 9301 cho Jensen; `N=400.000`, `ε=0,5 ms`, `α=1%`, `c=0`;
+  ngưỡng tĩnh tìm bằng sắp xếp và tổng tiền tố, không dùng lưới.
+- **Kết quả t03:** `experiments/results/t03_k2_rule_output.txt`; A: tĩnh `0,8616`, K2 `0,9568`, `λ=9,91`, gap
+  `0,0952 ms`; B: hai gain `0,9435`, `λ=38,90`, gap đúng `0`; C: hai gain `0,1193`, `λ=0`, gap `0`.
+  Sáu nhóm tự kiểm đạt; `α=100%` trùng `Î>0` từng epoch.
+- **Kết quả t03b:** `experiments/results/t03b_jensen_demo_output.txt`; Jensen ở K=11 là `+0,07`, `+0,05`,
+  `+0,02 ms`; ở K=100 là `+0,40`, `+5,90`, `+25,91 ms` cho tải trung bình 0,85/0,93/0,97.
+- **Sự cố khi chạy:** lần đầu dừng sau A vì bộ tự kiểm áp nhầm dung sai gain `0,002 ms` cho `λ` chỉ được báo
+  đến hai chữ số. Tách dung sai `λ` thành `0,02 ms`, không đổi thuật toán/dữ liệu; lần chạy sau đạt.
+- **Đính chính:** B có gap đúng bằng 0 (`0,0008` là artefact lưới); mức giảm missed `8,3 điểm %` thuộc mục tiêu
+  cũ, còn K2 là khoảng `7,9 điểm % ≈ 0,095 ms` ở A.
+- **Đề xuất F2:** báo bốn bậc tĩnh, K2 có ràng buộc, K2 không ràng buộc và headroom để tách giá trị thích nghi,
+  giá của an toàn và giá trị thông tin; không tạo ADR (K23). Đây vẫn là toy/minh họa, không phải claim RQ1/RQ2.
