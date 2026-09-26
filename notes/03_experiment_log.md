@@ -144,3 +144,31 @@ Mẫu cho mỗi thí nghiệm (copy khối dưới):
   M/D/1/K TB 57,0%, max 135,8%. Loss của token bucket thấp hơn số đo ở tải vừa (ρ = 0,8: 0,129% so với 0,221%), hội tụ ở tải cao.
 - **Diễn giải:** ủng hộ K20 đề xuất sửa (X1′); giải thích phần lệch nêu ở thuyết minh v14. Mới kiểm một cấu hình.
 - **Không dùng cho:** claim RQ1/RQ2.
+
+## 2026-09-26 — L1.1 bước 0: kiểm Numba trên Python 3.14
+
+- **Mục đích:** kiểm rủi ro công cụ trước khi viết `mdk.py`; chưa phải thí nghiệm RQ1/RQ2.
+- **Trước cài:** Python 3.14.5, NumPy 2.5.3; Numba chưa có. `pip --dry-run` dự kiến Numba 0.67.0 và
+  llvmlite 0.49.0, giữ nguyên NumPy 2.5.3 (`numpy<2.6,>=1.22`).
+- **Sau cài:** Numba 0.67.0, llvmlite 0.49.0, NumPy vẫn 2.5.3; không bị hạ phiên bản.
+- **Smoke test:** `njit(lambda x: x + 1)(41)` trả về `42`.
+- **Kết luận:** Numba chạy được trong virtualenv hiện tại; chưa dùng Numba trong code nền móng của L1.1.
+
+## 2026-09-26 — L1.2 khởi động: OU, cửa sổ đo và nhiễu đếm
+
+- **Trạng thái:** tác giả xác nhận đã tự tính và nháp sáu kết quả lý thuyết bên ngoài repository; đã hệ thống hóa thành
+  `notes/theory/T2_ou_measurement.md` và sửa đính chính `z_eff` trong definitions. Chưa chạy `t02_ou_check.py` tại
+  thời điểm ghi các dự đoán dưới đây.
+- **Dự đoán NT-1 (TRƯỚC khi chạy):** (a) chỉ hai dòng đối chứng âm Euler phải báo LỆCH; 17 dòng kiểm công thức phải
+  khớp, ngoại trừ báo động giả do lấy mẫu; (b) với 17 phép kiểm ở mức 95%, kỳ vọng `17 × 0,05 = 0,85` dòng LỆCH
+  do may rủi; (c) ở `τ = 10 s`, 4 Mb/s, `Var(G|y)` có nhiễu dự kiến lớn hơn không nhiễu khoảng `5,75` lần
+  (`7,803×10⁻⁴ / 1,357×10⁻⁴`).
+- **Config + seed:** `experiments/t02_ou_check.py`; seed 9201–9220, 9401–9420, 9501–9520 và 9601–9620;
+  `μ = 0,9`, `σ = 0,03`, `W = H = 0,5 s`, `g = 0,5 s`, `Δt = 0,002 s`, 20.000 quỹ đạo/seed.
+- **Kết quả:** `experiments/results/t02_ou_check_output.txt`; 17/17 phép kiểm công thức khớp CI 95%; 2/2 đối
+  chứng âm Euler báo LỆCH như dự đoán. Ở `τ = 10 s`, phương sai MC là `1,3581×10⁻⁴` khi không nhiễu và
+  `7,8254×10⁻⁴` khi có nhiễu, tỉ số `5,76`, gần dự đoán `5,75`.
+- **Diễn giải:** xác nhận bằng mô phỏng các công thức OU rời rạc chính xác, `V(L)`, nhiễu đếm và phân phối hậu
+  nghiệm tuyến tính trong cấu hình pilot. `z_eff` không đủ cho kỳ vọng khi có nhiễu; đề xuất F1 báo thêm `R/V(W)`,
+  tỉ lệ phương sai giải thích và độ không đồng đều do tuổi (không tạo ADR, theo K23).
+- **Phạm vi:** không thêm code OU vào `ndtrisk/`; đây là kiểm công thức, không phải thí nghiệm RQ1/RQ2.

@@ -19,6 +19,10 @@
   t − t_m phân bố đều trên [d, d + T_poll) (răng cưa) → jitter tuổi.
 - z = (t − t_m) + W/2 (tính từ TÂM cửa sổ). z_eff = z + a + H_hold/2. z_eff chỉ dùng cho KỲ VỌNG; phương sai
   lấy từ cả quỹ đạo trên khoảng giữ.
+- **Đính chính 2026-09-26:** câu trên về kỳ vọng chỉ đúng trong xấp xỉ **không có nhiễu đo**. Khi số đo
+  `y` có nhiễu đếm với phương sai `R`, kỳ vọng tuyến tính có điều kiện của trung bình tải `G` trên khoảng giữ là
+  `E[G | y] = μ + β(y − μ)`, với `β = Cov(G, y) / (V(W) + R)`; vì vậy không được thay `β` bằng
+  `exp(−z_eff/τ)` trong kết luận định lượng.
 - Epoch e: quyết định tại t_e = t_0 + e·H_hold; khoảng giữ [t_e + a, t_e + a + H_hold]; các khoảng giữ nối tiếp,
   không chồng nhau.
 

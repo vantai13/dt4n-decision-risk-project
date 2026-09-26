@@ -1,0 +1,30 @@
+C1  Một bước Delta = tau/2 từ phân phối dừng (tau = 2.0 s)
+  [chính xác] Var/sigma^2 (đúng = 1)     MC 9.9914e-01 ± 1.8e-03   lý thuyết 1.0000e+00   khớp
+  [chính xác] tương quan (đúng = e^-0,5) MC 6.0620e-01 ± 6.0e-04   lý thuyết 6.0653e-01   khớp
+  [Euler] Var/sigma^2 (đúng = 1)         MC 1.2491e+00 ± 2.4e-03   lý thuyết 1.0000e+00   LỆCH  <- đối chứng âm: phải LỆCH
+  [Euler] tương quan (đúng = e^-0,5)     MC 4.4678e-01 ± 8.3e-04   lý thuyết 6.0653e-01   LỆCH  <- đối chứng âm: phải LỆCH
+
+C2-C5  tau = 0.5 s   (W = 0.5, g = 0.5, H = 0.5, S = 3.024 ms)
+  C2 Var(rho(t+g) | rho(t))              MC 7.7750e-04 ± 3.3e-06   lý thuyết 7.7820e-04   khớp
+  C3 Var(trung bình cửa sổ)              MC 6.6068e-04 ± 2.6e-06   lý thuyết 6.6218e-04   khớp
+  C4 Var(nhiễu đếm)                      MC 5.4281e-03 ± 2.4e-05   lý thuyết 5.4432e-03   khớp
+  C5 Var(G | y), không nhiễu             MC 6.3313e-04 ± 2.8e-06   lý thuyết 6.3575e-04   khớp
+  C5 Var(G | y), có nhiễu                MC 6.5652e-04 ± 2.8e-06   lý thuyết 6.5932e-04   khớp
+
+C2-C5  tau = 2.0 s   (W = 0.5, g = 0.5, H = 0.5, S = 3.024 ms)
+  C2 Var(rho(t+g) | rho(t))              MC 3.5339e-04 ± 2.0e-06   lý thuyết 3.5412e-04   khớp
+  C3 Var(trung bình cửa sổ)              MC 8.2927e-04 ± 4.4e-06   lý thuyết 8.2946e-04   khớp
+  C4 Var(nhiễu đếm)                      MC 5.4462e-03 ± 2.5e-05   lý thuyết 5.4432e-03   khớp
+  C5 Var(G | y), không nhiễu             MC 4.6539e-04 ± 2.1e-06   lý thuyết 4.6646e-04   khớp
+  C5 Var(G | y), có nhiễu                MC 7.7876e-04 ± 4.1e-06   lý thuyết 7.8146e-04   khớp
+
+C2-C5  tau = 10.0 s   (W = 0.5, g = 0.5, H = 0.5, S = 3.024 ms)
+  C2 Var(rho(t+g) | rho(t))              MC 8.5804e-05 ± 3.3e-07   lý thuyết 8.5646e-05   khớp
+  C3 Var(trung bình cửa sổ)              MC 8.8569e-04 ± 3.4e-06   lý thuyết 8.8519e-04   khớp
+  C4 Var(nhiễu đếm)                      MC 5.4668e-03 ± 2.6e-05   lý thuyết 5.4432e-03   khớp
+  C5 Var(G | y), không nhiễu             MC 1.3581e-04 ± 5.5e-07   lý thuyết 1.3568e-04   khớp
+  C5 Var(G | y), có nhiễu                MC 7.8254e-04 ± 3.3e-06   lý thuyết 7.8035e-04   khớp
+
+Đối chứng âm: 2/2 LỆCH đúng như phải thế.
+Công thức: 17 phép kiểm, 0 LỆCH. Ở mức 95%, kỳ vọng khoảng 0.9 phép lệch do may rủi.
+Dòng LỆCH -> chạy lại riêng dòng đó với seed mới và N lớn hơn TRƯỚC khi kết luận có lỗi.
