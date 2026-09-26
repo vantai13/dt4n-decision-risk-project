@@ -258,3 +258,26 @@ Mẫu cho mỗi thí nghiệm (copy khối dưới):
 - **Vấn đáp sở hữu:** chưa thực hiện trong phiên này; không ghi đạt thay tác giả.
 - **Kiểm t04:** `experiments/results/t04_emodel_floor_output.txt`; độ dốc lớn nhất `0,1231 điểm R/ms` tại
   `Ta=241,5 ms`, suy ra `1/0,1231=8,1 ms` cho `ΔR_min=1`. Không seed; đây là kiểm lý thuyết, không phải F2.
+
+## 2026-09-26 — L1.6 · TIỀN ĐĂNG KÝ F2 (trước khi chạy `--mode grid`)
+
+- **Đã chạy trước đăng ký:** chỉ `--mode control` và `--mode check`; không có output lưới. Control cho gap đúng 0
+  tại P1/P2. Ô check ngoài lưới xác nhận nested MC lệch trên quỹ đạo luật tĩnh do path hiện tại mang thông tin;
+  oracle bin dọc cùng tham chiếu không lệch và hiệu chỉnh harm đúng.
+- **Sửa thiết kế trước grid:** (1) tune luật tĩnh bằng trễ người dùng trải qua `J` trên quỹ đạo riêng, harm thực
+  `≤α`, không tối đa gain decision-level; (2) oracle chính là bin dọc quỹ đạo tham chiếu. Nested MC chỉ dùng cho
+  control/check và sau này chỉ được so khi cùng loại tham chiếu hoặc đã điều kiện hóa lịch sử.
+- **Làm rõ ô chính, không đổi khóa:** P1 dự kiến không đáng kể vì K=11 chặn sojourn gần `33 ms`; P2 có
+  `P(ρ>1)≈31%`, `Π_relax≈2,4`, nên PSA có thể phóng đại các burst quá tải. F2 tại P2 chỉ định hướng và phán quyết
+  DP0 cần PSA-vs-DES ở L1.7.
+- **Dự đoán nhóm ô:** mọi ô K=11 và mọi ô `ρ̄≤0,7` sẽ không đáng kể theo `m=8,1 ms`. Tín hiệu nếu có tập trung
+  tại K=100, `ρ̄∈{0,85;0,95}`; bộ `(σ=0,10,τ=2 s)` có gap lớn hơn `(0,03;10 s)`, nơi nhiễu đếm che tín hiệu.
+  P1: không đáng kể. P2: dự đoán có ý nghĩa trong surrogate nhưng chỉ là ứng viên GO chờ DES. Tắt nhiễu dự kiến
+  làm gap tăng vì lộ khác biệt do tuổi; tắt tuổi dự kiến làm gap giảm. `self_gap_twin` dự kiến có Spearman tốt nhất
+  vì gần trực tiếp estimand gap; `rd_score` thứ hai, `sd_log_s_cond` kém đặc hiệu hơn.
+- **Tiêu chí:** GO định hướng nếu P2 có ý nghĩa và `frac_harm_possible≥2α`, sau đó DES xác nhận; NARROW nếu chỉ
+  buffer sâu/gần bão hòa có tín hiệu; PIVOT “ngưỡng tĩnh đủ, và vì sao” nếu không ô nào có ý nghĩa.
+- **Seed/config:** calibration 9701–9708; test 9711–9718; oracle 9801–9999; `N_EPOCH=1500`, bin `20×20`,
+  `M_MC=128`. Đây là surrogate PSA định hướng, không phải claim RQ1/RQ2.
+- **Dòng phương pháp K23:** quỹ đạo tham chiếu dùng luật tĩnh tune theo `J`; oracle bin học dọc chính quỹ đạo đó.
+  Chú thích definitions “self_gap_twin đúng theo cấu trúc dưới M0” không áp dụng khi twin mô hình bỏ lịch sử chọn path.

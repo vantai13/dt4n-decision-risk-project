@@ -1,0 +1,2 @@
+[control P1] gap = +0.00e+00 ± 0.0e+00 ms; λ = 0; luật tĩnh abs ngưỡng 0
+[control P2] gap = +0.00e+00 ± 0.0e+00 ms; λ = 0; luật tĩnh abs ngưỡng 0
