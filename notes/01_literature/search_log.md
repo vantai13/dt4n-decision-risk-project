@@ -111,3 +111,24 @@ Nguồn forward/backward của Guérin–Orda và Ornee–Sun là OpenAlex Works
 | D / Ornee–Sun 2021 | forward | 99/99 metadata OpenAlex | 15 | 4 | Có *From Freshness to Effectiveness*; cần sàng abstract/full text. |
 
 **Lý do dừng vòng ghi nhận hôm nay:** đã hết lượt xử lý metadata/PDF của bốn start set trong ngày; 33 mục giữ đọc tiếp ở các nhánh trên còn backlog (có thể trùng nhau), hai nhánh forward không được lập chỉ mục, và Appendix Guérin–Orda chưa được kiểm hết. Đây là **tạm dừng ở vòng 0**, chưa đạt S1 bão hòa và chưa hết time-box 2026-09-30. Cần đọc abstract/full text của backlog, kiểm forward ở nguồn thứ hai, mở rộng IEEE/ACM bằng truy vấn tái lập, và đối chiếu CERT Appendix trước DP1. Không suy từ bảng này rằng đã chứng minh “chưa ai làm age + margin”.
+
+## Tra cứu known-item + đọc full text, 2026-09-27 (L1.9 phần 1)
+
+Công cụ: web search của trợ lý AI (Claude), 2026-09-27. Đây là tra cứu **known-item** (tìm đúng bài đã biết), không
+phải truy vấn hệ thống; không dùng để ước độ phủ.
+
+| Truy vấn | Kết quả | Ghi chú |
+|---|---|---|
+| `arXiv 2511.10146` | không trúng | công cụ không khớp theo số hiệu |
+| `Burbano latency prediction adaptive confidence hysteresis handover edge server passive measurements arXiv 2025` | trúng arXiv:2511.10146 | đọc full text PDF |
+| `Liyanage 2026 arXiv 2604.21483 edge server selection latency prediction` | trúng arXiv:2604.21483 | đọc full text HTML |
+| `Almohammedi 2026 arXiv 2607.22857 digital twin` | trúng arXiv:2607.22857 | đọc full text HTML |
+| `Fischer Vöcking "Adaptive routing with stale information" Theoretical Computer Science` | trúng TR AIB-2005-06 (PDF) + trích dẫn TCS 2009 | đọc bản TR |
+
+Đưa vào backlog (chỉ thấy trong kết quả, **chưa đọc**):
+- *The Value of Information in Selfish Routing* (arXiv:2005.05191) — trích Fischer–Vöcking, Dahlin, Mitzenmacher; có thể
+  liên quan tới phân rã "giá trị thông tin".
+- *Incentivizing Stable Path Selection in Future Internet Architectures* (ACM SIGMETRICS PER, doi:10.1145/3453953.3453956)
+  — trích Fischer–Vöcking; path-aware networks, dao động.
+- Liyanage et al. 2025, *Lightweight Latency Prediction Scheme for Edge Applications* (arXiv:2511.02501) — bộ dự đoán
+  dùng trong Burbano/Liyanage; không cần cho RQ1.

@@ -415,3 +415,25 @@ Mẫu cho mỗi thí nghiệm (copy khối dưới):
 - **Quyết định:** luật 1 kích hoạt → **PIVOT vững trong phạm vi đã thử**. Luật 2–4 không kích hoạt; điều kiện luật
   5 không đúng tuyệt đối tại P2/A0 nhưng kết luận cơ chế vẫn là phần thuần gần 0, không phải nguồn lợi ích thực dụng.
 - **Provenance:** outcome và diễn giải do Codex thực hiện theo ủy quyền; không ghi là phần tác giả tự viết.
+
+## 2026-09-27 — L1.8 · f05b KHÁM PHÁ (sau mở f05): tỉ lệ bất đồng K2 ≠ SC
+
+- **Loại:** khám phá sau khi mở niêm phong; không có dự đoán; không đổi quyết định đã khoá của f05.
+- **Lý do:** nhiều dòng f05 có K2 − SC = 0,000 ± 0,000; cần phân biệt "bất định vô giá trị" với "hai luật chọn giống hệt".
+- **Seed/khoá:** như f05; không dùng seed mới.
+- **Kết quả:** trên 16 tổ hợp (2 ô × A0/A1 × oracle), K2 và SC bất đồng ở 0,00–0,98% epoch test; 0,00% ở F10 (cả hai
+  ô) và F20x2 ô τ = 10 s (A0, A1). Oracle không thiếu ô đáng đổi (P2/F20: 107/400 ô có Ī > 0).
+- **Phát hiện kèm (từ bảng f05):**
+  1. Q20x2: P2 gap 4,125 = tâm 4,107 + thuần 0,018 ± 0,054 ms; ô τ = 10 s: 3,458 = 3,444 + 0,014 ± 0,066 ms.
+  2. FZ10x5 ô τ = 10 s A1 thua luật tĩnh: gap −0,243 ± 0,073 ms (≈ 8 SE) → kích hoạt phép thử tự động của protocol.
+     Giải thích (giả thuyết): 10 bin đếm gộp các giá trị ρ̂ mà Î phân biệt được → sai số xấp xỉ, không phải rò rỉ;
+     F10 cũng âm ở cả hai ô. Họ oracle bin hội tụ từ dưới; chỉ đọc kết luận từ F20 trở lên.
+  3. So sánh bội: ~68 CI trong f05; kết quả sát biên (jitter ô τ = 10 s −0,202 ± 0,191; FZ20x3 thuần +0,154 ± 0,095)
+     không được diễn giải thành cơ chế.
+- **Diễn giải:** "thuần = 0,000" nghĩa là hai luật trùng quyết định, không phải một hiệu đo được bằng 0. Bất đồng < 1%
+  là bằng chứng trực tiếp rằng xếp hạng theo Ī và theo u = Ī − λp− gần trùng ở ngưỡng liên quan: H1 (T3 §5) gần đúng
+  đối với tâm Ī trong miền đã thử. Giá trị của twin nằm ở tâm, không ở độ rộng — kể cả khi thông tin tốt hơn nhiều (Q).
+- **Đính chính thiết kế (luật 5 của f05):** tỉ số tâm/thuần suy biến khi cả hai ≈ 0. Từ nay dùng cận trên CI của
+  |thuần| so với m và tỉ lệ bất đồng K2 ≠ SC.
+- **Provenance:** nội dung và diễn giải do Claude (AI) soạn trong hướng dẫn; mã f05b không được đính kèm nên Codex
+  dựng lại từ đúng simulator/oracle/tuning của f05 và chạy kiểm. Tác giả cần tự kiểm trước khi dùng để vấn đáp.
