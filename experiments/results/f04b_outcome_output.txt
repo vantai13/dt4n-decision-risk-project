@@ -1,0 +1,33 @@
+f04b | engine numba | mode outcome | 1500 epoch/seed | seed cal 8, test 8, oracle 199
+
+=== P1
+  thế giới    tĩnh   K2(α)   K2(∞) headroom | thích nghi  an toàn thông tin |        gap ± CI | phán quyết SESOI
+  des        0.025   0.015   0.016    1.513 |     -0.010    0.001     1.498 |  -0.010 ± 0.016 | KHÔNG ĐÁNG KỂ
+  psa        0.019   0.021   0.021    0.339 |      0.002    0.000     0.318 |  +0.002 ± 0.009 | KHÔNG ĐÁNG KỂ
+    DES − PSA (adapt , ghép cặp theo seed): -0.013 ± 0.021 ms
+    DES − PSA (safety, ghép cặp theo seed): +0.001 ± 0.038 ms
+    DES − PSA (info  , ghép cặp theo seed): +1.180 ± 0.057 ms
+
+=== P2
+  thế giới    tĩnh   K2(α)   K2(∞) headroom | thích nghi  an toàn thông tin |        gap ± CI | phán quyết SESOI
+  des        3.700   3.849   5.138   14.556 |      0.149    1.289     9.418 |  +0.149 ± 0.400 | KHÔNG ĐÁNG KỂ
+  psa        4.159   5.309  13.351   37.699 |      1.150    8.042    24.348 |  +1.150 ± 0.536 | KHÔNG ĐÁNG KỂ
+    DES − PSA (adapt , ghép cặp theo seed): -1.001 ± 0.678 ms
+    DES − PSA (safety, ghép cặp theo seed): -6.753 ± 1.093 ms
+    DES − PSA (info  , ghép cặp theo seed): -14.930 ± 1.394 ms
+
+=== K100_r0.85_s10t2
+  thế giới    tĩnh   K2(α)   K2(∞) headroom | thích nghi  an toàn thông tin |        gap ± CI | phán quyết SESOI
+  des        1.270   1.485   2.271    5.706 |      0.215    0.786     3.435 |  +0.215 ± 0.140 | KHÔNG ĐÁNG KỂ
+  psa        1.927   2.485   4.986   12.973 |      0.558    2.501     7.987 |  +0.558 ± 0.408 | KHÔNG ĐÁNG KỂ
+    DES − PSA (adapt , ghép cặp theo seed): -0.343 ± 0.409 ms
+    DES − PSA (safety, ghép cặp theo seed): -1.716 ± 0.735 ms
+    DES − PSA (info  , ghép cặp theo seed): -4.552 ± 0.855 ms
+
+=== K100_r0.95_s03t10
+  thế giới    tĩnh   K2(α)   K2(∞) headroom | thích nghi  an toàn thông tin |        gap ± CI | phán quyết SESOI
+  des        1.112   1.194   1.567   11.204 |      0.082    0.372     9.637 |  +0.082 ± 0.163 | KHÔNG ĐÁNG KỂ
+  psa        0.451   0.544   1.170   11.202 |      0.093    0.626    10.032 |  +0.093 ± 0.126 | KHÔNG ĐÁNG KỂ
+    DES − PSA (adapt , ghép cặp theo seed): -0.011 ± 0.199 ms
+    DES − PSA (safety, ghép cặp theo seed): -0.254 ± 0.532 ms
+    DES − PSA (info  , ghép cặp theo seed): -0.394 ± 1.485 ms

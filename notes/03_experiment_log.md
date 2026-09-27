@@ -352,3 +352,18 @@ Mẫu cho mỗi thí nghiệm (copy khối dưới):
      khoảng đó.
 - **Provenance:** phần dự đoán này do Codex soạn theo yêu cầu thực hiện thay của tác giả; không trình bày là bài
   tự viết của tác giả. Quyền sở hữu lý thuyết/vấn đáp vẫn cần tác giả tự luyện riêng.
+
+## 2026-09-27 — L1.7 · f04b MỞ NIÊM PHONG: power và outcome DES-vs-PSA
+
+- **Thứ tự:** validity/reliability commit `7a3e190`; prereg commit `cdcea06`; chỉ sau đó mới chạy `--mode power`
+  và `--mode outcome`. Output và JSON đều hữu hạn; seed/config giữ nguyên prereg.
+- **Power:** mọi ô cần 3 seed để phân giải ±`m/2=4,05 ms`; đích ±1 ms cần nhiều nhất 5 seed (P2 PSA), nên 8 seed
+  hiện có đủ cho quyết định SESOI. ACF đóng góp gap nhỏ (`−0,037…+0,102`), trong khi ACF `(I)⁺` tới `0,866`.
+- **Outcome:** cả bốn ô, ở cả DES và PSA, đều “KHÔNG ĐÁNG KỂ”. Gap DES: P1 `−0,010±0,016`; P2
+  `+0,149±0,400`; K100/0,85/0,10/2 `+0,215±0,140`; K100/0,95/0,03/10 `+0,082±0,163 ms`.
+- **Đối chiếu Q1–Q5:** Q1 đúng (`headroom` P2 DES `14,556<37,699` PSA); Q2 đúng (thông tin
+  `9,418<24,348 ms`); Q3 sai (dự đoán 1–4 ms, quan sát `0,149±0,400`); Q4 đúng (0 ô K100 có ý nghĩa);
+  Q5 đúng (P1 có trần `headroom−gain_tĩnh=1,488<m`).
+- **Quyết định khóa:** áp luật 3 → đề xuất **PIVOT “ngưỡng tĩnh đủ, và vì sao”**; không thêm seed. Áp luật 4:
+  PSA không làm bằng chứng định lượng cho các khoảng có hiệu DES−PSA loại trừ 0; chi tiết ở `F3_F4_budget.md`.
+- **Provenance:** Codex chạy và diễn giải theo ủy quyền; không ghi thay rằng tác giả tự làm dự đoán hoặc phép tính.

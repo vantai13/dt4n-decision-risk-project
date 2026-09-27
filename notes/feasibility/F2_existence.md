@@ -68,3 +68,12 @@ không phải artefact của surrogate. Không thay SESOI, không chọn lại �
 - §4: 13/16 ô lưới có trần chặt `<m`; phán quyết ở các ô đó là hệ quả của cận trên, không phải bằng chứng so sánh.
 - §6: `Spearman(self_gap_twin,headroom)=0,759` lớn hơn `Spearman(self_gap_twin,gap)=0,665`; chuẩn hoá theo
   headroom còn `0,418`. Không dùng làm bằng chứng chọn K17 cho tới khi kiểm trên gap chuẩn hoá, chỉ trong ô kiểm được.
+
+## Đính chính 2026-09-27 (sau f04b DES hai path)
+
+- Cả bốn ô kiểm bằng DES đều có gap không đáng kể; tại P2, DES cho `0,149±0,400 ms`, thấp hơn PSA ghép cặp
+  `1,150±0,536 ms`. Điều này củng cố phán quyết âm nhưng không xác nhận độ lớn các thành phần từ surrogate.
+- PSA không dùng làm bằng chứng định lượng cho khoảng thông tin tại P1; cả ba khoảng thích nghi/an toàn/thông tin
+  tại P2; hoặc khoảng an toàn/thông tin tại `K100_r0.85_s10t2`, vì CI95 của hiệu DES−PSA ghép cặp loại trừ 0.
+- Tại P2, DES−PSA lần lượt là `−1,001±0,678`, `−6,753±1,093`, `−14,930±1,394 ms` cho thích nghi, an toàn và
+  thông tin. Phân rã DES là `0,149 | 1,289 | 9,418 ms`: thích nghi vẫn là khoảng nhỏ nhất.

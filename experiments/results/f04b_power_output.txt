@@ -1,0 +1,9 @@
+f04b | engine numba | mode power | 1500 epoch/seed | seed cal 8, test 8, oracle 199
+  P1                 [des] sd_seed(gap) 0.020 ms | seed cần cho ±4.05 ms:    3 | cho ±1 ms:    3 | ACF lag-1: đóng góp gap -0.037, (I)⁺ +0.101
+  P1                 [psa] sd_seed(gap) 0.011 ms | seed cần cho ±4.05 ms:    3 | cho ±1 ms:    3 | ACF lag-1: đóng góp gap +0.022, (I)⁺ +0.806
+  P2                 [des] sd_seed(gap) 0.478 ms | seed cần cho ±4.05 ms:    3 | cho ±1 ms:    4 | ACF lag-1: đóng góp gap +0.028, (I)⁺ +0.604
+  P2                 [psa] sd_seed(gap) 0.641 ms | seed cần cho ±4.05 ms:    3 | cho ±1 ms:    5 | ACF lag-1: đóng góp gap +0.032, (I)⁺ +0.627
+  K100_r0.85_s10t2   [des] sd_seed(gap) 0.168 ms | seed cần cho ±4.05 ms:    3 | cho ±1 ms:    3 | ACF lag-1: đóng góp gap +0.049, (I)⁺ +0.510
+  K100_r0.85_s10t2   [psa] sd_seed(gap) 0.488 ms | seed cần cho ±4.05 ms:    3 | cho ±1 ms:    4 | ACF lag-1: đóng góp gap +0.102, (I)⁺ +0.570
+  K100_r0.95_s03t10  [des] sd_seed(gap) 0.195 ms | seed cần cho ±4.05 ms:    3 | cho ±1 ms:    3 | ACF lag-1: đóng góp gap -0.001, (I)⁺ +0.656
+  K100_r0.95_s03t10  [psa] sd_seed(gap) 0.151 ms | seed cần cho ±4.05 ms:    3 | cho ±1 ms:    3 | ACF lag-1: đóng góp gap +0.005, (I)⁺ +0.866
