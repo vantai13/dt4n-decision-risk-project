@@ -1,0 +1,8 @@
+Fischer-Voecking: 1 bản (W1996350158); forward 29 bài, 6 qua lọc tiêu đề
+Seshadri-Katz: KHÔNG tìm thấy trong OpenAlex (ghi 'không lập chỉ mục', không suy ra 0 trích dẫn)
+'stale path switching threshold': LỖI DỊCH VỤ — OpenAlex lỗi tại https://api.openalex.org/works?search=stale+path+switching+threshold&per-page=50&mailto=taidoan.13072005%40gmail.com: HTTP Error 503: Service Unavailable
+'hysteresis path selection uncertainty': LỖI DỊCH VỤ — OpenAlex lỗi tại https://api.openalex.org/works?search=hysteresis+path+selection+uncertainty&per-page=50&mailto=taidoan.13072005%40gmail.com: HTTP Error 503: Service Unavailable
+'probabilistic digital twin network': LỖI DỊCH VỤ — OpenAlex lỗi tại https://api.openalex.org/works?search=probabilistic+digital+twin+network&per-page=50&mailto=taidoan.13072005%40gmail.com: HTTP Error 503: Service Unavailable
+'SD-WAN path selection prediction': LỖI DỊCH VỤ — OpenAlex lỗi tại https://api.openalex.org/works?search=SD-WAN+path+selection+prediction&per-page=50&mailto=taidoan.13072005%40gmail.com: HTTP Error 503: Service Unavailable
+'edge server selection hysteresis': LỖI DỊCH VỤ — OpenAlex lỗi tại https://api.openalex.org/works?search=edge+server+selection+hysteresis&per-page=50&mailto=taidoan.13072005%40gmail.com: HTTP Error 503: Service Unavailable
+Đã ghi 29 dòng vào /home/vantai/ndt-decision-risk/notes/01_literature/snowball_openalex_2026-09-27.csv

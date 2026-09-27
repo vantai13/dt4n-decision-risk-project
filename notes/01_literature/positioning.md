@@ -11,9 +11,12 @@ nên không tách được giá trị của bất định khỏi giá trị củ
 Table I). Công trình gác twin theo độ tin cậy xử lý lệch mô hình toàn cục theo thời gian, không phải bất định thay đổi
 theo từng quyết định do tuổi và nhiễu của telemetry (Almohammedi 2026, Eq. 6–12; ghi chú opentwin_2026_v2). Lý thuyết
 về thông tin cũ trong định tuyến tập thể cho thấy hình thức luật đổi quyết định hội tụ hay dao động (Fischer–Vöcking,
-TR 2005, Thm 1, Thm 3), nhưng trong chế độ tải nội sinh. Đề tài xét chế độ bổ sung — một luồng nhỏ trên tải ngoại sinh
-với telemetry có tuổi và nhiễu — đo khoảng cách giữa ngưỡng tĩnh được tune và oracle cùng thông tin trong DES, tách
-khoảng cách thành phần tâm và phần độ rộng, và thấy phần độ rộng dưới 0,16 ms, thấp hơn SESOI khoảng 50 lần, trong
+TR 2005, Thm 1, Thm 3), nhưng trong chế độ tải nội sinh. Mô phỏng định tuyến overlay tập thể cho thấy H tối ưu phụ
+thuộc mạnh vào tham số hệ thống, còn H cố định chạy tốt khi các luồng tự chọn đường chỉ là phần nhỏ của tải
+(Seshadri–Katz 2003, Fig. 4–6, §V-B) — một dự đoán về đúng chế độ mà
+đề tài đo, nhưng chưa được đối chiếu với oracle cùng thông tin. Đề tài xét chế độ bổ sung — một luồng nhỏ trên tải
+ngoại sinh với telemetry có tuổi và nhiễu — đo khoảng cách giữa ngưỡng tĩnh được tune và oracle cùng thông tin trong
+DES, tách khoảng cách thành phần tâm và phần độ rộng, và thấy phần độ rộng dưới 0,16 ms, thấp hơn SESOI khoảng 50 lần, trong
 miền đã thử (f04b, f05, f05b).
 
 ## Không được claim
@@ -22,6 +25,7 @@ miền đã thử (f04b, f05, f05b).
 - Dùng (μ, σ) hay xác suất vi phạm để chọn đích là mới (Liyanage 2026).
 - Fallback theo độ tin cậy twin là mới (Almohammedi 2026; OpenTwin).
 - "Thông tin cũ làm luật tham lam hỏng/dao động" là mới (Fischer–Vöcking; Shaikh et al. 2001).
+- "H tối ưu phụ thuộc tham số hệ thống" hay "ngưỡng hysteresis thích nghi (MIMD)" là mới (Seshadri–Katz 2003).
 
 ## Đóng góp ứng viên (DP1, khung PIVOT) — "strong candidate", chưa phải kết luận
 

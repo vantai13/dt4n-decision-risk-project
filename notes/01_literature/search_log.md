@@ -132,3 +132,21 @@ phải truy vấn hệ thống; không dùng để ước độ phủ.
   — trích Fischer–Vöcking; path-aware networks, dao động.
 - Liyanage et al. 2025, *Lightweight Latency Prediction Scheme for Edge Applications* (arXiv:2511.02501) — bộ dự đoán
   dùng trong Burbano/Liyanage; không cần cho RQ1.
+
+## Tra cứu + đọc full text, 2026-09-27 (L1.9 phần 2)
+
+Công cụ: web search của trợ lý AI (Claude). Known-item lookup, không ước độ phủ.
+
+| Truy vấn | Kết quả | Ghi chú |
+|---|---|---|
+| `Seshadri Katz 2003 dynamics of simultaneous overlay network routing` | trúng TR UCB/CSD-03-1291 | đọc full text PDF |
+| `Mitzenmacher "How useful is old information" IEEE Transactions on Parallel and Distributed Systems 2000 pdf` | không có link PDF trực tiếp | hoãn (nhóm "nếu kịp") |
+
+Backlog mới (chỉ thấy trong kết quả, chưa đọc, **chưa xác nhận tiêu đề**): bài IEEE Xplore 1544621 về đồng bộ hoá và
+dao động giữa các overlay cùng tồn tại (mô hình giải tích xác suất đồng bộ hai overlay).
+
+Forward citation qua OpenAlex chạy trên máy tác giả: Fischer–Vöcking resolve bằng DOI thành `W1996350158`, có 29 bài
+trích dẫn và 6 bài qua lọc từ khoá tiêu đề. Seshadri–Katz không resolve được vì endpoint tìm theo tiêu đề trả HTTP 503;
+ghi là **chưa lập chỉ mục/chưa truy xuất được**, không suy ra 0 trích dẫn. Cả 5 truy vấn có mục tiêu cũng trả HTTP 503;
+các URL lỗi được lưu nguyên văn trong `openalex_l19_2026-09-27_output.txt` và phải chạy lại. CSV hiện là kết quả một
+phần gồm 29 forward citation Fischer–Vöcking; `title_filter_match` chưa phải sàng abstract.
