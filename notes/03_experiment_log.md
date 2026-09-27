@@ -367,3 +367,34 @@ Mẫu cho mỗi thí nghiệm (copy khối dưới):
 - **Quyết định khóa:** áp luật 3 → đề xuất **PIVOT “ngưỡng tĩnh đủ, và vì sao”**; không thêm seed. Áp luật 4:
   PSA không làm bằng chứng định lượng cho các khoảng có hiệu DES−PSA loại trừ 0; chi tiết ở `F3_F4_budget.md`.
 - **Provenance:** Codex chạy và diễn giải theo ủy quyền; không ghi thay rằng tác giả tự làm dự đoán hoặc phép tính.
+
+## 2026-09-27 — L1.8 · f05 TIỀN ĐĂNG KÝ: độ mạnh oracle và tuổi dao động (TRƯỚC outcome)
+
+- **Đã chạy trước khi ghi:** `f05 --mode validity`; ba phép kiểm neo đều `True` ở cả hai ô. Chưa chạy
+  `--mode outcome`; chưa tồn tại `f05_results.json` hoặc output outcome.
+- **Ô và lý do:** P2 và `K100_r0.95_s03t10`, hai ô có trần chặt DES lớn hơn `m` trong f04b, lần lượt khoảng
+  `10,86` và `10,09 ms`.
+- **Seed:** như F2; khoá luồng 711/713 cho A0 và thế giới A1 ghép cặp; lô oracle thứ hai dùng 811/813; tuổi dùng
+  `SeedSequence([seed, khoá, 99])`.
+- **Bài tính trước outcome:** với τ=10 s, A1 có `z_eff∈[0,67;1,17) s`, nên `exp(−z_eff/τ)` chạy từ khoảng
+  `0,890` đến `0,935`; A0 có `z_eff=0,92 s`, cho khoảng `0,912`.
+- **Dự đoán do Codex soạn theo ủy quyền, trước outcome:**
+  - **Q1:** tại A0, `max |gap−gap_F20|` qua F10/F20x2/F40x2 dưới `0,5 ms`, nên đạt tiêu chí DP0 `<m/2`.
+    Tiêu chí `4,05 ms` khá yếu so với gap đã quan sát dưới 1 ms, nên vẫn phải báo độ phân tán thực tế.
+  - **Q2:** với F20x2, `SC−S0` lớn hơn về trị tuyệt đối so với `K2−SC`; phần thuần dương nhưng gần 0. Cơ chế
+    chính dự kiến là sửa tâm điều kiện, không phải dùng độ rộng khác nhau theo epoch.
+  - **Q3:** Q20x2 cho `K2(∞)−S0` lớn hơn oracle đếm vì workload dự báo delay tốt hơn, nhưng không ô nào đạt
+    “CÓ Ý NGHĨA” với K2 có ràng buộc; nếu có tín hiệu thì đó là giá trị telemetry hàng đợi, không phải RQ1 hiện tại.
+  - **Q4:** jitter làm gap F20x2 A1−A0 dương nhưng nhỏ hơn `1 ms`, và lớn hơn tại P2 vì τ=2 s khiến tương quan
+    thay đổi mạnh hơn; với τ=10 s, tương quan chỉ chạy khoảng `0,890–0,935` quanh A0 `0,912`.
+  - **Q5:** ở A1, oracle FZ làm phần thuần lớn hơn F20x2 vì tuổi giải thích độ rộng điều kiện; mức tăng dự kiến
+    rõ hơn tại P2 nhưng vẫn không đủ vượt SESOI.
+- **Luật quyết định (khóa trước outcome):**
+  1. Mọi tổ hợp ô/chế độ tuổi/oracle đếm F hoặc FZ đều “KHÔNG ĐÁNG KỂ” → PIVOT vững trong phạm vi đã thử.
+  2. Có oracle đếm “CÓ Ý NGHĨA” → chưa được PIVOT; DP0 NARROW về đúng điều kiện đó.
+  3. Có oracle đếm “CHƯA KẾT LUẬN” → thêm seed test theo power, không đổi `m`, `r`, ô hoặc oracle.
+  4. Chỉ Q20x2 “CÓ Ý NGHĨA” → ghi telemetry hàng đợi là hướng ứng viên, không gọi là kết quả RQ1; cần literature.
+  5. Luôn báo tỉ lệ tâm/thuần ở F20x2 A0 và FZ A1. Nếu `|thuần|<|tâm|` mọi nơi, cơ chế PIVOT là cần sửa tâm,
+     không phải dùng độ rộng.
+- **Provenance:** tác giả nói đã tự tính ngoài repository nhưng không cung cấp giá trị hay dự đoán nguyên văn;
+  các con số và Q1–Q5 ghi tại đây do Codex soạn theo yêu cầu thực hiện thay. Không ghi đây là dự đoán tự viết của tác giả.
