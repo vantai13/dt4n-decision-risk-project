@@ -398,3 +398,20 @@ Mẫu cho mỗi thí nghiệm (copy khối dưới):
      không phải dùng độ rộng.
 - **Provenance:** tác giả nói đã tự tính ngoài repository nhưng không cung cấp giá trị hay dự đoán nguyên văn;
   các con số và Q1–Q5 ghi tại đây do Codex soạn theo yêu cầu thực hiện thay. Không ghi đây là dự đoán tự viết của tác giả.
+
+## 2026-09-27 — L1.8 · f05 MỞ NIÊM PHONG: oracle adequacy, tâm/thuần và tuổi dao động
+
+- **Thứ tự:** validity commit `1b84fa2`; prereg commit `9056ac1`; outcome chạy sau prereg. JSON có 16 khóa và
+  mọi số hữu hạn; seed, ô, oracle và luật quyết định giữ nguyên.
+- **Ổn định oracle:** `max|gap−gap_F20|` là `0,315 ms` tại P2 và `0,183 ms` tại ô τ=10 s, đạt tiêu chí DP0
+  `<m/2=4,05 ms`. Mọi oracle F/FZ ở A0/A1 đều “KHÔNG ĐÁNG KỂ”.
+- **Tuổi:** A1−A0 của gap F20x2 là `+0,425±0,317 ms` ở P2 và `−0,202±0,191 ms` ở ô τ=10 s; jitter không làm
+  kết luận đổi. FZ không tăng phần thuần nhất quán theo độ mịn bin.
+- **Telemetry Q:** Q20x2 cho gap `4,125±1,206` và `3,458±1,741 ms`, vẫn không đáng kể; đây là kênh thông tin
+  khác, không phải cận trên chứa F và không phải kết quả RQ1.
+- **Tâm/thuần:** tại A0/F20x2 là `0,048|0,086 ms` ở P2 và `0,099|0,000 ms` ở ô τ=10 s. Qua mọi FZ, phần thuần
+  chỉ từ `−0,122` tới `+0,154 ms`; không có giá trị thực dụng so với `m=8,1 ms`.
+- **Đối chiếu prereg:** Q1 và Q3 đúng; Q2 sai một phần; Q4 đúng một phần; Q5 không được ủng hộ nhất quán.
+- **Quyết định:** luật 1 kích hoạt → **PIVOT vững trong phạm vi đã thử**. Luật 2–4 không kích hoạt; điều kiện luật
+  5 không đúng tuyệt đối tại P2/A0 nhưng kết luận cơ chế vẫn là phần thuần gần 0, không phải nguồn lợi ích thực dụng.
+- **Provenance:** outcome và diễn giải do Codex thực hiện theo ủy quyền; không ghi là phần tác giả tự viết.
