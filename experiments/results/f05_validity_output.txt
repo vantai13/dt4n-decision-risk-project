@@ -1,0 +1,25 @@
+f05 | engine numba | mode validity | ô P2, K100_r0.95_s03t10 | T_poll 0.5 s | oracle seed 199 (×2 với khoá +100)
+
+=== P2 | A0 trùng f04b — thế giới: True, oracle F20 (lớp mới vs f02.BinOracle): True, gap F20: True
+  [A0] lag ∈ [0.370; 0.370] s, TB 0.370 s | họ tĩnh 'abs'
+     F10     ô   100 | thưa 0.000 | harm K2 +0.82±0.17% | harm SC +0.82±0.17% | lệch TB(I−Ī) -0.78±5.38 ms
+     F20     ô   400 | thưa 0.000 | harm K2 +0.82±0.16% | harm SC +0.83±0.15% | lệch TB(I−Ī) -0.66±5.38 ms
+     F20x2   ô   400 | thưa 0.000 | harm K2 +0.88±0.14% | harm SC +0.89±0.14% | lệch TB(I−Ī) -1.08±5.34 ms
+     F40x2   ô  1600 | thưa 0.000 | harm K2 +0.93±0.20% | harm SC +0.97±0.14% | lệch TB(I−Ī) -1.05±5.36 ms
+     Q20x2   ô   361 | thưa 0.000 | harm K2 +0.86±0.16% | harm SC +0.84±0.13% | lệch TB(I−Ī) -0.29±1.18 ms
+  [A1] lag ∈ [0.120; 0.620] s, TB 0.369 s | họ tĩnh 'abs'
+     F20x2   ô   400 | thưa 0.000 | harm K2 +0.92±0.24% | harm SC +0.93±0.24% | lệch TB(I−Ī) -2.33±6.59 ms
+     FZ10x5  ô   500 | thưa 0.000 | harm K2 +1.00±0.26% | harm SC +0.97±0.27% | lệch TB(I−Ī) -2.39±6.59 ms
+     FZ20x3  ô  1200 | thưa 0.000 | harm K2 +0.94±0.23% | harm SC +0.99±0.23% | lệch TB(I−Ī) -2.35±6.65 ms
+
+=== K100_r0.95_s03t10 | A0 trùng f04b — thế giới: True, oracle F20 (lớp mới vs f02.BinOracle): True, gap F20: True
+  [A0] lag ∈ [0.370; 0.370] s, TB 0.370 s | họ tĩnh 'abs'
+     F10     ô   100 | thưa 0.000 | harm K2 +0.97±0.22% | harm SC +0.97±0.22% | lệch TB(I−Ī) -1.68±7.52 ms
+     F20     ô   400 | thưa 0.000 | harm K2 +1.18±0.22% | harm SC +1.20±0.23% | lệch TB(I−Ī) -1.68±7.33 ms
+     F20x2   ô   400 | thưa 0.000 | harm K2 +1.16±0.23% | harm SC +1.16±0.23% | lệch TB(I−Ī) -1.68±7.34 ms
+     F40x2   ô  1444 | thưa 0.000 | harm K2 +1.25±0.24% | harm SC +1.21±0.22% | lệch TB(I−Ī) -1.72±7.33 ms
+     Q20x2   ô   361 | thưa 0.000 | harm K2 +1.03±0.13% | harm SC +1.05±0.16% | lệch TB(I−Ī) -0.19±1.90 ms
+  [A1] lag ∈ [0.120; 0.620] s, TB 0.371 s | họ tĩnh 'abs'
+     F20x2   ô   400 | thưa 0.000 | harm K2 +1.03±0.25% | harm SC +1.03±0.25% | lệch TB(I−Ī) -3.17±8.18 ms
+     FZ10x5  ô   500 | thưa 0.000 | harm K2 +0.92±0.21% | harm SC +0.98±0.19% | lệch TB(I−Ī) -3.18±8.22 ms
+     FZ20x3  ô  1200 | thưa 0.000 | harm K2 +0.98±0.26% | harm SC +1.02±0.27% | lệch TB(I−Ī) -3.21±8.20 ms
