@@ -437,3 +437,15 @@ Mẫu cho mỗi thí nghiệm (copy khối dưới):
   |thuần| so với m và tỉ lệ bất đồng K2 ≠ SC.
 - **Provenance:** nội dung và diễn giải do Claude (AI) soạn trong hướng dẫn; mã f05b không được đính kèm nên Codex
   dựng lại từ đúng simulator/oracle/tuning của f05 và chạy kiểm. Tác giả cần tự kiểm trước khi dùng để vấn đáp.
+
+## 2026-09-29 — P1v2/L1.3 · t03c KIỂM LÝ THUYẾT (toy): thông tin làm đổi thứ tự
+
+- **Loại:** kiểm lý thuyết trên toy; không phải RQ; không đổi F6 hay bất kỳ tiền đăng ký nào.
+- **Seed:** 9101, 9102 (tái lập A, B của t03, assert trùng từng epoch); 11901–11903 (D, E, F; dải toy v2, không giao F7).
+- **Kết quả:** (1) ví dụ tay H1/H2/H3: gap 0/0/5, khớp duyệt 64 tập con; H2 có Spearman 0,943 mà gap 0.
+  (2) D: thuần 0,429 ms (37% headroom) với κ ở mức sàn → đường (ii) có thật, κ mù với nó.
+  (3) E: κ_Î 0,358 nhưng thuần 0 → κ cho phần thuần phải điều kiện theo Ī. (4) Sàn κ ở B: 0,068 (20 bin), detrend 0,003.
+- **Hệ quả cho plan (đề xuất, chưa khoá):** "khi và chỉ khi" → cắt biên đơn; Mệnh đề 2 thêm đường (ii); trước f05c chốt
+  κ̂_pure theo Ī có detrend + đối chứng sàn, t07 dùng cùng ước lượng; báo S_Î* để tách tâm khỏi quy trình tune.
+- **Chưa làm có chủ đích:** không tính κ trên dữ liệu DES, để L1.6 khoá định nghĩa trước khi tính.
+- **Provenance:** Claude (AI) soạn chứng minh, ví dụ, script; tác giả chạy lại và kiểm.
