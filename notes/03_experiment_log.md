@@ -477,3 +477,20 @@ Mẫu cho mỗi thí nghiệm (copy khối dưới):
   "σ 0,10 > σ 0,03 ở 4τ" sai với P2.
 - **Hệ quả (đề xuất, chưa khoá):** κ_pred bằng cầu phương; F7 đăng ký chiều giảm; nâng F8; sửa phép kiểm M. Mang tới 13/10.
 - **Provenance:** Claude (AI) soạn phép dẫn, script, diễn giải; tác giả chạy lại và kiểm.
+
+## 2026-09-29 — P1v2/L1.6 · f05c KHOÁ ĐỊNH NGHĨA + DỰ ĐOÁN (trước khi tính)
+
+- **Loại:** khám phá post hoc trên seed cũ của f05; không đổi F6; không seed mới.
+- **D1** thế giới + seed = f05 (A0: P1, P2, K100_r0.85_s10t2, K100_r0.95_s03t10; A1: P2, K100_r0.95_s03t10).
+- **D2** oracle F20x2 + sd trong ô. **D3** S0/SC/K2 như f05 + S_Î* (ngưỡng trên Î, abs|rel, tune bằng harm dự đoán như SC).
+- **D4** κ̂_pure: 20 bin Ī, detrend tuyến tính log s trong bin, gộp epoch test. **D5** sd_log_s_cond (bin Î) làm phụ.
+- **D6** sàn bin (log s làm trơn, 50 bin) + sàn lấy mẫu TB 1/√(2(n_ô − 1)); báo κ vượt sàn.
+- **D7** t₀ = ngưỡng SC; λ vận hành; f₀ trên h = 1 ms (0,5; 2); OLS chung trong |Ī − t₀| < 2 ms (1; 4):
+  u ~ c + a′(Ī − t₀) + β·r; κ_b = sd(r trong dải); dự đoán f₀β²κ_b²/(2a′) nếu a′ > 0, không thì đánh dấu đường (ii).
+- **D8** quan sát K2 − SC theo seed, CI t. **D9** số lần TB u giảm qua 20 bin Ī (Ī > 0). **D10** tái lập f05 F20x2.
+- **D11** chỉ được nói "không mâu thuẫn"; không nói "luật đúng trên DES".
+- **Dự đoán:** P1 κ 0,03–0,12, gap ≈ 0; P2/A0 κ 0,10–0,25, a′ > 0, dự đoán 0,005–0,1 ms, không phân giải; K100/0,85 κ lớn
+  nhất (0,15–0,35), dự đoán 0,01–0,2 ms; K100/0,95/0,03/10 κ 0,10–0,25; thứ tự K100/0,85 > {P2, K100/0,95} > P1;
+  mọi share_pure < 1%; a′ > 0 mọi ô; |A1 − A0| < 0,05.
+- **Provenance:** Claude (AI) ghi định nghĩa và dự đoán lúc 2026-09-29T01:14Z, trước khi AI chạy f05c; tác giả commit
+  sau khi đã đọc kết quả trong bài hướng dẫn.
