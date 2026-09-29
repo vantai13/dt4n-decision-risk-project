@@ -449,3 +449,17 @@ Mẫu cho mỗi thí nghiệm (copy khối dưới):
   κ̂_pure theo Ī có detrend + đối chứng sàn, t07 dùng cùng ước lượng; báo S_Î* để tách tâm khỏi quy trình tune.
 - **Chưa làm có chủ đích:** không tính κ trên dữ liệu DES, để L1.6 khoá định nghĩa trước khi tính.
 - **Provenance:** Claude (AI) soạn chứng minh, ví dụ, script; tác giả chạy lại và kiểm.
+
+## 2026-09-29 — P1v2/L1.4 · t05 KIỂM LÝ THUYẾT (toy): luật bậc hai của bất định trực giao
+
+- **Loại:** kiểm lý thuyết trên toy; không phải RQ; không đổi F6 hay tiền đăng ký nào.
+- **Seed:** 9101–9110 (toy, đúng dải plan quy định; trùng t03 có chủ đích để CRN); phần 2–3 dùng 9101–9105.
+- **Đối chứng:** κ = 0 cho gap đúng 0; κ = 0,7 seed 9101 tái lập t03-A (0,0952); bảng đối chiếu PHASE_1v2 khớp 4 chữ số;
+  công thức khớp ±15% ở κ ≤ 0,2 (κ→0: 0,96/0,88; λ(κ): 0,99/0,97).
+- **Kết quả:** (1) phần thiếu của công thức κ→0 chủ yếu do λ tăng theo κ; dùng λ(κ) thì sai ≤ 11% tới κ = 0,7, bão hoà từ
+  κ ≈ 1,25. (2) κ* ≈ 0,58 (5%), 0,82 (10%); 20% không đạt (trần 16,5%). (3) Giữ trung bình s: đỉnh 9,4% — share phụ thuộc
+  cách giữ mức bất định. (4) α là núm mạnh: κ = 0,35, α 2% → 0,2% đưa share 0,27% → 8,16%.
+- **Hệ quả cho plan (đề xuất, chưa khoá):** β đo tại λ vận hành; hồi quy chung cho a′, β; kiểm L bằng ms thay share;
+  "κ̂ lớn" theo khả năng phát hiện thay ngưỡng 10%; α ∈ {0,5; 2}% làm phụ ở F7.
+- **Chưa làm có chủ đích:** không tính gì trên DES (thuộc L1.6, sau khi khoá định nghĩa).
+- **Provenance:** Claude (AI) soạn phép dẫn, script, diễn giải; tác giả chạy lại và kiểm.

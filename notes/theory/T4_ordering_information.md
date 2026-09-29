@@ -1,7 +1,7 @@
-# T4 — Thông tin làm đổi thứ tự (§1–2)
+# T4 — Thông tin làm đổi thứ tự (§1–3)
 
 > Ngày 2026-09-29 (P1v2/L1.3). Provenance: Claude (AI) soạn chứng minh, ví dụ và `t03c`; tác giả chạy lại, kiểm và
-> chịu trách nhiệm. Kiểm lý thuyết trên toy, không đổi phán quyết F6. §3 (luật bậc hai) thêm ở L1.4.
+> chịu trách nhiệm. Kiểm lý thuyết trên toy, không đổi phán quyết F6. §3 thêm ngày 2026-09-29 (L1.4).
 > Ký hiệu theo definitions v2.1: Ī = E[I_D | F], p− = P(I_D < −ε | F), u = Ī − λ·p−; c = 0 trong mọi ví dụ.
 
 ## 1. Khi nào ngưỡng tĩnh đã tune là tối ưu
@@ -72,3 +72,48 @@ F và Q không so được theo Blackwell. Nguồn cần tự kiểm ở L1.10.
 **Đề xuất trước L1.6 (chưa hiệu lực, cần GVHD):** κ̂_pure = sd(log s | Ī), 20 bin, detrend tuyến tính trong bin, kèm
 đối chứng sàn; `sd_log_s_cond` (theo Î) làm phụ; t07 dùng cùng ước lượng; báo dấu a′ trên toàn E_c; báo S_Î* để tách
 tâm sạch (SC − S_Î*) khỏi quy trình tune (S_Î* − S0).
+
+## 3. Luật bậc hai: bất định trực giao phải lớn cỡ nào (L1.4)
+
+**Thiết lập.** I | F ~ N(Ī, s²), s = s₀(Ī)·e^η, η ~ N(0, κ²) độc lập với Ī (κ = κ_Ī của §2). λ tại giá trị vận hành;
+ngưỡng tĩnh trên tâm đúng Ī nên gap = K2 − SC (phần thuần). u = Ī − λp−, p− = Φ((−ε − Ī)/s).
+
+**Dẫn.** (1) Hai luật cùng tiêu α ⇒ hiệu gain = hiệu Lagrange E[(u − c)(a_K2 − a_tĩnh)]. (2) Quanh biên t₀
+(u(t₀, 0) = c), x = Ī − t₀: u − c ≈ a′x + βη, a′ = ∂u/∂Ī, β = ∂u/∂η = λz₀φ(z₀), z₀ = (−ε − t₀)/s₀ < 0. (3) Ngưỡng tĩnh
+tốt nhất ≈ t₀ vì E[η] = 0. Với η cố định, K2 đổi khi x > δ = −βη/a′; hai luật bất đồng trên (0, δ), mất
+f₀·a′δ²/2 = f₀(βη)²/(2a′) (tam giác). (4) Kỳ vọng theo η: **gap ≈ f₀·β²·κ²/(2a′).**
+Tổng quát: a′ = 1 + λφ(z₀)(1 − e_s)/s₀, e_s = (ε + t₀)s₀′/s₀; a′ ≤ 0 là đường (ii) của §1 — công thức hết hiệu lực.
+
+**Bốn nhân tố.** f₀ mật độ epoch gần đường bàng quan. β ∝ λ: bằng 0 ngay khi ngân sách thừa (toy: α ≥ 5%), và
+|zφ(z)| cực đại ở |z₀| = 1 — độ rộng chỉ quan trọng khi biên ở vùng mơ hồ vừa phải. κ² — κ giảm một nửa, gap giảm 4 lần.
+a′ lớn thì dải nhòe hẹp. Trực giác (flat maximum): số epoch sai ∝ f₀|δ|, mỗi epoch mất ∝ a′|δ| ⇒ tổng ∝ δ².
+Suy luận: thông tin hoàn hảo có giá trị bậc một theo s; biết độ rộng có giá trị bậc hai theo κ — khớp hình dạng phân
+rã P2 (thông tin 9,4 ms, thích nghi 0,15 ms), chưa phải bằng chứng.
+
+**Kiểm (`t05`, họ A, α = 1%, 10 seed 9101–9110, CRN; κ = 0 cho gap 0; κ = 0,7 seed 9101 tái lập t03-A).**
+
+| κ | gap (ms) | tỉ lệ | λ(κ) | CT κ→0 / t05 | CT λ(κ) / t05 |
+|---:|---:|---:|---:|---:|---:|
+| 0,1 | 0,0010 | 0,09% | 6,64 | 0,96 | 0,99 |
+| 0,2 | 0,0046 | 0,39% | 6,99 | 0,88 | 0,97 |
+| 0,35 | 0,0171 | 1,44% | 7,84 | 0,72 | 0,93 |
+| 0,5 | 0,0422 | 3,49% | 8,84 | 0,60 | 0,89 |
+| 0,7 | 0,0960 | 7,61% | 9,91 | 0,52 | 0,89 |
+| 1,0 | 0,1938 | 13,85% | 10,68 | 0,52 | 0,98 |
+| 1,25 | 0,2640 | 16,45% | 10,79 | 0,60 | 1,14 |
+| 2,0 | 0,3799 | 10,40% | 10,28 | 1,06 | 1,91 |
+
+**Bốn phát hiện.** (1) Công thức κ→0 thiếu chủ yếu vì λ tăng theo κ (p− lồi theo η khi |z| > 1 ⇒ bất định trực giao
+làm ngân sách harm đắt hơn); dùng λ(κ) thì sai ≤ 11% tới κ = 0,7 và giải thích độ dốc log–log 2,29 (công thức: 2,23).
+Từ κ ≈ 1,25 công thức vượt thực tế (bão hoà). (2) κ* ≈ 0,58 cho 5% và 0,82 cho 10%; 20% không đạt (trần 16,5%).
+(3) Giữ trung bình s thay vì trung vị (mean-preserving spread) thì tỉ lệ thuần đạt đỉnh 9,4% ở κ = 1,5: mẫu số headroom
+tăng theo mức bất định, tử số theo κ², nên share có thể không đơn điệu khi dữ liệu cũ hơn. (4) κ = 0,35 cố định: α từ
+2% xuống 0,2% đưa tỉ lệ từ 0,27% lên 8,16%; α ≥ 5% cho λ = 0, gap = 0 đúng.
+
+**Chuyển sang DES.** Chuyển được dạng, điều kiện a′ > 0, vai trò λ, bão hoà; không chuyển được hằng số (phân phối Ī,
+λ vận hành, độ cong, p− không có dạng Φ). L1.6: t₀ = ngưỡng SC; λ vận hành; f₀ trên cửa sổ h ∈ {0,5; 1; 2} ms (Ī bin rời
+rạc); a′, β bằng hồi quy CHUNG u ~ a′(Ī − t₀) + β·r, r = log s − m(Ī) (cùng detrend với κ̂_pure); báo dấu a′ trên E_c.
+
+**Đề xuất cho L1.7 (chưa hiệu lực, cần GVHD).** Kiểm L bằng ms: Spearman(gap dự đoán, gap quan sát) ≥ 0,6 + tỉ số
+quan sát/dự đoán, thay Spearman(κ̂, share_pure). "κ̂ lớn" trong bảng 2×2 = gap thuần dự đoán ≥ 2 lần nửa-CI dự kiến,
+thay ngưỡng 10% share. Giữ V như cũ. Báo α ∈ {0,5; 2}% là phân tích phụ.
