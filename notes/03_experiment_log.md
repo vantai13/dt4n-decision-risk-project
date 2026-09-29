@@ -463,3 +463,17 @@ Mẫu cho mỗi thí nghiệm (copy khối dưới):
   "κ̂ lớn" theo khả năng phát hiện thay ngưỡng 10%; α ∈ {0,5; 2}% làm phụ ở F7.
 - **Chưa làm có chủ đích:** không tính gì trên DES (thuộc L1.6, sau khi khoá định nghĩa).
 - **Provenance:** Claude (AI) soạn phép dẫn, script, diễn giải; tác giả chạy lại và kiểm.
+
+## 2026-09-29 — P1v2/L1.5 · t06 + t07 KIỂM LÝ THUYẾT: lịch sử và κ dự đoán cho lưới F7
+
+- **Loại:** lý thuyết (t06 xác định; t07 lấy mẫu, không DES); không đổi F6 hay tiền đăng ký nào.
+- **Seed:** t07 dùng 11911 (dải toy v2, không giao F7); t06 không có ngẫu nhiên.
+- **Dự đoán ghi trước khi chạy t07 (AI soạn, tác giả đọc cùng kết quả):** đối chứng κ 0,05–0,2 do mức tải; phần tuổi
+  ≤ ½log(1/(1 − q)) (≲ 0,05 ở σ 0,10, ≲ 0,02 ở σ 0,03); tắt nhiễu nâng κ.
+- **Kết quả:** t06 khớp đáp án (≤ 0,0004), lưới = công thức đóng. Delta method sai gần knee (so F2: ×1,76–4,31); cầu
+  phương ×1,18–1,22. κ giảm theo T_probe ở cả ba ô (4τ: 0,068 / 0,155 / 0,081; ∞: ≈ 0) do sụp chiều (−0,11…−0,21) thắng
+  phân tán tuổi (+0,04…+0,09). Lịch sử nâng κ ở τ = 10 s (0,171 → 0,297).
+- **Đối chiếu:** dự đoán về nguồn và về tắt nhiễu đúng; trần phần tuổi sai; bỏ sót kênh sụp chiều; dự đoán plan
+  "σ 0,10 > σ 0,03 ở 4τ" sai với P2.
+- **Hệ quả (đề xuất, chưa khoá):** κ_pred bằng cầu phương; F7 đăng ký chiều giảm; nâng F8; sửa phép kiểm M. Mang tới 13/10.
+- **Provenance:** Claude (AI) soạn phép dẫn, script, diễn giải; tác giả chạy lại và kiểm.
