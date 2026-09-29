@@ -494,3 +494,14 @@ Mẫu cho mỗi thí nghiệm (copy khối dưới):
   mọi share_pure < 1%; a′ > 0 mọi ô; |A1 − A0| < 0,05.
 - **Provenance:** Claude (AI) ghi định nghĩa và dự đoán lúc 2026-09-29T01:14Z, trước khi AI chạy f05c; tác giả commit
   sau khi đã đọc kết quả trong bài hướng dẫn.
+
+## 2026-09-29 — P1v2/L1.6 · f05c KẾT QUẢ (khám phá, post hoc)
+
+- **Đối chứng:** f05 F20x2 tái lập chính xác (4 chế độ); A0 trùng f04b. Không seed mới.
+- **κ:** κ̂_pure 0,036 / 0,165 / 0,271 / 0,151 (A1: 0,165 / 0,156), sàn ≤ 0,037; t07 đoán đúng trong ±26%.
+- **Luật bậc hai:** không mâu thuẫn ở 6/6, không phân giải (dự đoán ≤ 0,06 ms; CI ±0,11–0,14).
+- **Phát hiện mới:** biên ở ~phân vị 95 của Ī ⇒ f₀ ~100× nhỏ hơn toy, bù một phần bởi λ lớn; hằng số từ 3–14 ô là thô.
+- **Tâm vs quy trình:** K100/0,85 quy trình +0,068 ± 0,053 (CI loại 0); P2/A1 tâm sạch +0,558.
+- **Đối chiếu dự đoán khoá:** 8/9 đúng; sai: share K100/0,85 = 1,80% > 1% (điểm; CI chứa < 1%).
+- **Hệ quả cho L1.7 (đề xuất):** xem F7 §1 "Dùng cho §2".
+- **Provenance:** Claude (AI) viết script, chạy và diễn giải trước; tác giả chạy lại và kiểm.
