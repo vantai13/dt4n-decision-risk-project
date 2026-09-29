@@ -59,3 +59,10 @@ tuổi (bỏ kênh tâm co về μ); bỏ sót kênh sụp chiều (chi phối).
 κ_pred tính bằng cầu phương, bin theo tâm, detrend. F7: (A) giữ, đăng ký chiều "κ̂ và K2 − SC giảm theo T_probe";
 (B) nâng F8 lên ưu tiên (cơ chế duy nhất dự đoán κ tăng); (C) tuỳ chọn nhánh tắt nhiễu đếm. Sửa phép kiểm M: bỏ điều
 kiện "σ 0,10 > σ 0,03 ở 4τ"; thay bằng thứ tự do κ_pred cầu phương cho.
+
+## Đính chính 2026-09-29 (t08, trước mọi output F7)
+
+§5 "path khác loại" sai một nửa. Khi delay TB hai path khác xa (Ī tách theo chiều, ±87 ms), κ chỉ 0,015–0,029: path ổn
+định góp gần hằng ⇒ sụp chiều như §4(i). Khi delay TB khớp nhưng khác độ biến động (khác rủi ro thật), κ so với một
+ngưỡng là 0,351 (K100/0,85/0,10/2 ↔ K100/0,931/0,03/10) và 0,142 (sát knee); ngưỡng theo chiều còn 0,219 và 0,100.
+Nguyên lý §4 giữ nguyên, làm rõ: κ cần hai chiều thông tin CẠNH TRANH nhau quanh biên.

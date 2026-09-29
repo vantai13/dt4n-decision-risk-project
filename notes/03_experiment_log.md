@@ -505,3 +505,12 @@ Mẫu cho mỗi thí nghiệm (copy khối dưới):
 - **Đối chiếu dự đoán khoá:** 8/9 đúng; sai: share K100/0,85 = 1,80% > 1% (điểm; CI chứa < 1%).
 - **Hệ quả cho L1.7 (đề xuất):** xem F7 §1 "Dùng cho §2".
 - **Provenance:** Claude (AI) viết script, chạy và diễn giải trước; tác giả chạy lại và kiểm.
+
+## 2026-09-29 — P1v2/L1.7 · t08 KIỂM LÝ THUYẾT: κ cho hai path khác loại (trước mọi output F7)
+
+- **Lý do:** câu hỏi 2 của F6 hỏi path khác RỦI RO; F7 trong PHASE_1v2 kiểm độ TƯƠI — hai cơ chế khác nhau.
+- **Seed:** 11921 (dải toy v2). Không DES.
+- **Kết quả:** delay TB khác xa ⇒ κ 0,015–0,029 (sụp chiều); delay TB khớp, khác rủi ro ⇒ κ_chung 0,351 / κ_theo_chiều
+  0,219 (và 0,142 / 0,100 sát knee). Đối chứng hai path giống hệt: 0,142 = 0,142.
+- **Hệ quả:** đính chính T5 §5; đề xuất F7b (path khác rủi ro) làm spike chính, F7a thu gọn — trình GVHD 13/10.
+- **Provenance:** Claude (AI) soạn script và diễn giải; tác giả chạy lại và kiểm.
