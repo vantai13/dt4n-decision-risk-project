@@ -562,6 +562,18 @@ Mẫu cho mỗi thí nghiệm (copy khối dưới):
 - **Bổ sung trước outcome:** F8 §2C bảng diễn giải. §2B không đổi (`git diff prereg-f7` không có dòng bị xoá).
 - **Provenance:** Claude (AI) soạn §1, §2C; tác giả kiểm từng số với output validity.
 
+## 2026-09-30 — P1v2/L1.9 · f08 KẾT QUẢ (outcome 423546f, unedited) — cổng T10/FH hỏng ⇒ không kết luận xác nhận
+
+- **Thứ tự:** code fffbe67 → anchor fabda37 → validity + F8 §1, §2C 1cc9390 → outcome 423546f. §2B không đổi
+  (`git diff prereg-f7` không có dòng bị xoá).
+- **Cổng:** T10/FH K2 − S0 = −0,059 ± 0,037 ms (−3,1 SE) ✗ (harm cal, ô thưa đạt); T10/F1, P2/F1, P2/FH đạt mọi cổng.
+  Theo cài đặt (5) commit trước khi chạy: M8 (i), M8 (ii), phép kiểm phụ và V dùng oracle T10/FH ⇒ KHÔNG DIỄN GIẢI.
+  Số in ra: Δ₁₀ −0,004 ± 0,002; Δ_P2 +0,020 ± 0,001 (hợp lệ); Δ₁₀ − Δ_P2 −0,024 ± 0,002; share_info −8,84 ± 1,44
+  điểm %; V −0,867 ± 0,039 ms.
+- **Báo kèm, không đăng ký:** J(S0_F1) − J(S0_FH) = +2,60 ± 0,30 ms (T10), +2,74 ± 0,29 ms (P2).
+- **Tiếp theo:** f08b KHÁM PHÁ POST HOC (kế hoạch ghi trước khi chạy); F8 §3–4; T5 đính chính 3.
+- **Provenance:** tác giả chạy chính thức và kiểm số; trợ lý (Claude) tính lại độc lập từ JSON, trùng.
+
 ## 2026-09-30 — P1v2 · SAI LỆCH THỨ TỰ ĐÃ KHOÁ: Phần A làm một phần trước khi chạy F7
 
 - **Đã làm (commit ee66775):** O1 §1 (12 hàm, "nếu sai thì…"), luồng dữ liệu, lập luận phân rã, đơn vị lặp CI, cỡ mẫu
