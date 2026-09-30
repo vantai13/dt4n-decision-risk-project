@@ -574,6 +574,23 @@ Mẫu cho mỗi thí nghiệm (copy khối dưới):
 - **Tiếp theo:** f08b KHÁM PHÁ POST HOC (kế hoạch ghi trước khi chạy); F8 §3–4; T5 đính chính 3.
 - **Provenance:** tác giả chạy chính thức và kiểm số; trợ lý (Claude) tính lại độc lập từ JSON, trùng.
 
+## 2026-09-30 — P1v2/L1.9 · f08b KHÁM PHÁ POST HOC: độ nhạy oracle, quỹ đạo chung, trần thông tin
+
+- **Loại:** khám phá sau outcome F8; không đổi phán quyết F8; seed và khoá như f08 outcome.
+- **Kế hoạch ghi trước khi chạy (trợ lý, 2026-09-30T10:42:59Z):** E0 tái lập; E1 40×40 vuông; E2 khớp biên (Î_twin,
+  tổng tâm) 20×20 và 40×40; E3 cổng trên cal; E4 quỹ đạo chung. Dự đoán: E1 giảm vi phạm; E2 làm cổng T10/FH đạt; E3 âm;
+  E4 share_info giảm ít hơn −8,8 điểm %; Δ₁₀ dưới E2 dương nhưng < +0,13.
+- **Phụ lục ghi sau E0–E4, trước khi chạy (10:50:21Z):** F trần thông tin trên cal (dự đoán nội tại T10 > 0,5, P2 < 0,3;
+  trần T10 < 0,5, P2 > 0,7); G cận thấu thị cho VoIP.
+- **Kết quả:** E0 tái lập (gain trùng bit; κ̂ lệch ~1e−16 do khác máy). K2 − S0 ở T10/FH từ −0,120 (E1) đến +0,032
+  (E2-40); E2-20 cứu T10/FH nhưng phá T10/F1 (−6,4 SE) và P2/FH (−5,7 SE). Δ₁₀ ∈ [−0,004; +0,007] mọi biến thể;
+  Δ_P2 ≈ +0,02. E4: share_info −24,5 ± 1,6 điểm %, K2(FH) − S0(F1) +1,83 ms. E3: cal +0,065 ± 0,198 (không đủ lực).
+  F: nội tại 0,70 / 0,62; trần ρ_s²(G, D) 0,270 / 0,484 < ρ_s²(m̂, D) 0,293 / 0,573. G: chỉ T10/FH có trần thấu thị < m.
+- **Đối chiếu dự đoán:** đúng E0, E2 (cứu T10/FH), dấu Δ₁₀, F ở T10; sai E1, E3, E4, F ở P2. Giả thuyết cơ chế "ô vuông
+  trộn hai bên biên" không được ủng hộ.
+- **Danh sách phân tích đã chạy là đủ:** E0–E4, F, G. Dừng ở đây (không câu cá).
+- **Provenance:** Claude (AI) ghi kế hoạch, viết script, chạy trước trong sandbox; tác giả chạy lại, kiểm, commit.
+
 ## 2026-09-30 — P1v2 · SAI LỆCH THỨ TỰ ĐÃ KHOÁ: Phần A làm một phần trước khi chạy F7
 
 - **Đã làm (commit ee66775):** O1 §1 (12 hàm, "nếu sai thì…"), luồng dữ liệu, lập luận phân rã, đơn vị lặp CI, cỡ mẫu

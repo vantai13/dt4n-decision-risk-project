@@ -1,0 +1,42 @@
+f08b — KHÁM PHÁ POST HOC (không đổi phán quyết F8) | seed và khoá như f08 outcome
+[T10/F1] S0 abs 256.1 | E0 tái lập outcome F8: gain trùng từng bit, κ̂ lệch tối đa 0.0e+00 → True
+[T10/FH] S0 abs 6.294 | E0 tái lập outcome F8: gain trùng từng bit, κ̂ lệch tối đa 0.0e+00 → True
+[P2/F1] S0 abs 258.7 | E0 tái lập outcome F8: gain trùng từng bit, κ̂ lệch tối đa 0.0e+00 → True
+[P2/FH] S0 rel 0.7915 | E0 tái lập outcome F8: gain trùng từng bit, κ̂ lệch tối đa 0.0e+00 → True
+
+BẢNG A — cổng oracle và phân rã (ms/epoch; CI95 t theo 90 seed; 'cal' = E3: K2 − S0 trên 8 seed cal)
+[T10/F1] E0 vuông 20      K2 − S0 -0.007 ± 0.051 ( -0.3 SE, cổng ✓) | SC − S0 -0.007 | cal +0.031 ± 0.150 | share_info 82.5% | headroom 10.67 | κ̂ 0.147 (gộp 0.150, sàn 0.023) | λ 51.2 | thưa 0.00%
+[T10/F1] E1 vuông 40      K2 − S0 +0.048 ± 0.052 ( +1.8 SE, cổng ✓) | SC − S0 +0.025 | cal +0.058 ± 0.128 | share_info 82.9% | headroom 10.67 | κ̂ 0.157 (gộp 0.160, sàn 0.031) | λ 49.0 | thưa 0.00%
+[T10/F1] E2 khớp biên 20  K2 − S0 -0.178 ± 0.055 ( -6.4 SE, cổng ✗) | SC − S0 -0.185 | cal -0.235 ± 0.199 | share_info 82.8% | headroom 10.67 | κ̂ 0.141 (gộp 0.147, sàn 0.029) | λ 70.3 | thưa 0.01%
+[T10/F1] E2 khớp biên 40  K2 − S0 +0.037 ± 0.057 ( +1.3 SE, cổng ✓) | SC − S0 +0.047 | cal +0.176 ± 0.161 | share_info 82.6% | headroom 10.67 | κ̂ 0.153 (gộp 0.156, sàn 0.029) | λ 45.1 | thưa 0.08%
+[T10/FH] E0 vuông 20      K2 − S0 -0.059 ± 0.037 ( -3.1 SE, cổng ✗) | SC − S0 -0.042 | cal +0.065 ± 0.198 | share_info 73.7% | headroom 8.08 | κ̂ 0.143 (gộp 0.151, sàn 0.028) | λ 60.1 | thưa 0.03%
+[T10/FH] E1 vuông 40      K2 − S0 -0.120 ± 0.038 ( -6.3 SE, cổng ✗) | SC − S0 -0.132 | cal -0.019 ± 0.193 | share_info 74.8% | headroom 8.08 | κ̂ 0.156 (gộp 0.164, sàn 0.029) | λ 52.0 | thưa 0.19%
+[T10/FH] E2 khớp biên 20  K2 − S0 -0.028 ± 0.035 ( -1.6 SE, cổng ✓) | SC − S0 -0.050 | cal -0.021 ± 0.186 | share_info 72.4% | headroom 8.08 | κ̂ 0.145 (gộp 0.152, sàn 0.022) | λ 66.5 | thưa 0.01%
+[T10/FH] E2 khớp biên 40  K2 − S0 +0.032 ± 0.036 ( +1.8 SE, cổng ✓) | SC − S0 +0.020 | cal +0.062 ± 0.218 | share_info 72.9% | headroom 8.08 | κ̂ 0.156 (gộp 0.163, sàn 0.030) | λ 53.1 | thưa 0.06%
+[T10/F1] E4 quỹ đạo F1    K2 − S0 -0.007 ± 0.051 ( -0.3 SE, cổng ✓) | SC − S0 -0.007 | cal +0.031 ± 0.150 | share_info 82.5% | headroom 10.67 | κ̂ 0.147 (gộp 0.150, sàn 0.023) | λ 51.2 | thưa 0.00%
+[T10/FH] E4 quỹ đạo F1    K2 − S0 +1.831 ± 0.260 (+14.0 SE, cổng ✓) | SC − S0 +1.793 | cal +2.115 ± 0.776 | share_info 58.0% | headroom 10.67 | κ̂ 0.154 (gộp 0.163, sàn 0.027) | λ 70.3 | thưa 0.00%
+[P2/F1] E0 vuông 20      K2 − S0 +0.478 ± 0.087 (+10.9 SE, cổng ✓) | SC − S0 +0.443 | cal +0.438 ± 0.399 | share_info 60.5% | headroom 15.75 | κ̂ 0.161 (gộp 0.164, sàn 0.023) | λ 152.2 | thưa 0.00%
+[P2/F1] E1 vuông 40      K2 − S0 +0.585 ± 0.090 (+13.0 SE, cổng ✓) | SC − S0 +0.484 | cal +0.555 ± 0.354 | share_info 60.2% | headroom 15.75 | κ̂ 0.170 (gộp 0.173, sàn 0.031) | λ 150.2 | thưa 0.00%
+[P2/F1] E2 khớp biên 20  K2 − S0 +0.227 ± 0.045 (+10.1 SE, cổng ✓) | SC − S0 +0.245 | cal +0.201 ± 0.160 | share_info 61.5% | headroom 15.75 | κ̂ 0.151 (gộp 0.150, sàn 0.031) | λ 258.0 | thưa 0.01%
+[P2/F1] E2 khớp biên 40  K2 − S0 +0.455 ± 0.090 (+10.1 SE, cổng ✓) | SC − S0 +0.353 | cal +0.547 ± 0.447 | share_info 60.6% | headroom 15.75 | κ̂ 0.168 (gộp 0.171, sàn 0.029) | λ 144.1 | thưa 0.08%
+[P2/FH] E0 vuông 20      K2 − S0 +0.422 ± 0.073 (+11.4 SE, cổng ✓) | SC − S0 +0.404 | cal +0.432 ± 0.503 | share_info 51.1% | headroom 13.26 | κ̂ 0.180 (gộp 0.184, sàn 0.022) | λ 128.0 | thưa 0.00%
+[P2/FH] E1 vuông 40      K2 − S0 +0.393 ± 0.074 (+10.5 SE, cổng ✓) | SC − S0 +0.315 | cal +0.279 ± 0.507 | share_info 51.5% | headroom 13.26 | κ̂ 0.189 (gộp 0.193, sàn 0.032) | λ 127.2 | thưa 0.03%
+[P2/FH] E2 khớp biên 20  K2 − S0 -0.217 ± 0.076 ( -5.7 SE, cổng ✗) | SC − S0 -0.315 | cal -0.181 ± 0.630 | share_info 52.1% | headroom 13.26 | κ̂ 0.171 (gộp 0.177, sàn 0.035) | λ 213.3 | thưa 0.02%
+[P2/FH] E2 khớp biên 40  K2 − S0 +0.350 ± 0.065 (+10.7 SE, cổng ✓) | SC − S0 +0.274 | cal +0.444 ± 0.371 | share_info 51.5% | headroom 13.26 | κ̂ 0.187 (gộp 0.190, sàn 0.030) | λ 142.8 | thưa 0.09%
+
+BẢNG B — Δκ̂ và share_info theo biến thể oracle (theo seed, ghép cặp)
+  E0 vuông 20      Δ₁₀ -0.004 ± 0.002 | share_info FH − F1 (T10) -8.84 ± 1.44 đ% | Δ_P2 +0.020 ± 0.001 | Δ₁₀ − Δ_P2 -0.024 ± 0.002
+  E1 vuông 40      Δ₁₀ -0.001 ± 0.002 | share_info FH − F1 (T10) -8.09 ± 1.40 đ% | Δ_P2 +0.019 ± 0.001 | Δ₁₀ − Δ_P2 -0.021 ± 0.003
+  E2 khớp biên 20  Δ₁₀ +0.004 ± 0.002 | share_info FH − F1 (T10) -10.40 ± 1.23 đ% | Δ_P2 +0.020 ± 0.002 | Δ₁₀ − Δ_P2 -0.016 ± 0.003
+  E2 khớp biên 40  Δ₁₀ +0.003 ± 0.002 | share_info FH − F1 (T10) -9.65 ± 1.44 đ% | Δ_P2 +0.019 ± 0.001 | Δ₁₀ − Δ_P2 -0.015 ± 0.003
+  E4 quỹ đạo F1    Δ₁₀ +0.007 ± 0.002 | share_info FH − F1 (T10) -24.50 ± 1.60 đ%
+
+BẢNG C — F: trần thông tin (seed calibration; so với ρ_s²(tâm, D) của f08 validity: T10 0,132 → 0,293; P2 0,430 → 0,573)
+  [T10] tỉ lệ nội tại E[Var(D | G)]/Var(D) 0.703 | trần ρ_s²(G, D) khi biết HOÀN HẢO tải khoảng giữ 0.270
+  [P2] tỉ lệ nội tại E[Var(D | G)]/Var(D) 0.619 | trần ρ_s²(G, D) khi biết HOÀN HẢO tải khoảng giữ 0.484
+
+BẢNG D — G: cận không dùng oracle cho VoIP tuyệt đối: headroom − S0 (luật thấu thị trên quỹ đạo S0) so với m
+  [T10/F1] 9.44 ± 0.32 ms | cận trên 9.76 ≥ m ⇒ cần oracle
+  [T10/FH] 6.84 ± 0.15 ms | cận trên 6.99 < m ⇒ KHÔNG ĐÁNG KỂ không cần oracle
+  [P2/F1] 11.71 ± 0.31 ms | cận trên 12.02 ≥ m ⇒ cần oracle
+  [P2/FH] 8.97 ± 0.19 ms | cận trên 9.16 ≥ m ⇒ cần oracle
