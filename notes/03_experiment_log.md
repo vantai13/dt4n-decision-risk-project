@@ -549,3 +549,13 @@ Mẫu cho mỗi thí nghiệm (copy khối dưới):
   cổng bật đỏ đúng lúc; anchor ở cấu hình f05c tái lập bit-exact (lệch JSON 0,0). KHÔNG chạy validity/outcome.
 - **Tiếp theo (thứ tự đã khoá):** Phần A (tác giả) → anchor chính thức (commit) → validity (commit) → outcome (commit).
 - **Provenance:** Claude (AI) viết code và test; tác giả đọc từng hàm và chạy chính thức.
+
+## 2026-09-30 — P1v2 · SAI LỆCH THỨ TỰ ĐÃ KHOÁ: Phần A làm một phần trước khi chạy F7
+
+- **Đã làm (commit ee66775):** O1 §1 (12 hàm, "nếu sai thì…"), luồng dữ liệu, lập luận phân rã, đơn vị lặp CI, cỡ mẫu
+  sự kiện hiếm, CI 90 seed, lập luận Q3 f04b, phiếu vấn đáp 8 câu.
+- **Chưa làm:** o01, CI tay 8 số, bảng tay 10 epoch, kín sách có bấm giờ (2 lần), Q1–Q5 đầy đủ.
+- **Quyết định của tác giả:** chạy f07 anchor → validity → outcome trước; hoàn tất phần còn thiếu trước DP0 (20/10).
+  Sai lệch không chạm nội dung tiền đăng ký (tag prereg-f7) hay code (9507a9f).
+- **Minh bạch:** trợ lý (Claude) đã chạy thử cả ba chế độ trong sandbox trên cùng commit trước khi tác giả chạy chính thức;
+  kết quả tất định; lần chạy chính thức của tác giả là bản được commit.
