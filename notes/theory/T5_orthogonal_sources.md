@@ -75,3 +75,13 @@ so với AA 0,286 và BB 0,217 (ρ̄_B = 0,918). Phần κ_chung vượt lên l�
 theo chiều hấp thụ (Mệnh đề 1 áp cho họ "mỗi chiều một ngưỡng"). Làm rõ §4 lần hai: dị loại rủi ro không thêm bất định
 trực giao trong chiều. Ngoài ra, ρ̄_B = 0,931 khớp delay TB trong mô hình dừng, không phải trong DES: DES đo thẳng cho
 E[D_B] = 29,53 ± 1,14 ms, lệch path biến động +6,0 ms; khớp DES là 0,918 (t09).
+
+## Đính chính 3 — 2026-09-30 (sau outcome F8 423546f và f08b; KHÁM PHÁ)
+
+§4(iii) "thêm thông tin (lịch sử) ⇒ κ tăng" đúng trong mô hình tải dừng nhưng KHÔNG thấy trong DES ở K100/0,95/0,03/10:
+κ̂ 0,147 → 0,143 (mô hình 0,171 → 0,297), bền qua năm cách dựng oracle; ở P2 tăng 0,161 → 0,180 (mô hình 0,144 → 0,154).
+Cùng mẫu với F7: mô hình đoán κ path B (σ 0,03, τ 10 s) 0,217, DES 0,14. f08b: tâm Kalman từ lịch sử dự báo D tốt hơn
+biết hoàn hảo tải khoảng giữ (ρ_s² 0,293 so với 0,270 ở T10; 0,573 so với 0,484 ở P2) ⇒ [I] trong DES, delay phụ thuộc
+trạng thái thừa kế (backlog) mà biến G của §1–§4 không chứa. Hệ quả dùng ngay: mức κ một cửa sổ của t07 khớp DES ±26%
+(f05c), nhưng dự đoán THAY ĐỔI κ theo thông tin không chuyển sang DES khi σ nhỏ. [H] Nguyên lý "κ = độ cong × độ giàu
+thông tin" cần viết lại trên trạng thái (backlog, tải); chưa kiểm.

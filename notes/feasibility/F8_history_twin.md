@@ -67,3 +67,57 @@ chọn lọc quỹ đạo; P2 kiểm một phần; kiểm sạch cần f08b POST
 
 Cắt ngang: V đạt ⇒ độ rộng có giá trị thực dụng khi twin có lịch sử — đổi khuyến nghị DP0. V không đạt ⇒ claim âm (độ
 rộng bậc hai, nhỏ) đứng vững cả khi twin có lịch sử. Phụ đạt (share_info giảm) ⇒ lịch sử là nơi có giá trị.
+
+## §3 Kết quả (outcome 423546f; code fffbe67; tiền đăng ký tag prereg-f7; §1, §2C commit 1cc9390 trước outcome)
+
+> Provenance: Claude (AI) soạn diễn giải từ output đã commit; tác giả kiểm từng số. [F] fact · [I] suy luận · [H] giả thuyết.
+
+**Hợp lệ.** Anchor tái lập f05c ở cả hai ô; validity đạt. Cổng lúc outcome: T10/F1, P2/F1, P2/FH đạt mọi cổng; **T10/FH
+không đạt K2 − S0 ≥ −2SE** (−0,059 ± 0,037 ms, −3,1 SE; harm cal và ô thưa đạt). Theo cài đặt (5) commit trước khi chạy,
+estimand dựa trên oracle của T10/FH không được diễn giải. M8 (i), M8 (ii), phép kiểm phụ và V đều dùng oracle T10/FH ⇒
+**F8 không có kết luận xác nhận.** Script in "ĐẠT/KHÔNG ĐẠT" theo công thức; nhãn đúng theo quy tắc khoá là dưới đây.
+
+| | Số in ra | Theo quy tắc khoá |
+|---|---|---|
+| M8 (i) Δ₁₀ | −0,004 ± 0,002 | không diễn giải (cổng T10/FH) |
+| Δ_P2 (báo) | +0,020 ± 0,001 | hợp lệ (P2 đạt mọi cổng) |
+| M8 (ii) Δ₁₀ − Δ_P2 | −0,024 ± 0,002 | không diễn giải |
+| Phụ share_info FH − F1 (T10) | −8,84 ± 1,44 điểm % | không diễn giải |
+| V (FH, T10) | −0,867 ± 0,039 ms | không diễn giải |
+
+**Hợp lệ không cần oracle.** [F] Luật thấu thị trên quỹ đạo S0_FH ở T10 hơn S0_FH tối đa 6,84 ± 0,15 ms < m = 8,1 ms ⇒
+VoIP tuyệt đối KHÔNG ĐÁNG KỂ ở T10/FH, không phụ thuộc oracle. [F] Báo kèm, không đăng ký: J(S0_F1) − J(S0_FH) = +2,60 ±
+0,30 ms (T10), +2,74 ± 0,29 ms (P2) — lẫn thông tin với sửa tâm (§1). [F] P2: κ̂ 0,161 → 0,180, cùng chiều tham chiếu
+(0,144 → 0,154), gấp đôi mức.
+
+**Khám phá POST HOC (f08b; kế hoạch ghi trước khi chạy; danh sách phân tích đầy đủ trong log).**
+1. [F] Cổng T10 nhạy với đặc tả oracle: qua bốn cách chia ô hợp lý, K2 − S0 ở T10/FH từ −0,120 đến +0,032 ms; cách cứu
+   T10/FH lại phá T10/F1 và P2/FH. [I] Ở T10, oracle bin không có lợi thế hệ thống so với S0 khi twin có lịch sử; −3,1 SE
+   chỉ phản ánh nhiễu theo seed, không phản ánh nhiễu đặc tả. Cơ chế "ô vuông trộn biên" không được ủng hộ.
+2. [F] κ̂ bền qua năm cách dựng oracle (E0–E4): Δ₁₀ ∈ [−0,004; +0,007]; Δ_P2 ≈ +0,02 ⇒ nhất quán với ô (D) của §2C, dưới
+   nhãn khám phá.
+3. [F] Quỹ đạo chung (E4): share_info T10 82,5% → 58,0% (−24,5 ± 1,6 điểm %). [I] Lịch sử mang nhiều thông tin; trên quỹ
+   đạo riêng, S0_FH đã thu hoạch một phần (headroom 10,67 → 8,08 ms) nên −8,8 điểm % đánh giá thấp lợi ích.
+4. [F] Biết hoàn hảo tải khoảng giữ chỉ cho ρ_s²(G, D) = 0,270 (T10), 0,484 (P2), thấp hơn tâm Kalman từ lịch sử (0,293;
+   0,573). [I] Delay DES phụ thuộc trạng thái thừa kế (backlog), không chỉ tải khoảng giữ. [H] t06/t07 dự báo sai biến
+   trạng thái, nên dự đoán thay đổi κ không chuyển sang DES ở σ nhỏ (cùng mẫu với F7: path B mô hình 0,217, DES 0,14).
+
+**Giới hạn.** Hai thế giới; một điểm vận hành; oracle bin (chính là thứ hỏng); twin biết (ρ̄, σ, τ); Kalman tối ưu cho
+tải, không cho delay; share_info so trên hai quỹ đạo khác nhau (thiết kế tiền đăng ký).
+
+## §4 So với dự đoán; đề xuất cho DP0/DP1 (GVHD quyết 20/10)
+
+**Đối chiếu (số in ra; nhãn khám phá ở T10).** (a) Tham chiếu t07: T10 κ 0,171 → 0,297 — sai trong DES (0,147 → 0,143);
+P2 0,144 → 0,154 — đúng chiều. (b) Tác giả: "κ tăng rõ ở τ = 10 s" sai; "tăng rất ít ở P2" gần đúng; "Δ₁₀ > Δ_P2" sai;
+"share_info giảm ở τ = 10 s" đúng chiều (mạnh hơn trên quỹ đạo chung); "V chưa đạt" đúng.
+
+**Đề xuất.**
+- Báo F8 là "không kết luận xác nhận do công cụ oracle hỏng ở ô chính"; không nâng số khám phá thành xác nhận.
+- Claim âm được củng cố ở mức khám phá: lịch sử tăng mạnh thông tin (share_info −24,5 điểm % trên quỹ đạo chung; J(S0)
+  −2,6 ms) nhưng không tăng κ̂ và không tạo phần thuần (T10/FH thuần −0,017 ± 0,015). Giá trị đi qua tâm và thông tin,
+  không qua độ rộng — cùng thông điệp F7 §4.
+- Phương pháp: oracle bin chỉ là cận trên cho luật đo được theo phân hoạch của nó. Đây là lần thứ ba (v1: P1, FZ10x5; F8:
+  T10/FH) ⇒ Phase 2 bắt buộc kiểm K2 − S0 trên seed oracle GIỮ RIÊNG trong validity, trước outcome, và báo độ nhạy theo
+  đặc tả oracle.
+- Giả thuyết Phase 2 (từ f08b F): trạng thái đúng của twin là (backlog, tải); nối T5 §5 và oracle Q của f05. Cần tiền
+  đăng ký mới trên seed mới.
