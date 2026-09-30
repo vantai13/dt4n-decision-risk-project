@@ -1,6 +1,6 @@
-# F7 — Độ tươi bất đối xứng
+# F7 — Path bất đối xứng về rủi ro (F7b); độ tươi bất đối xứng (F7a) chuyển Phase 2
 
-> §1 soạn ở L1.6 (2026-09-29); §2 (tiền đăng ký) ở L1.7; §3–4 (kết quả, quyết định) ở L1.8.
+> Tên file giữ nguyên vì lịch sử commit. §1 soạn ở L1.6; §2 chốt và khoá ở L1.7; §3–4 ở L1.8.
 
 ## §1 Hiệu chỉnh từ dữ liệu cũ (POST HOC)
 
@@ -21,57 +21,82 @@
 - **Dùng cho §2:** κ_pred lấy từ `t07`; đăng ký chiều giảm của κ̂ theo T_probe; không đăng ký chiều gap thuần (f₀ có thể
   tăng khi alt cũ); tỉ lệ dự đoán dạng khoảng; S0age báo hai bản (tune như SC, và theo J); power cho gap thuần.
 
-## §2 Tiền đăng ký (BẢN NHÁP — chưa khoá; khoá sau buổi 13/10 theo biên bản)
+## §2 Tiền đăng ký — v2 (CHỐT với GVHD 2026-09-30; KHOÁ ở commit có tag `prereg-f7` sau khi tác giả điền §2.5(b))
 
-> Soạn 2026-09-29 (L1.7), trước mọi code và output của f07. Provenance: Claude (AI) soạn từ T4–T5, t07, t08 và hiệu
-> chỉnh DES/t07 = 0,91–1,26 của f05c; tác giả và GVHD duyệt. Phán quyết VoIP của F6 giữ nguyên, báo kèm.
-
-### 2.0 Cơ chế (GVHD chọn ngày 13/10)
-- **F7b (đề xuất chính):** hai path cùng delay TB, khác rủi ro — đúng câu hỏi 2 của F6; t08 dự đoán κ lớn nhất đã thấy.
-- **F7a (phụ, thu gọn):** độ tươi bất đối xứng — t07 dự đoán κ GIẢM; phép thử chiều của T5 §4.
+> Thay bản nháp 29/09 (commit f0f76b9). Lý do, ghi TRƯỚC mọi output F7: (1) bản nháp so W1 với W0 = P2, hai thế giới
+> khác nhau hai yếu tố (t08b: +0,145 trong +0,209 do mức tải của A); (2) κ_chung = 0,351 đo so với MỘT ngưỡng, trái yêu
+> cầu ngưỡng theo chiều của F6 câu hỏi 2; so với ngưỡng theo chiều, κ_chiều(AB) = 0,193 < κ(AA) = 0,286; (3) "cùng delay
+> TB" khớp bằng PSA; trong DES, ρ̄_B = 0,931 cho E[D_B] = 29,53 ± 1,14 ms, lệch A +6,0 ms; khớp DES là 0,918 (t09).
+> Provenance: thiết kế do Claude (AI) đề xuất khi review L1.7 (t08b, t09, t10) và làm rõ khi chốt; tác giả viết §2.5(b);
+> GVHD duyệt (biên bản 2026-09-30). Phán quyết VoIP của F6 (PIVOT; m = 8,1 ms, r = 10%) giữ nguyên. F7a → Phase 2 (T5 §4).
 
 ### 2.1 Câu hỏi
-F7b: Khi hai path cùng delay TB nhưng khác rủi ro, κ có lớn như t08 dự đoán, và luật dùng độ rộng vượt ngưỡng tĩnh —
-kể cả ngưỡng theo chiều — bao nhiêu? F7a: Khi path thay thế được đo thưa hơn, κ̂ có giảm như T5 §4 dự đoán không?
+Khi hai path có cùng delay TB nhưng khác rủi ro, luật dùng độ rộng từng quyết định (K2) có vượt đáng kể ngưỡng tĩnh
+theo chiều (S0dir), và sự dị loại có tạo thêm bất định trực giao trong từng chiều so với thế giới đối xứng biến động không?
 
-### 2.2 Thế giới (DES, 4 Mb/s, telemetry như f04b A0)
-F7b: W0 đối chứng A = B = K100/0,95/0,10/2 (= P2); W1 A = K100/0,85/0,10/2, B = K100/0,931/0,03/10 (E[T] khớp
-30,6 ms theo t08); W2 A = K100/0,95/0,10/2, B = K100/0,979/0,03/10 (E[T] khớp 98,9 ms). Báo delay TB thật trong DES.
-F7a: P2 × T_probe ∈ {0,5 đồng pha (= f04b), 4τ}; mở rộng 3 ô × {0,5 đồng pha, 0,5 ngẫu nhiên, τ, 4τ} nếu kịp.
+### 2.2 Thế giới (DES f04b; 4 Mb/s, S = 3,024 ms, K = 100; telemetry A0: W = T_poll = H = 0,5 s, lag 0,37 s, a = 0,05 s)
+Path loại A: ρ̄ 0,85 / σ 0,10 / τ 2 s (biến động). Path loại B: ρ̄ 0,918 / σ 0,03 / τ 10 s (ổn định).
+- AA = cha biến động (= ô f04b K100_r0.85_s10t2) · BB = cha ổn định · AB = dị loại.
+- ρ̄_B = 0,918 chốt từ t09 (seed thiết kế 11801–11848, chỉ tính chất từng path: E[D_A] = 23,50 ± 0,94 ms; khớp 0,9178,
+  khoảng 0,9152–0,9203). Không đổi sau khoá.
+- CRN: ba thế giới dùng cùng seed và khoá luồng 720; hai khe path = SeedSequence([seed, 720]).spawn(2) (như f04b).
+  AB trùng khe 1 với AA; AB trùng khe 2 với BB.
+- Nợ kỹ thuật: epoch đầy buffer suốt khoảng giữ → NaN, báo n_nan (definitions §4.4). Nhãn giữ lưới 251 điểm như f04b.
 
-### 2.3 Luật (cùng F, cùng α = 1%, tune trên seed calibration)
-S0 (abs/rel, tune theo J) · S0dir (ngưỡng theo chiều, tune theo J) · SC (Ī > H, harm dự đoán) · SCdir (ngưỡng trên Ī
-theo chiều, tune như SC) · K2(α) · K2(∞). Oracle bin (ρ̂_cur, ρ̂_alt, chiều) 20×20×2. F7a: chiều → tuổi alt (20×20×5),
-S0 → S0age (tâm theo tuổi, hai bản: tune như SC và theo J).
+### 2.3 Luật (F = (ρ̂_cur, ρ̂_alt, path hiện tại); α = 1%; ε = 0,5·S; c = 0; tune chỉ trên seed calibration)
+- S0: một ngưỡng abs|rel trên Î plug-in, tune theo J (đúng `f02.tune_static`).
+- S0dir: hai ngưỡng (A→B, B→A), cùng họ abs|rel (họ chọn theo J). Tune theo J với harm thực ≤ α, mở rộng đúng khuôn
+  `tune_static`: lưới tích 81 × 81, mỗi chiều = {0} ∪ 80 phân vị trong [0,3; 0,9995] của điểm theo chiều đó trên cal
+  (A→B: Î_A; B→A: −Î_A; họ rel chia cho Ĉ của path hiện tại); tinh chỉnh một vòng lưới 21 × 21 giữa hai điểm lưới kề quanh
+  cặp tốt nhất; chỉ thay khi J tốt hơn.
+- SC, SCdir: ngưỡng trên Ī của oracle (chung / theo chiều), tune bằng harm dự đoán như f05 (`tune_center`, mỗi chiều một).
+- K2(α): u = Ī − λp− > 0, λ nhỏ nhất đạt harm dự đoán ≤ α trên calibration. K2(∞): λ = 0.
+- Quỹ đạo tham chiếu = quỹ đạo của S0dir. Mọi so sánh decision-level trên các cặp (epoch, cur) của nó (K16).
+- Oracle bin (ρ̂_cur, ρ̂_alt, chiều) = 20 × 20 × 2; biên phân vị gộp ρ̂ dọc tham chiếu; ≥ 30 mẫu/ô; dữ liệu 597 seed.
 
 ### 2.4 Estimand
-Chính (cơ chế): κ̂_pure theo seed (định nghĩa D4 của L1.6) và κ̂_dir (trong từng chiều), kèm CI.
-Phụ: gap thuần (ms) K2 − SC và K2 − SCdir; tâm theo chiều SCdir − SC; share_pure; share_adapt = (K2 − S0dir)/headroom.
-Báo kèm, không quyết định: phán quyết VoIP (m = 8,1 ms, r = 10%), share_info, share_safety, delay TB từng path.
+- Cơ chế: κ̂_chung (D4 của L1.6: 20 bin phân vị của Ī gộp hai chiều, detrend, sd có trọng số) và κ̂_chiều (D4 trong
+  từng chiều, trung bình có trọng số theo số epoch). Báo HAI dạng: (i) theo từng seed test — dùng cho CI của M1, M2;
+  (ii) gộp 90 seed — nối với f05c và anchor. Báo sàn D6 của mỗi thế giới.
+- Phân rã decision-level: S0dir | SCdir − S0dir (tâm) | K2(α) − SCdir (thuần) | K2(∞) − K2(α) (an toàn) |
+  headroom − K2(∞) (thông tin); kèm S0, SC để đối chiếu.
+- Quỹ đạo: D = J(S0) − J(S0dir) (ms trễ trải qua); tỉ lệ đổi; flap.
+- Kiểm thao tác: E[D_A] − E[D_B] trên seed test của AB; tỉ lệ epoch mỗi chiều; ô thưa theo chiều.
+- Báo kèm, không quyết định: phán quyết VoIP (m, r); share_info; share_safety; p95 delay mỗi path.
 
-### 2.5 Dự đoán (t08 × [0,9; 1,3])
-κ̂_pure: W0 0,13–0,19 · W1 0,32–0,46 · W2 0,13–0,19. κ̂_dir: W1 0,20–0,28 · W2 0,09–0,13. Thứ tự W1 > W0 ≈ W2.
-share_pure < 5% ở mọi thế giới; K2 − SCdir < K2 − SC ở W1. Kết cục nhiều khả năng nhất: ô (ii) của 2.7.
-F7a (t07): κ̂ giảm theo T_probe; P2 0,131 → 0,068 ở 4τ (×[0,9; 1,3]).
+### 2.5 Dự đoán
+(a) Tham chiếu — do script tính, tái lập bằng t08b và t10. Mô hình dừng, cur ngẫu nhiên, chưa có quỹ đạo tham chiếu;
+    tỉ lệ DES/mô hình ở f05c là 0,91–1,26 nên chỉ dùng CHIỀU và bậc độ lớn:
+    κ: AA 0,286 · BB 0,217 · AB chung 0,351 / chiều 0,193 → M1 ≈ +0,16; M2 ≈ −0,09.
+    Share thuần (toy, lạc quan khoảng 15–20%): AA 2,1% · AB 0,6%. Twin plug-in (t09): lệch +19,8 ms (A), +37,5 ms (B).
+(b) Của tác giả — [EM VIẾT TRƯỚC COMMIT KHOÁ: dự đoán chiều và bậc độ lớn cho M1, M2, V, D; ô 2×2 em nghĩ sẽ rơi vào;
+    3–5 dòng lập luận bằng lời của em; ghi rõ chỗ em không đồng ý với (a), nếu có.]
 
-### 2.6 Phép kiểm
-- **M (cơ chế, chính):** F7b — κ̂(W1) − κ̂(W0) > 0 và κ̂(W1) − κ̂_dir(W1) > 0, CI95 theo seed không chứa 0.
-  F7a — hiệu ghép cặp κ̂(0,5 đồng pha) − κ̂(4τ) > 0.
-- **L (luật bậc hai, MÔ TẢ):** báo dự đoán f₀β²κ_b²/(2a′) (D7 của L1.6) và quan sát (ms); không có tiêu chí đạt/rớt vì
-  ≤ 3 thế giới và độ phân giải ±0,1 ms ở 8 seed — trừ khi GVHD duyệt mở rộng power (2.8).
-- **V (thực dụng):** cận dưới CI95 của share_adapt ≥ 10% ở ít nhất một thế giới.
-- **Validity (trước outcome):** W0 chạy bằng seed cũ f04b tái lập f05 P2/A0 F20x2 (thuần, λ, H); oracle − S0dir ≥ −2SE;
-  harm ≤ α trên calibration; policy không đọc nhãn, probe, tải thật; tỉ lệ ô thưa < 1%.
+### 2.6 Phép kiểm (CI95 t theo 90 seed test; ghép cặp theo seed giữa các thế giới)
+- Cổng hợp lệ lúc outcome (không đạt thì estimand dựa trên oracle của thế giới đó không được diễn giải): harm ≤ α trên
+  calibration cho mọi luật; ô thưa < 1% ở từng chiều; K2(α) − S0dir ≥ −2SE; đối xứng AA: CI95 của
+  κ̂_chung(AA) − κ̂_chiều(AA) chứa 0, HOẶC |hiệu gộp| < 0,02.
+- M1 (kiểm thao tác): κ̂_chung(AB) − κ̂_chiều(AB) > 0, cận dưới CI > 0. Không đạt ⇒ thiết kế không tạo được biến Z theo
+  chiều trong DES; vẫn báo mọi thứ và ghi rõ.
+- M2 (CHÍNH, cơ chế): κ̂_chiều(AB) − κ̂_chiều(AA) < 0, cận trên CI < 0 VÀ |hiệu| > tổng sàn D6 của hai thế giới.
+- V (thực dụng; quy tắc SESOI tương đối đã khoá): cận dưới CI của (K2(α) − S0dir) − 0,10·headroom > 0 ở AB.
+- D (phụ): cận dưới CI của J(S0) − J(S0dir) > 0 ở AB; CI ở AA chứa 0 (đối chứng).
+- L (mô tả): gap thuần dự đoán theo D7 (tính từng chiều, cộng có trọng số) so với quan sát K2 − SCdir ± CI, mỗi thế giới.
 
 ### 2.7 Bảng diễn giải (viết trước để mọi kết cục đã có nghĩa)
-| | share_adapt ≥ 10% | share_adapt < 10% |
+| | V đạt | V không đạt |
 |---|---|---|
-| **M đạt** | (i) Rủi ro bất đối xứng tạo giá trị → GO bản đồ cơ chế | (ii) κ lớn, giá trị nhỏ → bậc hai + biên đuôi chi phối; kết quả âm vững ở cơ chế thuận lợi nhất |
-| **M không đạt** | (iv) Mâu thuẫn → tìm bug, không kết luận | (iii) t08/T5 sai trong DES (bộ nhớ hàng đợi?) → phát hiện lý thuyết, so PSA ↔ DES |
+| **M2 đạt** | (i) κ trong chiều không tăng mà giá trị vẫn lớn → xem f₀, β (thừa số khác của luật bậc hai) | (ii) DỰ ĐOÁN THAM CHIẾU: dị loại rủi ro được ngưỡng theo chiều hấp thụ; độ rộng vẫn bậc hai → claim âm đứng vững trước đe doạ 1 |
+| **M2 không đạt** | (iv) dị loại tạo bất định trực giao có giá trị → GO bản đồ dị loại ở Phase 2 | (iii) chiều của κ sai trong DES (bộ nhớ hàng đợi?) nhưng giá trị vẫn nhỏ → sửa T5; claim âm vẫn đứng |
 
 ### 2.8 Seed
-Calibration 11001–11008 · test 11011–11018 · oracle 11101–11697 (×3 dữ liệu vì thêm một chiều bin) · validity: seed cũ
-f04b. Mở rộng power (cần GVHD duyệt): test 11011–11100 (90 seed; L1.6: 82–89 seed cho CI ±0,03 ms).
+Thiết kế 11801–11848 (đã dùng, chỉ t09) · calibration 11001–11008 · test 11011–11100 (90, chính thức) ·
+oracle 11101–11697 · neo: seed của f04b (cal 9701–9708, test 9711–9718, oracle 9801–9999) với khoá luồng 712.
 
-### 2.9 Khi chưa kết luận
-Chỉ thêm seed test theo power trong 11019–11100; không đổi thế giới, luật, estimand hay tiêu chí.
+### 2.9 Thứ tự, và khi chưa kết luận
+Khoá → `f07 --mode anchor`: chạy code f07 ở CẤU HÌNH f05c (quỹ đạo S0 một ngưỡng; oracle F20x2 KHÔNG có chiều, dữ liệu
+seed 9801–9999 với khoá 712 và 712 + EXTRA của f05; seed cal/test của f04b) để tái lập f05c K100_r0.85_s10t2/A0 đến chữ số
+in ra: λ 51,29; t₀ 11,56; K2 − SC +0,103 ± 0,119; κ̂_pure gộp 0,271. JSON được phép lệch cỡ 10⁻¹⁴ (khác máy/NumPy)
+→ `--mode validity` (cổng trên calibration; commit) → `--mode outcome` (commit).
+Không thêm seed ngoài 90; phép kiểm không phân giải thì ghi "chưa kết luận". Không đổi thế giới, luật, estimand, tiêu chí.
+Lỗi code phát hiện sau outcome: sửa, chạy lại toàn bộ, báo cả hai bản.

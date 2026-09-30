@@ -1,0 +1,9 @@
+t09 — khớp delay TB trong DES; 48 seed thiết kế × 1500 epoch; không luật, không κ, không gap
+A  K100/0,850/0,10/2  : E[D] =  23.50 ± 0.94 ms | p95   95.1 | twin plug-in TB  43.27 (lệch +19.77)
+B  K100/0.908/0,03/10: E[D] =  20.43 ± 0.51 ms | p95   55.1 | twin plug-in TB  52.68 (lệch +32.25)
+B  K100/0.912/0,03/10: E[D] =  21.55 ± 0.57 ms | p95   59.8 | twin plug-in TB  56.11 (lệch +34.55)
+B  K100/0.916/0,03/10: E[D] =  22.79 ± 0.66 ms | p95   64.6 | twin plug-in TB  59.25 (lệch +36.46)
+B  K100/0.920/0,03/10: E[D] =  24.32 ± 0.78 ms | p95   70.8 | twin plug-in TB  62.51 (lệch +38.19)
+B  K100/0.924/0,03/10: E[D] =  26.07 ± 0.93 ms | p95   78.2 | twin plug-in TB  66.11 (lệch +40.04)
+ρ̄_B khớp DES = 0.9178 (khoảng theo CI của E[D_A]: 0.9152–0.9203) → CHỐT 0,918 cho F7b
+Mức bản nháp 0,931 (khớp PSA), đo thẳng trong DES: E[D] = 29.53 ± 1.14 ms ⇒ lệch A +6.03 ms

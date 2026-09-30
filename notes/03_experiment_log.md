@@ -514,3 +514,16 @@ Mẫu cho mỗi thí nghiệm (copy khối dưới):
   0,219 (và 0,142 / 0,100 sát knee). Đối chứng hai path giống hệt: 0,142 = 0,142.
 - **Hệ quả:** đính chính T5 §5; đề xuất F7b (path khác rủi ro) làm spike chính, F7a thu gọn — trình GVHD 13/10.
 - **Provenance:** Claude (AI) soạn script và diễn giải; tác giả chạy lại và kiểm.
+
+## 2026-09-30 — P1v2/L1.7 · REVIEW THIẾT KẾ F7 trước khoá: t08b (thế giới cha), t09 (khớp DES), t10 (toy định hướng)
+
+- **Lý do:** review L1.7 phát hiện (1) phép kiểm M của bản nháp so W1 với W0 = P2, đổi hai yếu tố; (2) κ_chung đo so
+  với một ngưỡng, trái yêu cầu ngưỡng theo chiều của F6; (3) "cùng delay TB" khớp bằng PSA.
+- **Seed:** t08b 11922; t10 11931–11932 (toy); t09 THIẾT KẾ 11801–11848 (chỉ tính chất từng path; không luật, không κ,
+  không gap). Chưa có file f07 nào.
+- **Kết quả:** t08b: +0,145 trong +0,209 của bản nháp do mức tải; κ_chiều(AB) 0,193 < κ(AA) 0,286. t09: E[D_A] =
+  23,50 ± 0,94 ms; ρ̄_B khớp DES 0,918; mức 0,931 đo thẳng 29,53 ± 1,14 ms (lệch +6,0 ms); twin plug-in lệch +19,8 ms (A),
+  +37,5 ms (B). t10 (toy): phần thuần ≈ 0 dưới SLO KHÔNG ràng buộc ở thế giới đối xứng (so với TB+harm là đổi hai thứ);
+  share thuần chỉ > 5% khi tắt nhiễu đếm và α ≤ 0,5%.
+- **Hệ quả:** F7 §2 v2 (AA–BB–AB), F8 §2B, T5 đính chính 2, memo v2, biên bản 2026-09-30.
+- **Provenance:** Claude (AI) soạn script và diễn giải khi review và khi chốt; tác giả chạy lại và kiểm.

@@ -66,3 +66,12 @@ kiện "σ 0,10 > σ 0,03 ở 4τ"; thay bằng thứ tự do κ_pred cầu phư
 định góp gần hằng ⇒ sụp chiều như §4(i). Khi delay TB khớp nhưng khác độ biến động (khác rủi ro thật), κ so với một
 ngưỡng là 0,351 (K100/0,85/0,10/2 ↔ K100/0,931/0,03/10) và 0,142 (sát knee); ngưỡng theo chiều còn 0,219 và 0,100.
 Nguyên lý §4 giữ nguyên, làm rõ: κ cần hai chiều thông tin CẠNH TRANH nhau quanh biên.
+
+## Đính chính 2 — 2026-09-30 (t08b, t09; trước mọi output F7)
+
+Đính chính 1 so κ_chung = 0,351 của cặp dị loại với P2 — hai thế giới khác nhau hai yếu tố (t08b: +0,145 trong +0,209
+là do mức tải của A). So với thế giới cha đối xứng (đổi đúng một thứ), κ_chiều của cặp dị loại nằm GIỮA hai cha: 0,193
+so với AA 0,286 và BB 0,217 (ρ̄_B = 0,918). Phần κ_chung vượt lên là do danh tính path — một biến Z rời rạc mà ngưỡng
+theo chiều hấp thụ (Mệnh đề 1 áp cho họ "mỗi chiều một ngưỡng"). Làm rõ §4 lần hai: dị loại rủi ro không thêm bất định
+trực giao trong chiều. Ngoài ra, ρ̄_B = 0,931 khớp delay TB trong mô hình dừng, không phải trong DES: DES đo thẳng cho
+E[D_B] = 29,53 ± 1,14 ms, lệch path biến động +6,0 ms; khớp DES là 0,918 (t09).
