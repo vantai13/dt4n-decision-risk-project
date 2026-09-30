@@ -527,3 +527,13 @@ Mẫu cho mỗi thí nghiệm (copy khối dưới):
   share thuần chỉ > 5% khi tắt nhiễu đếm và α ≤ 0,5%.
 - **Hệ quả:** F7 §2 v2 (AA–BB–AB), F8 §2B, T5 đính chính 2, memo v2, biên bản 2026-09-30.
 - **Provenance:** Claude (AI) soạn script và diễn giải khi review và khi chốt; tác giả chạy lại và kiểm.
+
+## 2026-09-30 — P1v2/L1.7 · KHOÁ TIỀN ĐĂNG KÝ F7 (§2 v2) VÀ F8 (§2B) theo biên bản 2026-09-30
+
+- **Nội dung khoá:** F7 §2 v2 (AA–BB–AB, ρ̄_B = 0,918, M2 chính, 90 seed test) và F8 §2B tại commit này.
+- **Không đổi:** SESOI (m = 8,1 ms, r = 10%), phán quyết VoIP của F6, D4 (κ̂), D6, D7.
+- **Dự đoán của tác giả:** F7 §2.5(b) và dòng tương ứng của F8, viết TRƯỚC commit này.
+- **Thứ tự bắt buộc:** commit này → Phần A → f07 --mode anchor → --mode validity (commit) → --mode outcome (commit) →
+  F8 nếu kịp.
+- **Kiểm:** tại commit này `git log --oneline -- 'experiments/f07*' 'experiments/results/f07*'` trả về rỗng; tag prereg-f7.
+- **Provenance:** thiết kế Claude (AI); dự đoán (b) tác giả; duyệt GVHD theo biên bản 2026-09-30.

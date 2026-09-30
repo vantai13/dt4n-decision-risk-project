@@ -14,7 +14,10 @@
   597 seed. Knowledge parity: FH cho MỌI luật, không chỉ cho oracle.
 - **Estimand:** κ̂ (D4; theo seed và gộp); phân rã năm bậc; share_info; share_pure.
 - **Dự đoán tham chiếu** (t07 Bảng 3, mô hình): κ 0,171 → 0,297 ở τ = 10 s; 0,144 → 0,154 ở P2.
-  **Dự đoán của tác giả:** [em viết trước commit khoá].
+  **Dự đoán của tác giả:** Tôi dự đoán dùng lịch sử/Kalman sẽ làm κ tăng rõ ở thế giới τ = 10 s, nhưng chỉ tăng rất ít
+  ở P2 với τ = 2 s, vì khi tải biến đổi chậm thì các cửa sổ quá khứ còn mang nhiều thông tin, còn khi τ ngắn thì thông tin
+  cũ nhanh mất giá trị. Tôi kỳ vọng Δ₁₀ > Δ_P2 và share_info giảm ở τ = 10 s. Tôi chưa kỳ vọng chắc rằng V sẽ đạt 10%,
+  vì κ tăng chưa đủ; f₀ và mức phạt harm vẫn có thể giữ giá trị thích nghi nhỏ.
 - **Phép kiểm M8 (chính):** (i) cận dưới CI của Δ₁₀ = κ̂(FH) − κ̂(F1) ở τ = 10 s > 0; (ii) tương tác: cận dưới CI của
   Δ₁₀ − Δ_P2 > 0 (hiệu theo seed, ghép theo chỉ số seed). Phụ: share_info(FH) < share_info(F1) ở τ = 10 s.
   V giữ r = 10% trên (K2 − S0)/headroom.

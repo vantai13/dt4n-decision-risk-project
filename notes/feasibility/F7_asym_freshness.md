@@ -21,7 +21,7 @@
 - **Dùng cho §2:** κ_pred lấy từ `t07`; đăng ký chiều giảm của κ̂ theo T_probe; không đăng ký chiều gap thuần (f₀ có thể
   tăng khi alt cũ); tỉ lệ dự đoán dạng khoảng; S0age báo hai bản (tune như SC, và theo J); power cho gap thuần.
 
-## §2 Tiền đăng ký — v2 (CHỐT với GVHD 2026-09-30; KHOÁ ở commit có tag `prereg-f7` sau khi tác giả điền §2.5(b))
+## §2 Tiền đăng ký — v2 (CHỐT với GVHD 2026-09-30; KHOÁ tại commit có tag `prereg-f7`)
 
 > Thay bản nháp 29/09 (commit f0f76b9). Lý do, ghi TRƯỚC mọi output F7: (1) bản nháp so W1 với W0 = P2, hai thế giới
 > khác nhau hai yếu tố (t08b: +0,145 trong +0,209 do mức tải của A); (2) κ_chung = 0,351 đo so với MỘT ngưỡng, trái yêu
@@ -69,8 +69,13 @@ Path loại A: ρ̄ 0,85 / σ 0,10 / τ 2 s (biến động). Path loại B: ρ�
     tỉ lệ DES/mô hình ở f05c là 0,91–1,26 nên chỉ dùng CHIỀU và bậc độ lớn:
     κ: AA 0,286 · BB 0,217 · AB chung 0,351 / chiều 0,193 → M1 ≈ +0,16; M2 ≈ −0,09.
     Share thuần (toy, lạc quan khoảng 15–20%): AA 2,1% · AB 0,6%. Twin plug-in (t09): lệch +19,8 ms (A), +37,5 ms (B).
-(b) Của tác giả — [EM VIẾT TRƯỚC COMMIT KHOÁ: dự đoán chiều và bậc độ lớn cho M1, M2, V, D; ô 2×2 em nghĩ sẽ rơi vào;
-    3–5 dòng lập luận bằng lời của em; ghi rõ chỗ em không đồng ý với (a), nếu có.]
+(b) Của tác giả — Tôi dự đoán M1 vẫn dương và ở cùng bậc với tham chiếu, khoảng +0,1 đến +0,2, vì hai chiều A→B
+    và B→A có độ lệch plug-in khác nhau nên gộp hai chiều sẽ tạo thêm dị biệt mà ngưỡng theo chiều có thể hấp thụ. Với
+    M2, tôi nghiêng về dấu âm, khoảng −0,05 đến −0,1: sau khi đã condition theo chiều, sự dị loại A/B không tạo thêm
+    nhiều bất định trực giao so với thế giới AA biến động; tuy nhiên DES có thể làm độ lớn lệch do bộ nhớ hàng đợi và
+    quỹ đạo S0dir không phân bố đều giữa hai path. Tôi không kỳ vọng V đạt mức 10%; share_adapt ở AB nhiều khả năng chỉ
+    ở mức vài phần trăm. Tôi dự đoán D = J(S0) − J(S0dir) dương ở AB nhưng nhỏ, có thể dưới vài ms, và gần 0 ở AA.
+    Vì vậy tôi đặt cược kết quả vào ô (ii): M2 đạt nhưng V không đạt.
 
 ### 2.6 Phép kiểm (CI95 t theo 90 seed test; ghép cặp theo seed giữa các thế giới)
 - Cổng hợp lệ lúc outcome (không đạt thì estimand dựa trên oracle của thế giới đó không được diễn giải): harm ≤ α trên
