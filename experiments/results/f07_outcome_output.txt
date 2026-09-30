@@ -1,0 +1,33 @@
+f07 | engine numba | mode outcome | tiền đăng ký: tag prereg-f7 (F7 §2 v2)
+OUTCOME — 90 seed test 11011–11100 | khoá 720
+
+BẢNG 1 — phân rã decision-level trên quỹ đạo S0dir (ms/epoch, CI95 t theo 90 seed)
+[AA] headroom +5.660 ± 0.177 | S0dir +1.251 ± 0.054 | tâm SCdir − S0dir +0.163 ± 0.049 | thuần K2 − SCdir +0.063 ± 0.023 | an toàn +0.817 ± 0.066 | thông tin +3.367 ± 0.098
+      đối chiếu: S0 (decision-level) +1.301 ± 0.067 | SC +1.434 ± 0.084 | harm test K2 1.00% · S0dir 1.04% | n_nan TB 0.0
+[BB] headroom +6.172 ± 0.163 | S0dir +0.540 ± 0.037 | tâm SCdir − S0dir +0.048 ± 0.024 | thuần K2 − SCdir +0.006 ± 0.019 | an toàn +0.364 ± 0.074 | thông tin +5.214 ± 0.096
+      đối chiếu: S0 (decision-level) +0.518 ± 0.036 | SC +0.602 ± 0.051 | harm test K2 0.99% · S0dir 0.89% | n_nan TB 0.0
+[AB] headroom +6.029 ± 0.148 | S0dir +1.020 ± 0.045 | tâm SCdir − S0dir +0.244 ± 0.047 | thuần K2 − SCdir +0.091 ± 0.028 | an toàn +0.845 ± 0.081 | thông tin +3.829 ± 0.093
+      đối chiếu: S0 (decision-level) +1.019 ± 0.046 | SC +1.176 ± 0.072 | harm test K2 0.97% · S0dir 0.85% | n_nan TB 0.0
+
+BẢNG 2 — κ̂ (theo seed, CI) và gộp; sàn D6 của κ̂_chiều
+[AA] κ̂_chung +0.270 ± 0.002 (gộp 0.276) | κ̂_chiều +0.258 ± 0.002 (gộp 0.268; bỏ chiều 0 lần) | sàn bin 0.035, mẫu 0.021, tổng 0.041
+[BB] κ̂_chung +0.146 ± 0.001 (gộp 0.150) | κ̂_chiều +0.139 ± 0.001 (gộp 0.143; bỏ chiều 0 lần) | sàn bin 0.018, mẫu 0.021, tổng 0.028
+[AB] κ̂_chung +0.264 ± 0.002 (gộp 0.266) | κ̂_chiều +0.181 ± 0.001 (gộp 0.189; bỏ chiều 0 lần) | sàn bin 0.024, mẫu 0.020, tổng 0.031
+
+BẢNG 3 — kiểm thao tác và quỹ đạo
+[AA] E[D₁] − E[D₂] -0.46 ± 0.92 ms | p95 92.9/96.7 ms | tỉ lệ epoch ở khe 1 0.436 | D = J(S0) − J(S0dir) -0.170 ± 0.078 ms | ô thưa theo chiều 0.00%, 0.00%
+[BB] E[D₁] − E[D₂] -0.28 ± 0.77 ms | p95 65.3/66.6 ms | tỉ lệ epoch ở khe 1 0.572 | D = J(S0) − J(S0dir) +0.056 ± 0.064 ms | ô thưa theo chiều 0.00%, 0.00%
+[AB] E[D₁] − E[D₂] -0.36 ± 0.91 ms | p95 92.9/66.6 ms | tỉ lệ epoch ở khe 1 0.631 | D = J(S0) − J(S0dir) +0.009 ± 0.024 ms | ô thưa theo chiều 0.04%, 0.04%
+
+CỔNG HỢP LỆ: AA: harm cal ✓, ô thưa < 1% mỗi chiều ✓, K2 − S0dir ≥ −2SE ✓, đối xứng AA ✓ | BB: harm cal ✓, ô thưa < 1% mỗi chiều ✓, K2 − S0dir ≥ −2SE ✓ | AB: harm cal ✓, ô thưa < 1% mỗi chiều ✓, K2 − S0dir ≥ −2SE ✓
+
+PHÉP KIỂM (§2.6)
+  M1 κ̂_chung(AB) − κ̂_chiều(AB)       = +0.082 ± 0.002  → ĐẠT
+  M2 κ̂_chiều(AB) − κ̂_chiều(AA)       = -0.076 ± 0.002; tổng sàn 0.072 → ĐẠT
+  V  (K2 − S0dir) − 0,10·headroom (AB) = -0.268 ± 0.049 ms → KHÔNG ĐẠT
+  D  J(S0) − J(S0dir): AB +0.009 ± 0.024; AA -0.170 ± 0.078 ms → KHÔNG ĐẠT
+  L  [AA] thuần dự đoán (D7 theo chiều) 0.051 ms | quan sát K2 − SCdir +0.063 ± 0.023 | VoIP (m, r) trên K2 − S0dir: KHÔNG ĐÁNG KỂ
+  L  [BB] thuần dự đoán (D7 theo chiều) 0.001 ms | quan sát K2 − SCdir +0.006 ± 0.019 | VoIP (m, r) trên K2 − S0dir: KHÔNG ĐÁNG KỂ
+  L  [AB] thuần dự đoán (D7 theo chiều) 0.043 ms | quan sát K2 − SCdir +0.091 ± 0.028 | VoIP (m, r) trên K2 − S0dir: KHÔNG ĐÁNG KỂ
+
+Ô BẢNG 2×2: (ii) | cổng hợp lệ ĐẠT | dự đoán tham chiếu và của tác giả: (ii)
