@@ -115,6 +115,9 @@ Lỗi code phát hiện sau outcome: sửa, chạy lại toàn bộ, báo cả h
 tiêu chí tune; ô thưa ≤ 0,04%/chiều; K2 − S0dir ≥ −2SE; đối xứng AA qua |hiệu gộp| = 0,008 < 0,02). Harm thực của luật
 oracle trên cal 0,97–1,14% (báo, không cổng); trên test K2 0,97–1,00%.
 
+Sai lệch cài đặt (8) so với §2.2 ("đầy buffer → NaN"): code giữ K·S như f04b để anchor tái lập; n_nan = 0 ở cả ba thế
+giới (`f07_outcome.json`) ⇒ không ảnh hưởng số nào.
+
 **Kiểm thao tác.** AB: E[D₁] − E[D₂] = −0,36 ± 0,91 ms (cùng trung bình), p95 92,9 so với 66,6 ms (khác rủi ro).
 
 **Phép kiểm (90 seed test, CI95 t, ghép cặp theo seed).**
@@ -148,7 +151,8 @@ VoIP (m, r): KHÔNG ĐÁNG KỂ ở cả ba. κ̂ (gộp): AA 0,276/0,268; BB 0,
 
 - Claim âm (ngưỡng tĩnh + tâm tốt ≈ đủ; độ rộng có giá trị bậc hai, nhỏ) đứng vững trước đe doạ số 1 (path khác rủi ro):
   phần thuần ≤ 1,5% headroom; K2 − S0dir ≤ 5,6%; VoIP không đáng kể ở cả ba thế giới.
-- Giá trị lớn nhất nằm ở thông tin (59–84% headroom) và ở tâm; không ở độ rộng. Ủng hộ câu hỏi trung tâm "lợi ích đến từ
-  tâm, độ rộng hay thông tin" cho DP0, và chạy F8 (lịch sử) — nơi lý thuyết dự đoán thông tin và κ cùng đổi.
+- Phân rã headroom (AA / AB / BB): thông tin 59% / 64% / 84%; an toàn — giá của ràng buộc α với lượng thông tin hiện có,
+  K2(∞) − K2(α) — 14% / 14% / 6%; tâm 3% / 4% / 1%; độ rộng thuần ≤ 1,5%. Phần an toàn giảm khi thông tin tăng (thông tin
+  hoàn hảo ⇒ 0). Ủng hộ câu hỏi trung tâm "lợi ích đến từ tâm, độ rộng, an toàn hay thông tin" cho DP0, và chạy F8.
 - Không claim "ngưỡng/offset theo chiều là thực hành tốt" (D không đạt).
 - Khám phá có nhãn: f07b (SCdir ngân sách chung) để kiểm diễn giải 5.
