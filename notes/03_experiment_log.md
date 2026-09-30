@@ -569,3 +569,19 @@ Mẫu cho mỗi thí nghiệm (copy khối dưới):
 - **Đối chiếu dự đoán:** ô (ii) đúng cả (a) và (b); M2 đúng; M1 thấp hơn; D sai (AA quá khớp).
 - **Tiếp theo:** F7 §3–4; f07b POST HOC (tuỳ chọn); F8; hoàn tất Phần A trước DP0.
 - **Provenance:** code và diễn giải Claude (AI); tác giả chạy chính thức, kiểm số, commit.
+
+## 2026-09-30 — P1v2/L1.9 · f08: code + kiểm đơn vị (CHƯA chạy chế độ chính thức nào)
+
+- **Điều kiện mở F8 (F8 §2B):** outcome F7 đã commit (719f351) trước trưa 17/10 → mở. PHASE_1v2 L1.9 câu "lịch sử tăng
+  tâm, không tăng κ" lỗi thời; F8 §2B (κ tăng ở τ = 10 s, theo T5 §4(iii)) thắng.
+- **Code:** `experiments/f08_history_twin.py` (anchor | validity | outcome | smoke), `tests/test_f08_units.py` (8 test).
+  Dùng lại nguyên hàm đã khoá của f07 ở dạng không chiều (build, evaluate_test, pooled_summary).
+- **Hiện thực hoá văn bản khoá (docstring f08, mục 1–12), commit TRƯỚC mọi lần chạy chính thức:** twin FH thay rh ← m̂;
+  Kalman AR(1) độ lợi dừng (Riccati nghiệm đóng); khởi động 40 cửa sổ trong burn-in trên cùng chuỗi gói đến; cổng như
+  F7; M8 = (i) ∧ (ii); share_info theo seed; V ở FH τ = 10 s; J(S0_F1) − J(S0_FH) báo kèm, không đăng ký; kiểm thao tác
+  Spearman² và quét độ nhớ trên cal.
+- **Kiểm code (trợ lý, sandbox, không commit output):** 78/78 test; smoke qua mọi nhánh, cổng bật đỏ đúng lúc; anchor
+  và validity chạy trọn, mọi cổng đạt. Mục (12) được THÊM sau khi trợ lý thấy corr²(Ĉ, D) tăng mạnh ở P2 trong validity
+  sandbox — chỉ phần báo, không đổi cổng, estimand, tiêu chí, seed. Trợ lý **KHÔNG chạy outcome**.
+- **Tiếp theo (thứ tự khoá):** anchor (commit) → validity (commit + F8 §1 + §2C) → outcome (commit).
+- **Provenance:** Claude (AI) viết code và test; tác giả đọc từng hàm và chạy chính thức.
