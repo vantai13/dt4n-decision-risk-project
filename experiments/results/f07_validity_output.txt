@@ -1,0 +1,19 @@
+f07 | engine numba | mode validity | tiền đăng ký: tag prereg-f7 (F7 §2 v2)
+VALIDITY — chỉ calibration 11001–11008 + oracle 11101–11697; KHÔNG seed test, KHÔNG κ̂/gap | khoá 720
+
+[AA] S0: rel ngưỡng 0.9029 (J cal 14.256) | S0dir: rel ngưỡng (0.8471; 0.924) (J cal 14.146) | λ 50.42 | H_c 10.76 | H_dir (9.90 khe1→2; 11.60 khe2→1)
+   cổng harm (≤ α = 1%): S0 harm thực 1.000% | S0dir harm thực 0.992% | K2 harm dự đoán 0.981% | SC harm dự đoán 0.989% | SCdir harm dự đoán 0.957%
+   báo, không cổng: K2 harm thực (báo) 0.967% | SC harm thực (báo) 1.125% | SCdir harm thực (báo) 1.050%
+   ô thưa theo chiều (< 1%): chiều 0: 0.00% | chiều 1: 0.00% | tỉ lệ epoch cal ở khe 1: 0.420 | CỔNG ĐẠT
+
+[BB] S0: abs ngưỡng 252.8 (J cal 19.225) | S0dir: abs ngưỡng (253.5; 242.9) (J cal 19.115) | λ 29.24 | H_c 8.91 | H_dir (11.48 khe1→2; 7.29 khe2→1)
+   cổng harm (≤ α = 1%): S0 harm thực 0.808% | S0dir harm thực 0.967% | K2 harm dự đoán 0.983% | SC harm dự đoán 0.998% | SCdir harm dự đoán 0.982%
+   báo, không cổng: K2 harm thực (báo) 1.125% | SC harm thực (báo) 1.125% | SCdir harm thực (báo) 1.142%
+   ô thưa theo chiều (< 1%): chiều 0: 0.00% | chiều 1: 0.00% | tỉ lệ epoch cal ở khe 1: 0.540 | CỔNG ĐẠT
+
+[AB] S0: abs ngưỡng 237 (J cal 16.435) | S0dir: abs ngưỡng (237; 233.3) (J cal 16.406) | λ 58.04 | H_c 12.02 | H_dir (14.43 khe1→2; 9.97 khe2→1)
+   cổng harm (≤ α = 1%): S0 harm thực 0.967% | S0dir harm thực 0.992% | K2 harm dự đoán 0.992% | SC harm dự đoán 0.999% | SCdir harm dự đoán 0.985%
+   báo, không cổng: K2 harm thực (báo) 1.083% | SC harm thực (báo) 1.067% | SCdir harm thực (báo) 1.050%
+   ô thưa theo chiều (< 1%): chiều 0: 0.04% | chiều 1: 0.04% | tỉ lệ epoch cal ở khe 1: 0.638 | CỔNG ĐẠT
+
+VALIDITY TỔNG: ĐẠT
