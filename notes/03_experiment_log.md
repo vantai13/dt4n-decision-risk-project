@@ -559,3 +559,13 @@ Mẫu cho mỗi thí nghiệm (copy khối dưới):
   Sai lệch không chạm nội dung tiền đăng ký (tag prereg-f7) hay code (9507a9f).
 - **Minh bạch:** trợ lý (Claude) đã chạy thử cả ba chế độ trong sandbox trên cùng commit trước khi tác giả chạy chính thức;
   kết quả tất định; lần chạy chính thức của tác giả là bản được commit.
+
+## 2026-09-30 — P1v2/L1.8 · f07 KẾT QUẢ (outcome 719f351, unedited)
+
+- **Thứ tự:** sai lệch Phần A (ghi trước) → anchor bit-exact → validity ĐẠT → outcome. Code 9507a9f; tag prereg-f7.
+- **Kết quả:** ô (ii). M1 +0,082 ± 0,002 ĐẠT; M2 −0,076 ± 0,002 (tổng sàn 0,072) ĐẠT sát sàn; V −0,268 ± 0,049 ms KHÔNG
+  ĐẠT; D AB +0,009 ± 0,024, AA −0,170 ± 0,078 KHÔNG ĐẠT. Thuần AA 0,063 ± 0,023 (dự đoán D7 0,051); AB 0,091 ± 0,028
+  (dự đoán 0,043). K2 − S0dir ở AB 0,335 ms (5,6%). VoIP không đáng kể ở cả ba.
+- **Đối chiếu dự đoán:** ô (ii) đúng cả (a) và (b); M2 đúng; M1 thấp hơn; D sai (AA quá khớp).
+- **Tiếp theo:** F7 §3–4; f07b POST HOC (tuỳ chọn); F8; hoàn tất Phần A trước DP0.
+- **Provenance:** code và diễn giải Claude (AI); tác giả chạy chính thức, kiểm số, commit.

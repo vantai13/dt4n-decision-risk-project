@@ -105,3 +105,50 @@ in ra: λ 51,29; t₀ 11,56; K2 − SC +0,103 ± 0,119; κ̂_pure gộp 0,271. J
 → `--mode validity` (cổng trên calibration; commit) → `--mode outcome` (commit).
 Không thêm seed ngoài 90; phép kiểm không phân giải thì ghi "chưa kết luận". Không đổi thế giới, luật, estimand, tiêu chí.
 Lỗi code phát hiện sau outcome: sửa, chạy lại toàn bộ, báo cả hai bản.
+
+## §3 Kết quả (outcome commit 719f351; code 9507a9f; tiền đăng ký tag prereg-f7)
+
+> Provenance: Claude (AI) soạn diễn giải từ output đã commit; tác giả kiểm từng con số. Nhãn [F] fact · [I] suy luận ·
+> [H] giả thuyết. Cách hiện thực hoá 1–8 (docstring f07) được commit trước mọi lần chạy chính thức.
+
+**Hợp lệ.** Anchor tái lập f05c bit-exact. Validity đạt ở AA, BB, AB. Cổng outcome đạt ở cả ba thế giới (harm cal theo
+tiêu chí tune; ô thưa ≤ 0,04%/chiều; K2 − S0dir ≥ −2SE; đối xứng AA qua |hiệu gộp| = 0,008 < 0,02). Harm thực của luật
+oracle trên cal 0,97–1,14% (báo, không cổng); trên test K2 0,97–1,00%.
+
+**Kiểm thao tác.** AB: E[D₁] − E[D₂] = −0,36 ± 0,91 ms (cùng trung bình), p95 92,9 so với 66,6 ms (khác rủi ro).
+
+**Phép kiểm (90 seed test, CI95 t, ghép cặp theo seed).**
+| | Kết quả | Kết luận | (a) tham chiếu | (b) tác giả |
+|---|---|---|---|---|
+| M1 κ̂_chung(AB) − κ̂_chiều(AB) | +0,082 ± 0,002 | ĐẠT | ≈ +0,16 | +0,1…+0,2 |
+| M2 κ̂_chiều(AB) − κ̂_chiều(AA) | −0,076 ± 0,002; tổng sàn 0,072 | ĐẠT (sát sàn) | ≈ −0,09 | −0,05…−0,1 |
+| V (K2 − S0dir) − 0,10·headroom, AB | −0,268 ± 0,049 ms | KHÔNG ĐẠT | không đạt | không đạt |
+| D J(S0) − J(S0dir) | AB +0,009 ± 0,024; AA −0,170 ± 0,078 ms | KHÔNG ĐẠT | — | AB dương, AA ≈ 0 |
+| Ô bảng 2×2 | **(ii)** | | (ii) | (ii) |
+
+**Phân rã (ms; % headroom).** AA: thuần +0,063 ± 0,023 (1,1%), tâm +0,163, thông tin 59%. BB: thuần +0,006 ± 0,019,
+thông tin 84%. AB: tâm +0,244 ± 0,047, thuần +0,091 ± 0,028 (1,5%), K2 − S0dir = 0,335 (5,6%), thông tin 64%.
+VoIP (m, r): KHÔNG ĐÁNG KỂ ở cả ba. κ̂ (gộp): AA 0,276/0,268; BB 0,150/0,143; AB 0,266/0,189 (chung/chiều).
+
+**Diễn giải.**
+1. [F] Dị loại rủi ro không tăng bất định trực giao trong chiều: κ̂_chiều(AB) nằm giữa hai cha, như T5 Đính chính 2 dự
+   đoán; dấu vững, độ lớn chỉ vượt tổng sàn 0,004 (CI của κ̂ có điều kiện trên oracle; sàn D6 là phép bảo vệ).
+2. [F] Luật bậc hai phân giải được lần đầu: AA thuần 0,063 ± 0,023 so với dự đoán 0,051; BB khớp; AB dự đoán thiếu ~2×.
+3. [F] Ngưỡng theo chiều trên twin plug-in không cải thiện J ở AB; ở AA tệ hơn 0,17 ms. [I] AA: quá khớp hai tham số trên
+   8 seed calibration (J cal tốt hơn 0,11 ms, test tệ hơn 0,17 ms). [I] AB: ngưỡng vận hành ở 233–237 ms, lệch plug-in
+   theo chiều (~18 ms, t09) không đổi quyết định. Offset theo chiều KHÔNG được ủng hộ ở điểm vận hành này.
+4. [F] M1 bằng ~½ tham chiếu: mô hình dừng đoán κ path B quá cao (0,217 so với 0,139–0,146 DES); ~0,012 của M1 là
+   thiên lệch mẫu nhỏ của ước lượng trong chiều (thấy ở AA đối xứng); M2 so hai ước lượng cùng loại nên không bị.
+5. [H] Phần thuần AB > AA dù κ̂_chiều nhỏ hơn có thể một phần do SCdir mỗi chiều tự thoả α (cài đặt 3) trong khi K2 dùng
+   ngân sách chung — chỉ ảnh hưởng phân rã và L, không ảnh hưởng M1, M2, V, D. Kiểm bằng f07b (POST HOC).
+
+**Giới hạn.** Một cặp path; một điểm vận hành (α = 1%, ε = 0,5·S, 4 Mb/s, K = 100); oracle bin; tải OU giả định.
+
+## §4 Đề xuất cho DP0/DP1 (GVHD quyết 20/10)
+
+- Claim âm (ngưỡng tĩnh + tâm tốt ≈ đủ; độ rộng có giá trị bậc hai, nhỏ) đứng vững trước đe doạ số 1 (path khác rủi ro):
+  phần thuần ≤ 1,5% headroom; K2 − S0dir ≤ 5,6%; VoIP không đáng kể ở cả ba thế giới.
+- Giá trị lớn nhất nằm ở thông tin (59–84% headroom) và ở tâm; không ở độ rộng. Ủng hộ câu hỏi trung tâm "lợi ích đến từ
+  tâm, độ rộng hay thông tin" cho DP0, và chạy F8 (lịch sử) — nơi lý thuyết dự đoán thông tin và κ cùng đổi.
+- Không claim "ngưỡng/offset theo chiều là thực hành tốt" (D không đạt).
+- Khám phá có nhãn: f07b (SCdir ngân sách chung) để kiểm diễn giải 5.
