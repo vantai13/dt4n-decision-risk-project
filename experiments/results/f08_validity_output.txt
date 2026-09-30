@@ -1,0 +1,24 @@
+f08 | engine numba | mode validity | tiền đăng ký: tag prereg-f7 (F8 §2B)
+VALIDITY — (a) lý thuyết, (b) chuỗi OU dài (seed toy 11941), (c) CHỈ cal 11001–11008 + oracle 11101–11697; KHÔNG seed test, KHÔNG κ̂/gap | khoá 730
+
+(a) AR(1)-Kalman dưới hiệp phương sai CHÍNH XÁC (→ F8 §1)
+[T10] φ 0.9512 (tương quan lag-1 thật 0.9674) | R/V(W) 6.49 | K 0.0803 | a = φ(1 − K) 0.8748 | nhớ ~8.0 cửa sổ | c = e^(−g/τ) 0.9589
+     R² chính xác theo n: 1:0.115 2:0.194 5:0.319 10:0.386 20:0.406 40:0.408 80:0.408 | AR(1)-Kalman: corr² 0.408, MSE 0.407 | hệ số tối ưu/hệ số dùng 0.958 | mất so với tốt nhất 0.0000
+(b) [T10] chuỗi dài: R² corr 0.401 ± 0.007 (giải tích 0.408) | R² MSE 0.398 ± 0.008 (giải tích 0.407) | một cửa sổ 0.113 (t06 0.115) | KHỚP
+[P2] φ 0.7788 (tương quan lag-1 thật 0.8494) | R/V(W) 0.62 | K 0.4797 | a = φ(1 − K) 0.4052 | nhớ ~1.7 cửa sổ | c = e^(−g/τ) 0.8106
+     R² chính xác theo n: 1:0.292 2:0.318 5:0.322 10:0.322 20:0.322 40:0.322 80:0.322 | AR(1)-Kalman: corr² 0.322, MSE 0.307 | hệ số tối ưu/hệ số dùng 0.822 | mất so với tốt nhất 0.0005
+(b) [P2] chuỗi dài: R² corr 0.318 ± 0.003 (giải tích 0.322) | R² MSE 0.302 ± 0.004 (giải tích 0.307) | một cửa sổ 0.289 (t06 0.292) | KHỚP
+
+(c) Mỗi thế giới × điều kiện: tune và cổng trên calibration + oracle
+[T10/F1] S0: abs ngưỡng 256.1 (J cal 31.718) | λ 51.22 | H_c 16.77 | ô thưa 0.00% | kiểm thao tác (cal, báo): ρ_s²(tâm, D) 0.132 · corr²(Ĉ, D) 0.143
+     cổng harm (≤ 1%): S0 harm thực 0.983% | K2 harm dự đoán 0.949% | SC harm dự đoán 0.949% || báo: K2 harm thực (báo) 0.950% | SC harm thực (báo) 0.950% || CỔNG ĐẠT
+[T10/FH] S0: abs ngưỡng 6.294 (J cal 29.080) | λ 60.10 | H_c 17.96 | ô thưa 0.03% | kiểm thao tác (cal, báo): ρ_s²(tâm, D) 0.293 · corr²(Ĉ, D) 0.628
+     cổng harm (≤ 1%): S0 harm thực 0.967% | K2 harm dự đoán 0.961% | SC harm dự đoán 0.992% || báo: K2 harm thực (báo) 0.933% | SC harm thực (báo) 0.975% || CỔNG ĐẠT
+[T10] quét độ nhớ (cal, báo): a=0.00:0.132 a=0.20:0.171 a=0.40:0.217 a=0.60:0.268 a=0.80:0.305 a=0.87:0.293 a=0.90:0.278 a=0.95:0.211 | a Kalman (tối ưu cho tải) 0.875 | a tốt nhất cho D 0.80
+[P2/F1] S0: abs ngưỡng 258.7 (J cal 52.309) | λ 152.16 | H_c 39.56 | ô thưa 0.00% | kiểm thao tác (cal, báo): ρ_s²(tâm, D) 0.430 · corr²(Ĉ, D) 0.388
+     cổng harm (≤ 1%): S0 harm thực 1.000% | K2 harm dự đoán 0.992% | SC harm dự đoán 0.995% || báo: K2 harm thực (báo) 1.167% | SC harm thực (báo) 1.167% || CỔNG ĐẠT
+[P2/FH] S0: rel ngưỡng 0.7915 (J cal 48.906) | λ 128.02 | H_c 34.47 | ô thưa 0.00% | kiểm thao tác (cal, báo): ρ_s²(tâm, D) 0.573 · corr²(Ĉ, D) 0.619
+     cổng harm (≤ 1%): S0 harm thực 0.958% | K2 harm dự đoán 0.969% | SC harm dự đoán 0.984% || báo: K2 harm thực (báo) 1.042% | SC harm thực (báo) 1.075% || CỔNG ĐẠT
+[P2] quét độ nhớ (cal, báo): a=0.00:0.430 a=0.20:0.503 a=0.40:0.571 a=0.41:0.573 a=0.60:0.625 a=0.80:0.601 a=0.90:0.464 a=0.95:0.298 | a Kalman (tối ưu cho tải) 0.405 | a tốt nhất cho D 0.60
+
+VALIDITY TỔNG: ĐẠT

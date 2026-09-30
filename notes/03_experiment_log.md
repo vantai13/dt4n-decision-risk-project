@@ -550,6 +550,18 @@ Mẫu cho mỗi thí nghiệm (copy khối dưới):
 - **Tiếp theo (thứ tự đã khoá):** Phần A (tác giả) → anchor chính thức (commit) → validity (commit) → outcome (commit).
 - **Provenance:** Claude (AI) viết code và test; tác giả đọc từng hàm và chạy chính thức.
 
+## 2026-09-30 — P1v2/L1.9 · f08 anchor + validity (outcome còn niêm phong)
+
+- **Anchor (commit trước):** F1 qua code f08 tái lập f05c ở cả hai ô — τ = 10 s: λ 58,59, t₀ 18,86, K2 − SC +0,000 ±
+  0,000, κ̂ 0,151; P2: λ 151,24, t₀ 39,89, K2 − SC +0,086 ± 0,114, κ̂ 0,165. ρ̂, D, Î trùng f04b từng bit.
+- **Validity ĐẠT:** cổng harm (dự đoán và thực của S0) ≤ 1% ở cả bốn thế giới × điều kiện; ô thưa ≤ 0,03%; chuỗi OU dài
+  khớp giải tích. Chỉ seed calibration 11001–11008 và oracle 11101–11697; không seed test.
+- **Hai phát hiện trước outcome (F8 §1):** (a) F1 plug-in và FH khác nhau cả thông tin lẫn sửa tâm (ngưỡng S0 256–259 ms
+  so với 6,3 ms) ⇒ kiểm thao tác bằng Spearman²; (b) bộ nhớ hàng đợi: a tốt nhất cho D ở P2 là 0,60 so với Kalman 0,405
+  ⇒ đối chứng P2 có thể không âm trong DES.
+- **Bổ sung trước outcome:** F8 §2C bảng diễn giải. §2B không đổi (`git diff prereg-f7` không có dòng bị xoá).
+- **Provenance:** Claude (AI) soạn §1, §2C; tác giả kiểm từng số với output validity.
+
 ## 2026-09-30 — P1v2 · SAI LỆCH THỨ TỰ ĐÃ KHOÁ: Phần A làm một phần trước khi chạy F7
 
 - **Đã làm (commit ee66775):** O1 §1 (12 hàm, "nếu sai thì…"), luồng dữ liệu, lập luận phân rã, đơn vị lặp CI, cỡ mẫu
