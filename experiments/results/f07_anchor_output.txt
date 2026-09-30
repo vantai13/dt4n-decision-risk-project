@@ -1,0 +1,4 @@
+f07 | engine numba | mode anchor | tiền đăng ký: tag prereg-f7 (F7 §2 v2)
+ANCHOR — code f07 ở cấu hình f05c | ô K100_r0.85_s10t2 | khoá 712 (+100) | thế giới trùng f04b: True
+  λ = 51.29 | t₀ = 11.56 | K2 − SC = +0.103 ± 0.119 | κ̂ gộp = 0.271
+  Khớp chữ số in ra: True | lệch tối đa so với f05c_results.json: 0.0e+00
