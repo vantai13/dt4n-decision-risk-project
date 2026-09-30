@@ -1,0 +1,5 @@
+f08 | engine numba | mode anchor | tiền đăng ký: tag prereg-f7 (F8 §2B)
+ANCHOR — F1 qua đường code f08 | ô K100_r0.95_s03t10 | khoá 713 (+100) | ρ̂, D, Î trùng f04b: True
+  λ = 58.59 | t₀ = 18.86 | K2 − SC = +0.000 ± 0.000 | κ̂ gộp = 0.151 | khớp chữ số in ra: True | lệch tối đa so với f05c JSON: 0.0e+00
+ANCHOR — F1 qua đường code f08 | ô P2 | khoá 711 (+100) | ρ̂, D, Î trùng f04b: True
+  λ = 151.24 | t₀ = 39.89 | K2 − SC = +0.086 ± 0.114 | κ̂ gộp = 0.165 | khớp chữ số in ra: True | lệch tối đa so với f05c JSON: 0.0e+00
