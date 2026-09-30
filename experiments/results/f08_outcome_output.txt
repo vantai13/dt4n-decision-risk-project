@@ -1,0 +1,40 @@
+f08 | engine numba | mode outcome | tiền đăng ký: tag prereg-f7 (F8 §2B)
+OUTCOME — 90 seed test 11011–11100 | khoá 730
+
+BẢNG 1 — phân rã năm bậc trên quỹ đạo S0 của chính điều kiện (ms/epoch; CI95 t theo 90 seed)
+[T10/F1] headroom +10.668 ± 0.343 | S0 +1.226 ± 0.066 (11.5%) | tâm -0.007 ± 0.051 (-0.1%) | thuần +0.000 ± 0.000 (0.0%) | an_toàn +0.679 ± 0.119 (6.4%) | thông_tin +8.770 ± 0.253 (82.2%)
+      harm test S0 1.00% · K2 0.88% | n_nan TB 0.0 | VoIP (m, r) trên K2 − S0: KHÔNG ĐÁNG KỂ
+[T10/FH] headroom +8.078 ± 0.190 | S0 +1.235 ± 0.060 (15.3%) | tâm -0.042 ± 0.036 (-0.5%) | thuần -0.017 ± 0.015 (-0.2%) | an_toàn +0.980 ± 0.094 (12.1%) | thông_tin +5.922 ± 0.115 (73.3%)
+      harm test S0 0.87% · K2 0.82% | n_nan TB 0.0 | VoIP (m, r) trên K2 − S0: KHÔNG ĐÁNG KỂ
+[P2/F1] headroom +15.749 ± 0.376 | S0 +4.039 ± 0.116 (25.6%) | tâm +0.443 ± 0.079 (2.8%) | thuần +0.035 ± 0.053 (0.2%) | an_toàn +1.751 ± 0.176 (11.1%) | thông_tin +9.480 ± 0.191 (60.2%)
+      harm test S0 0.89% · K2 0.94% | n_nan TB 0.0 | VoIP (m, r) trên K2 − S0: KHÔNG ĐÁNG KỂ
+[P2/FH] headroom +13.259 ± 0.271 | S0 +4.287 ± 0.113 (32.3%) | tâm +0.404 ± 0.073 (3.1%) | thuần +0.017 ± 0.044 (0.1%) | an_toàn +1.793 ± 0.136 (13.5%) | thông_tin +6.758 ± 0.149 (51.0%)
+      harm test S0 0.94% · K2 0.93% | n_nan TB 0.0 | VoIP (m, r) trên K2 − S0: KHÔNG ĐÁNG KỂ
+
+BẢNG 2 — κ̂ (D4): theo seed (CI) và gộp; sàn D6
+[T10/F1] κ̂ theo seed +0.147 ± 0.001 | gộp 0.150 | sàn bin 0.017, mẫu 0.015, tổng 0.023 | thuần dự đoán D7 0.001 ms
+[T10/FH] κ̂ theo seed +0.143 ± 0.002 | gộp 0.151 | sàn bin 0.025, mẫu 0.013, tổng 0.028 | thuần dự đoán D7 0.001 ms
+[P2/F1] κ̂ theo seed +0.161 ± 0.001 | gộp 0.164 | sàn bin 0.017, mẫu 0.015, tổng 0.023 | thuần dự đoán D7 0.018 ms
+[P2/FH] κ̂ theo seed +0.180 ± 0.002 | gộp 0.184 | sàn bin 0.017, mẫu 0.014, tổng 0.022 | thuần dự đoán D7 0.052 ms
+
+CỔNG HỢP LỆ: T10/F1: harm cal ✓, ô thưa < 1% ✓, K2 − S0 ≥ −2SE ✓ | T10/FH: harm cal ✓, ô thưa < 1% ✓, K2 − S0 ≥ −2SE ✗ | P2/F1: harm cal ✓, ô thưa < 1% ✓, K2 − S0 ≥ −2SE ✓ | P2/FH: harm cal ✓, ô thưa < 1% ✓, K2 − S0 ≥ −2SE ✓
+
+PHÉP KIỂM (F8 §2B)
+  M8 (i)  Δ₁₀ = κ̂_FH − κ̂_F1 (τ = 10 s)          = -0.004 ± 0.002 → KHÔNG ĐẠT
+          Δ_P2 (đối chứng, báo)                     = +0.020 ± 0.001
+  M8 (ii) Δ₁₀ − Δ_P2 (ghép theo chỉ số seed)       = -0.024 ± 0.002 → KHÔNG ĐẠT
+  M8 = (i) ∧ (ii) → KHÔNG ĐẠT
+  Phụ   share_info(FH) − share_info(F1), τ = 10 s = -8.84 ± 1.44 điểm % → ĐẠT
+  V     (K2 − S0) − 0,10·headroom, FH τ = 10 s     = -0.867 ± 0.039 ms → KHÔNG ĐẠT
+  Báo kèm, KHÔNG đăng ký (lẫn lịch sử + sửa tâm): J(S0_F1) − J(S0_FH) = T10 +2.599 ± 0.300 ms | P2 +2.737 ± 0.285 ms
+
+CỔNG: KHÔNG ĐẠT — không diễn giải estimand oracle của ô không đạt | M8 KHÔNG ĐẠT | V KHÔNG ĐẠT
+
+--- Khối Markdown cho F8 §3 (dán nguyên văn; số lấy từ output này) ---
+| | Kết quả | Kết luận |
+|---|---|---|
+| M8 (i) Δ₁₀ | -0.004 ± 0.002 | KHÔNG ĐẠT |
+| Δ_P2 (báo) | +0.020 ± 0.001 | — |
+| M8 (ii) Δ₁₀ − Δ_P2 | -0.024 ± 0.002 | KHÔNG ĐẠT |
+| Phụ share_info FH − F1 (τ = 10 s) | -8.84 ± 1.44 điểm % | ĐẠT |
+| V (FH, τ = 10 s) | -0.867 ± 0.039 ms | KHÔNG ĐẠT |
