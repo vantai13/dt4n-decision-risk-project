@@ -537,3 +537,15 @@ Mẫu cho mỗi thí nghiệm (copy khối dưới):
   F8 nếu kịp.
 - **Kiểm:** tại commit này `git log --oneline -- 'experiments/f07*' 'experiments/results/f07*'` trả về rỗng; tag prereg-f7.
 - **Provenance:** thiết kế Claude (AI); dự đoán (b) tác giả; duyệt GVHD theo biên bản 2026-09-30.
+
+## 2026-09-30 — P1v2/L1.8 · f07: code + kiểm tương đương (CHƯA chạy chế độ chính thức nào)
+
+- **Code:** `experiments/f07_asym_risk.py` (anchor | validity | outcome | smoke), `tests/test_f07_units.py` (6 test).
+- **Hiện thực hoá văn bản khoá (docstring f07, mục 1–8), commit TRƯỚC mọi lần chạy chính thức:** CI theo bậc tự do thật
+  (f02.ci cố định cho 8 seed); cổng harm theo tiêu chí tune (thực cho S0/S0dir, dự đoán cho SC/SCdir/K2); SCdir mỗi chiều
+  tự thoả α; ô thưa theo chiều như f05; sàn D6 cho κ̂_chiều; bỏ chiều < 40 epoch trong một seed; S0 đối chiếu =
+  decision-level trên S0dir; epoch đầy buffer giữ như f04b.
+- **Kiểm code (trợ lý, sandbox, không commit output):** 6/6 test tương đương; smoke trên dữ liệu tổng hợp chạy qua mọi nhánh,
+  cổng bật đỏ đúng lúc; anchor ở cấu hình f05c tái lập bit-exact (lệch JSON 0,0). KHÔNG chạy validity/outcome.
+- **Tiếp theo (thứ tự đã khoá):** Phần A (tác giả) → anchor chính thức (commit) → validity (commit) → outcome (commit).
+- **Provenance:** Claude (AI) viết code và test; tác giả đọc từng hàm và chạy chính thức.
