@@ -1,91 +1,124 @@
-# F6 — DP0 + DP1: đề xuất quyết định (BẢN NHÁP gửi GVHD)
+# F6 v2 — DP0 + DP1: đề xuất quyết định (gửi GVHD trước họp 20/10/2026)
 
-> Ngày soạn 2026-09-27; gửi GVHD trước họp ≥ 24 giờ; họp 20/10/2026. Provenance: Claude (AI) soạn; tác giả kiểm.
-> Mọi quyết định trỏ tới luật đã khoá trước kết quả: f04b `cdcea06` (luật 3), f05 `9056ac1` (luật 1), brief §10, D18.
+> Soạn 2026-09-30; gửi ≥ 24 giờ trước họp. Bản v1 (27/09): `git show f27dfe5:notes/feasibility/F6_DP0_DP1.md`.
+> Provenance: Claude (AI) soạn; tác giả kiểm từng số với output đã commit. Mọi quyết định trỏ tới luật khoá TRƯỚC kết quả:
+> f04b luật 3 (`cdcea06`) · f05 luật 1 (`9056ac1`) · F7 §2 (tag `prereg-f7`) · F8 §2B, §2C (`1cc9390`) · D18 · DP1-v2 · DP1-v3.
+
+## 0. Thay đổi so với 27/09
+1. **F7 (path khác rủi ro — đe doạ số 1), theo tiền đăng ký:** ô (ii) — dị loại được ngưỡng theo chiều hấp thụ; độ rộng
+   thuần ≤ 1,5% headroom; VoIP không đáng kể ở cả ba thế giới (F7 §3).
+2. **F8 (twin có lịch sử):** cổng oracle hỏng ở ô chính ⇒ KHÔNG kết luận xác nhận; khám phá: lịch sử tăng thông tin, không
+   tăng κ̂; delay DES phụ thuộc backlog (F8 §3–4).
+3. **Lý thuyết cho kết quả âm (T4, T5):** thông tin làm đổi thứ tự (Mệnh đề 1–2); luật bậc hai gap ≈ f₀β²κ²/(2a′), lần đầu
+   phân giải ở F7 (AA: 0,063 ± 0,023 ms so với dự đoán 0,051).
+4. **Literature (L1.10):** phép so "luật dùng phân phối vs luật tĩnh đã tune" đã có tiền lệ (Veeravalli–Kelly 1997; Jewson
+   2003) ⇒ DP1 vẫn NARROW, đóng góp thu về tách kênh độ rộng khi κ > 0 + phân rã (positioning v2).
+5. **Sai lệch đã ghi:** Phần A làm một phần trước khi chạy F7 (log 30/09); mục (12) của f08 thêm sau khi trợ lý thấy validity
+   sandbox (chỉ phần báo). Không sai lệch nào chạm tiền đăng ký.
+6. **Minh bạch AI:** phần lớn phép dẫn, script và diễn giải do Claude (AI) soạn; tác giả chạy lại, kiểm; provenance trong file.
 
 ## 1. Quyết định đề xuất
 
-**DP0 = PIVOT "ngưỡng tĩnh đủ, và vì sao".** Không ô nào — ở surrogate lẫn DES, tuổi cố định lẫn dao động, 4 độ mịn
-oracle — có khoảng cách tới oracle cùng thông tin đạt SESOI (m = 8,1 ms, r = 10% headroom). Tiêu chí GO của brief §10
-không đạt ở điều kiện 1 (không ô nào có ý nghĩa) và điều kiện 4 (DP1 không PASS).
-**DP1 = NARROW (D18):** characterization còn khác biệt problem/method với mọi bài gần nhất; RQ2 (luật lai/gate) trùng
-một phần OpenTwin, LEC, CERT, Almohammedi.
-**Hệ quả:** đóng góp của đồ án = một kết quả âm có phạm vi, có cơ chế, và một giao thức đánh giá.
+| # | Quyết định | Đề xuất | Căn cứ |
+|---|---|---|---|
+| 1 | DP0 — claim VoIP | **PIVOT, giữ nguyên**: ngưỡng tĩnh đủ trong phạm vi đã kiểm (m = 8,1 ms, r = 10%) | brief v2.1 §10: GO không đạt; NARROW (buffer sâu) đã kiểm qua các ô K = 100 (f04b, f05, F7) vẫn không đáng kể; F7 §3; F8 §3 (cận thấu thị 6,84 < m) |
+| 2 | DP1 (D18) | **NARROW** | positioning v2; DP1-v3 |
+| 3 | K24 — câu hỏi trung tâm | Duyệt RQ-I (thông tin, trục chính) và RQ-W (ranh giới độ rộng) — §4 câu 2 | F7 ô (ii); F8 khám phá; f05 (Q) |
+| 4 | Phạm vi Phase 2 | **A**, có cổng mở đầu: kiểm tính mới RQ-I | §4 câu 3 |
+| 5 | K15 — đầu ra | NCKH trước (đủ nội dung từ Phase 1); paper dạng đặc trưng hoá + kết quả âm có cơ chế, venue chọn khi có CFP | venue_notes |
 
 ## 2. Claim có phạm vi và cơ chế
+**Claim.** Một luồng nhỏ trên tải nền ngoại sinh OU-Poisson, M/D/1/K FIFO, telemetry đếm gói có tuổi và nhiễu, 4 Mb/s,
+K ∈ {11, 100}, α = 1%: ngưỡng tĩnh đã tune thua oracle cùng thông tin ít hơn SESOI ở mọi ô đã kiểm — path đối xứng (F2,
+f04b, f05), tuổi dao động (f05), path khác rủi ro (F7), twin có lịch sử (F8, trừ ô cổng hỏng).
+**Vì sao — bốn tầng.**
+1. *Cận trên:* K = 11 có headroom < m kể cả khi biết trước tương lai (18/24 ô/biến thể, f02b).
+2. *Phân rã:* headroom = thông tin 59–84% + an toàn 6–14% + tâm 1–4% + độ rộng thuần ≤ 1,5% (F7 §4; P2 f04b: 9,418 +
+   1,289 + 0,149 + tĩnh 3,700 = 14,556 ms).
+3. *Cơ chế:* ngưỡng tĩnh chỉ thua khi có thông tin làm đổi thứ tự (Mệnh đề 2); khi có, thiệt hại là bậc hai theo κ và tỉ lệ
+   mật độ epoch gần biên f₀ — ở DES f₀ nhỏ hơn toy 30–200 lần, nên κ̂ = 0,15–0,27 có thật mà độ rộng gần vô giá trị (T4 §3;
+   f05c; F7 §1).
+4. *Mạng:* κ = mức tải × độ cong trên hai chiều thông tin (T5 §4; t07 khớp DES ±26%); dị loại rủi ro bị ngưỡng theo chiều
+   hấp thụ (F7); lịch sử tăng thông tin, không tăng κ̂ (F8, khám phá).
+**Toán cổ điển, không claim** (flat maximum, điều kiện margin, Radner–Stiglitz, EVPI/VSS, REV); **phép so đã có tiền lệ**
+(V–K 1997; Jewson 2003). Ứng viên mới: tách kênh độ rộng khi κ > 0 + phân rã với oracle cùng thông tin.
+**Phát hiện phương pháp.** (i) PSA lệch DES có hệ thống, thổi phồng khoảng thích nghi ở P2 (f04b). (ii) Oracle bin không
+luôn là cận trên — lần thứ ba ở F8 T10/FH ⇒ K10′.
 
-**Claim.** Với một luồng nhỏ trên tải nền ngoại sinh (OU-Poisson), hàng đợi M/D/1/K FIFO, hai path đối xứng, telemetry
-đếm gói có tuổi (cố định hoặc dao động T_poll = 0,5 s) và nhiễu, 4 Mb/s, K ∈ {11, 100}, α = 1%: ngưỡng tĩnh được tune thua
-oracle cùng thông tin ít hơn SESOI hơn 50 lần ở mọi ô đã kiểm; phần do dùng độ rộng từng quyết định ≤ 0,16 ms.
-**Vì sao (ba tầng).**
-1. *Cận trên:* |I_D| ≤ (K−1)S; ở 4 Mb/s, K = 11, headroom < m kể cả khi biết trước tương lai (18/24 ô/biến thể, f02b).
-2. *Phân rã:* ở ô có headroom lớn nhất (P2, DES), 14,6 ms headroom = thông tin 9,4 + an toàn 1,3 + thích nghi 0,15 ms (f04b).
-3. *Cơ chế:* luật tối ưu K2 và ngưỡng tĩnh trên tâm tốt (SC) bất đồng ở ≤ 0,98% quyết định (f05b) — bất định hầu như
-   không đảo thứ tự quyết định (H1, T3 §5 gần đúng). Khi twin thấy hàng đợi (Q), gap tăng lên ~4 ms nhưng gần như toàn
-   bộ nằm ở tâm (phần thuần 0,018 ± 0,054 ms): giá trị của twin nằm ở dự báo điểm tốt hơn, không ở độ rộng.
-**Phát hiện phương pháp.** PSA (surrogate dừng) lệch DES có hệ thống (corr 0,61; +19/+13/−77 ms theo mức) và thổi phồng
-cả ba khoảng ở P2, kể cả khoảng thích nghi (DES − PSA = −1,00 ± 0,68 ms).
+## 3. Mối đe doạ (cập nhật)
+| # | Đe doạ | Trạng thái 30/09 | Còn lại |
+|---|---|---|---|
+| 1 | Hai path đối xứng | ĐÃ KIỂM (F7): dị loại rủi ro không mở đường cho độ rộng | dị loại độ tươi (F7a) → Phase 2 |
+| 2 | Mục tiêu trung bình | toy t10: dưới SLO không ràng buộc, phần thuần ≈ 0 ở thế giới đối xứng | chưa kiểm trong DES |
+| 3 | Một luồng nhỏ | ngoài phạm vi (họ tập thể: Fischer–Vöcking, Seshadri–Katz, Keralapura) | ghi giới hạn |
+| 4 | Oracle | bin không luôn là cận trên (F8) | K10′ |
+| 5 | Mô hình tải | OU một thang thời gian | burst/đuôi nặng chưa kiểm |
+| 6 | Thang thời gian | đề tài ở thang giây; SD-WAN mặc định 10–60 phút (Cisco AAR) | ghi phạm vi |
 
-## 3. Mối đe doạ (xếp theo mức nguy hiểm cho kết luận)
-
-1. **Hai path đối xứng** — kịch bản các lựa chọn khác nhau về rủi ro chưa thử; đây là nơi độ rộng có đường vào quyết định.
-2. **Mục tiêu trung bình** — với mục tiêu SLO (xác suất D > τ), σ đi thẳng vào hàm mục tiêu (Liyanage 2026).
-3. **Một luồng nhỏ** — nhiều luồng dùng cùng luật trên cùng telemetry sẽ dồn đàn (Fischer–Vöcking; Seshadri–Katz).
-4. **Oracle** — chỉ họ bin trong DES; bin thô không phải cận trên (FZ10x5 thua luật tĩnh ~8 SE); nested MC chỉ kiểm ở surrogate.
-5. **Mô hình tải** — chỉ OU một thang thời gian; chưa burst on-off/đuôi nặng, chưa tương quan giữa hai path.
-
-## 4. Câu hỏi cho GVHD
-
-1. Chấp nhận DP0 = PIVOT và DP1 = NARROW? Đầu ra (K15) cho một kết quả âm có cơ chế: báo cáo NCKH, bài hội thảo, hay cả hai?
-2. Có chạy **một** spike tiền đăng ký "path bất đối xứng" (đe doạ 1) trước khi chốt, hay ghi thành giới hạn?
-   Nếu chạy: họ tĩnh phải cho phép ngưỡng theo chiều để baseline công bằng.
-3. Mục tiêu SLO (đe doạ 2): mở rộng Phase 2 hay giới hạn?
-4. K10: có cần đối chiếu nested MC trong DES (≈ 1 CPU-giờ/ô cho kernel, F4) hay chấp nhận đối chiếu ở surrogate + độ mịn bin?
+## 4. Câu hỏi cho GVHD (mỗi câu có đề xuất)
+1. **DP0, DP1:** thầy đồng ý PIVOT (claim VoIP giữ nguyên) và NARROW? *Đề xuất: có.*
+2. **K24 — câu hỏi trung tâm.** NGUỒN GỐC: rút ra SAU kết quả Phase 1; sẽ kiểm trên seed chưa dùng (test 20000–29999,
+   oracle 30000–39999), tiền đăng ký mới.
+   > Trong quyết định đổi/giữ đường dưới telemetry cũ và nhiễu, giá trị của một NDT nằm ở đâu — ước lượng trạng thái (tâm),
+   > luật dùng bất định (độ rộng), giá của ràng buộc an toàn, hay telemetry giàu và tươi hơn (thông tin) — và cơ chế
+   > hàng đợi–telemetry nào quyết định phân chia đó?
+   - **RQ-I (trục chính):** lịch sử số đo (bộ lọc trên trạng thái backlog–tải), telemetry hàng đợi và độ tươi thu hẹp khoảng
+     thông tin bao nhiêu (tỉ lệ headroom, ms), và phần thu được đi qua tâm hay qua độ rộng?
+   - **RQ-W:** ở vùng nào (α chặt, telemetry ít nhiễu, nhiều quyết định gần biên) độ rộng vượt r = 10% headroom, và luật bậc
+     hai đã hiệu chỉnh có dự đoán đúng ranh giới đó trên seed mới không?
+   *Trung thực:* bảng "kết quả F7 → phạm vi" của kế hoạch viết cho F7a; F7 đã chạy là F7b. Ánh xạ theo nghĩa: luật đã hiệu
+   chỉnh dự đoán tỉ lệ nhỏ (AA 2,1%, AB 0,6%) và quan sát nhỏ ⇒ ô (iii) "κ không đủ ⇒ thông tin thành trục chính". Đây là
+   suy luận sau kết quả, xin thầy xác nhận.
+3. **Phạm vi Phase 2.** *A (đề xuất):* RQ-I + RQ-W + một tầng thực tế time-box (X1′ hoặc Mininet); cổng mở đầu: kiểm tính mới
+   RQ-I (họ VoI / thiết kế telemetry) — trùng nặng ⇒ rơi về B. *B (tối thiểu):* NCKH viết từ Phase 1; Phase 2 chỉ RQ-W.
+   *C (không đề xuất):* RQ2 cũ (bền khi dịch chuyển chế độ) — trùng OpenTwin/LEC/CERT, có tiền lệ V–K 1997.
+   Thứ tự cắt khi trễ (A): tầng thực tế → F7a → một phần lưới RQ-W.
+4. **K15 — đầu ra:** NCKH trước; paper khi có CFP thật (CNSM 2027 main vẫn là ứng viên).
+5. **Phần A:** log 30/09 ghi còn thiếu o01, CI tay, bảng tay 10 epoch, kín sách bấm giờ ×2, Q1–Q5. Thầy chọn (a) vấn đáp
+   15–20 phút đầu buổi thay cho các bài còn thiếu, hay (b) em nộp đủ trước buổi họp?
+6. **Chế độ tuổi:** F6 v1 đề xuất A1 chính; F7, F8 chạy A0 (A1 không đổi kết luận ở f05; giữ neo bit-exact f04b).
+   *Đề xuất: A0 chính, A1 độ nhạy.*
 
 ---
-## Phụ lục A — Rủi ro → spike → kết quả → quyết định
-
+## Phụ lục A — Rủi ro → spike → kết quả → quyết định (bổ sung bảng v1)
 | Rủi ro | Spike | Kết quả (số) | Quyết định |
 |---|---|---|---|
-| Điểm neo có phi vật lý không | F1 | Π tại neo; σ² = ρ̄ r_f/C nên σ và nhiễu đếm không độc lập | K7–K9 như Phụ lục B |
-| "Có ý nghĩa" là bao nhiêu | L1.5 | m = 8,1 ms (độ dốc cực đại E-model 0,1231 R/ms), r = 10% | Khoá trước F2 |
-| Khoảng cách có tồn tại không | F2 (surrogate, 16 ô) | Mọi ô không đáng kể; P2 gap +0,358 ± 0,751 ms | Định hướng |
-| Phép thử có lực không | f02b | 18/24 ô/biến thể có trần chặt < m; 1/24 kiểm được | Chỉ kiểm SESOI ở ô có trần ≥ m |
-| Surrogate có đúng không | f04 (DES 1 link) | corr(DES, PSA) 0,607; R²(D ∣ ρ̂) DES 0,445 vs PSA 0,236 | PSA không làm bằng chứng gần bão hoà |
-| Kết luận có sống qua DES không | f04b (4 ô, ghép cặp) | 8/8 không đáng kể; P2 DES gap +0,149 ± 0,400 ms | Luật 3 → PIVOT |
-| Đủ seed không | F3 | 3 seed đủ cho ±m/2; 7 seed cho 100 sự kiện harm ở α = 1% | 8 seed test giữ nguyên |
-| Chạy nổi không | F4 | 123 triệu gói/s; lưới 16 ô ≈ 0,07 CPU-giờ mô phỏng | GO về chi phí |
-| Oracle có yếu không; tuổi dao động | f05 | max ∣Δgap∣ theo độ mịn 0,315 / 0,183 ms; mọi oracle đếm không đáng kể; A1 không đổi kết luận | Luật 1 → PIVOT vững trong phạm vi |
-| Cơ chế | f05b (khám phá) | K2 ≠ SC ở 0,00–0,98% quyết định | "Vì sao" = H1 gần đúng |
-| Gap literature | L1.9 (9 bài bắt buộc) | Không bài nào đo bất định vs ngưỡng tune với oracle | DP1 = NARROW |
+| "Vì sao" chỉ là phát biểu lại H1 | T4, t03c, t05 | Mệnh đề 1–2; gap ∝ κ² (độ dốc 2,29); κ* ≈ 0,82 cho 10% (toy) | Có lý thuyết; toán cổ điển, không claim |
+| Cơ chế mạng nào tạo κ | T5, t06, t07, t08/t08b | κ = mức tải × độ cong; t07 khớp DES ±26%; dị loại: κ_chiều nằm giữa hai cha | Chọn F7b; F7a sang Phase 2 |
+| Luật bậc hai trên DES | f05c (POST HOC) | Không mâu thuẫn 6/6 chế độ; f₀ = 0,001–0,007/ms | Hiệu chỉnh dự đoán F7 |
+| Path khác rủi ro (đe doạ 1) | F7 (tiền đăng ký, 90 seed) | Ô (ii): M1 +0,082 ± 0,002; M2 −0,076 ± 0,002; V −0,268 ± 0,049 ms; D không đạt | Claim âm đứng vững; không claim offset theo chiều |
+| Lịch sử mở đường cho độ rộng? | F8 (tiền đăng ký) + f08b (khám phá) | Cổng T10/FH hỏng (−3,1 SE) ⇒ không kết luận; khám phá: κ̂ không tăng; share_info −24,5 điểm % trên quỹ đạo chung | K10′; giả thuyết trạng thái (backlog, tải) |
+| Gap literature khung mới | L1.10 | V–K 1997, Jewson 2003 đã so; chưa thấy ai tách kênh độ rộng khi κ > 0 | DP1 = NARROW |
 
 ## Phụ lục B — ADR đề xuất (ghi SAU họp, theo K23)
-
 | ID | Đề xuất | Căn cứ |
 |---|---|---|
-| SESOI | Giữ m = 8,1 ms, r = 10% | L1.5; không đổi sau kết quả |
-| K7 | 4 Mb/s, S = 3,024 ms; báo buffer theo K·S (ms), kèm thành phần luồng | F1; f02b (trần phụ thuộc K·S) |
-| K8 | W = 0,5 s, H = 0,5 s, a = 0,05 s, lag TB 0,37 s; tuổi dao động (A1) làm chế độ chính, A0 là sensitivity | F1 đề xuất neo không đồng bộ; f05 |
-| K9 | Lưới OU τ ∈ {2, 10} s, σ ∈ {0,03; 0,10} cho Phase 1; mở rộng sinh σ từ (C, r_f) nếu tiếp tục | F1 |
-| K10 | Oracle chính: bin dọc quỹ đạo tham chiếu tĩnh, ≥ 20 bin, dữ liệu ×2; nested MC chỉ ở surrogate | F2 check; f05 |
-| K11 | Engine: DES đầy đủ (Numba); PSA chỉ là surrogate định hướng | f04, f04b, F4 |
-| K12 | 8 seed test × 1500 epoch cho phán quyết SESOI; ~300 seed nếu cần phân giải ±0,1 ms | F3 |
-| K17 | Không chọn `self_gap_twin` (bị quy mô chi phối); dùng tỉ lệ bất đồng K2 ≠ SC + phần thuần làm thước đo cơ chế | F2 đính chính; f05b |
-| K20 | Không có trace tải thật; X2 hoãn | F1 |
-| K15 | Hỏi GVHD | — |
-| DP0 / DP1 | PIVOT / NARROW | Mục 1 |
+| SESOI | Giữ m = 8,1 ms, r = 10% | khoá 504677e trước F2 |
+| K7 | 4 Mb/s, S = 3,024 ms; báo buffer theo K·S (ms) | F1; f02b |
+| K8 | W = H = 0,5 s; a = 0,05 s; lag TB 0,37 s; A0 chính, A1 độ nhạy | f05; F7; F8 |
+| K9 | τ ∈ {2, 10} s; σ ∈ {0,03; 0,10} | F1 |
+| K10′ | Oracle bin cùng F dọc quỹ đạo tham chiếu, ≥ 20 bin/chiều; kiểm K2 − tĩnh ≥ −2SE trên seed oracle GIỮ RIÊNG trong validity; báo độ nhạy đặc tả | f05; F8; f08b |
+| K11 | DES đầy đủ (Numba); PSA chỉ định hướng | f04; f04b |
+| K12 | ≥ 90 seed test cho phép kiểm cơ chế; 8 seed đủ cho phán quyết SESOI | F3; F7 |
+| K17′ | Chỉ số cơ chế chính κ̂ = D4 (L1.6); `sd_log_s_cond` (D5) phụ | log 2026-09-29 |
+| K6′ | F mở rộng: chiều (F7); lịch sử Kalman (F8); tuổi riêng từng path (Phase 2) | F7; F8 |
+| K24 | Câu hỏi trung tâm + RQ-I, RQ-W | §4 câu 2 |
+| K25 | Estimand phân rã: share_info, share_center, share_pure, share_safety (+ ms); V giữ r = 10% | F7 §2.4 |
+| K15 | Đầu ra | §4 câu 4 |
+| DP0 / DP1 | PIVOT / NARROW | §1 |
 
-## Phụ lục C — Gate Phase 1 (trạng thái trung thực)
-
+## Phụ lục C — Gate Phase 1 v2 (trạng thái trung thực)
 | Validity | Trạng thái |
 |---|---|
-| T1–T3 do tác giả viết; vấn đáp giữa kỳ có biên bản | Vấn đáp 13/10 — **chưa diễn ra** |
-| mdk.py qua test | Đạt (64 passed) |
-| Kiểm OU khớp Monte Carlo | Đạt (t02) |
-| t03 khớp đáp án | Đạt; provenance ghi có hỗ trợ AI |
-| SESOI khoá trước F2 | Đạt (504677e trước e2de7aa) |
-| Mỗi spike có prereg trước outcome | Đạt từ F2; dự đoán f04b/f05 do AI soạn theo uỷ quyền (ghi trong log) |
-| Surrogate qua đối chứng "không tuổi, không nhiễu → 0" | Đạt (F2 control) |
-| Benchmark đúng máy; sai lệch PSA đo trên ≥ 1 ô | Đạt (F4; f04, f04b) |
-| Hai cách tính oracle đối chiếu ≥ 1 cấu hình | Đạt ở surrogate (F2 check); DES chỉ đối chiếu độ mịn (câu hỏi 4) |
-| Full text danh sách DP1-v2; forward citation | Full text đủ 9/9; forward citation **đang chạy** (openalex_l19) |
+| O1 do tác giả viết; phân rã tự dựng; kín sách lần hai | ⚠️ O1 §1–3 có (ee66775); còn thiếu các mục ở §4 câu 5 |
+| T4, T5; t05, t06 tự viết lại khớp đáp án | ⚠️ Claude (AI) soạn phép dẫn và script; tác giả chạy lại, kiểm — dùng AI theo cho phép của GVHD |
+| κ̂ khoá trước f05c; f05c ghi POST HOC | ✅ nội dung: AI đóng dấu D1–D11 lúc 2026-09-29T01:14Z, trước khi chạy · ⚠️ chứng cứ git: tác giả commit (4e3addd) sau khi đã đọc kết quả — ghi trong log; f05c là POST HOC |
+| Tiền đăng ký F7 khoá trước mọi output; thầy đã đọc | ✅ tag `prereg-f7`; tại commit khoá không có file f07; biên bản 30/09 |
+| F7: anchor, validity, cổng outcome | ✅ anchor bit-exact; mọi cổng đạt ở AA, BB, AB |
+| F8: cổng outcome | ❌ T10/FH ⇒ ô đó không diễn giải (đúng luật khoá) |
+| Forward citation; mỗi họ mới ≥ 1 full text | ⚠️ F–V ✅; Seshadri–Katz ✗ (không lập chỉ mục); full text Tiwari, Li, V–K, Jewson ✅; SD-WAN chỉ có tài liệu Cisco |
+
+## Phụ lục D — Seed
+Đã dùng: 9000–9999 (pilot, spike v1, t01–t05; F2/f04b/f05: cal 9701–9708, test 9711–9718, oracle 9801–9999) và 11000–11999
+(spike, toy v2; F7/F8: cal 11001–11008, test 11011–11100, oracle 11101–11697). **Chưa dùng:** 10000–10999, 12000–19999,
+20000–29999 (test), 30000–39999 (oracle) ⇒ tập test Phase 2 còn "mù". Đề xuất protocol §7 mới: xem ADR sau họp.
