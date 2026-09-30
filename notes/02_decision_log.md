@@ -528,3 +528,23 @@ D14 hết hiệu lực: đồ án có GVHD nhận xét trực tiếp; AI chỉ l
 4. Nhãn DES tính bằng tích phân chính xác của V(t) (L3.5); tương đương vô hạn probe Poisson (PASTA).
 5. Spearman đo thứ tự toàn cục, khoảng cách phụ thuộc thứ tự gần biên → thêm ứng viên `self_gap_twin` (K17).
 6. Hàng xóm mới: Burbano et al. 2025 (arXiv 2511.10146), cùng nhóm Liyanage → thêm vào danh sách đọc full text của DP1-v2.
+
+### DP1-v3 — Bài gần nhất cho khung mới (ĐỀ XUẤT; ghi 2026-09-30, SAU hai lượt tìm L1.10)
+
+- Ghi trung thực: danh sách mở rộng SAU khi đã thấy các bài dưới đây. Thêm đối thủ chỉ làm PASS khó hơn; bỏ bớt bài sau
+  khi đọc mới là vi phạm. Khung D18 giữ nguyên.
+- Bài gần nhất (bổ sung DP1-v2), mức đã kiểm: Veeravalli–Kelly 1997 (full text ✓) · Jewson 2003 (full text ✓) · Birge
+  1982 (định nghĩa, thứ cấp) · Richardson 2000 (abstract) · Houtekamer 1993 / Whitaker–Loughe 1998 (abstract; AMS chặn công
+  cụ — cần tải tay).
+- Toán cổ điển chỉ trích: flat maximum, Radner–Stiglitz, điều kiện margin, tương đương ràng buộc–Bayes, Karlin–Rubin [?],
+  Blackwell [?].
+- Đề xuất DP1 (chưa hiệu lực, chờ GVHD 20/10): NARROW.
+  · (b) nguyên lý + luật bậc hai: KHÔNG là đóng góp.
+  · "Luật dùng phân phối vs luật tĩnh đã tune, cùng thông tin, cùng ngân sách": KHÔNG còn mới (V–K 1997 §V; Jewson 2003).
+  · (a′) tách kênh độ rộng khi κ > 0 + phân rã với oracle một bước cùng thông tin: khác biệt method đã kiểm full text với
+    V–K (phương sai hằng §IV; mốc DP biết quỹ đạo) và Jewson (likelihood, không quyết định).
+  · (c′) bản đồ cơ chế: ứng viên, bằng chứng yếu.
+  · Gate/luật (RQ2 cũ) trùng một phần OpenTwin, LEC, CERT, Almohammedi; H3 cũ có tiền lệ V–K 1997 §V.
+  Lật sang PIVOT nếu tìm được bài đã tách kênh độ rộng biến thiên khỏi kênh tâm/mức cho quyết định đổi/giữ.
+- Đính chính kèm: MPTCP "stale" sai nghĩa; Cisco AAR mặc định đo mọi tunnel như nhau ⇒ tiền đề F7a cần nguồn mới
+  (không ảnh hưởng F7b).

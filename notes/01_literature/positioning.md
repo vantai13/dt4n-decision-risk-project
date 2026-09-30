@@ -1,41 +1,47 @@
-# Positioning — BẢN NHÁP (2026-09-27)
+# Positioning — v2 (BẢN NHÁP, 2026-09-30; khung Phase 1 v2)
 
-> Trạng thái: tạm thời. Chờ ghi chú full text Seshadri–Katz 2003, Mitzenmacher 2000, Dahlin 2000 và forward citation
-> của Seshadri–Katz, Fischer–Vöcking (L1.9 phần 2). Mỗi câu trỏ tới một ô đã kiểm trong novelty matrix hoặc ghi chú.
-> Provenance: Claude (AI) soạn; tác giả kiểm.
+> Chờ: Richardson 2000 full text; Houtekamer/Whitaker–Loughe full text (tải tay); một bài nghiên cứu họ multipath/SD-WAN.
+> Bản 27/09 giữ trong git. Provenance: Claude (AI) soạn; tác giả kiểm. Mỗi câu trỏ tới một ghi chú/ô đã kiểm.
 
-Dùng dự đoán delay kết hợp một ngưỡng hysteresis để chọn đích đã có trong literature gần (Burbano 2025, §III-B,
-Alg. 1), và dùng thêm bất định dự báo — xếp hạng theo μ + kσ, lọc theo xác suất vi phạm SLO — cũng đã có (Liyanage 2026,
-§III-B, Alg. 1–2). Các đánh giá này dùng một trace, không có khoảng tin cậy, và không có ô "trung bình + hysteresis",
-nên không tách được giá trị của bất định khỏi giá trị của hysteresis (Liyanage 2026, §V-A, Table II; Burbano 2025,
-Table I). Công trình gác twin theo độ tin cậy xử lý lệch mô hình toàn cục theo thời gian, không phải bất định thay đổi
-theo từng quyết định do tuổi và nhiễu của telemetry (Almohammedi 2026, Eq. 6–12; ghi chú opentwin_2026_v2). Lý thuyết
-về thông tin cũ trong định tuyến tập thể cho thấy hình thức luật đổi quyết định hội tụ hay dao động (Fischer–Vöcking,
-TR 2005, Thm 1, Thm 3), nhưng trong chế độ tải nội sinh. Mô phỏng định tuyến overlay tập thể cho thấy H tối ưu phụ
-thuộc mạnh vào tham số hệ thống, còn H cố định chạy tốt khi các luồng tự chọn đường chỉ là phần nhỏ của tải
-(Seshadri–Katz 2003, Fig. 4–6, §V-B) — một dự đoán về đúng chế độ mà
-đề tài đo, nhưng chưa được đối chiếu với oracle cùng thông tin. Đề tài xét chế độ bổ sung — một luồng nhỏ trên tải
-ngoại sinh với telemetry có tuổi và nhiễu — đo khoảng cách giữa ngưỡng tĩnh được tune và oracle cùng thông tin trong
-DES, tách khoảng cách thành phần tâm và phần độ rộng, và thấy phần độ rộng dưới 0,16 ms, thấp hơn SESOI khoảng 50 lần, trong
-miền đã thử (f04b, f05, f05b).
+So một luật dùng phân phối với luật tĩnh đã tune, trên cùng thông tin và cùng ngân sách, là câu hỏi đã có tiền lệ: trong
+handoff, luật locally optimal so xác suất rơi dưới ngưỡng phục vụ chỉ ngang luật hysteresis + ngưỡng hai tham số tốt nhất
+khi dùng cùng bộ dự báo, ở cùng số handoff (veeravalli_kelly_1997 §V, Fig. 3); trong dự báo tổ hợp, spread không cải
+thiện dự báo xác suất ngoài mẫu vì phần biến thiên dự đoán được của bất định nhỏ (jewson_2003 §4.2, §4.5). Cả hai không
+tách được giá trị của độ rộng biến thiên giữa các quyết định: mô hình handoff có phương sai có điều kiện không đổi
+(veeravalli_kelly_1997 §IV), còn bài khí tượng chấm dự báo bằng likelihood, không chấm quyết định (jewson_2003 §3).
+Chuẩn hoá giá trị theo thông tin hoàn hảo (REV; Richardson 2000 — abstract), tách EVPI/VSS (Birge 1982 — thứ cấp), tương
+đương ràng buộc–Bayes (veeravalli_kelly_1997 Thm 1) và luật bậc hai (classical_anchors.md) là công cụ cũ. Trong mạng và
+điện toán biên, đã có dự đoán + hysteresis và (μ, σ) + hysteresis nhưng thiếu ô "trung bình + hysteresis" và không có
+oracle (burbano_2025 §III-B; liyanage_2026 §III-B, Table II); twin xử lý telemetry trễ đặt giá trị vào dự báo trạng thái
+tới lúc quyết định (tiwari_2026 §III-C, §IV-D) hoặc vào cổng tin cậy toàn cục (opentwin_2026_v2 §VI; almohammedi_2026
+Eq. 12); SD-WAN vận hành đổi đường bằng ngưỡng SLA trên trung bình dài kèm damping (cisco_aar_sdwan §1); công trình chế độ
+tập thể xét dao động khi tải nội sinh (fischer_voecking_2005 Thm 1, 3; seshadri_katz_2003 Fig. 4–6; Keralapura 2008 và
+Scherrer 2020 — abstract). Đề tài tách kênh độ rộng khi bất định thật sự biến thiên giữa các quyết định (κ̂ = 0,15–0,27
+trong DES, f05c) cho quyết định đổi/giữ đường của một luồng nhỏ trên tải ngoại sinh dưới ngân sách harm: với oracle một
+bước cùng thông tin dọc quỹ đạo tham chiếu, headroom tách thành thông tin 59–84%, an toàn 6–14%, tâm 1–4% và độ rộng thuần
+≤ 1,5% (F7 §3–4); đề tài giải thích vì sao phần độ rộng nhỏ — biên của luật đã tune nằm ở vùng thưa epoch (f₀ nhỏ hơn toy
+30–200 lần, F7 §1) và β ∝ λ (T4 §3) — và lập bản đồ sơ bộ các cơ chế mạng có và không tạo bất định trực giao (f05c; F7 §3;
+F8 §3, khám phá).
 
-## Không được claim
+## Không được claim (v2)
+- "Luật tĩnh đúng thống kê gần bằng luật dùng xác suất" như phát hiện chung (Veeravalli–Kelly 1997; Jewson 2003) — chỉ
+  claim trong điểm vận hành đã kiểm, kèm cơ chế.
+- So luật dựa phân phối với luật tĩnh đã tune trên cùng dự báo, ở cùng ngân sách, bằng đường cong đánh đổi (V–K 1997).
+- Luật dựa mô hình thích nghi môi trường tốt hơn hysteresis cố định (V–K 1997 §V) — liên quan H3 cũ.
+- Nguyên lý "độ rộng thêm ít khi biến thiên dự đoán được của bất định nhỏ; giá trị ở tâm" (Jewson 2003; Houtekamer 1993).
+- Chuẩn hoá theo thông tin hoàn hảo (REV); tách EVPI/VSS; luật bậc hai; tương đương ràng buộc–Bayes.
+- "Twin dựng trạng thái hiện tại từ telemetry trễ" (Tiwari 2026); "tuổi là thông tin phụ cho quyết định" (Li 2026).
+- "MPTCP có subflow stale được probe định kỳ" (sai nghĩa); "SD-WAN đo path phụ thưa hơn" (sai với cấu hình mặc định Cisco).
+- Giữ nguyên danh sách không-claim của bản 27/09.
 
-- "Dự đoán + hysteresis" là mới (Burbano 2025; Liyanage 2026).
-- Dùng (μ, σ) hay xác suất vi phạm để chọn đích là mới (Liyanage 2026).
-- Fallback theo độ tin cậy twin là mới (Almohammedi 2026; OpenTwin).
-- "Thông tin cũ làm luật tham lam hỏng/dao động" là mới (Fischer–Vöcking; Shaikh et al. 2001).
-- "H tối ưu phụ thuộc tham số hệ thống" hay "ngưỡng hysteresis thích nghi (MIMD)" là mới (Seshadri–Katz 2003).
+## Đóng góp ứng viên (DP1 khung mới) — candidate, chưa kết luận
+(a′) Tách kênh độ rộng biến thiên (K2 − SC, κ > 0) khỏi kênh tâm/mức, và phân rã thông tin / an toàn / tâm / độ rộng với
+     oracle một bước cùng thông tin trong DES có ground truth.
+(c′) Bản đồ cơ chế mạng → κ, gồm cả cơ chế KHÔNG tạo κ; giả thuyết trạng thái (backlog, tải) cho Phase 2.
+(d′) Giao thức (thu hẹp): oracle một bước cùng thông tin dọc quỹ đạo tham chiếu + CRN + kiểm oracle ≥ tĩnh trên seed
+     oracle giữ riêng.
+KHÔNG còn là đóng góp: (b) nguyên lý đổi thứ tự và luật bậc hai — lăng kính giải thích, có trích dẫn.
 
-## Đóng góp ứng viên (DP1, khung PIVOT) — "strong candidate", chưa phải kết luận
-
-(a) Đặc trưng hoá khi nào bất định từng quyết định có giá trị hơn ngưỡng tĩnh được tune, với cận trên và phân rã
-    thích nghi / an toàn / thông tin.
-(b) Phép tách tâm / độ rộng — ô factorial còn thiếu ở literature gần nhất.
-(c) Phát hiện phương pháp: surrogate dừng (PSA) thổi phồng giá trị thích nghi ở vùng gần bão hoà.
-(d) Giao thức đánh giá: oracle cùng thông tin, quỹ đạo tham chiếu, CRN, CI paired theo seed, phân tích mù.
-
-## Giới hạn phạm vi phải đi kèm mọi câu claim
-
-Hai path đối xứng; tải OU-Poisson; một luồng nhỏ (không dồn đàn); mục tiêu gain trung bình có ràng buộc harm (chưa
-kiểm mục tiêu SLO); 4 Mb/s; K ∈ {11, 100}; α = 1%; oracle bin.
+## Giới hạn phạm vi đi kèm mọi claim
+Một luồng nhỏ, tải OU-Poisson ngoại sinh, M/D/1/K FIFO, 4 Mb/s, K ∈ {11, 100}, α = 1%, oracle bin, thang giây (W = 0,5 s;
+SD-WAN mặc định ở thang 10–60 phút); F7: một cặp path; F8: khám phá.

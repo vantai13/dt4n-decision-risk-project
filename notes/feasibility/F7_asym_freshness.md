@@ -156,3 +156,7 @@ VoIP (m, r): KHÔNG ĐÁNG KỂ ở cả ba. κ̂ (gộp): AA 0,276/0,268; BB 0,
   hoàn hảo ⇒ 0). Ủng hộ câu hỏi trung tâm "lợi ích đến từ tâm, độ rộng, an toàn hay thông tin" cho DP0, và chạy F8.
 - Không claim "ngưỡng/offset theo chiều là thực hành tốt" (D không đạt).
 - Khám phá có nhãn: f07b (SCdir ngân sách chung) để kiểm diễn giải 5.
+- **Ghi chú L1.10 (2026-09-30), cho F7a ở Phase 2.** Tiền đề "path phụ được đo thưa hơn" chưa có nguồn thực tế: Linux
+  MPTCP "stale" = subflow không tiến triển, scheduler bỏ qua (tài liệu kernel), không phải số đo cũ; Cisco SD-WAN AAR mặc
+  định đo MỌI tunnel bằng BFD 1 s, trung bình poll 10 phút × 6 (cisco_aar_sdwan §1) ⇒ không có bất đối xứng độ tươi theo
+  mặc định. Bất đối xứng có thể đến từ đo thụ động trên path đang mang lưu lượng [I, chưa kiểm]. Không ảnh hưởng F7b.

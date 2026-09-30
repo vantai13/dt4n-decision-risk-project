@@ -150,3 +150,63 @@ trích dẫn và 6 bài qua lọc từ khoá tiêu đề. Seshadri–Katz không
 ghi là **chưa lập chỉ mục/chưa truy xuất được**, không suy ra 0 trích dẫn. Cả 5 truy vấn có mục tiêu cũng trả HTTP 503;
 các URL lỗi được lưu nguyên văn trong `openalex_l19_2026-09-27_output.txt` và phải chạy lại. CSV hiện là kết quả một
 phần gồm 29 forward citation Fischer–Vöcking; `title_filter_match` chưa phải sàng abstract.
+
+## L1.10 (P1v2) — literature cho khung mới, 2026-09-30
+
+Công cụ: web search/fetch của trợ lý AI (Claude). Mỗi truy vấn trả ~8–10 kết quả, KHÔNG trả tổng ⇒ cột tổng ghi `—`
+(không đo được, không phải 0). Tìm có mục tiêu + known-item, không dùng để ước độ phủ. Sandbox chặn api.openalex.org,
+api.semanticscholar.org, export.arxiv.org (HTTP 403 host_not_allowed) ⇒ không chạy lại được `openalex_l19.py`.
+
+### Forward citation (việc 1)
+| Bài gốc | Nguồn | Kết quả | Sàng 2026-09-30 | Ghi chú |
+|---|---|---|---|---|
+| Fischer–Vöcking | OpenAlex (máy tác giả, 27/09) | 29; 6 qua lọc tiêu đề | Tiêu đề 29/29: không bài nào ở chế độ một luồng nhỏ, tải ngoại sinh. Giữ mức abstract: Scherrer et al. SIROCCO 2020 (VoI trong selfish routing). Chỉ tiêu đề: Scherrer et al. PEVA 2020 (stable path selection); PEVA 2021 (axiomatic, end-host path selection) | Họ tập thể / Wardrop |
+| Seshadri–Katz | OpenAlex | không lập chỉ mục (27/09) | — | Còn được liệt kê là paper WIRED (trang nhóm SAHARA). Không truy xuất được "cited by" ⇒ CHƯA hoàn tất; KHÔNG suy ra 0 trích dẫn. Cùng họ: Keralapura et al. ToN 2008 (bản ICNP 2005) — CHƯA xác nhận có trích S–K. Backlog "IEEE 1544621" khớp mô tả bài Keralapura [I], chưa đối chiếu số hiệu |
+
+### Truy vấn có mục tiêu (việc 2)
+| # | Truy vấn nguyên văn | Trả về / tổng | Giữ | Mức kiểm |
+|---|---|---|---|---|
+| L1 | `"flat maximum" von Winterfeldt Edwards decision analysis origin 1973 OR 1982 "flat maxima"` | 9 / — | von Winterfeldt & Edwards 1973 (TR 011313-4-T, U. Michigan); sách 1986 | thư mục |
+| L2 | `Radner Stiglitz 1984 "nonconcavity in the value of information" marginal value zero Chade Schlee 2002` | 10 / — | Radner–Stiglitz 1984; Chade–Schlee 2002 | thư mục + abstract |
+| L3 | `Houtekamer 1993 "Global and local skill forecasts" spread skill correlation variability of spread lognormal Whitaker Loughe 1998` | 9 / — | Jewson 2003; Houtekamer 1993; Whitaker–Loughe 1998 | Jewson FULL TEXT; hai bài kia abstract/thứ cấp |
+| L4 | `Birge 1982 "value of the stochastic solution" Mathematical Programming EVPI wait-and-see recourse EEV definition` | 10 / — | Birge 1982 | định nghĩa qua ≥ 3 nguồn thứ cấp |
+| L5 | `Audibert Tsybakov 2007 "Fast learning rates for plug-in classifiers" margin condition excess risk density near decision boundary` | 9 / — | Audibert–Tsybakov 2007 | abstract |
+| L6 | `arXiv 2604.25967 digital twin belief state reinforcement learning latency-robust ISAC 6G delayed telemetry EKF` | 9 / — | Tiwari, Kar, Tiwari 2026 | FULL TEXT (họ 1) |
+| L7 | `"From Freshness to Effectiveness" age-aware remote decision making Li Wu Lee Sun arXiv 2504.19507` | 9 / — | Li et al. 2026 v3 | FULL TEXT §I–VII (họ 2) |
+| L8 | `"The Value of Information in Selfish Routing" Scherrer Perrig Schmid SIROCCO 2020` | 10 / — | Scherrer et al. 2020 | abstract |
+| L9 | `Keralapura Chuah "coexisting overlay networks" race conditions oscillations route selection` | 9 / — | Keralapura et al. 2008 | abstract/đoạn trích |
+| L10 | `Linux MPTCP sysctl stale_loss_cnt "stale" subflow packet scheduler ignores stale subflows` | 9 / — | tài liệu kernel Linux | tài liệu gốc — ĐÍNH CHÍNH L1.8 |
+| L11 | `"Dynamics of simultaneous overlay network routing" Seshadri Katz` | 9 / — | trang TR + trang nhóm | thư mục |
+
+### Backlog có thứ tự (CHƯA chạy; [?] = nhớ từ kiến thức nền, chưa kiểm)
+1. Họ handover: luật tối ưu vs hysteresis dưới đo nhiễu — [?] Veeravalli & Kelly 1997; Zhang & Holtzman 1996
+   (ngưỡng tuyệt đối + tương đối, gần K22); Vijayan & Holtzman 1993. ƯU TIÊN CAO NHẤT: có thể lật DP1.
+2. SD-WAN application-aware routing: chu kỳ poll/probe mặc định của nhà cung cấp [?].
+3. Một full text họ multipath/SD-WAN có path phụ đo thưa — việc 3, bài thứ ba, CHƯA ĐẠT.
+4. Cost–loss: giá trị dự báo xác suất vs tất định [?] (Murphy 1977; Richardson 2000).
+5. Kiểm DOI: Karlin & Rubin 1956; Blackwell 1951, 1953 [?].
+
+### Lượt 2 — cùng ngày 2026-09-30 (sau khi hết lượt công cụ ở lượt 1)
+
+| # | Truy vấn / thao tác nguyên văn | Trả về / tổng | Giữ | Mức kiểm |
+|---|---|---|---|---|
+| L12 | `Veeravalli Kelly "locally optimal handoff algorithm" cellular communications IEEE Transactions on Vehicular Technology 1997 hysteresis` | 9 / — | Veeravalli–Kelly 1997; Prakash–Veeravalli 2003 | thư mục + tóm tắt |
+| L13 | `Veeravalli Kelly locally optimal handoff algorithm pdf dynamic programming signal strength prediction hysteresis comparison tradeoff number of handoffs` | 10 / — | PDF trên trang tác giả; Prakash–Veeravalli 2000 (PDF) | V–K: FULL TEXT |
+| L14 | `Cisco SD-WAN application-aware routing "poll-interval" default 600000 "app-route multiplier" SLA BFD probes` | 10 / — | Cisco Policies Config Guide vEdge 20.x, chương AAR | FULL TEXT chương |
+| L15 | `SD-WAN path selection active probing frequency measurement staleness tunnel switching hysteresis flapping research paper arXiv` | 9 / — | KHÔNG có bài nghiên cứu về path phụ đo thưa (survey, bằng sáng chế, bài ước lượng băng thông) | sàng snippet |
+| L16 | `Richardson 2000 "relative economic value" cost-loss ratio ensemble prediction system perfect forecast climatology deterministic control forecast Quarterly Journal` | 10 / — | Richardson 2000; định nghĩa REV qua ≥ 3 nguồn thứ cấp | abstract |
+| F1 | fetch Houtekamer 1993 (journals.ametsoc.org) | lỗi | — | AMS chặn truy cập tự động |
+| F2 | fetch Hopson 2014 (opensky.ucar.edu) | lỗi | — | robots không cho phép |
+
+Đính chính thư mục: vài nguồn thứ cấp ghi V–K 1997 trang 351–356; header PDF gốc ghi 46(3):603–609. 351–356 là trang
+của Vijayan & Holtzman 1993 (TVT 42(3)) — lỗi lan qua trích dẫn thứ cấp. Zhang & Holtzman: bản V–K trích là VTC 1994,
+pp. 82–86 (ref [9]); bản tạp chí 1996 [?].
+
+### Backlog (thay backlog của lượt 1)
+1. ✓ Họ handover — V–K 1997 full text. Còn: Prakash–Veeravalli 2000 "Adaptive hard handoff algorithms" (PDF trên trang
+   tác giả; đọc nếu Phase 2 mở lại RQ2/H3 cũ); Rezaiifar–Makowski–Kumar 1995 (JSAC 13(7):1348–1362) — chưa đọc.
+2. ✓ SD-WAN — tài liệu gốc Cisco. CHƯA có bài nghiên cứu họ multipath/SD-WAN có path phụ đo thưa (L15).
+3. Seshadri–Katz forward citation — CHƯA; cần Google Scholar "Cited by" bằng trình duyệt.
+4. Houtekamer 1993 / Whitaker–Loughe 1998 / Hopson 2014 — tải tay (AMS, UCAR chặn công cụ).
+5. Richardson 2000 full text — dự báo tất định có được tune ngưỡng không? [?]
+6. Karlin–Rubin 1956; Blackwell 1951/1953 — kiểm DOI [?].

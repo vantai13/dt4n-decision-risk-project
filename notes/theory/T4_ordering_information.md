@@ -60,9 +60,16 @@ mức Î = 5 ms (K = 100): (0,85; 0,70) có Î/s_thô ≈ 1,0 và tỉ số rel 
 (s_thô: chỉ nhiễu đếm, bỏ shrink). Mức tải chung là Z loại (a) nằm trong F. Họ rel tự đòi nhiều hơn ở tải cao: hiệu
 chỉnh bất định thô có sẵn trong thực hành (F2: 13/16 ô chọn rel). Suy luận, chưa kiểm.
 
-**Toán cổ điển (không claim).** Mệnh đề 1 = T đủ cho quyết định tại λ*; cùng tinh thần Karlin–Rubin (MLR ⇒ kiểm định
-ngưỡng tối ưu) và single crossing. Blackwell: nếu Y là bản làm nhiễu của X thì oracle trên X không tệ hơn (tổng thể);
-F và Q không so được theo Blackwell. Nguồn cần tự kiểm ở L1.10.
+**Toán cổ điển (không claim; kiểm 2026-09-30, xem notes/01_literature/notes/classical_anchors.md).** Mệnh đề 1 cùng
+tinh thần thủ tục đơn điệu dưới MLR (Karlin–Rubin 1956 [?]) và single crossing. Tương đương giữa bài toán có ràng buộc
+và dạng Lagrange/Bayes (λ của K2) là kết quả chuẩn; trong handoff, Veeravalli–Kelly 1997 (Thm 1) chứng minh đúng dạng
+này. Luật bậc hai là hình học flat maximum (von Winterfeldt–Edwards 1973) và điều kiện margin (Mammen–Tsybakov 1999;
+Audibert–Tsybakov 2007): tổn thất ∝ mật độ gần biên × sai lệch². Giá trị biên của thông tin bằng 0 tại 0 (Radner–Stiglitz
+1984; Chade–Schlee 2002) khớp độ dốc log–log ≈ 2 của t05. Phân rã headroom có họ hàng EVPI/VSS (Birge 1982) và REV
+(Richardson 2000). Mô hình s = s₀·e^η, η ~ N(0, κ²) ở §3 là spread log-normal của mô hình Kruizinga–Kok mà Houtekamer 1993
+dùng. "Giá trị ở tâm, spread thêm ít" đã được báo trong dự báo tổ hợp (Jewson 2003). "Luật so xác suất ≈ luật tĩnh hai
+tham số tốt nhất" đã có trong handoff khi phương sai có điều kiện không đổi (Veeravalli–Kelly 1997 §IV–V). Blackwell [?]:
+bản làm nhiễu của một thí nghiệm không bao giờ có giá trị hơn chính nó cho mọi bài toán quyết định.
 
 **Bốn con số.** K2 ≠ SC 0,00–0,98% (f05b): kênh độ rộng gần cắt biên đơn theo Ī (toy A: 12,8%); 0,00% một phần do
 độ phân giải oracle. SC − S0 P2/A0 +0,048 ± 0,370 ms: không phát hiện đổi thứ tự tâm ở độ chính xác này. P2/A1
