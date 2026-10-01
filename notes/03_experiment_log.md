@@ -662,3 +662,42 @@ Mẫu cho mỗi thí nghiệm (copy khối dưới):
   Thuyết minh phạm vi: `notes/map/rollout_reproduction.md`.
 - **Tiếp theo:** chưa chạy dịch chế độ/calibration {2,5,20}; bước đó cần
   protocol mới và seed chưa dùng. Chưa chứng minh hiệu quả dữ liệu hay novelty.
+
+## 2026-10-01 — Rollout v5 · TÁI LẬP POST HOC + estimator nháp chờ review
+
+- **Provenance bắt buộc:** Claude đã chạy trước trong sandbox; SClin và
+  harm_W được thêm SAU KHI thấy v4; test 89001–89020 đã dùng lại.
+  Calibration 86001–86020 cũng đã dùng. Không phải holdout mới.
+- **Đã làm:** một ô R3_outage, hold-down/horizon 30 s; mọi luật tune theo
+  delay với ràng buộc harm_W thật, kể cả bảng 24; lưới mịn gồm nửa dưới,
+  ba khởi đầu cho bảng 24. Giữ nguyên thuật toán attachment, bổ sung CSV
+  từng seed/parameter, bias twin 1/30 s và kiểm chính sách α=0,002/∞.
+- **Kết quả:** 8/8 họ chọn cùng mọi tham số ở α hữu hạn/∞: ràng buộc không
+  cắn trong ô/lưới này. K2 hơn SClin +0,451 [+0,088; +0,815] ms (~10,4%),
+  SCtab24 − K2 +0,082 [−0,113; +0,278] ms (~2,1%), chưa phân giải bảng 24.
+  K2 delay cal/test 3,949/3,877 ms, SClin 4,520/4,329, bảng 24 3,625/3,960.
+- **Chẩn đoán:** p₋ TB ~0,0045 so harm_W thật ~0,0142 ở bucket [0,001;0,01),
+  Ī>0; p₋ chưa hiệu chỉnh xác suất. Horizon khớp hơn không đồng nghĩa mô
+  hình delay đúng. Code rút ngắn cửa sổ ở 29 epoch cuối; đã ghi giới hạn,
+  không gọi mọi nhãn là đủ 30 s, không sửa để ép số tái lập.
+- **Estimator:** `experiments/scan/telemetry_fit.py` nhận bản tin cal tươi,
+  tuổi/timestamp và T,S; không đọc D/ρ̄/σ/τ thật hoặc test. Dẫn covariance
+  của OU-box/Poisson, khớp σ,τ qua off-diagonal, giữ clock gaps outage và
+  không ghép cặp qua seed. Mean cho ρ̄; R=ρ̄S/T; Var(Y) là kiểm tách biệt.
+- **Kiểm estimator:** ba ca OU-box/Poisson tổng hợp, 100.000 cửa sổ/ca,
+  mất độc lập 20% bản tin, entropy RNG [20261001,42,case_index]. σ lệch
+  0,8–2,2%, τ lệch 0,9–3,5%; không phải kết quả DES v6 hay bảo đảm tổng quát.
+- **Kiểm:** 126/126 test đạt; 640 bản ghi v5 seed/luật; bảng tái lập khớp
+  attachment. Không dùng các tỷ lệ 27,6%/28,9% từ hai bộ seed khác nhau để
+  suy phân rã trong cùng một mẫu; chẩn đoán rollout_check chưa có code để tái lập.
+- **Tệp:** `results/go_test/rollout_v5_output.txt`, `rollout_v5_seeds.csv`,
+  `rollout_v5_diagnostics.csv`, `rollout_v5_policies.json`, `rollout_v5_summary.csv`,
+  `rollout_v5_comparisons.csv`, `rollout_v5_report.md`, `rollout_v5_manifest.json`;
+  `telemetry_fit_synthetic.csv/.json` và `_output.txt`. Thuyết minh ở
+  `notes/map/rollout_v5_reproduction.md`, công thức/protocol review ở
+  `notes/map/telemetry_fit_review.md`.
+- **Chưa làm theo gate review trong attachment:** chưa chạy DES calibration
+  90001–90020/test 91001–91020, chưa đo lợi thế K2 với tham số ước lượng.
+  Dự đoán trợ lý đã viết trong bản nháp trước test mới, không giả làm dự
+  đoán tác giả hay tiền đăng ký đã duyệt; review/khóa trước khi chạy v6.
+  Chưa chạy số seed calibration {2,5,20}/dịch chế độ, không đổi phán quyết VoIP.

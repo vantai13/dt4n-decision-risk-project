@@ -1,0 +1,38 @@
+{
+  "base_commit": "634e133",
+  "classification": "POST HOC reproduction",
+  "claude_previously_ran_in_sandbox": true,
+  "sclin_and_window_harm_added_after_v4": true,
+  "reused_calibration": [
+    86001,
+    86020
+  ],
+  "reused_test": [
+    89001,
+    89020
+  ],
+  "seed_rows": 640,
+  "same_policy_finite_vs_infinite_alpha": {
+    "S0": true,
+    "SC": true,
+    "S0dir": true,
+    "SCdir": true,
+    "SCtab8": true,
+    "SCtab24": true,
+    "SClin": true,
+    "K2": true
+  },
+  "tail_windows_shortened": true,
+  "fresh_v6_des_calibration_and_test_not_run": true,
+  "python": "3.14.5",
+  "numpy": "2.5.3",
+  "scipy": "1.18.1",
+  "numba": "0.67.0",
+  "sha256": {
+    "experiments/scan/rollout_v5.py": "86864d95bf39cc59078c4777fafe335b489eec41fda742bed0d026d5c58b0fe9",
+    "experiments/scan/telemetry_fit.py": "1b8d7092d9260bad889f03a53263af3924e494f9c7a75708f07d5c2bb6a6abca",
+    "results/go_test/rollout_v5_seeds.csv": "28801309398cda673044c470ab08d7ee187505f96a67454bc6a5e4cd2ed8d13f",
+    "results/go_test/rollout_v5_output.txt": "9485056d3f9055202fb3361372c9a2fa78daff0037170f5af279fe5d3a75b5e1",
+    "results/go_test/rollout_v5_diagnostics.csv": "f2c8a13fb7ef947ca26f77f911f4fe3f719059a205e87f1b33c2371c7eff4e56"
+  }
+}
