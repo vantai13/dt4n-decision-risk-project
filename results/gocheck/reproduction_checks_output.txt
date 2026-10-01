@@ -1,0 +1,4 @@
+PASS fresh: all four delay-difference CIs, primary delay/harm and scale.
+PASS info: FIX/SYM/FF primary and cooldown CIs, primary differences-in-differences.
+PASS posthoc: all four switch-time error rows match the supplied table.
+Match at published rounding precision; sandbox raw data/commit are not available locally.

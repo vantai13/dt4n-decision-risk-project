@@ -1,0 +1,9 @@
+Exported fresh, cooldown=0, alpha=0.002
+Exported fresh, cooldown=0, alpha=0.01
+Exported fresh, cooldown=30, alpha=0.002
+Exported fresh, cooldown=30, alpha=0.01
+Exported info, cooldown=0, alpha=0.002
+Exported info, cooldown=0, alpha=0.01
+Exported info, cooldown=30, alpha=0.002
+Exported info, cooldown=30, alpha=0.01
+Saved 16 summaries and 1280 per-seed records.

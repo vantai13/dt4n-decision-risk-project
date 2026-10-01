@@ -1,0 +1,11 @@
+(1) ĐỘ TIN CỦA p₋ (test, mọi epoch có Ī > 0): dự đoán TB → hại thật [số epoch]
+  FIX đang ở B → đích A TƯƠI   9e-07→4e-05[23864]  4e-05→0e+00[6181]  4e-04→3e-03[8059]  4e-03→1e-02[11294]  3e-02→4e-02[10709]  1e-01→1e-01[13296]  5e-01→4e-01[23482]
+  SYM đang ở B → đích A tươi   6e-07→3e-05[34246]  4e-05→2e-04[5189]  4e-04→4e-03[5816]  4e-03→1e-02[6255]  2e-02→5e-02[4044]  1e-01→1e-01[3137]  3e-01→3e-01[1159]
+  FIX đang ở A → đích B CŨ     3e-06→0e+00[174]  5e-05→0e+00[187]  5e-04→2e-03[633]  5e-03→5e-03[3018]  3e-02→3e-02[8696]  1e-01→1e-01[9628]  3e-01→3e-01[779]
+  FF  đang ở B → đích A CŨ     3e-06→0e+00[218]  5e-05→0e+00[307]  5e-04→0e+00[923]  5e-03→3e-03[3416]  3e-02→3e-02[8895]  1e-01→1e-01[9627]  2e-01→2e-01[619]
+
+(2) LẦN ĐỔI TRONG ROLLOUT (test, α = 0,2%, cooldown 0)
+  FIX SC:  1011 lần đổi | Ī TB  30.86 → lợi thật TB  13.79 ms | p₋ TB 0.2129 → hại thật 0.2611 | lợi thật trung vị  2.51 ms
+  FIX K2:  1662 lần đổi | Ī TB  16.99 → lợi thật TB   6.76 ms | p₋ TB 0.1096 → hại thật 0.1438 | lợi thật trung vị  0.93 ms
+  FF  SC:   973 lần đổi | Ī TB  94.98 → lợi thật TB  25.64 ms | p₋ TB 0.0632 → hại thật 0.2549 | lợi thật trung vị 13.01 ms
+  FF  K2:   985 lần đổi | Ī TB  85.05 → lợi thật TB  21.66 ms | p₋ TB 0.0494 → hại thật 0.2569 | lợi thật trung vị  7.35 ms

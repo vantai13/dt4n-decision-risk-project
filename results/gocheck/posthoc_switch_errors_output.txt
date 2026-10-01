@@ -1,0 +1,4 @@
+FIX SC: 1011 lần đổi | HIỆN TẠI: dự đoán TB   45.3 → thật   30.2 ms (trung vị  36.9 →   6.4) | ĐÍCH: dự đoán TB  14.5 → thật  16.4 ms | % lần đổi mà hiện tại bị thổi phồng > 20 ms: 55.0%
+FIX K2: 1662 lần đổi | HIỆN TẠI: dự đoán TB   25.4 → thật   15.9 ms (trung vị  17.0 →   3.3) | ĐÍCH: dự đoán TB   8.5 → thật   9.1 ms | % lần đổi mà hiện tại bị thổi phồng > 20 ms: 27.4%
+FF  SC:  973 lần đổi | HIỆN TẠI: dự đoán TB  113.4 → thật   96.6 ms (trung vị 111.5 → 116.1) | ĐÍCH: dự đoán TB  18.4 → thật  70.9 ms | % lần đổi mà hiện tại bị thổi phồng > 20 ms: 40.1%
+FF  K2:  985 lần đổi | HIỆN TẠI: dự đoán TB  100.2 → thật   83.7 ms (trung vị 107.2 →  93.9) | ĐÍCH: dự đoán TB  15.1 → thật  62.0 ms | % lần đổi mà hiện tại bị thổi phồng > 20 ms: 41.5%

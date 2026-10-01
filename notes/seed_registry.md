@@ -16,8 +16,8 @@ trước khi thêm sổ này: không có kết quả khớp.
 | 86001–86020 / 87001–87020 | rollout v2/v3 | đã dùng, đã xem | 634e133; rollout_v2.py |
 | 86001–86020 / 89001–89020 | rollout v4/v5 | đã dùng lại calibration, đã xem test | 634e133, 8f0c899 |
 | 90001–90020 / 91001–91060 | rollout v6, R3_outage | để dành; protocol draft, chưa mở | 8876e12; rollout_v6_protocol.json |
-| 92001–92020 / 93001–93020 | GO-check Bước 1, R1 | đã xem qua outcome sandbox được cung cấp; chờ tái lập local | nguồn sandbox: 1a66a24 (chưa kiểm độc lập) |
-| 94001–94020 / 95001–95020 | GO-check Bước 2 FIX/SYM/FF cùng thế giới | đã xem qua outcome sandbox được cung cấp; chờ tái lập local | nguồn sandbox: 1a66a24 (chưa kiểm độc lập) |
+| 92001–92020 / 93001–93020 | GO-check Bước 1, R1 | đã xem sandbox và đã tái lập local, không còn fresh | khóa cấu hình local 9272119; fresh_output.txt |
+| 94001–94020 / 95001–95020 | GO-check Bước 2 FIX/SYM/FF cùng thế giới | đã xem sandbox và đã tái lập local, không còn fresh | khóa cấu hình local 9272119; info_outcome_output.txt |
 | 99001–99002 / 99101–99102 | smoke info-arrangement trong sandbox Claude | nguồn nói đã dùng, output xóa chưa đọc; local chưa kiểm độc lập | PREDICTIONS_claude.md |
 
 Không dùng seed mới làm smoke test. Cập nhật trạng thái và commit kết quả sau

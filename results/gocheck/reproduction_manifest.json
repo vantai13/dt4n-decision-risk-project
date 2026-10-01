@@ -1,0 +1,30 @@
+{
+  "kind": "local reproduction of supplied sandbox outcomes; not blinded confirmation",
+  "local_freeze_commit": "9272119b34be1fc05bd6b18c17057aba57cd703a",
+  "sandbox_commit": "1a66a24 (reported by supplied document; unavailable locally)",
+  "prediction_source": "Claude AI; NT-1 deviation",
+  "source_sha256": {
+    "experiments/gocheck/rollout.py": "6d134d66431042f86b7128c715d54329b0302bac1b9f3c549264f1f9f13776b9",
+    "experiments/gocheck/info_arrangement.py": "8159f423b2802f9d6f551603253b90beb8068bd206c5c092b6fd216dc251942d",
+    "experiments/gocheck/check_wiring.py": "57b8004e0985c6d1643b8d82399ee64a5bedb7f83e159e51d9052da0807ef3d7",
+    "experiments/scan/go_test.py": "7f79abfcc85f255cc52ce3ad542f4c5399d8c366802fea1401c29b97d3b6b1f8",
+    "experiments/scan/twin.py": "38a745408b2c8897db23474e1379d768d3633b9c5eaced9cf25afe2fda015c2c",
+    "experiments/scan/des_world.py": "0355977b87ddadc8b3cede754adceefe65d7134c00ff461d3d13de3e13be412c",
+    "experiments/scan/world.py": "4517e7439240a0642d4af4b7bfc9d252bf5edfccff76982c1188f4619cfcc921",
+    "experiments/f04b_des_gap.py": "d4aec81f5b0cd783cc4f6a9973c5940b38df911535344c7500fcfec2f7603175",
+    "ndtrisk/theory/mdk.py": "8809470ae29e3cb5e9ef45c27c6ab27056361262c5aae6cbea7f3be1d2cb9311"
+  },
+  "cache_sha256": {
+    "R1_dualISP_fresh_test.pkl": "4383b3504a3063d7aa1585d57cf0efe4661e951e13b1f55df98735ef70a614d2",
+    "R1_dualISP_info_95001.pkl": "19b7b77a9910e0f203fceabf942dfd04e801257fc639ab2b9c464af9f85fcf3b",
+    "R1_dualISP_info_94001.pkl": "eb9050e11dea10468e3b67d87f5ecf427c618970543a8c66d42525b30d86f4ff",
+    "R1_dualISP_fresh_cal.pkl": "65665caddde8b160bdf230ff0afa3545078142a7aff0cbc94a313fd629bf9a68"
+  },
+  "summary_rows": 16,
+  "seed_rows": 1280,
+  "limitations": [
+    "FF forgets fast telemetry of the departed path",
+    "posthoc diagnostics do not establish ping-pong causality",
+    "no new external-validity sources"
+  ]
+}

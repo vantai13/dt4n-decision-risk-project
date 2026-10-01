@@ -1,5 +1,9 @@
 # Chuẩn bị GO-check Bước 2 — kiểm validity
 
+> Hồ sơ chuẩn bị lịch sử. Sau hướng dẫn mới, dự đoán AI được nhập, cấu hình
+> tái lập đã khóa ở 9272119 và outcome 92/93, 94/95 đã chạy.
+> Trạng thái hiện hành xem REPRODUCTION_REPORT.md.
+
 Ngày 2026-10-01. Nền `8876e12`, nhánh `rollout-v6`; các thay đổi mới chưa commit.
 
 ## Việc đã hoàn thành

@@ -726,3 +726,43 @@ Mẫu cho mỗi thí nghiệm (copy khối dưới):
 - **Trạng thái:** chưa nhận dự đoán tác giả, chưa commit/tag khóa,
   chưa mở cal 90001–90020/test 91001–91060. Commit chuẩn bị không phải prereg.
   Dừng trước seed mới để giữ đúng thứ tự mà review yêu cầu.
+
+## 2026-10-01 — GO-CHECK · TÁI LẬP OUTCOME SANDBOX VÀ HẬU KIỂM
+
+- Người dùng cung cấp outcome sandbox, dự đoán Claude AI và hai script hậu
+  kiểm; yêu cầu chạy tái lập. Commit sandbox 1a66a24 không có ở local, giờ
+  16:07:05 chưa kiểm độc lập/múi giờ chưa xác định. Lưu nguyên văn dự đoán
+  tại notes/gocheck/PREDICTIONS_claude.md, không gán cho tác giả (lệch NT-1).
+  Đã đọc outcome trước local; không gọi lần này là xác nhận mù.
+- Khóa cấu hình/code/spec local ở 9272119. Chạy V6 → rollout 92/93
+  (20 cal, 20 test) → info-arrangement 94/95 (20 cal, 20 test) đúng thứ tự.
+  Hai script hậu kiểm và exporter chạy sau outcome, chỉ từ cache.
+- Rollout 92/93: α=0,2% tự do +1,506 [1,229; 1,784] ms; harm SC/K2
+  0,1842%/0,2133%, trượt chênh harm ≤0,1α. α=1% +0,118 [0,020; 0,216];
+  cooldown +0,681 [0,411; 0,950] ms. Thời gian lệnh: 63 s.
+- Info 94/95, α=0,2% tự do: FIX +1,746 [1,427; 2,066], SYM
+  +0,153 [0,139; 0,167], FF −0,193 [−0,291; −0,095] ms.
+  Hiệu-của-hiệu FIX−SYM +1,593 [1,273; 1,913], FIX−FF
+  +1,940 [1,582; 2,297] ms. Thời gian lệnh: 147 s.
+- Tất cả giá trị được nêu trong bảng chính/cooldown của nguồn và bảng sai
+  lệch lúc đổi khớp ở độ chính xác làm tròn đã in. Có script
+  verify_supplied_results.py và output kiểm đối chiếu. Không có raw sandbox
+  để tuyên bố khớp từng bit outcome giữa hai môi trường.
+- Hai hậu kiểm: FF SC dự đoán delay đích 18,4 → thật 70,9 ms; FF K2
+  15,1 → 62,0 ms. Harm trên những lần đổi FF khoảng 25%, khác p_minus
+  dự đoán 5–6%. Đây là selection-conditional diagnostic; không suy độ tin
+  từ bin mọi epoch sang tập được chọn. Không trực tiếp đo ping-pong hoặc
+  can thiệp trí nhớ. Giữ FF nguyên trạng để tái lập, không dùng kết luận
+  về đo thụ động thật.
+- Export 1.280 bản ghi theo seed và 16 dòng tổng hợp, ngưỡng tune/harm cal,
+  CI TC3, 10 contrasts. Hai contrasts mới là khám phá: SC FIX−SC SYM
+  +2,986 [2,496; 3,475] ms; K2 FIX−SC SYM +1,239 [0,910; 1,569] ms.
+- Kiểm: 138/138 test đạt trước mô phỏng; V6 đạt; model source hash giữ
+  đúng freeze commit. Không mở seed dành riêng cho rollout v6.
+- Phán quyết: CHƯA GO. TC1 có điều kiện, TC2 chưa có nguồn mới,
+  TC3 dưới sàn 8,1 ms; DP0/NARROW/PIVOT chờ tác giả/GVHD.
+- Tệp: results/gocheck/REPRODUCTION_REPORT.md, reproduction_seeds.csv,
+  reproduction_summary.csv, reproduction_contrasts.csv, reproduction_manifest.json,
+  reproduction_checks_output.txt, reproduction_environment.txt;
+  fresh_output.txt, info_outcome_output.txt và hai posthoc_*_output.txt.
+  Hồ sơ họp: notes/gocheck/GVHD_status.md.

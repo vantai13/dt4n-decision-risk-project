@@ -1,5 +1,8 @@
 # Báo cáo chạy GO-check rollout
 
+> Báo cáo này giữ trạng thái khi tái lập go0. Kết quả tái lập sandbox trên
+> 92/93 và 94/95 xem REPRODUCTION_REPORT.md; các seed đó hiện đã mở.
+
 Ngày chạy: 2026-10-01. Repo/nhánh: `ndt-decision-risk` / `rollout-v6`.
 
 ## Phạm vi đã chạy
