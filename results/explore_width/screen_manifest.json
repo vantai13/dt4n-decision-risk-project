@@ -1,0 +1,1322 @@
+{
+  "stage": "screen",
+  "cal_seeds": [
+    70001,
+    70002,
+    70003,
+    70004,
+    70005,
+    70006,
+    70007,
+    70008
+  ],
+  "test_seeds": [
+    71001,
+    71002,
+    71003,
+    71004,
+    71005,
+    71006,
+    71007,
+    71008
+  ],
+  "bootstrap": 0,
+  "configs": [
+    {
+      "name": "base_m069",
+      "mbps": 10,
+      "k": 83,
+      "H": 0.5,
+      "a": 0.05,
+      "eps_over_s": 0.5,
+      "alpha": 0.002,
+      "n_epochs": 4000,
+      "A": {
+        "rho_bar": 0.95,
+        "sigma": 0.16881943016134132,
+        "tau": 10.0,
+        "T_tel": 0.5,
+        "d": 0.1,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "B": {
+        "rho_bar": 0.95,
+        "sigma": 0.16881943016134132,
+        "tau": 10.0,
+        "T_tel": 30.0,
+        "d": 0.1,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "n_flows_min": 31.666666666666668,
+      "axes": {
+        "r_f": 300000.0,
+        "tau": 10.0,
+        "T_tel_A": 0.5,
+        "probe_B": 30.0,
+        "rho_B": 0.95,
+        "alpha": 0.002
+      }
+    },
+    {
+      "name": "buffer_166",
+      "mbps": 10,
+      "k": 166,
+      "H": 0.5,
+      "a": 0.05,
+      "eps_over_s": 0.5,
+      "alpha": 0.002,
+      "n_epochs": 4000,
+      "A": {
+        "rho_bar": 0.95,
+        "sigma": 0.16881943016134132,
+        "tau": 10.0,
+        "T_tel": 0.5,
+        "d": 0.1,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "B": {
+        "rho_bar": 0.95,
+        "sigma": 0.16881943016134132,
+        "tau": 10.0,
+        "T_tel": 30.0,
+        "d": 0.1,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "n_flows_min": 31.666666666666668,
+      "axes": {
+        "r_f": 300000.0,
+        "tau": 10.0,
+        "T_tel_A": 0.5,
+        "probe_B": 30.0,
+        "rho_B": 0.95,
+        "alpha": 0.002
+      }
+    },
+    {
+      "name": "buffer_332",
+      "mbps": 10,
+      "k": 332,
+      "H": 0.5,
+      "a": 0.05,
+      "eps_over_s": 0.5,
+      "alpha": 0.002,
+      "n_epochs": 4000,
+      "A": {
+        "rho_bar": 0.95,
+        "sigma": 0.16881943016134132,
+        "tau": 10.0,
+        "T_tel": 0.5,
+        "d": 0.1,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "B": {
+        "rho_bar": 0.95,
+        "sigma": 0.16881943016134132,
+        "tau": 10.0,
+        "T_tel": 30.0,
+        "d": 0.1,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "n_flows_min": 31.666666666666668,
+      "axes": {
+        "r_f": 300000.0,
+        "tau": 10.0,
+        "T_tel_A": 0.5,
+        "probe_B": 30.0,
+        "rho_B": 0.95,
+        "alpha": 0.002
+      }
+    },
+    {
+      "name": "buffer_664",
+      "mbps": 10,
+      "k": 664,
+      "H": 0.5,
+      "a": 0.05,
+      "eps_over_s": 0.5,
+      "alpha": 0.002,
+      "n_epochs": 4000,
+      "A": {
+        "rho_bar": 0.95,
+        "sigma": 0.16881943016134132,
+        "tau": 10.0,
+        "T_tel": 0.5,
+        "d": 0.1,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "B": {
+        "rho_bar": 0.95,
+        "sigma": 0.16881943016134132,
+        "tau": 10.0,
+        "T_tel": 30.0,
+        "d": 0.1,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "n_flows_min": 31.666666666666668,
+      "axes": {
+        "r_f": 300000.0,
+        "tau": 10.0,
+        "T_tel_A": 0.5,
+        "probe_B": 30.0,
+        "rho_B": 0.95,
+        "alpha": 0.002
+      }
+    },
+    {
+      "name": "tau_2",
+      "mbps": 10,
+      "k": 83,
+      "H": 0.5,
+      "a": 0.05,
+      "eps_over_s": 0.5,
+      "alpha": 0.002,
+      "n_epochs": 4000,
+      "A": {
+        "rho_bar": 0.95,
+        "sigma": 0.16881943016134132,
+        "tau": 2.0,
+        "T_tel": 0.5,
+        "d": 0.1,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "B": {
+        "rho_bar": 0.95,
+        "sigma": 0.16881943016134132,
+        "tau": 2.0,
+        "T_tel": 30.0,
+        "d": 0.1,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "n_flows_min": 31.666666666666668,
+      "axes": {
+        "r_f": 300000.0,
+        "tau": 2.0,
+        "T_tel_A": 0.5,
+        "probe_B": 30.0,
+        "rho_B": 0.95,
+        "alpha": 0.002
+      }
+    },
+    {
+      "name": "tau_30",
+      "mbps": 10,
+      "k": 83,
+      "H": 0.5,
+      "a": 0.05,
+      "eps_over_s": 0.5,
+      "alpha": 0.002,
+      "n_epochs": 4000,
+      "A": {
+        "rho_bar": 0.95,
+        "sigma": 0.16881943016134132,
+        "tau": 30.0,
+        "T_tel": 0.5,
+        "d": 0.1,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "B": {
+        "rho_bar": 0.95,
+        "sigma": 0.16881943016134132,
+        "tau": 30.0,
+        "T_tel": 30.0,
+        "d": 0.1,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "n_flows_min": 31.666666666666668,
+      "axes": {
+        "r_f": 300000.0,
+        "tau": 30.0,
+        "T_tel_A": 0.5,
+        "probe_B": 30.0,
+        "rho_B": 0.95,
+        "alpha": 0.002
+      }
+    },
+    {
+      "name": "tau_60",
+      "mbps": 10,
+      "k": 83,
+      "H": 0.5,
+      "a": 0.05,
+      "eps_over_s": 0.5,
+      "alpha": 0.002,
+      "n_epochs": 4000,
+      "A": {
+        "rho_bar": 0.95,
+        "sigma": 0.16881943016134132,
+        "tau": 60.0,
+        "T_tel": 0.5,
+        "d": 0.1,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "B": {
+        "rho_bar": 0.95,
+        "sigma": 0.16881943016134132,
+        "tau": 60.0,
+        "T_tel": 30.0,
+        "d": 0.1,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "n_flows_min": 31.666666666666668,
+      "axes": {
+        "r_f": 300000.0,
+        "tau": 60.0,
+        "T_tel_A": 0.5,
+        "probe_B": 30.0,
+        "rho_B": 0.95,
+        "alpha": 0.002
+      }
+    },
+    {
+      "name": "probeB_0.5",
+      "mbps": 10,
+      "k": 83,
+      "H": 0.5,
+      "a": 0.05,
+      "eps_over_s": 0.5,
+      "alpha": 0.002,
+      "n_epochs": 4000,
+      "A": {
+        "rho_bar": 0.95,
+        "sigma": 0.16881943016134132,
+        "tau": 10.0,
+        "T_tel": 0.5,
+        "d": 0.1,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "B": {
+        "rho_bar": 0.95,
+        "sigma": 0.16881943016134132,
+        "tau": 10.0,
+        "T_tel": 0.5,
+        "d": 0.1,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "n_flows_min": 31.666666666666668,
+      "axes": {
+        "r_f": 300000.0,
+        "tau": 10.0,
+        "T_tel_A": 0.5,
+        "probe_B": 0.5,
+        "rho_B": 0.95,
+        "alpha": 0.002
+      }
+    },
+    {
+      "name": "probeB_2",
+      "mbps": 10,
+      "k": 83,
+      "H": 0.5,
+      "a": 0.05,
+      "eps_over_s": 0.5,
+      "alpha": 0.002,
+      "n_epochs": 4000,
+      "A": {
+        "rho_bar": 0.95,
+        "sigma": 0.16881943016134132,
+        "tau": 10.0,
+        "T_tel": 0.5,
+        "d": 0.1,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "B": {
+        "rho_bar": 0.95,
+        "sigma": 0.16881943016134132,
+        "tau": 10.0,
+        "T_tel": 2.0,
+        "d": 0.1,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "n_flows_min": 31.666666666666668,
+      "axes": {
+        "r_f": 300000.0,
+        "tau": 10.0,
+        "T_tel_A": 0.5,
+        "probe_B": 2.0,
+        "rho_B": 0.95,
+        "alpha": 0.002
+      }
+    },
+    {
+      "name": "probeB_5",
+      "mbps": 10,
+      "k": 83,
+      "H": 0.5,
+      "a": 0.05,
+      "eps_over_s": 0.5,
+      "alpha": 0.002,
+      "n_epochs": 4000,
+      "A": {
+        "rho_bar": 0.95,
+        "sigma": 0.16881943016134132,
+        "tau": 10.0,
+        "T_tel": 0.5,
+        "d": 0.1,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "B": {
+        "rho_bar": 0.95,
+        "sigma": 0.16881943016134132,
+        "tau": 10.0,
+        "T_tel": 5.0,
+        "d": 0.1,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "n_flows_min": 31.666666666666668,
+      "axes": {
+        "r_f": 300000.0,
+        "tau": 10.0,
+        "T_tel_A": 0.5,
+        "probe_B": 5.0,
+        "rho_B": 0.95,
+        "alpha": 0.002
+      }
+    },
+    {
+      "name": "probeB_10",
+      "mbps": 10,
+      "k": 83,
+      "H": 0.5,
+      "a": 0.05,
+      "eps_over_s": 0.5,
+      "alpha": 0.002,
+      "n_epochs": 4000,
+      "A": {
+        "rho_bar": 0.95,
+        "sigma": 0.16881943016134132,
+        "tau": 10.0,
+        "T_tel": 0.5,
+        "d": 0.1,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "B": {
+        "rho_bar": 0.95,
+        "sigma": 0.16881943016134132,
+        "tau": 10.0,
+        "T_tel": 10.0,
+        "d": 0.1,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "n_flows_min": 31.666666666666668,
+      "axes": {
+        "r_f": 300000.0,
+        "tau": 10.0,
+        "T_tel_A": 0.5,
+        "probe_B": 10.0,
+        "rho_B": 0.95,
+        "alpha": 0.002
+      }
+    },
+    {
+      "name": "probeB_60",
+      "mbps": 10,
+      "k": 83,
+      "H": 0.5,
+      "a": 0.05,
+      "eps_over_s": 0.5,
+      "alpha": 0.002,
+      "n_epochs": 4000,
+      "A": {
+        "rho_bar": 0.95,
+        "sigma": 0.16881943016134132,
+        "tau": 10.0,
+        "T_tel": 0.5,
+        "d": 0.1,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "B": {
+        "rho_bar": 0.95,
+        "sigma": 0.16881943016134132,
+        "tau": 10.0,
+        "T_tel": 60.0,
+        "d": 0.1,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "n_flows_min": 31.666666666666668,
+      "axes": {
+        "r_f": 300000.0,
+        "tau": 10.0,
+        "T_tel_A": 0.5,
+        "probe_B": 60.0,
+        "rho_B": 0.95,
+        "alpha": 0.002
+      }
+    },
+    {
+      "name": "probeB_120",
+      "mbps": 10,
+      "k": 83,
+      "H": 0.5,
+      "a": 0.05,
+      "eps_over_s": 0.5,
+      "alpha": 0.002,
+      "n_epochs": 4000,
+      "A": {
+        "rho_bar": 0.95,
+        "sigma": 0.16881943016134132,
+        "tau": 10.0,
+        "T_tel": 0.5,
+        "d": 0.1,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "B": {
+        "rho_bar": 0.95,
+        "sigma": 0.16881943016134132,
+        "tau": 10.0,
+        "T_tel": 120.0,
+        "d": 0.1,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "n_flows_min": 31.666666666666668,
+      "axes": {
+        "r_f": 300000.0,
+        "tau": 10.0,
+        "T_tel_A": 0.5,
+        "probe_B": 120.0,
+        "rho_B": 0.95,
+        "alpha": 0.002
+      }
+    },
+    {
+      "name": "flow_30000",
+      "mbps": 10,
+      "k": 83,
+      "H": 0.5,
+      "a": 0.05,
+      "eps_over_s": 0.5,
+      "alpha": 0.002,
+      "n_epochs": 4000,
+      "A": {
+        "rho_bar": 0.95,
+        "sigma": 0.05338539126015656,
+        "tau": 10.0,
+        "T_tel": 0.5,
+        "d": 0.1,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "B": {
+        "rho_bar": 0.95,
+        "sigma": 0.05338539126015656,
+        "tau": 10.0,
+        "T_tel": 30.0,
+        "d": 0.1,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "n_flows_min": 316.6666666666667,
+      "axes": {
+        "r_f": 30000.0,
+        "tau": 10.0,
+        "T_tel_A": 0.5,
+        "probe_B": 30.0,
+        "rho_B": 0.95,
+        "alpha": 0.002
+      }
+    },
+    {
+      "name": "flow_100000",
+      "mbps": 10,
+      "k": 83,
+      "H": 0.5,
+      "a": 0.05,
+      "eps_over_s": 0.5,
+      "alpha": 0.002,
+      "n_epochs": 4000,
+      "A": {
+        "rho_bar": 0.95,
+        "sigma": 0.09746794344808964,
+        "tau": 10.0,
+        "T_tel": 0.5,
+        "d": 0.1,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "B": {
+        "rho_bar": 0.95,
+        "sigma": 0.09746794344808964,
+        "tau": 10.0,
+        "T_tel": 30.0,
+        "d": 0.1,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "n_flows_min": 95.0,
+      "axes": {
+        "r_f": 100000.0,
+        "tau": 10.0,
+        "T_tel_A": 0.5,
+        "probe_B": 30.0,
+        "rho_B": 0.95,
+        "alpha": 0.002
+      }
+    },
+    {
+      "name": "flow_600000",
+      "mbps": 10,
+      "k": 83,
+      "H": 0.5,
+      "a": 0.05,
+      "eps_over_s": 0.5,
+      "alpha": 0.002,
+      "n_epochs": 4000,
+      "A": {
+        "rho_bar": 0.95,
+        "sigma": 0.23874672772626646,
+        "tau": 10.0,
+        "T_tel": 0.5,
+        "d": 0.1,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "B": {
+        "rho_bar": 0.95,
+        "sigma": 0.23874672772626646,
+        "tau": 10.0,
+        "T_tel": 30.0,
+        "d": 0.1,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "n_flows_min": 15.833333333333334,
+      "axes": {
+        "r_f": 600000.0,
+        "tau": 10.0,
+        "T_tel_A": 0.5,
+        "probe_B": 30.0,
+        "rho_B": 0.95,
+        "alpha": 0.002
+      }
+    },
+    {
+      "name": "load_0.8",
+      "mbps": 10,
+      "k": 83,
+      "H": 0.5,
+      "a": 0.05,
+      "eps_over_s": 0.5,
+      "alpha": 0.002,
+      "n_epochs": 4000,
+      "A": {
+        "rho_bar": 0.8,
+        "sigma": 0.15491933384829668,
+        "tau": 10.0,
+        "T_tel": 0.5,
+        "d": 0.1,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "B": {
+        "rho_bar": 0.8,
+        "sigma": 0.15491933384829668,
+        "tau": 10.0,
+        "T_tel": 30.0,
+        "d": 0.1,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "n_flows_min": 26.666666666666668,
+      "axes": {
+        "r_f": 300000.0,
+        "tau": 10.0,
+        "T_tel_A": 0.5,
+        "probe_B": 30.0,
+        "rho_B": 0.8,
+        "alpha": 0.002
+      }
+    },
+    {
+      "name": "load_0.9",
+      "mbps": 10,
+      "k": 83,
+      "H": 0.5,
+      "a": 0.05,
+      "eps_over_s": 0.5,
+      "alpha": 0.002,
+      "n_epochs": 4000,
+      "A": {
+        "rho_bar": 0.9,
+        "sigma": 0.16431676725154984,
+        "tau": 10.0,
+        "T_tel": 0.5,
+        "d": 0.1,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "B": {
+        "rho_bar": 0.9,
+        "sigma": 0.16431676725154984,
+        "tau": 10.0,
+        "T_tel": 30.0,
+        "d": 0.1,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "n_flows_min": 30.0,
+      "axes": {
+        "r_f": 300000.0,
+        "tau": 10.0,
+        "T_tel_A": 0.5,
+        "probe_B": 30.0,
+        "rho_B": 0.9,
+        "alpha": 0.002
+      }
+    },
+    {
+      "name": "load_1",
+      "mbps": 10,
+      "k": 83,
+      "H": 0.5,
+      "a": 0.05,
+      "eps_over_s": 0.5,
+      "alpha": 0.002,
+      "n_epochs": 4000,
+      "A": {
+        "rho_bar": 1.0,
+        "sigma": 0.17320508075688773,
+        "tau": 10.0,
+        "T_tel": 0.5,
+        "d": 0.1,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "B": {
+        "rho_bar": 1.0,
+        "sigma": 0.17320508075688773,
+        "tau": 10.0,
+        "T_tel": 30.0,
+        "d": 0.1,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "n_flows_min": 33.333333333333336,
+      "axes": {
+        "r_f": 300000.0,
+        "tau": 10.0,
+        "T_tel_A": 0.5,
+        "probe_B": 30.0,
+        "rho_B": 1.0,
+        "alpha": 0.002
+      }
+    },
+    {
+      "name": "load_1.05",
+      "mbps": 10,
+      "k": 83,
+      "H": 0.5,
+      "a": 0.05,
+      "eps_over_s": 0.5,
+      "alpha": 0.002,
+      "n_epochs": 4000,
+      "A": {
+        "rho_bar": 1.05,
+        "sigma": 0.17748239349298847,
+        "tau": 10.0,
+        "T_tel": 0.5,
+        "d": 0.1,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "B": {
+        "rho_bar": 1.05,
+        "sigma": 0.17748239349298847,
+        "tau": 10.0,
+        "T_tel": 30.0,
+        "d": 0.1,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "n_flows_min": 35.0,
+      "axes": {
+        "r_f": 300000.0,
+        "tau": 10.0,
+        "T_tel_A": 0.5,
+        "probe_B": 30.0,
+        "rho_B": 1.05,
+        "alpha": 0.002
+      }
+    },
+    {
+      "name": "alpha_0.0005",
+      "mbps": 10,
+      "k": 83,
+      "H": 0.5,
+      "a": 0.05,
+      "eps_over_s": 0.5,
+      "alpha": 0.0005,
+      "n_epochs": 4000,
+      "A": {
+        "rho_bar": 0.95,
+        "sigma": 0.16881943016134132,
+        "tau": 10.0,
+        "T_tel": 0.5,
+        "d": 0.1,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "B": {
+        "rho_bar": 0.95,
+        "sigma": 0.16881943016134132,
+        "tau": 10.0,
+        "T_tel": 30.0,
+        "d": 0.1,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "n_flows_min": 31.666666666666668,
+      "axes": {
+        "r_f": 300000.0,
+        "tau": 10.0,
+        "T_tel_A": 0.5,
+        "probe_B": 30.0,
+        "rho_B": 0.95,
+        "alpha": 0.0005
+      }
+    },
+    {
+      "name": "alpha_0.001",
+      "mbps": 10,
+      "k": 83,
+      "H": 0.5,
+      "a": 0.05,
+      "eps_over_s": 0.5,
+      "alpha": 0.001,
+      "n_epochs": 4000,
+      "A": {
+        "rho_bar": 0.95,
+        "sigma": 0.16881943016134132,
+        "tau": 10.0,
+        "T_tel": 0.5,
+        "d": 0.1,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "B": {
+        "rho_bar": 0.95,
+        "sigma": 0.16881943016134132,
+        "tau": 10.0,
+        "T_tel": 30.0,
+        "d": 0.1,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "n_flows_min": 31.666666666666668,
+      "axes": {
+        "r_f": 300000.0,
+        "tau": 10.0,
+        "T_tel_A": 0.5,
+        "probe_B": 30.0,
+        "rho_B": 0.95,
+        "alpha": 0.001
+      }
+    },
+    {
+      "name": "alpha_0.005",
+      "mbps": 10,
+      "k": 83,
+      "H": 0.5,
+      "a": 0.05,
+      "eps_over_s": 0.5,
+      "alpha": 0.005,
+      "n_epochs": 4000,
+      "A": {
+        "rho_bar": 0.95,
+        "sigma": 0.16881943016134132,
+        "tau": 10.0,
+        "T_tel": 0.5,
+        "d": 0.1,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "B": {
+        "rho_bar": 0.95,
+        "sigma": 0.16881943016134132,
+        "tau": 10.0,
+        "T_tel": 30.0,
+        "d": 0.1,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "n_flows_min": 31.666666666666668,
+      "axes": {
+        "r_f": 300000.0,
+        "tau": 10.0,
+        "T_tel_A": 0.5,
+        "probe_B": 30.0,
+        "rho_B": 0.95,
+        "alpha": 0.005
+      }
+    },
+    {
+      "name": "alpha_0.01",
+      "mbps": 10,
+      "k": 83,
+      "H": 0.5,
+      "a": 0.05,
+      "eps_over_s": 0.5,
+      "alpha": 0.01,
+      "n_epochs": 4000,
+      "A": {
+        "rho_bar": 0.95,
+        "sigma": 0.16881943016134132,
+        "tau": 10.0,
+        "T_tel": 0.5,
+        "d": 0.1,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "B": {
+        "rho_bar": 0.95,
+        "sigma": 0.16881943016134132,
+        "tau": 10.0,
+        "T_tel": 30.0,
+        "d": 0.1,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "n_flows_min": 31.666666666666668,
+      "axes": {
+        "r_f": 300000.0,
+        "tau": 10.0,
+        "T_tel_A": 0.5,
+        "probe_B": 30.0,
+        "rho_B": 0.95,
+        "alpha": 0.01
+      }
+    },
+    {
+      "name": "alpha_0.02",
+      "mbps": 10,
+      "k": 83,
+      "H": 0.5,
+      "a": 0.05,
+      "eps_over_s": 0.5,
+      "alpha": 0.02,
+      "n_epochs": 4000,
+      "A": {
+        "rho_bar": 0.95,
+        "sigma": 0.16881943016134132,
+        "tau": 10.0,
+        "T_tel": 0.5,
+        "d": 0.1,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "B": {
+        "rho_bar": 0.95,
+        "sigma": 0.16881943016134132,
+        "tau": 10.0,
+        "T_tel": 30.0,
+        "d": 0.1,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "n_flows_min": 31.666666666666668,
+      "axes": {
+        "r_f": 300000.0,
+        "tau": 10.0,
+        "T_tel_A": 0.5,
+        "probe_B": 30.0,
+        "rho_B": 0.95,
+        "alpha": 0.02
+      }
+    },
+    {
+      "name": "hold_0.1",
+      "mbps": 10,
+      "k": 83,
+      "H": 0.1,
+      "a": 0.05,
+      "eps_over_s": 0.5,
+      "alpha": 0.002,
+      "n_epochs": 4000,
+      "A": {
+        "rho_bar": 0.95,
+        "sigma": 0.16881943016134132,
+        "tau": 10.0,
+        "T_tel": 0.5,
+        "d": 0.1,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "B": {
+        "rho_bar": 0.95,
+        "sigma": 0.16881943016134132,
+        "tau": 10.0,
+        "T_tel": 30.0,
+        "d": 0.1,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "n_flows_min": 31.666666666666668,
+      "axes": {
+        "r_f": 300000.0,
+        "tau": 10.0,
+        "T_tel_A": 0.5,
+        "probe_B": 30.0,
+        "rho_B": 0.95,
+        "alpha": 0.002
+      }
+    },
+    {
+      "name": "hold_2",
+      "mbps": 10,
+      "k": 83,
+      "H": 2.0,
+      "a": 0.05,
+      "eps_over_s": 0.5,
+      "alpha": 0.002,
+      "n_epochs": 4000,
+      "A": {
+        "rho_bar": 0.95,
+        "sigma": 0.16881943016134132,
+        "tau": 10.0,
+        "T_tel": 0.5,
+        "d": 0.1,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "B": {
+        "rho_bar": 0.95,
+        "sigma": 0.16881943016134132,
+        "tau": 10.0,
+        "T_tel": 30.0,
+        "d": 0.1,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "n_flows_min": 31.666666666666668,
+      "axes": {
+        "r_f": 300000.0,
+        "tau": 10.0,
+        "T_tel_A": 0.5,
+        "probe_B": 30.0,
+        "rho_B": 0.95,
+        "alpha": 0.002
+      }
+    },
+    {
+      "name": "capacity_5_fixedK",
+      "mbps": 5.0,
+      "k": 83,
+      "H": 0.5,
+      "a": 0.05,
+      "eps_over_s": 0.5,
+      "alpha": 0.002,
+      "n_epochs": 4000,
+      "A": {
+        "rho_bar": 0.95,
+        "sigma": 0.16881943016134132,
+        "tau": 10.0,
+        "T_tel": 0.5,
+        "d": 0.1,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "B": {
+        "rho_bar": 0.95,
+        "sigma": 0.16881943016134132,
+        "tau": 10.0,
+        "T_tel": 30.0,
+        "d": 0.1,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "n_flows_min": 31.666666666666668,
+      "axes": {
+        "r_f": 150000.0,
+        "tau": 10.0,
+        "T_tel_A": 0.5,
+        "probe_B": 30.0,
+        "rho_B": 0.95,
+        "alpha": 0.002
+      }
+    },
+    {
+      "name": "capacity_5_fixedBuffer",
+      "mbps": 5.0,
+      "k": 42,
+      "H": 0.5,
+      "a": 0.05,
+      "eps_over_s": 0.5,
+      "alpha": 0.002,
+      "n_epochs": 4000,
+      "A": {
+        "rho_bar": 0.95,
+        "sigma": 0.16881943016134132,
+        "tau": 10.0,
+        "T_tel": 0.5,
+        "d": 0.1,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "B": {
+        "rho_bar": 0.95,
+        "sigma": 0.16881943016134132,
+        "tau": 10.0,
+        "T_tel": 30.0,
+        "d": 0.1,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "n_flows_min": 31.666666666666668,
+      "axes": {
+        "r_f": 150000.0,
+        "tau": 10.0,
+        "T_tel_A": 0.5,
+        "probe_B": 30.0,
+        "rho_B": 0.95,
+        "alpha": 0.002
+      }
+    },
+    {
+      "name": "capacity_2_fixedK",
+      "mbps": 2.0,
+      "k": 83,
+      "H": 0.5,
+      "a": 0.05,
+      "eps_over_s": 0.5,
+      "alpha": 0.002,
+      "n_epochs": 4000,
+      "A": {
+        "rho_bar": 0.95,
+        "sigma": 0.16881943016134132,
+        "tau": 10.0,
+        "T_tel": 0.5,
+        "d": 0.1,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "B": {
+        "rho_bar": 0.95,
+        "sigma": 0.16881943016134132,
+        "tau": 10.0,
+        "T_tel": 30.0,
+        "d": 0.1,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "n_flows_min": 31.666666666666668,
+      "axes": {
+        "r_f": 60000.0,
+        "tau": 10.0,
+        "T_tel_A": 0.5,
+        "probe_B": 30.0,
+        "rho_B": 0.95,
+        "alpha": 0.002
+      }
+    },
+    {
+      "name": "capacity_2_fixedBuffer",
+      "mbps": 2.0,
+      "k": 17,
+      "H": 0.5,
+      "a": 0.05,
+      "eps_over_s": 0.5,
+      "alpha": 0.002,
+      "n_epochs": 4000,
+      "A": {
+        "rho_bar": 0.95,
+        "sigma": 0.16881943016134132,
+        "tau": 10.0,
+        "T_tel": 0.5,
+        "d": 0.1,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "B": {
+        "rho_bar": 0.95,
+        "sigma": 0.16881943016134132,
+        "tau": 10.0,
+        "T_tel": 30.0,
+        "d": 0.1,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "n_flows_min": 31.666666666666668,
+      "axes": {
+        "r_f": 60000.0,
+        "tau": 10.0,
+        "T_tel_A": 0.5,
+        "probe_B": 30.0,
+        "rho_B": 0.95,
+        "alpha": 0.002
+      }
+    },
+    {
+      "name": "capacity_1_fixedK",
+      "mbps": 1.0,
+      "k": 83,
+      "H": 0.5,
+      "a": 0.05,
+      "eps_over_s": 0.5,
+      "alpha": 0.002,
+      "n_epochs": 4000,
+      "A": {
+        "rho_bar": 0.95,
+        "sigma": 0.16881943016134132,
+        "tau": 10.0,
+        "T_tel": 0.5,
+        "d": 0.1,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "B": {
+        "rho_bar": 0.95,
+        "sigma": 0.16881943016134132,
+        "tau": 10.0,
+        "T_tel": 30.0,
+        "d": 0.1,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "n_flows_min": 31.666666666666668,
+      "axes": {
+        "r_f": 30000.0,
+        "tau": 10.0,
+        "T_tel_A": 0.5,
+        "probe_B": 30.0,
+        "rho_B": 0.95,
+        "alpha": 0.002
+      }
+    },
+    {
+      "name": "capacity_1_fixedBuffer",
+      "mbps": 1.0,
+      "k": 8,
+      "H": 0.5,
+      "a": 0.05,
+      "eps_over_s": 0.5,
+      "alpha": 0.002,
+      "n_epochs": 4000,
+      "A": {
+        "rho_bar": 0.95,
+        "sigma": 0.16881943016134132,
+        "tau": 10.0,
+        "T_tel": 0.5,
+        "d": 0.1,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "B": {
+        "rho_bar": 0.95,
+        "sigma": 0.16881943016134132,
+        "tau": 10.0,
+        "T_tel": 30.0,
+        "d": 0.1,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "n_flows_min": 31.666666666666668,
+      "axes": {
+        "r_f": 30000.0,
+        "tau": 10.0,
+        "T_tel_A": 0.5,
+        "probe_B": 30.0,
+        "rho_B": 0.95,
+        "alpha": 0.002
+      }
+    },
+    {
+      "name": "similarity_4",
+      "mbps": 2.5,
+      "k": 83,
+      "H": 2.0,
+      "a": 0.2,
+      "eps_over_s": 0.5,
+      "alpha": 0.002,
+      "n_epochs": 4000,
+      "A": {
+        "rho_bar": 0.95,
+        "sigma": 0.16881943016134132,
+        "tau": 40.0,
+        "T_tel": 2.0,
+        "d": 0.4,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "B": {
+        "rho_bar": 0.95,
+        "sigma": 0.16881943016134132,
+        "tau": 40.0,
+        "T_tel": 120.0,
+        "d": 0.4,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "n_flows_min": 31.666666666666668,
+      "axes": {
+        "r_f": 75000.0,
+        "tau": 40.0,
+        "T_tel_A": 2.0,
+        "probe_B": 120.0,
+        "rho_B": 0.95,
+        "alpha": 0.002
+      }
+    },
+    {
+      "name": "similarity_16",
+      "mbps": 0.625,
+      "k": 83,
+      "H": 8.0,
+      "a": 0.8,
+      "eps_over_s": 0.5,
+      "alpha": 0.002,
+      "n_epochs": 4000,
+      "A": {
+        "rho_bar": 0.95,
+        "sigma": 0.16881943016134132,
+        "tau": 160.0,
+        "T_tel": 8.0,
+        "d": 1.6,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "B": {
+        "rho_bar": 0.95,
+        "sigma": 0.16881943016134132,
+        "tau": 160.0,
+        "T_tel": 480.0,
+        "d": 1.6,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "n_flows_min": 31.666666666666668,
+      "axes": {
+        "r_f": 18750.0,
+        "tau": 160.0,
+        "T_tel_A": 8.0,
+        "probe_B": 480.0,
+        "rho_B": 0.95,
+        "alpha": 0.002
+      }
+    }
+  ],
+  "status": "exploratory, post-selection"
+}

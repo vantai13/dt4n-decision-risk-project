@@ -1,0 +1,11 @@
+[
+  {
+    "name": "buffer_1328",
+    "stage": "screen_extended",
+    "status": "failed_before_metrics",
+    "reason": "M/D/1/K unnormalized weight overflow at large K; DelayCurve strict monotonicity assertion failed",
+    "warnings": ["overflow encountered in scalar divide", "invalid value encountered in divide", "overflow encountered in reduce", "invalid value encountered in dot"],
+    "exception": "AssertionError: T(ρ) phải tăng ngặt để nghịch đảo được",
+    "action": "Retain failure record; do not interpret or select this configuration. Remaining numerical checks run separately."
+  }
+]

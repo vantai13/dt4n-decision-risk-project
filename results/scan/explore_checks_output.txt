@@ -1,0 +1,5 @@
+similarity_16_fixed_eps      matched=+3.2948 ms (1.12%head) OOS=+7.4329 [+0.9100,+13.9558] harmK/SC=0.97/0.69alpha buffer=1606.3 ms probeDropA=0.039 [3.3s]
+base_m069_gh256              matched=+0.6507 ms (3.56%head) OOS=+0.7050 [+0.0845,+1.3255] harmK/SC=0.89/0.84alpha buffer=100.4 ms probeDropA=0.039 [10.4s]
+joint_large_gh256            matched=+13.9957 ms (13.69%head) OOS=+12.9779 [+6.3138,+19.6419] harmK/SC=0.77/0.95alpha buffer=803.2 ms probeDropA=0.010 [21.3s]
+buffer_664_gh256             matched=+5.2606 ms (3.83%head) OOS=+5.7783 [+0.5542,+11.0024] harmK/SC=1.03/0.94alpha buffer=803.2 ms probeDropA=0.028 [29.4s]
+Complete: 4 cells, 29.4s

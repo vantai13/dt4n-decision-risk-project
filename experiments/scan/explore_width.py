@@ -7,6 +7,7 @@ import argparse
 import copy
 import csv
 import hashlib
+import itertools
 import json
 import time
 from pathlib import Path
@@ -92,11 +93,22 @@ def configurations():
         c = copy.deepcopy(cases[src])
         c['name'], c['gh_nodes'] = f'{src}_gh256', 256
         cases[c['name']] = c
+    c = copy.deepcopy(cases['joint_large_gh256'])
+    c['name'], c['n_probe'] = 'joint_large_gh256_probe401', 401
+    cases[c['name']] = c
+    # Complete 2^4 factorial, at original K=83, for interaction-aware attribution.
+    for bits in itertools.product((0, 1), repeat=4):
+        rf, rho, ta, tb = bits
+        add('factor_' + ''.join(map(str, bits)), r_f=600e3 if rf else 300e3,
+            rho_A=.8 if rho else .95, rho_B=.8 if rho else .95,
+            T_tel_A=.1 if ta else .5, probe_B=60. if tb else 30.)
     return cases
 
 
 def raw(seed, cell):
     from experiments.scan import twin
+    from experiments.scan import des_world
+    des_world.N_PROBE = cell.get('n_probe', 101)
     nodes = cell.get('gh_nodes', 64)
     twin.GH_X, twin.GH_W = np.polynomial.hermite.hermgauss(nodes)
     twin.GH_W /= np.sqrt(np.pi)
@@ -189,20 +201,27 @@ def evaluate(cell, cal_seeds, test_seeds, n_boot=0):
 
 def write_csv(path, rows):
     with path.open('w', newline='') as f:
-        w = csv.DictWriter(f, fieldnames=sorted({k for row in rows for k in row}))
+        w = csv.DictWriter(f, fieldnames=sorted({k for row in rows for k in row}), lineterminator='\n')
         w.writeheader()
         w.writerows(rows)
 
 
 def main():
     p = argparse.ArgumentParser()
-    p.add_argument('--stage', choices=['audit', 'screen', 'verify'], required=True)
+    p.add_argument('--stage', choices=['audit', 'screen', 'verify'])
+    p.add_argument('--manifest', type=Path, help='Replay exact saved configs, seeds and bootstrap settings')
     p.add_argument('--names', nargs='*')
     p.add_argument('--bootstrap', type=int, default=0)
     p.add_argument('--label', help='Artifact prefix; preserves earlier adaptive stages')
     args = p.parse_args()
     cases = configurations()
-    if args.stage == 'audit':
+    if args.manifest:
+        saved = json.loads(args.manifest.read_text())
+        args.stage, args.bootstrap = saved['stage'], saved['bootstrap']
+        cases = {c['name']: c for c in saved['configs']}
+        names = list(cases)
+        cal, test = saved['cal_seeds'], saved['test_seeds']
+    elif args.stage == 'audit':
         names = args.names or ['m069', 'm071', 'm085', 'm080', 'm083']
         cal, test = range(30001, 30021), range(20001, 20021)
     elif args.stage == 'screen':
@@ -210,15 +229,17 @@ def main():
         cal, test = range(70001, 70009), range(71001, 71009)
         for c in cases.values():
             c['n_epochs'] = 4000  # screening only; full durations restored in verify
-    else:
+    elif args.stage == 'verify':
         if not args.names:
             p.error('--verify requires an explicitly recorded shortlist via --names')
         names = args.names
         cal, test = range(72001, 72021), range(73001, 73021)
+    else:
+        p.error('provide --stage or --manifest')
     ROOT.mkdir(parents=True, exist_ok=True)
     manifest = {'stage': args.stage, 'cal_seeds': list(cal), 'test_seeds': list(test), 'bootstrap': args.bootstrap,
                 'configs': [cases[n] for n in names], 'status': 'exploratory, post-selection'}
-    label = args.label or args.stage
+    label = args.label or (args.manifest.stem.removesuffix('_manifest') if args.manifest else args.stage)
     (ROOT/f'{label}_manifest.json').write_text(json.dumps(manifest, indent=2))
     rows, seeds, start = [], [], time.time()
     for name in names:

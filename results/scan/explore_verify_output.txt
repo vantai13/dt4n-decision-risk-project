@@ -1,0 +1,12 @@
+base_m069                    matched=+0.9680 ms (5.39%head) OOS=+0.7478 [+0.4779,+1.0178] harmK/SC=1.19/1.54alpha buffer=100.4 ms probeDropA=0.034 [14.0s]
+joint_small                  matched=+1.6512 ms (12.15%head) OOS=+1.6728 [+1.3145,+2.0311] harmK/SC=0.70/0.58alpha buffer=100.4 ms probeDropA=0.016 [27.3s]
+joint_medium                 matched=+6.0748 ms (11.82%head) OOS=+6.3856 [+4.9642,+7.8070] harmK/SC=0.77/0.49alpha buffer=401.6 ms probeDropA=0.012 [39.2s]
+joint_large                  matched=+11.2120 ms (11.85%head) OOS=+11.3332 [+8.5477,+14.1186] harmK/SC=0.76/0.46alpha buffer=803.2 ms probeDropA=0.009 [51.6s]
+joint_large_tau30            matched=+12.5969 ms (13.97%head) OOS=+13.4111 [+9.4988,+17.3234] harmK/SC=1.13/1.03alpha buffer=803.2 ms probeDropA=0.013 [68.9s]
+joint_large_gh256            matched=+11.4099 ms (12.06%head) OOS=+10.9185 [+8.3414,+13.4956] harmK/SC=0.70/0.41alpha buffer=803.2 ms probeDropA=0.009 [83.9s]
+buffer_664                   matched=+8.0844 ms (5.82%head) OOS=+7.5522 [+5.9911,+9.1134] harmK/SC=1.21/1.69alpha buffer=803.2 ms probeDropA=0.024 [93.4s]
+quietB                       matched=+2.0929 ms (16.79%head) OOS=+1.7644 [+1.3672,+2.1615] harmK/SC=0.86/1.00alpha buffer=100.4 ms probeDropA=0.034 [104.1s]
+capacity_1_fixedK            matched=+2.6085 ms (1.43%head) OOS=+3.1018 [+2.0079,+4.1958] harmK/SC=0.99/0.84alpha buffer=1004.0 ms probeDropA=0.025 [112.4s]
+similarity_16                matched=+15.4873 ms (5.39%head) OOS=+11.9655 [+7.6456,+16.2854] harmK/SC=1.19/1.54alpha buffer=1606.3 ms probeDropA=0.034 [124.8s]
+similarity_16_fixed_eps      matched=+9.2590 ms (3.21%head) OOS=+4.0786 [+0.7969,+7.3603] harmK/SC=1.09/1.56alpha buffer=1606.3 ms probeDropA=0.034 [136.0s]
+Complete: 11 cells, 136.0s

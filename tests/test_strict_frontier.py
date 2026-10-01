@@ -38,3 +38,24 @@ def test_disagreement_decomposition():
              Iplug=np.array([2., 3., 1., -1.]), pdn=np.array([.01, .2, .4, .5]))
     r = matched(o, .25, .5)
     assert abs(r['width_ms'] - (r['k2_only_rate']*r['k2_only_mean_ms'] - r['sc_only_rate']*r['sc_only_mean_ms'])) < 1e-12
+
+
+def test_physical_time_similarity_of_des():
+    from copy import deepcopy
+    from experiments.scan.des_world import simulate_world_des
+    from experiments.scan.grid import make_cell
+    c = make_cell('test', r_f=300e3, tau=10., T_tel_A=.5, probe_B=30., rho_B=.95, alpha=.002)
+    c['n_epochs'] = 100
+    scaled = deepcopy(c)
+    q = 4.
+    scaled['mbps'] /= q
+    scaled['H'] *= q
+    scaled['a'] *= q
+    for path in ('A', 'B'):
+        for key in ('tau', 'T_tel', 'd', 'stall_mean'):
+            scaled[path][key] *= q
+    w, ws = simulate_world_des(8, c), simulate_world_des(8, scaled)
+    for path in ('A', 'B'):
+        np.testing.assert_allclose(ws[path]['D_des'], q*w[path]['D_des'], rtol=1e-10, atol=1e-9)
+        np.testing.assert_allclose(ws[path]['rhohat'], w[path]['rhohat'], rtol=1e-12)
+        np.testing.assert_allclose(ws[path]['age'], q*w[path]['age'], rtol=1e-12)

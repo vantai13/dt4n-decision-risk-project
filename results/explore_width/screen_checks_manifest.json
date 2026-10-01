@@ -1,0 +1,178 @@
+{
+  "stage": "screen",
+  "cal_seeds": [
+    70001,
+    70002,
+    70003,
+    70004,
+    70005,
+    70006,
+    70007,
+    70008
+  ],
+  "test_seeds": [
+    71001,
+    71002,
+    71003,
+    71004,
+    71005,
+    71006,
+    71007,
+    71008
+  ],
+  "bootstrap": 0,
+  "configs": [
+    {
+      "name": "similarity_16_fixed_eps",
+      "mbps": 0.625,
+      "k": 83,
+      "H": 8.0,
+      "a": 0.8,
+      "eps_over_s": 0.03125,
+      "alpha": 0.002,
+      "n_epochs": 4000,
+      "A": {
+        "rho_bar": 0.95,
+        "sigma": 0.16881943016134132,
+        "tau": 160.0,
+        "T_tel": 8.0,
+        "d": 1.6,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "B": {
+        "rho_bar": 0.95,
+        "sigma": 0.16881943016134132,
+        "tau": 160.0,
+        "T_tel": 480.0,
+        "d": 1.6,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "n_flows_min": 31.666666666666668,
+      "axes": {
+        "r_f": 18750.0,
+        "tau": 160.0,
+        "T_tel_A": 8.0,
+        "probe_B": 480.0,
+        "rho_B": 0.95,
+        "alpha": 0.002
+      }
+    },
+    {
+      "name": "base_m069_gh256",
+      "mbps": 10,
+      "k": 83,
+      "H": 0.5,
+      "a": 0.05,
+      "eps_over_s": 0.5,
+      "alpha": 0.002,
+      "n_epochs": 4000,
+      "A": {
+        "rho_bar": 0.95,
+        "sigma": 0.16881943016134132,
+        "tau": 10.0,
+        "T_tel": 0.5,
+        "d": 0.1,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "B": {
+        "rho_bar": 0.95,
+        "sigma": 0.16881943016134132,
+        "tau": 10.0,
+        "T_tel": 30.0,
+        "d": 0.1,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "n_flows_min": 31.666666666666668,
+      "axes": {
+        "r_f": 300000.0,
+        "tau": 10.0,
+        "T_tel_A": 0.5,
+        "probe_B": 30.0,
+        "rho_B": 0.95,
+        "alpha": 0.002
+      },
+      "gh_nodes": 256
+    },
+    {
+      "name": "joint_large_gh256",
+      "mbps": 10,
+      "k": 664,
+      "H": 0.5,
+      "a": 0.05,
+      "eps_over_s": 0.5,
+      "alpha": 0.002,
+      "n_epochs": 4000,
+      "A": {
+        "rho_bar": 0.8,
+        "sigma": 0.21908902300206645,
+        "tau": 10.0,
+        "T_tel": 0.1,
+        "d": 0.1,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "B": {
+        "rho_bar": 0.8,
+        "sigma": 0.21908902300206645,
+        "tau": 10.0,
+        "T_tel": 60.0,
+        "d": 0.1,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "n_flows_min": 13.333333333333334,
+      "axes": {
+        "r_f": 600000.0,
+        "tau": 10.0,
+        "T_tel_A": 0.1,
+        "probe_B": 60.0,
+        "rho_B": 0.8,
+        "alpha": 0.002
+      },
+      "gh_nodes": 256
+    },
+    {
+      "name": "buffer_664_gh256",
+      "mbps": 10,
+      "k": 664,
+      "H": 0.5,
+      "a": 0.05,
+      "eps_over_s": 0.5,
+      "alpha": 0.002,
+      "n_epochs": 4000,
+      "A": {
+        "rho_bar": 0.95,
+        "sigma": 0.16881943016134132,
+        "tau": 10.0,
+        "T_tel": 0.5,
+        "d": 0.1,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "B": {
+        "rho_bar": 0.95,
+        "sigma": 0.16881943016134132,
+        "tau": 10.0,
+        "T_tel": 30.0,
+        "d": 0.1,
+        "stall_p": 0.0,
+        "stall_mean": 0.0
+      },
+      "n_flows_min": 31.666666666666668,
+      "axes": {
+        "r_f": 300000.0,
+        "tau": 10.0,
+        "T_tel_A": 0.5,
+        "probe_B": 30.0,
+        "rho_B": 0.95,
+        "alpha": 0.002
+      },
+      "gh_nodes": 256
+    }
+  ],
+  "status": "exploratory, post-selection"
+}

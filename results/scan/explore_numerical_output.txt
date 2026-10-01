@@ -1,0 +1,2 @@
+joint_large_gh256_probe401   matched=+11.5260 ms (12.18%head) OOS=+10.9736 [+8.4047,+13.5426] harmK/SC=0.66/0.41alpha buffer=803.2 ms probeDropA=0.009 [33.0s]
+Complete: 1 cells, 33.0s
