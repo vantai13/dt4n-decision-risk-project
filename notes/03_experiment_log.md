@@ -626,3 +626,39 @@ Mẫu cho mỗi thí nghiệm (copy khối dưới):
   sandbox — chỉ phần báo, không đổi cổng, estimand, tiêu chí, seed. Trợ lý **KHÔNG chạy outcome**.
 - **Tiếp theo (thứ tự khoá):** anchor (commit) → validity (commit + F8 §1 + §2C) → outcome (commit).
 - **Provenance:** Claude (AI) viết code và test; tác giả đọc từng hàm và chạy chính thức.
+
+## 2026-10-01 — Closed-loop rollout v2–v4 · TÁI LẬP POST HOC
+
+- **Provenance bắt buộc:** Claude đã chạy các script trước trong sandbox trên
+  `main` = `7c60c76`, số đã có trong attachment người dùng. Codex hiện thực và
+  chạy lại tại repo; đây không phải lần kiểm định xác nhận chưa biết kết quả.
+- **Thiết kế hậu nghiệm:** R3/outage được Claude thiết kế SAU KHI thấy R1.
+  Không đổi SESOI / phán quyết VoIP đã đăng ký trước.
+- **Seed đã dùng:** calibration 86001–86020; test v2/v3 87001–87020;
+  test v4 89001–89020. Cả ba dải đã chạy trong sandbox trước lần tái lập này.
+- **Đã làm:** ba script v2 → v3 → v4 theo code cung cấp, luật tự lái đường,
+  hold-down thật; v3 tách horizon twin khỏi nhịp quyết định 1 s; v4 thêm bảng
+  24 ngưỡng. Bổ sung CSV từng seed/threshold, calibration K2 và harm SCtab24,
+  không đổi thuật toán tune. v4 bị ngắt sau R1/R3, rồi chạy tiếp riêng R3B
+  bằng `--world R3_outageB --append`; không chạy lại hay bỏ seed.
+- **Kết quả v2:** R1 α=0,2%, không hold-down: SC − K2 +1,334 ms,
+  S0dir − K2 +0,348 ms; khoảng 74% chênh với SC bị baseline hai chiều hấp thụ.
+- **Kết quả v3:** horizon khớp hold-down, R1 baseline − K2 −0,112 ms (30 s)
+  và −0,464 ms (60 s), CI chứa 0. R3/R3B vẫn có lợi thế so bảng 8 ngưỡng.
+- **Kết quả v4:** SCtab − K2 R1 −0,144 [−0,584; +0,295],
+  R3 +0,602 [+0,271; +0,933] ms (13,44%),
+  R3B +0,338 [+0,172; +0,504] ms (8,32%).
+  SCtab24 − K2 R3 +0,121 [−0,069; +0,312] (3,04%),
+  R3B +0,148 [−0,086; +0,383] (3,82%): chưa phân giải lợi thế so bảng 24.
+- **Đối chiếu:** 9/9 trung bình v4 khớp attachment ở 0,01 ms, 8/9 dòng
+  khớp cả CI làm tròn. Cận dưới R3B/S0dir thực 0,364524 ms so với 0,37
+  trong attachment, lệch 0,005476 ms; không thay kết luận. Không ép số khớp.
+- **Kiểm:** 110/110 test đạt; 29 cấu hình, 7.080 dòng seed, mỗi split 20 seed;
+  harm SCtab24 cal/test đều dưới α=0,2% (max 0,1250%). CI t ghép cặp theo
+  seed, chưa điều chỉnh đa so sánh; harm chấm từng giây, không tích luỹ 30 s.
+- **Tệp:** `results/go_test/rollout_v{2,3,4}_output.txt`,
+  `rollout_v{2,3,4}_seeds.csv`, `rollout_summary.csv`, `rollout_comparisons.csv`,
+  `rollout_manifest.json`, `rollout_reproduction_report.md`.
+  Thuyết minh phạm vi: `notes/map/rollout_reproduction.md`.
+- **Tiếp theo:** chưa chạy dịch chế độ/calibration {2,5,20}; bước đó cần
+  protocol mới và seed chưa dùng. Chưa chứng minh hiệu quả dữ liệu hay novelty.

@@ -1,0 +1,46 @@
+{
+  "base_commit": "7c60c76",
+  "classification": "POST HOC reproduction",
+  "calibration_seeds": [
+    86001,
+    86020
+  ],
+  "test_v2_v3_seeds": [
+    87001,
+    87020
+  ],
+  "test_v4_seeds": [
+    89001,
+    89020
+  ],
+  "all_seeds_previously_used_in_claude_sandbox": true,
+  "r3_designed_after_r1_results": true,
+  "v4_matches_attachment_rounding": false,
+  "seed_rows": 7080,
+  "settings": 29,
+  "python": "3.14.5",
+  "numpy": "2.5.3",
+  "scipy": "1.18.1",
+  "numba": "0.67.0",
+  "ci": "paired seed-level t 95%, unadjusted exploratory comparisons",
+  "sc_tab24_tuning": "delay-only coordinate descent; harm audited, not constrained",
+  "sha256": {
+    "experiments/scan/rollout_v2.py": "edf14de52283533663bcdf0c13d98438aac629481b2055b79608d9ac46eadb31",
+    "experiments/scan/rollout_v3.py": "7f410b8c1de8a4f31cc3d263dfda32ad81b4c9fec3661da42cb8064ac6ee4124",
+    "experiments/scan/rollout_v4.py": "3706129cc9b028da7b254fccf9f7ed272cd8e8a388e89acccf29b470e07d2423",
+    "results/go_test/rollout_v2_output.txt": "5a7ec0b7cc4b4dfe6f096b1314345914a14995dd9a69ba009a99f1ab0668a9af",
+    "results/go_test/rollout_v2_seeds.csv": "172f4e97bc2e9875031981609ff57b1d4cf0df1bc10d0795d2081b062404932c",
+    "results/go_test/rollout_v3_output.txt": "2815f4f7e2a3aab0ad36799b98d4446f8bc12f677562b4a505c158b0e086f2f3",
+    "results/go_test/rollout_v3_seeds.csv": "f82983b6f5b24a83dc9468fceaec18a9feccf7b133efe36bfdd65e7fc56ec201",
+    "results/go_test/rollout_v4_output.txt": "004dd1baf68d32a96944aeb02285149529e7da68270beed028f080fc7d3972d0",
+    "results/go_test/rollout_v4_seeds.csv": "a233fe9d91888414534503a74e409bbd723c078639135c5e145680f3b10c5228"
+  },
+  "changes_to_supplied_code": [
+    "correct used-seed labels",
+    "export seed-level calibration/test CSV",
+    "audit SCtab24 harm",
+    "print K2 calibration",
+    "v4 world selection/append for interrupted run"
+  ],
+  "run_interruption": "v4 completed R1 and R3, then resumed R3B with --world R3_outageB --append"
+}

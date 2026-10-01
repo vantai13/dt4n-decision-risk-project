@@ -1,0 +1,24 @@
+
+######## R1_dualISP | hold-down 30 s, twin H_tw = 30 s | test seed tái lập 89001–89020 | 29 s
+  delay TB test: S0 6.32 SC 5.14 S0dir 4.58 SCdir 4.64 SCtab 4.62 K2 4.77 SCtab24 4.55
+  calibration (trong mẫu): SCtab 4.333 → SCtab24 4.176 ms
+  calibration K2 4.699 ms | SCtab24 harm cal/test 0.1250%/0.1217% (α 0.2%)
+  S0dir    − K2 = -0.189 [-0.665; +0.288] ms  (-4.1%)
+  SCtab    − K2 = -0.144 [-0.584; +0.295] ms  (-3.1%)
+  SCtab24  − K2 = -0.222 [-0.671; +0.227] ms  (-4.9%)
+
+######## R3_outage | hold-down 30 s, twin H_tw = 30 s | test seed tái lập 89001–89020 | 56 s
+  delay TB test: S0 4.91 SC 4.51 S0dir 4.94 SCdir 4.69 SCtab 4.48 K2 3.88 SCtab24 4.00
+  calibration (trong mẫu): SCtab 4.325 → SCtab24 3.709 ms
+  calibration K2 3.949 ms | SCtab24 harm cal/test 0.0133%/0.0117% (α 0.2%)
+  S0dir    − K2 = +1.060 [+0.724; +1.397] ms  (+21.5%)
+  SCtab    − K2 = +0.602 [+0.271; +0.933] ms  (+13.4%)
+  SCtab24  − K2 = +0.121 [-0.069; +0.312] ms  (+3.0%)
+
+######## R3_outageB | hold-down 30 s, twin H_tw = 30 s | test seed tái lập 89001–89020 | 30 s
+  delay TB test: S0 4.65 SC 4.37 S0dir 4.33 SCdir 4.08 SCtab 4.07 K2 3.73 SCtab24 3.88
+  calibration (trong mẫu): SCtab 3.784 → SCtab24 3.502 ms
+  calibration K2 3.598 ms | SCtab24 harm cal/test 0.0092%/0.0100% (α 0.2%)
+  S0dir    − K2 = +0.598 [+0.365; +0.832] ms  (+13.8%)
+  SCtab    − K2 = +0.338 [+0.172; +0.504] ms  (+8.3%)
+  SCtab24  − K2 = +0.148 [-0.086; +0.383] ms  (+3.8%)

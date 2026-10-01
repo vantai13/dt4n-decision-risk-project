@@ -1,0 +1,40 @@
+
+######## R1_dualISP | 30 s | tuổi bản tin: TB 15.4 s, p95 54.1 s, P(>10 s) 41.8%
+  α=0.2% hold-down  0 s | delay TB S0 6.55 SC 4.89 S0dir 3.91 SCdir 4.03 SCtab 4.05 K2 3.56 | harm% 0.18/0.20/0.17/0.18/0.22/0.19 | đổi/phút 0.42/0.48/0.53/0.46/0.53/0.79
+      SC − K2 = +1.334 [+0.967; +1.701] ms | baseline mạnh nhất (chọn trên cal) = S0dir: S0dir − K2 = +0.348 [+0.095; +0.601] ms
+  α=0.2% hold-down 30 s | delay TB S0 6.06 SC 5.03 S0dir 4.26 SCdir 4.58 SCtab 4.60 K2 4.09 | harm% 0.07/0.13/0.06/0.20/0.19/0.03 | đổi/phút 0.36/0.45/0.34/0.42/0.43/0.43
+      SC − K2 = +0.937 [+0.558; +1.317] ms | baseline mạnh nhất (chọn trên cal) = S0dir: S0dir − K2 = +0.172 [-0.130; +0.473] ms
+  α=1.0% hold-down  0 s | delay TB S0 5.81 SC 4.19 S0dir 3.85 SCdir 3.18 SCtab 3.16 K2 3.22 | harm% 0.23/0.39/0.23/0.97/0.99/1.06 | đổi/phút 0.59/0.81/0.65/1.45/1.68/2.03
+      SC − K2 = +0.971 [+0.759; +1.183] ms | baseline mạnh nhất (chọn trên cal) = SCtab: SCtab − K2 = -0.061 [-0.158; +0.035] ms
+  α=1.0% hold-down 30 s | delay TB S0 5.70 SC 5.03 S0dir 4.26 SCdir 4.58 SCtab 4.60 K2 4.09 | harm% 0.22/0.13/0.06/0.20/0.19/0.03 | đổi/phút 0.98/0.45/0.34/0.42/0.43/0.43
+      SC − K2 = +0.937 [+0.558; +1.317] ms | baseline mạnh nhất (chọn trên cal) = S0dir: S0dir − K2 = +0.172 [-0.130; +0.473] ms
+
+######## R2_bb_LTE | 59 s | tuổi bản tin: TB 15.4 s, p95 54.1 s, P(>10 s) 41.8%
+  α=0.2% hold-down  0 s | delay TB S0 2.95 SC 2.90 S0dir 2.61 SCdir 2.85 SCtab 2.77 K2 2.58 | harm% 0.13/0.21/0.19/0.11/0.15/0.12 | đổi/phút 0.65/0.67/0.82/0.48/0.58/0.86
+      SC − K2 = +0.319 [+0.168; +0.470] ms | baseline mạnh nhất (chọn trên cal) = S0dir: S0dir − K2 = +0.031 [-0.058; +0.119] ms
+  α=0.2% hold-down 30 s | delay TB S0 3.11 SC 3.24 S0dir 3.09 SCdir 3.25 SCtab 3.25 K2 2.96 | harm% 0.06/0.06/0.02/0.06/0.05/0.05 | đổi/phút 0.46/0.41/0.34/0.40/0.40/0.60
+      SC − K2 = +0.275 [+0.036; +0.513] ms | baseline mạnh nhất (chọn trên cal) = S0dir: S0dir − K2 = +0.124 [-0.231; +0.479] ms
+  α=1.0% hold-down  0 s | delay TB S0 2.95 SC 2.79 S0dir 2.61 SCdir 2.63 SCtab 2.62 K2 2.56 | harm% 0.13/0.24/0.19/0.74/0.84/0.86 | đổi/phút 0.65/0.81/0.82/1.67/2.17/2.54
+      SC − K2 = +0.232 [+0.082; +0.382] ms | baseline mạnh nhất (chọn trên cal) = SCtab: SCtab − K2 = +0.062 [+0.007; +0.117] ms
+  α=1.0% hold-down 30 s | delay TB S0 3.11 SC 3.24 S0dir 3.09 SCdir 3.25 SCtab 3.25 K2 2.96 | harm% 0.06/0.06/0.02/0.06/0.05/0.05 | đổi/phút 0.46/0.41/0.34/0.40/0.40/0.60
+      SC − K2 = +0.275 [+0.036; +0.513] ms | baseline mạnh nhất (chọn trên cal) = S0dir: S0dir − K2 = +0.124 [-0.231; +0.479] ms
+
+######## R3_outage | 90 s | tuổi bản tin: TB 8.9 s, p95 56.9 s, P(>10 s) 16.7%
+  α=0.2% hold-down  0 s | delay TB S0 3.98 SC 3.81 S0dir 3.92 SCdir 3.87 SCtab 3.58 K2 3.32 | harm% 0.10/0.13/0.12/0.10/0.14/0.06 | đổi/phút 0.39/0.48/0.46/0.42/0.52/1.81
+      SC − K2 = +0.497 [+0.192; +0.803] ms | baseline mạnh nhất (chọn trên cal) = SCtab: SCtab − K2 = +0.264 [-0.008; +0.537] ms
+  α=0.2% hold-down 30 s | delay TB S0 4.65 SC 4.52 S0dir 4.61 SCdir 4.53 SCtab 4.52 K2 3.94 | harm% 0.04/0.03/0.03/0.03/0.03/0.01 | đổi/phút 0.27/0.25/0.24/0.28/0.26/0.53
+      SC − K2 = +0.577 [+0.155; +1.000] ms | baseline mạnh nhất (chọn trên cal) = SCtab: SCtab − K2 = +0.585 [+0.234; +0.935] ms
+  α=1.0% hold-down  0 s | delay TB S0 3.39 SC 3.14 S0dir 3.39 SCdir 3.14 SCtab 3.11 K2 3.06 | harm% 0.73/0.45/0.73/0.62/0.75/0.39 | đổi/phút 4.33/1.11/4.33/1.59/3.89/2.86
+      SC − K2 = +0.075 [-0.001; +0.150] ms | baseline mạnh nhất (chọn trên cal) = SCtab: SCtab − K2 = +0.049 [-0.046; +0.144] ms
+  α=1.0% hold-down 30 s | delay TB S0 4.65 SC 4.52 S0dir 4.61 SCdir 4.53 SCtab 4.52 K2 3.94 | harm% 0.04/0.03/0.03/0.03/0.03/0.01 | đổi/phút 0.27/0.25/0.24/0.28/0.26/0.53
+      SC − K2 = +0.577 [+0.155; +1.000] ms | baseline mạnh nhất (chọn trên cal) = SCtab: SCtab − K2 = +0.585 [+0.234; +0.935] ms
+
+######## R3_outageB | 121 s | tuổi bản tin: TB 4.9 s, p95 30.9 s, P(>10 s) 8.6%
+  α=0.2% hold-down  0 s | delay TB S0 3.56 SC 3.34 S0dir 3.42 SCdir 3.21 SCtab 3.14 K2 2.95 | harm% 0.12/0.12/0.13/0.15/0.15/0.10 | đổi/phút 0.47/0.49/0.50/0.54/0.55/2.20
+      SC − K2 = +0.386 [+0.217; +0.555] ms | baseline mạnh nhất (chọn trên cal) = SCtab: SCtab − K2 = +0.193 [+0.074; +0.313] ms
+  α=0.2% hold-down 30 s | delay TB S0 4.28 SC 4.14 S0dir 4.29 SCdir 4.05 SCtab 4.09 K2 3.61 | harm% 0.04/0.05/0.05/0.04/0.04/0.00 | đổi/phút 0.28/0.33/0.37/0.31/0.32/0.47
+      SC − K2 = +0.534 [+0.257; +0.810] ms | baseline mạnh nhất (chọn trên cal) = SCtab: SCtab − K2 = +0.489 [+0.187; +0.790] ms
+  α=1.0% hold-down  0 s | delay TB S0 3.14 SC 2.96 S0dir 3.11 SCdir 2.96 SCtab 2.90 K2 2.92 | harm% 0.75/0.48/0.39/0.63/0.75/0.26 | đổi/phút 4.68/1.20/1.33/1.67/4.40/2.80
+      SC − K2 = +0.040 [+0.004; +0.076] ms | baseline mạnh nhất (chọn trên cal) = SCtab: SCtab − K2 = -0.018 [-0.063; +0.028] ms
+  α=1.0% hold-down 30 s | delay TB S0 4.28 SC 4.14 S0dir 4.29 SCdir 4.05 SCtab 4.09 K2 3.61 | harm% 0.04/0.05/0.05/0.04/0.04/0.00 | đổi/phút 0.28/0.33/0.37/0.31/0.32/0.47
+      SC − K2 = +0.534 [+0.257; +0.810] ms | baseline mạnh nhất (chọn trên cal) = SCtab: SCtab − K2 = +0.489 [+0.187; +0.790] ms

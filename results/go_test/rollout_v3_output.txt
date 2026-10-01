@@ -1,0 +1,30 @@
+
+######## R1_dualISP | hold-down 30 s | α 0.2% | 23 s
+  twin H_tw =  1 s | delay TB S0 6.06 SC 5.03 S0dir 4.26 SCdir 4.58 SCtab 4.60 K2 4.09 | đổi/phút 0.36/0.45/0.34/0.42/0.43/0.43 | harm% 0.07/0.13/0.06/0.20/0.19/0.03
+      baseline mạnh nhất trên cal = S0dir: S0dir − K2 = +0.172 [-0.130; +0.473] ms (+4.0% delay của baseline)
+  twin H_tw = 30 s | delay TB S0 6.06 SC 5.17 S0dir 4.26 SCdir 4.34 SCtab 4.34 K2 4.46 | đổi/phút 0.36/0.45/0.34/0.42/0.44/0.49 | harm% 0.07/0.09/0.06/0.14/0.15/0.05
+      baseline mạnh nhất trên cal = SCtab: SCtab − K2 = -0.112 [-0.630; +0.406] ms (-2.6% delay của baseline)
+
+######## R3_outage | hold-down 30 s | α 0.2% | 55 s
+  twin H_tw =  1 s | delay TB S0 4.65 SC 4.52 S0dir 4.61 SCdir 4.53 SCtab 4.52 K2 3.94 | đổi/phút 0.27/0.25/0.24/0.28/0.26/0.53 | harm% 0.04/0.03/0.03/0.03/0.03/0.01
+      baseline mạnh nhất trên cal = SCtab: SCtab − K2 = +0.585 [+0.234; +0.935] ms (+12.9% delay của baseline)
+  twin H_tw = 30 s | delay TB S0 4.65 SC 4.24 S0dir 4.61 SCdir 4.32 SCtab 4.36 K2 3.90 | đổi/phút 0.27/0.23/0.24/0.28/0.26/0.41 | harm% 0.04/0.01/0.03/0.01/0.02/0.00
+      baseline mạnh nhất trên cal = SCtab: SCtab − K2 = +0.457 [+0.151; +0.762] ms (+10.5% delay của baseline)
+
+######## R3_outageB | hold-down 30 s | α 0.2% | 85 s
+  twin H_tw =  1 s | delay TB S0 4.28 SC 4.14 S0dir 4.29 SCdir 4.05 SCtab 4.09 K2 3.61 | đổi/phút 0.28/0.33/0.37/0.31/0.32/0.47 | harm% 0.04/0.05/0.05/0.04/0.04/0.00
+      baseline mạnh nhất trên cal = SCtab: SCtab − K2 = +0.489 [+0.187; +0.790] ms (+11.9% delay của baseline)
+  twin H_tw = 30 s | delay TB S0 4.28 SC 4.02 S0dir 4.29 SCdir 3.93 SCtab 3.99 K2 3.63 | đổi/phút 0.28/0.35/0.37/0.37/0.38/0.43 | harm% 0.04/0.02/0.05/0.04/0.04/0.00
+      baseline mạnh nhất trên cal = SCtab: SCtab − K2 = +0.353 [+0.082; +0.623] ms (+8.9% delay của baseline)
+
+######## R1_dualISP | hold-down 60 s | α 0.2% | 94 s
+  twin H_tw =  1 s | delay TB S0 6.64 SC 5.67 S0dir 4.86 SCdir 5.06 SCtab 5.06 K2 4.66 | đổi/phút 0.63/0.34/0.23/0.24/0.23/0.31 | harm% 0.12/0.07/0.02/0.04/0.03/0.02
+      baseline mạnh nhất trên cal = S0dir: S0dir − K2 = +0.198 [-0.287; +0.683] ms (+4.1% delay của baseline)
+  twin H_tw = 60 s | delay TB S0 6.64 SC 5.78 S0dir 4.86 SCdir 4.69 SCtab 4.80 K2 5.27 | đổi/phút 0.63/0.37/0.23/0.29/0.29/0.36 | harm% 0.12/0.05/0.02/0.06/0.06/0.03
+      baseline mạnh nhất trên cal = SCtab: SCtab − K2 = -0.464 [-1.048; +0.120] ms (-9.7% delay của baseline)
+
+######## R3_outage | hold-down 60 s | α 0.2% | 102 s
+  twin H_tw =  1 s | delay TB S0 5.22 SC 5.08 S0dir 5.18 SCdir 4.98 SCtab 5.37 K2 4.69 | đổi/phút 0.16/0.16/0.18/0.17/0.18/0.29 | harm% 0.00/0.00/0.01/0.00/0.01/0.00
+      baseline mạnh nhất trên cal = SCtab: SCtab − K2 = +0.685 [+0.276; +1.095] ms (+12.8% delay của baseline)
+  twin H_tw = 60 s | delay TB S0 5.22 SC 4.92 S0dir 5.18 SCdir 4.95 SCtab 5.15 K2 4.49 | đổi/phút 0.16/0.21/0.18/0.21/0.22/0.31 | harm% 0.00/0.00/0.01/0.00/0.01/0.00
+      baseline mạnh nhất trên cal = SCtab: SCtab − K2 = +0.661 [+0.176; +1.146] ms (+12.8% delay của baseline)
