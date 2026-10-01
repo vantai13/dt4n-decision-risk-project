@@ -1,0 +1,8 @@
+bố trí luồng đang ở  tuổi TB A  tuổi TB B  thấy  mong đợi
+FIX    A                1.00 s    30.25 s  TC    TC
+FIX    B                1.00 s    30.25 s  TC    TC
+SYM    A                1.00 s     0.17 s  TT    TT
+SYM    B                1.00 s     0.17 s  TT    TT
+FF     A                1.00 s    30.25 s  TC    TC
+FF     B               30.04 s     0.17 s  CT    CT
+=> V6 nối dây: ĐẠT

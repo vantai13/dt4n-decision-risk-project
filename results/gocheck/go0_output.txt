@@ -1,0 +1,24 @@
+R1 · seed 'go0' · mô phỏng xong sau 28 s
+Thang đo (test): luôn ở A = 14.633 ms · oracle nhìn trước = 2.255 ms (cận dưới KHÔNG đạt được; chỉ để biết trần lợi ích)
+
+--- cooldown  0 s · α = 0.002 ---
+  SC: delay TB  5.214 ms · harm 0.78·α ·   6.7 lần đổi/1000 epoch
+  K2: delay TB  3.561 ms · harm 0.82·α ·  12.4 lần đổi/1000 epoch
+  delay(SC) − delay(K2) = +1.652 [+1.225, +2.080] ms   (dương = K2 tốt hơn)
+
+--- cooldown  0 s · α = 0.01 ---
+  SC: delay TB  3.176 ms · harm 0.93·α ·  26.2 lần đổi/1000 epoch
+  K2: delay TB  3.170 ms · harm 0.95·α ·  31.4 lần đổi/1000 epoch
+  delay(SC) − delay(K2) = +0.006 [-0.044, +0.056] ms   (dương = K2 tốt hơn)
+
+--- cooldown 30 s · α = 0.002 ---
+  SC: delay TB  4.792 ms · harm 0.87·α ·   8.7 lần đổi/1000 epoch
+  K2: delay TB  4.240 ms · harm 0.17·α ·   6.5 lần đổi/1000 epoch
+  delay(SC) − delay(K2) = +0.552 [+0.124, +0.981] ms   (dương = K2 tốt hơn)
+
+--- cooldown 30 s · α = 0.01 ---
+  SC: delay TB  4.792 ms · harm 0.17·α ·   8.7 lần đổi/1000 epoch
+  K2: delay TB  4.240 ms · harm 0.03·α ·   6.5 lần đổi/1000 epoch
+  delay(SC) − delay(K2) = +0.552 [+0.124, +0.981] ms   (dương = K2 tốt hơn)
+
+(70 s)

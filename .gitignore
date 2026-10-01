@@ -9,6 +9,7 @@ __pycache__/
 results/raw/
 results/**/*.npy
 results/**/*.npz
+results/gocheck/raw/
 
 # plan cá nhân — không public (quyết định Phase 0)
 notes/private/

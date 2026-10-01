@@ -546,5 +546,34 @@ D14 hết hiệu lực: đồ án có GVHD nhận xét trực tiếp; AI chỉ l
   · (c′) bản đồ cơ chế: ứng viên, bằng chứng yếu.
   · Gate/luật (RQ2 cũ) trùng một phần OpenTwin, LEC, CERT, Almohammedi; H3 cũ có tiền lệ V–K 1997 §V.
   Lật sang PIVOT nếu tìm được bài đã tách kênh độ rộng biến thiên khỏi kênh tâm/mức cho quyết định đổi/giữ.
+
+### Đính chính 2026-10-01 — dịch SESOI sang rollout (GO-check)
+
+- Theo hướng dẫn tiếp nối do tác giả cung cấp, giữ ứng dụng VoIP và SESOI
+  L1.5: m = 8,1 ms, r = 10%, cùng quy tắc CI đã khóa.
+- Với estimand delay luồng tự đi quỹ đạo, chọn
+  headroom_rollout = delay(SC) − delay(oracle nhìn trước).
+  Lý do: đây là dư địa baseline SC còn bỏ lại, phù hợp câu hỏi cải thiện SC;
+  lựa chọn do đổi estimand, không do thử các định nghĩa để chọn kết quả tốt hơn.
+- Oracle nhìn trước là cận dưới không triển khai được. Quy tắc không đổi
+  oracle cùng thông tin trong protocol nghiên cứu khác.
+- Đã thấy kết quả go0 trước khi ghi bản dịch này; ghi rõ đây là đính chính
+  trước seed fresh riêng 92001/93001, không tiền đăng ký hồi tố go0.
+- Dự đoán tác giả còn trống; chưa khóa/chạy fresh hay outcome FIX/SYM/FF.
+
+### Đính chính 2026-10-01 — nhập hồ sơ sandbox và tái lập GO-check
+
+1. Lệch NT-1 trong hồ sơ sandbox: dự đoán do Claude viết, không phải tác giả.
+   Theo tài liệu người dùng cung cấp, khóa ở commit 1a66a24 trước khi chạy.
+   Commit sandbox không có trong repo local; không xác nhận giờ/múi giờ từ Git.
+   Lưu nguyên văn dự đoán tại notes/gocheck/PREDICTIONS_claude.md.
+   Outcome sandbox đã được cung cấp trước tái lập local, nên dải 92/93 và
+   94/95 không còn là xác nhận mù đối với lượt này.
+2. Thiết kế FF do Claude cung cấp dùng luồng slow khi rời path và bỏ qua
+   telemetry fast vừa biết. Đây là mô hình không nhớ số đo vừa rời, hạn chế
+   đối với kết luận đo thụ động thật. Giữ nguyên để tái lập; hai script hậu
+   kiểm chỉ kiểm chẩn đoán, không chứng minh nhân quả của cơ chế ping-pong.
+   Nếu tiếp tục FF có trí nhớ, cần protocol và dải seed mới.
+3. DP0 đang chờ họp GVHD. Không tự chọn NARROW/PIVOT hoặc đổi metric VoIP.
 - Đính chính kèm: MPTCP "stale" sai nghĩa; Cisco AAR mặc định đo mọi tunnel như nhau ⇒ tiền đề F7a cần nguồn mới
   (không ảnh hưởng F7b).

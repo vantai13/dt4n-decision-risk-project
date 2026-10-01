@@ -1,0 +1,9 @@
+=== VALIDITY (seed go0) — không in kết quả SC vs K2 của SYM/FF ===
+V1 seed 80001: luồng chính trùng go_test.simulate từng bit: True
+V1 seed 81001: luồng chính trùng go_test.simulate từng bit: True
+V2 rollout_info(FIX) == rollout.py trên 4 cặp (luật, ngưỡng, cooldown): True
+V3 neo FIX, α=0.002, cooldown 0: SC−K2 = +1.652 [+1.225, +2.080] ms  (Bước 1: +1.652 [+1.225, +2.080])
+V4 A nhịp 60 s (bổ sung): tuổi TB  30.07 s (lý thuyết ≈ d + T/2 = 30.10 s) · ρ̂ TB 0.804 (ρ̄ = 0.8)
+V4 B nhịp 1 s (bổ sung): tuổi TB   0.55 s (lý thuyết ≈ d + T/2 = 0.60 s) · ρ̂ TB 0.798 (ρ̄ = 0.8)
+V5 đường ống SYM/FF chạy được, mọi đầu ra twin hữu hạn: True   (KHÔNG in số liệu)
+=> VALIDITY: ĐẠT
