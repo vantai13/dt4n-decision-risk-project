@@ -76,3 +76,15 @@ def test_frontier_rankings_coincide_when_risk_is_monotone_in_center():
     ratio = np.where(Ibar > 0, Ibar / pdn, -np.inf)                       # thứ hạng của K2
     assert abs(best_gain(Ibar, I, harmful, 500) - best_gain(ratio, I, harmful, 500)) < 1e-6
     assert harm_needed(Ibar, I, harmful, 0.0) == 0.0                        # gain 0 thì không cần hại
+
+
+# ---------- Bài kiểm GO (hai path khác tốc độ/buffer) ----------
+from experiments.scan.go_test import twin_view2               # noqa: E402
+
+
+def test_twin_view2_matches_single_curve_twin():
+    c = DelayCurve(100, S4_MS)
+    m, v = np.array([0.9, 0.95]), np.array([0.003, 0.002])
+    old = twin_view(c, m, v, m[::-1], v[::-1], 1.5)
+    new = twin_view2(c, c, m, v, m[::-1], v[::-1], 1.5)
+    assert all(np.allclose(a, b) for a, b in zip(old, new))
