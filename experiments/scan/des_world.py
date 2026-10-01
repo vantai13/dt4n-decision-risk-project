@@ -49,7 +49,12 @@ def des_path(rng, cell, p, t_dec, t_end, dt):
     ok = v <= full
     n_ok = ok.sum(1)
     D = np.where(n_ok > 0, np.where(ok, v + s, 0.0).sum(1) / np.maximum(n_ok, 1), cell["k"] * s) * 1e3
-    return dict(rhohat=rhohat, age=age, G_true=G_true, D_des=D)
+    return dict(rhohat=rhohat, age=age, G_true=G_true, D_des=D,
+                diagnostics=dict(probe_drop_rate=float(1 - ok.mean()),
+                                 all_drop_epoch_rate=float(np.mean(n_ok == 0)),
+                                 mean_delay_ms=float(D.mean()),
+                                 negative_load_rate=float(np.mean(rho < 0)),
+                                 above_curve_rate=float(np.mean(rho > 1.4))))
 
 
 def simulate_world_des(seed, cell):
