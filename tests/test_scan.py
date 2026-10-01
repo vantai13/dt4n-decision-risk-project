@@ -61,3 +61,18 @@ def test_realized_lambda_respects_budget():
     harm = (I < -0.5).astype(float)
     lam = tune_lambda_realized(Ibar, pdn, I, harm, 0.01)
     assert harm[Ibar - lam * pdn > 0].sum() <= 0.01 * len(I)              # hại THẬT không vượt ngân sách
+
+
+# ---------- So ở cùng mức harm (frontier) ----------
+from experiments.scan.frontier import best_gain, harm_needed      # noqa: E402
+
+
+def test_frontier_rankings_coincide_when_risk_is_monotone_in_center():
+    rng = np.random.default_rng(3)
+    Ibar = rng.normal(0.5, 2.0, 50_000)
+    pdn = 1 / (1 + np.exp(3 * Ibar))
+    I = Ibar + rng.normal(0, 1.0, 50_000)
+    harmful = I < -0.5
+    ratio = np.where(Ibar > 0, Ibar / pdn, -np.inf)                       # thứ hạng của K2
+    assert abs(best_gain(Ibar, I, harmful, 500) - best_gain(ratio, I, harmful, 500)) < 1e-6
+    assert harm_needed(Ibar, I, harmful, 0.0) == 0.0                        # gain 0 thì không cần hại
