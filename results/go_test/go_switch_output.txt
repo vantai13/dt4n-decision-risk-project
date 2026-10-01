@@ -1,0 +1,136 @@
+R1_dualISP   α=0.002 không giới hạn   | Δ ngoài mẫu +2.515 [+1.914, +3.117] ms | gain ròng SC 0.754 K2 3.269 | đổi SC 1/62 K2 1/4 quyết định | ĐẠT
+R1_dualISP   α=0.002 1 lần/30 s       | Δ ngoài mẫu +0.078 [+0.007, +0.148] ms | gain ròng SC 0.754 K2 0.831 | đổi SC 1/62 K2 1/51 quyết định | ĐẠT
+R1_dualISP   α=0.002 1 lần/60 s       | Δ ngoài mẫu +0.011 [-0.001, +0.024] ms | gain ròng SC 0.573 K2 0.584 | đổi SC 1/107 K2 1/106 quyết định | —
+R1_dualISP   α=0.002 1 lần/120 s      | Δ ngoài mẫu +0.013 [-0.032, +0.058] ms | gain ròng SC 0.444 K2 0.457 | đổi SC 1/192 K2 1/188 quyết định | —
+R1_dualISP   α=0.002 chi phí 5 ms/lần | Δ ngoài mẫu +1.366 [+0.759, +1.973] ms | gain ròng SC 0.671 K2 2.037 | đổi SC 1/62 K2 1/4 quyết định | ĐẠT
+R1_dualISP   α=0.002 chi phí 10 ms/lần | Δ ngoài mẫu +1.038 [+0.575, +1.501] ms | gain ròng SC 0.591 K2 1.629 | đổi SC 1/62 K2 1/8 quyết định | ĐẠT
+R1_dualISP   α=0.01  không giới hạn   | Δ ngoài mẫu +0.312 [+0.124, +0.500] ms | gain ròng SC 0.522 K2 0.834 | đổi SC 1/45 K2 1/7 quyết định | ĐẠT
+R1_dualISP   α=0.01  1 lần/30 s       | Δ ngoài mẫu +0.013 [-0.049, +0.074] ms | gain ròng SC 0.522 K2 0.535 | đổi SC 1/45 K2 1/36 quyết định | —
+R1_dualISP   α=0.01  1 lần/60 s       | Δ ngoài mẫu +0.012 [-0.001, +0.026] ms | gain ròng SC 0.364 K2 0.377 | đổi SC 1/81 K2 1/79 quyết định | —
+R1_dualISP   α=0.01  1 lần/120 s      | Δ ngoài mẫu +0.002 [-0.003, +0.007] ms | gain ròng SC 0.254 K2 0.256 | đổi SC 1/172 K2 1/165 quyết định | —
+R1_dualISP   α=0.01  chi phí 5 ms/lần | Δ ngoài mẫu +0.029 [-0.102, +0.159] ms | gain ròng SC 0.411 K2 0.440 | đổi SC 1/45 K2 1/14 quyết định | —
+R1_dualISP   α=0.01  chi phí 10 ms/lần | Δ ngoài mẫu -0.013 [-0.027, +0.001] ms | gain ròng SC 0.224 K2 0.211 | đổi SC 1/101 K2 1/111 quyết định | —
+  (29 s)
+R2_bb_LTE    α=0.002 không giới hạn   | Δ ngoài mẫu +0.183 [+0.095, +0.271] ms | gain ròng SC 0.053 K2 0.236 | đổi SC 1/198 K2 1/11 quyết định | ĐẠT
+R2_bb_LTE    α=0.002 1 lần/30 s       | Δ ngoài mẫu +0.112 [+0.026, +0.198] ms | gain ròng SC 0.053 K2 0.165 | đổi SC 1/198 K2 1/34 quyết định | ĐẠT
+R2_bb_LTE    α=0.002 1 lần/60 s       | Δ ngoài mẫu +0.073 [+0.005, +0.140] ms | gain ròng SC 0.053 K2 0.126 | đổi SC 1/198 K2 1/73 quyết định | ĐẠT
+R2_bb_LTE    α=0.002 1 lần/120 s      | Δ ngoài mẫu +0.002 [-0.002, +0.006] ms | gain ròng SC 0.053 K2 0.055 | đổi SC 1/198 K2 1/173 quyết định | —
+R2_bb_LTE    α=0.002 chi phí 5 ms/lần | Δ ngoài mẫu +0.032 [-0.037, +0.101] ms | gain ròng SC 0.028 K2 0.059 | đổi SC 1/216 K2 1/83 quyết định | —
+R2_bb_LTE    α=0.002 chi phí 10 ms/lần | Δ ngoài mẫu -0.006 [-0.016, +0.003] ms | gain ròng SC 0.018 K2 0.012 | đổi SC 1/486 K2 1/248 quyết định | —
+R2_bb_LTE    α=0.01  không giới hạn   | Δ ngoài mẫu +0.042 [+0.011, +0.073] ms | gain ròng SC 0.092 K2 0.134 | đổi SC 1/34 K2 1/18 quyết định | ĐẠT
+R2_bb_LTE    α=0.01  1 lần/30 s       | Δ ngoài mẫu +0.003 [-0.016, +0.022] ms | gain ròng SC 0.092 K2 0.095 | đổi SC 1/35 K2 1/39 quyết định | —
+R2_bb_LTE    α=0.01  1 lần/60 s       | Δ ngoài mẫu +0.008 [+0.004, +0.012] ms | gain ròng SC 0.065 K2 0.073 | đổi SC 1/72 K2 1/72 quyết định | ĐẠT
+R2_bb_LTE    α=0.01  1 lần/120 s      | Δ ngoài mẫu +0.015 [-0.007, +0.037] ms | gain ròng SC 0.060 K2 0.075 | đổi SC 1/162 K2 1/144 quyết định | —
+R2_bb_LTE    α=0.01  chi phí 5 ms/lần | Δ ngoài mẫu +0.007 [-0.014, +0.029] ms | gain ròng SC 0.029 K2 0.036 | đổi SC 1/162 K2 1/133 quyết định | —
+R2_bb_LTE    α=0.01  chi phí 10 ms/lần | Δ ngoài mẫu -0.001 [-0.008, +0.006] ms | gain ròng SC 0.020 K2 0.019 | đổi SC 1/500 K2 1/363 quyết định | —
+  (52 s)
+R1_TB1       α=0.002 không giới hạn   | Δ ngoài mẫu +0.148 [+0.133, +0.162] ms | gain ròng SC 0.108 K2 0.256 | đổi SC 1/85 K2 1/5 quyết định | ĐẠT
+R1_TB1       α=0.002 1 lần/30 s       | Δ ngoài mẫu +0.057 [+0.048, +0.067] ms | gain ròng SC 0.108 K2 0.166 | đổi SC 1/85 K2 1/36 quyết định | ĐẠT
+R1_TB1       α=0.002 1 lần/60 s       | Δ ngoài mẫu +0.031 [+0.020, +0.041] ms | gain ròng SC 0.108 K2 0.139 | đổi SC 1/85 K2 1/62 quyết định | ĐẠT
+R1_TB1       α=0.002 1 lần/120 s      | Δ ngoài mẫu +0.014 [+0.003, +0.024] ms | gain ròng SC 0.101 K2 0.115 | đổi SC 1/109 K2 1/114 quyết định | ĐẠT
+R1_TB1       α=0.002 chi phí 5 ms/lần | Δ ngoài mẫu +0.001 [-0.005, +0.006] ms | gain ròng SC 0.069 K2 0.070 | đổi SC 1/214 K2 1/145 quyết định | —
+R1_TB1       α=0.002 chi phí 10 ms/lần | Δ ngoài mẫu -0.000 [-0.003, +0.003] ms | gain ròng SC 0.053 K2 0.053 | đổi SC 1/387 K2 1/346 quyết định | —
+R1_TB1       α=0.01  không giới hạn   | Δ ngoài mẫu +0.015 [+0.005, +0.024] ms | gain ròng SC 0.084 K2 0.099 | đổi SC 1/165 K2 1/24 quyết định | ĐẠT
+R1_TB1       α=0.01  1 lần/30 s       | Δ ngoài mẫu +0.010 [+0.001, +0.020] ms | gain ròng SC 0.084 K2 0.094 | đổi SC 1/165 K2 1/115 quyết định | ĐẠT
+R1_TB1       α=0.01  1 lần/60 s       | Δ ngoài mẫu +0.010 [+0.001, +0.020] ms | gain ròng SC 0.084 K2 0.094 | đổi SC 1/165 K2 1/115 quyết định | ĐẠT
+R1_TB1       α=0.01  1 lần/120 s      | Δ ngoài mẫu +0.010 [+0.001, +0.020] ms | gain ròng SC 0.084 K2 0.094 | đổi SC 1/165 K2 1/115 quyết định | ĐẠT
+R1_TB1       α=0.01  chi phí 5 ms/lần | Δ ngoài mẫu +0.001 [-0.003, +0.004] ms | gain ròng SC 0.060 K2 0.061 | đổi SC 1/345 K2 1/240 quyết định | —
+R1_TB1       α=0.01  chi phí 10 ms/lần | Δ ngoài mẫu +0.003 [-0.002, +0.007] ms | gain ròng SC 0.046 K2 0.049 | đổi SC 1/360 K2 1/440 quyết định | —
+  (77 s)
+R1_TB10      α=0.002 không giới hạn   | Δ ngoài mẫu +0.077 [+0.053, +0.101] ms | gain ròng SC 0.163 K2 0.240 | đổi SC 1/110 K2 1/8 quyết định | —
+R1_TB10      α=0.002 1 lần/30 s       | Δ ngoài mẫu +0.033 [+0.019, +0.046] ms | gain ròng SC 0.163 K2 0.195 | đổi SC 1/110 K2 1/43 quyết định | —
+R1_TB10      α=0.002 1 lần/60 s       | Δ ngoài mẫu +0.022 [+0.007, +0.038] ms | gain ròng SC 0.163 K2 0.185 | đổi SC 1/110 K2 1/61 quyết định | —
+R1_TB10      α=0.002 1 lần/120 s      | Δ ngoài mẫu -0.002 [-0.011, +0.007] ms | gain ròng SC 0.163 K2 0.161 | đổi SC 1/110 K2 1/108 quyết định | —
+R1_TB10      α=0.002 chi phí 5 ms/lần | Δ ngoài mẫu -0.002 [-0.012, +0.009] ms | gain ròng SC 0.119 K2 0.117 | đổi SC 1/130 K2 1/101 quyết định | —
+R1_TB10      α=0.002 chi phí 10 ms/lần | Δ ngoài mẫu -0.002 [-0.009, +0.004] ms | gain ròng SC 0.082 K2 0.080 | đổi SC 1/146 K2 1/147 quyết định | —
+R1_TB10      α=0.01  không giới hạn   | Δ ngoài mẫu -0.003 [-0.015, +0.010] ms | gain ròng SC 0.198 K2 0.195 | đổi SC 1/27 K2 1/11 quyết định | —
+R1_TB10      α=0.01  1 lần/30 s       | Δ ngoài mẫu -0.015 [-0.028, -0.003] ms | gain ròng SC 0.197 K2 0.182 | đổi SC 1/30 K2 1/35 quyết định | —
+R1_TB10      α=0.01  1 lần/60 s       | Δ ngoài mẫu -0.000 [-0.001, +0.000] ms | gain ròng SC 0.179 K2 0.179 | đổi SC 1/56 K2 1/55 quyết định | —
+R1_TB10      α=0.01  1 lần/120 s      | Δ ngoài mẫu -0.000 [-0.005, +0.004] ms | gain ròng SC 0.148 K2 0.147 | đổi SC 1/99 K2 1/99 quyết định | —
+R1_TB10      α=0.01  chi phí 5 ms/lần | Δ ngoài mẫu +0.001 [-0.008, +0.010] ms | gain ròng SC 0.094 K2 0.095 | đổi SC 1/80 K2 1/79 quyết định | —
+R1_TB10      α=0.01  chi phí 10 ms/lần | Δ ngoài mẫu -0.005 [-0.011, +0.000] ms | gain ròng SC 0.067 K2 0.062 | đổi SC 1/159 K2 1/159 quyết định | —
+  (101 s)
+R1_TB30      α=0.002 không giới hạn   | Δ ngoài mẫu +0.796 [+0.622, +0.970] ms | gain ròng SC 0.301 K2 1.097 | đổi SC 1/126 K2 1/6 quyết định | ĐẠT
+R1_TB30      α=0.002 1 lần/30 s       | Δ ngoài mẫu +0.273 [+0.164, +0.382] ms | gain ròng SC 0.301 K2 0.574 | đổi SC 1/126 K2 1/26 quyết định | ĐẠT
+R1_TB30      α=0.002 1 lần/60 s       | Δ ngoài mẫu +0.090 [-0.000, +0.180] ms | gain ròng SC 0.301 K2 0.391 | đổi SC 1/126 K2 1/56 quyết định | —
+R1_TB30      α=0.002 1 lần/120 s      | Δ ngoài mẫu -0.027 [-0.068, +0.014] ms | gain ròng SC 0.301 K2 0.274 | đổi SC 1/126 K2 1/115 quyết định | —
+R1_TB30      α=0.002 chi phí 5 ms/lần | Δ ngoài mẫu +0.227 [+0.095, +0.359] ms | gain ròng SC 0.262 K2 0.489 | đổi SC 1/126 K2 1/12 quyết định | ĐẠT
+R1_TB30      α=0.002 chi phí 10 ms/lần | Δ ngoài mẫu -0.085 [-0.220, +0.050] ms | gain ròng SC 0.221 K2 0.136 | đổi SC 1/135 K2 1/15 quyết định | —
+R1_TB30      α=0.01  không giới hạn   | Δ ngoài mẫu +0.053 [+0.009, +0.097] ms | gain ròng SC 0.371 K2 0.424 | đổi SC 1/37 K2 1/9 quyết định | ĐẠT
+R1_TB30      α=0.01  1 lần/30 s       | Δ ngoài mẫu +0.022 [-0.002, +0.046] ms | gain ròng SC 0.371 K2 0.393 | đổi SC 1/37 K2 1/31 quyết định | —
+R1_TB30      α=0.01  1 lần/60 s       | Δ ngoài mẫu -0.000 [-0.009, +0.009] ms | gain ròng SC 0.294 K2 0.293 | đổi SC 1/62 K2 1/62 quyết định | —
+R1_TB30      α=0.01  1 lần/120 s      | Δ ngoài mẫu -0.002 [-0.007, +0.002] ms | gain ròng SC 0.221 K2 0.219 | đổi SC 1/130 K2 1/130 quyết định | —
+R1_TB30      α=0.01  chi phí 5 ms/lần | Δ ngoài mẫu -0.006 [-0.027, +0.016] ms | gain ròng SC 0.236 K2 0.231 | đổi SC 1/37 K2 1/33 quyết định | —
+R1_TB30      α=0.01  chi phí 10 ms/lần | Δ ngoài mẫu +0.000 [+0.000, +0.000] ms | gain ròng SC 0.131 K2 0.131 | đổi SC 1/66 K2 1/66 quyết định | —
+  (125 s)
+R1_TB300     α=0.002 không giới hạn   | Δ ngoài mẫu +3.422 [+2.509, +4.335] ms | gain ròng SC 0.416 K2 3.838 | đổi SC 1/40 K2 1/3 quyết định | ĐẠT
+R1_TB300     α=0.002 1 lần/30 s       | Δ ngoài mẫu +0.194 [-0.115, +0.502] ms | gain ròng SC 0.416 K2 0.610 | đổi SC 1/40 K2 1/27 quyết định | —
+R1_TB300     α=0.002 1 lần/60 s       | Δ ngoài mẫu +0.041 [-0.222, +0.303] ms | gain ròng SC 0.245 K2 0.285 | đổi SC 1/68 K2 1/53 quyết định | —
+R1_TB300     α=0.002 1 lần/120 s      | Δ ngoài mẫu -0.028 [-0.235, +0.180] ms | gain ròng SC 0.160 K2 0.133 | đổi SC 1/137 K2 1/105 quyết định | —
+R1_TB300     α=0.002 chi phí 5 ms/lần | Δ ngoài mẫu +1.810 [+0.928, +2.692] ms | gain ròng SC 0.290 K2 2.100 | đổi SC 1/40 K2 1/3 quyết định | ĐẠT
+R1_TB300     α=0.002 chi phí 10 ms/lần | Δ ngoài mẫu +0.311 [-0.445, +1.067] ms | gain ròng SC 0.164 K2 0.475 | đổi SC 1/40 K2 1/4 quyết định | —
+R1_TB300     α=0.01  không giới hạn   | Δ ngoài mẫu +1.109 [+0.704, +1.514] ms | gain ròng SC 0.953 K2 2.062 | đổi SC 1/10 K2 1/5 quyết định | ĐẠT
+R1_TB300     α=0.01  1 lần/30 s       | Δ ngoài mẫu -0.011 [-0.174, +0.152] ms | gain ròng SC 0.379 K2 0.368 | đổi SC 1/30 K2 1/27 quyết định | —
+R1_TB300     α=0.01  1 lần/60 s       | Δ ngoài mẫu +0.011 [-0.128, +0.150] ms | gain ròng SC 0.181 K2 0.192 | đổi SC 1/63 K2 1/50 quyết định | —
+R1_TB300     α=0.01  1 lần/120 s      | Δ ngoài mẫu +0.000 [-0.007, +0.008] ms | gain ròng SC 0.112 K2 0.113 | đổi SC 1/126 K2 1/127 quyết định | —
+R1_TB300     α=0.01  chi phí 5 ms/lần | Δ ngoài mẫu +0.621 [+0.260, +0.981] ms | gain ròng SC 0.471 K2 1.092 | đổi SC 1/10 K2 1/5 quyết định | ĐẠT
+R1_TB300     α=0.01  chi phí 10 ms/lần | Δ ngoài mẫu -0.012 [-0.120, +0.097] ms | gain ròng SC -0.010 K2 -0.021 | đổi SC 1/10 K2 1/8 quyết định | —
+  (151 s)
+R1_quietB    α=0.002 không giới hạn   | Δ ngoài mẫu +0.026 [+0.020, +0.031] ms | gain ròng SC 0.022 K2 0.048 | đổi SC 1/36 K2 1/9 quyết định | ĐẠT
+R1_quietB    α=0.002 1 lần/30 s       | Δ ngoài mẫu -0.006 [-0.013, +0.002] ms | gain ròng SC 0.022 K2 0.016 | đổi SC 1/36 K2 1/31 quyết định | —
+R1_quietB    α=0.002 1 lần/60 s       | Δ ngoài mẫu -0.007 [-0.013, -0.000] ms | gain ròng SC 0.016 K2 0.009 | đổi SC 1/69 K2 1/60 quyết định | —
+R1_quietB    α=0.002 1 lần/120 s      | Δ ngoài mẫu +0.005 [+0.003, +0.008] ms | gain ròng SC 0.007 K2 0.013 | đổi SC 1/896 K2 1/231 quyết định | ĐẠT
+R1_quietB    α=0.002 chi phí 5 ms/lần | Δ ngoài mẫu -0.000 [-0.001, +0.000] ms | gain ròng SC 0.003 K2 0.002 | đổi SC 1/4000 K2 1/2553 quyết định | —
+R1_quietB    α=0.002 chi phí 10 ms/lần | Δ ngoài mẫu -0.000 [-0.001, +0.000] ms | gain ròng SC 0.002 K2 0.002 | đổi SC 1/20000 K2 1/15000 quyết định | —
+R1_quietB    α=0.01  không giới hạn   | Δ ngoài mẫu +0.001 [-0.001, +0.003] ms | gain ròng SC 0.028 K2 0.030 | đổi SC 1/14 K2 1/11 quyết định | —
+R1_quietB    α=0.01  1 lần/30 s       | Δ ngoài mẫu -0.006 [-0.012, -0.000] ms | gain ròng SC 0.024 K2 0.018 | đổi SC 1/33 K2 1/31 quyết định | —
+R1_quietB    α=0.01  1 lần/60 s       | Δ ngoài mẫu -0.009 [-0.015, -0.003] ms | gain ròng SC 0.019 K2 0.010 | đổi SC 1/67 K2 1/63 quyết định | —
+R1_quietB    α=0.01  1 lần/120 s      | Δ ngoài mẫu +0.001 [+0.000, +0.003] ms | gain ròng SC 0.009 K2 0.010 | đổi SC 1/784 K2 1/476 quyết định | ĐẠT
+R1_quietB    α=0.01  chi phí 5 ms/lần | Δ ngoài mẫu +0.000 [-0.000, +0.001] ms | gain ròng SC 0.003 K2 0.003 | đổi SC 1/3429 K2 1/2500 quyết định | —
+R1_quietB    α=0.01  chi phí 10 ms/lần | Δ ngoài mẫu -0.000 [-0.001, +0.000] ms | gain ròng SC 0.002 K2 0.002 | đổi SC 1/20000 K2 1/20000 quyết định | —
+  (175 s)
+R1_tau15     α=0.002 không giới hạn   | Δ ngoài mẫu +2.088 [+1.875, +2.300] ms | gain ròng SC 0.322 K2 2.409 | đổi SC 1/47 K2 1/5 quyết định | ĐẠT
+R1_tau15     α=0.002 1 lần/30 s       | Δ ngoài mẫu +0.111 [+0.034, +0.189] ms | gain ròng SC 0.322 K2 0.433 | đổi SC 1/47 K2 1/32 quyết định | ĐẠT
+R1_tau15     α=0.002 1 lần/60 s       | Δ ngoài mẫu -0.013 [-0.059, +0.032] ms | gain ròng SC 0.276 K2 0.263 | đổi SC 1/60 K2 1/62 quyết định | —
+R1_tau15     α=0.002 1 lần/120 s      | Δ ngoài mẫu +0.004 [-0.010, +0.018] ms | gain ròng SC 0.189 K2 0.193 | đổi SC 1/111 K2 1/111 quyết định | —
+R1_tau15     α=0.002 chi phí 5 ms/lần | Δ ngoài mẫu +1.137 [+0.894, +1.380] ms | gain ròng SC 0.214 K2 1.352 | đổi SC 1/47 K2 1/5 quyết định | ĐẠT
+R1_tau15     α=0.002 chi phí 10 ms/lần | Δ ngoài mẫu +0.309 [+0.046, +0.572] ms | gain ròng SC 0.109 K2 0.418 | đổi SC 1/47 K2 1/7 quyết định | ĐẠT
+R1_tau15     α=0.01  không giới hạn   | Δ ngoài mẫu +0.361 [+0.253, +0.469] ms | gain ròng SC 0.975 K2 1.336 | đổi SC 1/12 K2 1/8 quyết định | ĐẠT
+R1_tau15     α=0.01  1 lần/30 s       | Δ ngoài mẫu +0.004 [-0.090, +0.098] ms | gain ròng SC 0.381 K2 0.385 | đổi SC 1/33 K2 1/33 quyết định | —
+R1_tau15     α=0.01  1 lần/60 s       | Δ ngoài mẫu +0.018 [-0.056, +0.092] ms | gain ròng SC 0.197 K2 0.215 | đổi SC 1/63 K2 1/71 quyết định | —
+R1_tau15     α=0.01  1 lần/120 s      | Δ ngoài mẫu +0.004 [-0.007, +0.015] ms | gain ròng SC 0.117 K2 0.120 | đổi SC 1/126 K2 1/136 quyết định | —
+R1_tau15     α=0.01  chi phí 5 ms/lần | Δ ngoài mẫu +0.156 [+0.077, +0.234] ms | gain ròng SC 0.551 K2 0.706 | đổi SC 1/12 K2 1/9 quyết định | ĐẠT
+R1_tau15     α=0.01  chi phí 10 ms/lần | Δ ngoài mẫu +0.071 [-0.059, +0.201] ms | gain ròng SC 0.071 K2 0.143 | đổi SC 1/37 K2 1/19 quyết định | —
+  (192 s)
+R1_buf50     α=0.002 không giới hạn   | Δ ngoài mẫu +0.572 [+0.473, +0.672] ms | gain ròng SC 0.185 K2 0.757 | đổi SC 1/58 K2 1/4 quyết định | ĐẠT
+R1_buf50     α=0.002 1 lần/30 s       | Δ ngoài mẫu +0.142 [+0.095, +0.190] ms | gain ròng SC 0.185 K2 0.327 | đổi SC 1/58 K2 1/31 quyết định | ĐẠT
+R1_buf50     α=0.002 1 lần/60 s       | Δ ngoài mẫu -0.051 [-0.084, -0.019] ms | gain ròng SC 0.166 K2 0.115 | đổi SC 1/64 K2 1/113 quyết định | —
+R1_buf50     α=0.002 1 lần/120 s      | Δ ngoài mẫu -0.001 [-0.008, +0.006] ms | gain ròng SC 0.099 K2 0.099 | đổi SC 1/151 K2 1/155 quyết định | —
+R1_buf50     α=0.002 chi phí 5 ms/lần | Δ ngoài mẫu +0.081 [+0.028, +0.134] ms | gain ròng SC 0.081 K2 0.162 | đổi SC 1/77 K2 1/34 quyết định | ĐẠT
+R1_buf50     α=0.002 chi phí 10 ms/lần | Δ ngoài mẫu +0.000 [-0.001, +0.001] ms | gain ròng SC 0.049 K2 0.049 | đổi SC 1/376 K2 1/366 quyết định | —
+R1_buf50     α=0.01  không giới hạn   | Δ ngoài mẫu +0.108 [+0.046, +0.170] ms | gain ròng SC 0.201 K2 0.310 | đổi SC 1/29 K2 1/7 quyết định | ĐẠT
+R1_buf50     α=0.01  1 lần/30 s       | Δ ngoài mẫu -0.045 [-0.077, -0.014] ms | gain ròng SC 0.185 K2 0.140 | đổi SC 1/35 K2 1/36 quyết định | —
+R1_buf50     α=0.01  1 lần/60 s       | Δ ngoài mẫu -0.004 [-0.016, +0.008] ms | gain ròng SC 0.124 K2 0.120 | đổi SC 1/76 K2 1/74 quyết định | —
+R1_buf50     α=0.01  1 lần/120 s      | Δ ngoài mẫu +0.000 [-0.000, +0.000] ms | gain ròng SC 0.082 K2 0.082 | đổi SC 1/166 K2 1/164 quyết định | —
+R1_buf50     α=0.01  chi phí 5 ms/lần | Δ ngoài mẫu -0.000 [-0.001, +0.000] ms | gain ròng SC 0.053 K2 0.052 | đổi SC 1/320 K2 1/321 quyết định | —
+R1_buf50     α=0.01  chi phí 10 ms/lần | Δ ngoài mẫu +0.000 [-0.000, +0.000] ms | gain ròng SC 0.037 K2 0.037 | đổi SC 1/465 K2 1/469 quyết định | —
+  (216 s)
+R1_buf500    α=0.002 không giới hạn   | Δ ngoài mẫu +7.424 [+5.534, +9.314] ms | gain ròng SC 2.519 K2 9.943 | đổi SC 1/66 K2 1/4 quyết định | ĐẠT
+R1_buf500    α=0.002 1 lần/30 s       | Δ ngoài mẫu +0.470 [+0.197, +0.744] ms | gain ròng SC 2.519 K2 2.990 | đổi SC 1/66 K2 1/49 quyết định | ĐẠT
+R1_buf500    α=0.002 1 lần/60 s       | Δ ngoài mẫu -0.002 [-0.384, +0.381] ms | gain ròng SC 1.927 K2 1.925 | đổi SC 1/102 K2 1/90 quyết định | —
+R1_buf500    α=0.002 1 lần/120 s      | Δ ngoài mẫu -0.602 [-1.477, +0.274] ms | gain ròng SC 1.394 K2 0.792 | đổi SC 1/187 K2 1/173 quyết định | —
+R1_buf500    α=0.002 chi phí 5 ms/lần | Δ ngoài mẫu +6.243 [+4.350, +8.136] ms | gain ròng SC 2.443 K2 8.686 | đổi SC 1/66 K2 1/4 quyết định | ĐẠT
+R1_buf500    α=0.002 chi phí 10 ms/lần | Δ ngoài mẫu +5.132 [+3.230, +7.034] ms | gain ròng SC 2.367 K2 7.499 | đổi SC 1/66 K2 1/4 quyết định | ĐẠT
+R1_buf500    α=0.01  không giới hạn   | Δ ngoài mẫu +0.773 [+0.255, +1.290] ms | gain ròng SC 1.457 K2 2.230 | đổi SC 1/51 K2 1/9 quyết định | ĐẠT
+R1_buf500    α=0.01  1 lần/30 s       | Δ ngoài mẫu +0.066 [-0.144, +0.276] ms | gain ròng SC 1.457 K2 1.523 | đổi SC 1/51 K2 1/37 quyết định | —
+R1_buf500    α=0.01  1 lần/60 s       | Δ ngoài mẫu +0.005 [-0.022, +0.032] ms | gain ròng SC 1.052 K2 1.057 | đổi SC 1/82 K2 1/82 quyết định | —
+R1_buf500    α=0.01  1 lần/120 s      | Δ ngoài mẫu +0.008 [-0.002, +0.018] ms | gain ròng SC 0.710 K2 0.719 | đổi SC 1/173 K2 1/170 quyết định | —
+R1_buf500    α=0.01  chi phí 5 ms/lần | Δ ngoài mẫu +0.468 [+0.013, +0.924] ms | gain ròng SC 1.359 K2 1.827 | đổi SC 1/51 K2 1/12 quyết định | ĐẠT
+R1_buf500    α=0.01  chi phí 10 ms/lần | Δ ngoài mẫu +0.238 [-0.178, +0.653] ms | gain ròng SC 1.235 K2 1.473 | đổi SC 1/53 K2 1/13 quyết định | —
+  (244 s)
+
+Đã lưu results/go_test/go_switch_v1.csv
+=== KẾT LUẬN GO v1 (đọc ở '1 lần/30 s', kịch bản thực tế R1/R2) ===
+  R1_dualISP: GO (α = 0.002)
+  R2_bb_LTE: GO (α = 0.002)
+  Các thiết lập khác và quét biên: để vẽ RANH GIỚI (đổi rẻ đến đâu thì bất định còn có giá trị), không dùng để quyết định.
