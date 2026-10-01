@@ -71,3 +71,16 @@ def tune_lambda(Ibar, pdn, alpha):
         lam = 0.5 * (lo + hi)
         lo, hi = (lam, hi) if pdn[Ibar - lam * pdn > 0].sum() > budget else (lo, lam)
     return hi
+
+
+def tune_lambda_realized(Ibar, pdn, gain, harm, alpha, n_grid=400):
+    """K2 khi tune bằng KẾT QUẢ THẬT: dò λ trên lưới, chọn λ cho tổng gain thật lớn nhất mà số lần hại thật ≤ α·N.
+    (p₋ của twin chỉ còn dùng để XẾP HẠNG rủi ro; ngân sách được kiểm bằng hại thật.)"""
+    budget = alpha * len(Ibar)
+    best_lam, best_gain = np.inf, 0.0
+    for lam in np.concatenate([[0.0], np.logspace(-3, 6, n_grid)]):
+        a = Ibar - lam * pdn > 0
+        g = gain[a].sum()
+        if harm[a].sum() <= budget and g > best_gain:
+            best_lam, best_gain = lam, g
+    return best_lam

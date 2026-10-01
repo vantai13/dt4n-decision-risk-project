@@ -38,3 +38,26 @@ def test_trajectory_extremes():
     x = np.array([1.0, -1.0, 2.0])
     assert s0_trajectory(x, np.inf).all()
     assert list(s0_trajectory(np.ones(4), 0.5)) == [True, False, False, False]
+
+
+# ---------- Phần xác nhận (DES + tune bằng hại thật) ----------
+from experiments.scan.des_world import simulate_world_des            # noqa: E402
+from experiments.scan.rules import tune_lambda_realized              # noqa: E402
+from ndtrisk.theory.mdk import mdk                                   # noqa: E402
+
+
+def test_des_matches_mdk_under_constant_load():
+    p = dict(rho_bar=0.8, sigma=1e-6, tau=10.0, T_tel=0.5, d=0.1, stall_p=0.0, stall_mean=0.0)
+    w = simulate_world_des(7, dict(mbps=4, k=11, H=0.5, a=0.05, n_epochs=20000, A=p, B=p))
+    D = np.concatenate([w["A"]["D_des"], w["B"]["D_des"]])
+    assert abs(D.mean() / (mdk(0.8, 11).sojourn * S4_MS) - 1) < 0.03       # DES khớp nghiệm M/D/1/K
+    assert abs(w["A"]["rhohat"].mean() - 0.8) < 0.005                     # telemetry đếm gói không lệch
+
+
+def test_realized_lambda_respects_budget():
+    rng = np.random.default_rng(2)
+    Ibar, pdn = rng.normal(0.5, 2.0, 40_000), rng.uniform(0, 0.5, 40_000)
+    I = Ibar + rng.normal(0, 2.0, 40_000)
+    harm = (I < -0.5).astype(float)
+    lam = tune_lambda_realized(Ibar, pdn, I, harm, 0.01)
+    assert harm[Ibar - lam * pdn > 0].sum() <= 0.01 * len(I)              # hại THẬT không vượt ngân sách
