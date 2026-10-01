@@ -1,7 +1,9 @@
 # Ước lượng tham số twin từ telemetry — BẢN NHÁP ĐỂ REVIEW
 
 Ngày 2026-10-01. Không phải tiền đăng ký đã khoá, không phải outcome v6.
-Chưa chạy calibration DES 90001–90020 hoặc test 91001–91020.
+Chưa chạy calibration DES 90001–90020 hoặc test 91001–91060.
+Sau review mới, estimator được chấp thuận giữ nguyên; §7 cập nhật 60 seed test.
+Đang chờ dự đoán tác giả trước commit khoá; chưa coi protocol là đã đăng ký.
 
 ## 1. Ranh giới thông tin
 
@@ -95,19 +97,34 @@ Dựa trên v5 đã biết và kiểm tổng hợp, không giả làm dự đoá
 Các dự đoán này chưa phải kết quả và chưa tiền đăng ký; người dùng cần
 review bộ ước lượng/protocol trước khi khóa commit rồi mở seed mới.
 
-## 7. Protocol phép so mới — dự thảo, CHƯA THỰC HIỆN
+## 7. Protocol phép so mới — cập nhật theo review, CHƯA KHOÁ/CHƯA CHẠY
 
 1. Review các lựa chọn trên và policy xử lý fit chạm bound/nhận dạng yếu.
    Không chọn/tune estimator bằng delay test.
 2. Khóa estimator, dự đoán, objective và cổng validity bằng commit trước khi chạy.
-3. Một ô R3_outage; cal 90001–90020, test 91001–91020; 6.000 epoch quyết định,
+3. Một ô R3_outage; cal 90001–90020, test 91001–91060; 6.000 epoch quyết định,
    H_dec=1 s, hold-down=H_tw=30 s, ε=1 ms, α=0,002.
    Sinh thêm 29 epoch nhãn tương lai, không rút ngắn cửa sổ như v5.
 4. Fit riêng mỗi path trên bản tin cal tươi; đóng băng ρ̄,σ,τ; tính chung Ī,p₋
    bằng twin đó cho K2/SClin/SCtab24. Tune chính sách bằng delay/harm_W cal thật.
-5. Chính: SClin−K2, CI t ghép cặp qua 20 seed; phụ: SCtab24−K2,
-   harm_W, harm_1s, tần suất đổi, kiểm hiệu chỉnh p₋. Không tuyên bố tương đương
-   khi CI chứa 0. Không sửa ngưỡng/cổng sau khi thấy test.
-6. Chỉ sau review + phép so này mới xem xét calibration {2,5,20}/dịch chế độ.
+5. Chính: SClin−K2, CI t ghép cặp qua 60 seed. SCtab24−K2 CHỈ MÔ TẢ,
+   chọn phương án (a), KHÔNG TOST/không biên tương đương. Không cần chọn δ
+   thiếu cơ sở ứng dụng. Báo harm_W, harm_1s, tần suất đổi và hiệu chỉnh p₋.
+   CI chính cận dưới >0: K2 tốt hơn SClin; cận trên <0: SClin tốt hơn K2;
+   chứa 0: chưa phân giải, không gọi không có hiệu ứng hay tương đương.
+   Nếu harm_W test của K2/SClin >α, không kết luận lợi thế admissible.
+6. Giữ nguyên từng byte estimator đã review: không chỉnh lag/weights/bounds
+   dựa trên τ thật. Cảnh báo chạm bound, nhận dạng yếu, lệch Var >20% dừng
+   trước test; bản tin cũ bị loại chỉ báo audit. Không fallback tham số thật.
+7. `twin_config` tạo bản sao, thay rho/sigma/tau bằng fits. Test toàn tuyến
+   calibration telemetry → fits → Ī,p₋ giữ nguyên từng bit khi tham số thật
+   bị thay đổi. Twin không nhận nhãn delay tương lai hay padding telemetry.
+8. Ghi dự đoán tác giả (người dùng) trước commit/tag khoá; đề xuất trợ lý §6
+   giữ nguyên như lịch sử, không giả làm dự đoán tác giả. Pipeline có guard
+   yêu cầu protocol có prediction và tag `prereg-rollout-v6` khớp SHA nguồn.
+9. Sau v6, ưu tiên phép thử SAI HỌ MÔ HÌNH trước quét calibration {2,5,20};
+   v6 chỉ bỏ quyền biết tham số, chưa kiểm mô hình sai hoặc tiết kiệm dữ liệu.
 
-Hiện mới viết và kiểm bộ ước lượng; chưa viết/chạy pipeline v6 chính thức.
+Pipeline `experiments/scan/rollout_v6.py` đã viết, chỉ kiểm trên dữ liệu
+tổng hợp/mock; chưa khoá hoặc chạy các seed DES mới. Bản máy đọc:
+`notes/map/rollout_v6_protocol.json`.

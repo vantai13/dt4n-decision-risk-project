@@ -701,3 +701,28 @@ Mẫu cho mỗi thí nghiệm (copy khối dưới):
   Dự đoán trợ lý đã viết trong bản nháp trước test mới, không giả làm dự
   đoán tác giả hay tiền đăng ký đã duyệt; review/khóa trước khi chạy v6.
   Chưa chạy số seed calibration {2,5,20}/dịch chế độ, không đổi phán quyết VoIP.
+
+## 2026-10-01 — V6 · SỬA PROTOCOL / KIỂM CODE, CHƯA KHOÁ / CHƯA MỞ SEED
+
+- **Review:** attachment chấp thuận bộ ước lượng; giữ nguyên code estimator
+  (SHA-256 `1b8d7092d9260bad889f03a53263af3924e494f9c7a75708f07d5c2bb6a6abca`).
+  Không điều chỉnh theo sai số τ so với giá trị thật mà reviewer đã xem trên
+  cal cũ. Các số DES trong review là của reviewer, không phải outcome v6.
+- **Sửa protocol:** cal 90001–90020 vẫn 20 seed; test tăng 91001–91060;
+  SCtab24 chọn (a) chỉ mô tả, không TOST/không δ/không tuyên bố tương đương.
+  SClin−K2 là phép so chính; giữ dự đoán trợ lý riêng, chờ dự đoán tác giả.
+- **Code:** `rollout_v6.py`, twin_config + đường telemetry-only tới Ī,p₋;
+  tách sc_world/sc_tw, không fallback tham số thật. 29 epoch padding chỉ
+  tạo nhãn cửa sổ đủ 30 s, không tham gia fit hoặc làm epoch điều khiển.
+  Fit/policy freeze trước test; guard require_locked dừng trước mọi seed nếu
+  thiếu prediction, protocol/hash code/tag commit khóa không khớp.
+- **Kiểm:** 138/138 test đạt, gồm thay đổi rho/sigma/tau thật mà toàn tuyến
+  fits→Ī,p₋ giữ nguyên từng bit. Chỉ dữ liệu tổng hợp/mock, không DES mới.
+  Power tính lại từ CSV v5: SClin−K2 sd 0,776273 ms; n=60 power 0,993 nếu
+  effect 0,451258, 0,601 nếu effect giảm một nửa. Không bảo đảm power thật.
+- **Tệp:** `notes/map/telemetry_fit_review.md` §7 đã sửa;
+  `notes/map/rollout_v6_protocol.json` còn draft/author_prediction=null;
+  `notes/map/rollout_v6_preparation.md`; `tests/test_rollout_v6.py`.
+- **Trạng thái:** chưa nhận dự đoán tác giả, chưa commit/tag khóa,
+  chưa mở cal 90001–90020/test 91001–91060. Commit chuẩn bị không phải prereg.
+  Dừng trước seed mới để giữ đúng thứ tự mà review yêu cầu.
