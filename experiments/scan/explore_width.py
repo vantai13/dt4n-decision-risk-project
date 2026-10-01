@@ -69,10 +69,37 @@ def configurations():
     for c in grid():
         if c['name'] in ('m069', 'm071', 'm085', 'm080', 'm083'):
             cases[c['name']] = c
+    for T in (.05, .1, .2):
+        add(f'freshA_{T:g}', T_tel_A=T)
+    for path, tau in (('A', 2.), ('B', 30.), ('B', 60.)):
+        c = add(f'tau{path}_{tau:g}')
+        c[path]['tau'] = tau
+    for path in 'AB':
+        c = add(f'quiet{path}')
+        c[path]['sigma'] /= 3
+    c = add('stallB')
+    c['B']['stall_p'], c['B']['stall_mean'] = .5, 30.
+    add('joint_small', r_f=600e3, rho_A=.8, rho_B=.8, T_tel_A=.1, probe_B=60.)
+    add('joint_medium', k=332, r_f=600e3, rho_A=.8, rho_B=.8, T_tel_A=.1, probe_B=60.)
+    add('joint_large', k=664, r_f=600e3, rho_A=.8, rho_B=.8, T_tel_A=.1, probe_B=60.)
+    add('joint_large_tau30', k=664, r_f=600e3, rho_A=.8, rho_B=.8, T_tel_A=.1, probe_B=60., tau=30.)
+    add('buffer_1328', k=1328)
+    # Sensitivity to quadrature and to retaining the ORIGINAL absolute harm epsilon.
+    c = copy.deepcopy(cases['similarity_16'])
+    c['name'], c['eps_over_s'] = 'similarity_16_fixed_eps', c['eps_over_s']/16
+    cases[c['name']] = c
+    for src in ('base_m069', 'joint_large', 'buffer_664'):
+        c = copy.deepcopy(cases[src])
+        c['name'], c['gh_nodes'] = f'{src}_gh256', 256
+        cases[c['name']] = c
     return cases
 
 
 def raw(seed, cell):
+    from experiments.scan import twin
+    nodes = cell.get('gh_nodes', 64)
+    twin.GH_X, twin.GH_W = np.polynomial.hermite.hermgauss(nodes)
+    twin.GH_W /= np.sqrt(np.pi)
     curve, s_ms = get_curve(cell)
     # alpha affects reference/policy tuning only, not simulation or twin.
     physical = {k: v for k, v in cell.items() if k not in ('name', 'axes', 'alpha', 'n_flows_min')}
@@ -172,6 +199,7 @@ def main():
     p.add_argument('--stage', choices=['audit', 'screen', 'verify'], required=True)
     p.add_argument('--names', nargs='*')
     p.add_argument('--bootstrap', type=int, default=0)
+    p.add_argument('--label', help='Artifact prefix; preserves earlier adaptive stages')
     args = p.parse_args()
     cases = configurations()
     if args.stage == 'audit':
@@ -190,14 +218,15 @@ def main():
     ROOT.mkdir(parents=True, exist_ok=True)
     manifest = {'stage': args.stage, 'cal_seeds': list(cal), 'test_seeds': list(test), 'bootstrap': args.bootstrap,
                 'configs': [cases[n] for n in names], 'status': 'exploratory, post-selection'}
-    (ROOT/f'{args.stage}_manifest.json').write_text(json.dumps(manifest, indent=2))
+    label = args.label or args.stage
+    (ROOT/f'{label}_manifest.json').write_text(json.dumps(manifest, indent=2))
     rows, seeds, start = [], [], time.time()
     for name in names:
         r, sr = evaluate(cases[name], cal, test, args.bootstrap)
         rows.append(dict(name=name, **r))
         seeds.extend(dict(name=name, **x) for x in sr)
-        write_csv(ROOT/f'{args.stage}.csv', rows)
-        write_csv(ROOT/f'{args.stage}_seeds.csv', seeds)
+        write_csv(ROOT/f'{label}.csv', rows)
+        write_csv(ROOT/f'{label}_seeds.csv', seeds)
         print(f"{name:28s} matched={r['width_ms']:+.4f} ms ({r['width_pct']:.2f}%head) "
               f"OOS={r['oos_width_ms']:+.4f} [{r['oos_width_lo']:+.4f},{r['oos_width_hi']:+.4f}] "
               f"harmK/SC={r['oos_harm_K2']/r['alpha']:.2f}/{r['oos_harm_SC']/r['alpha']:.2f}alpha "
