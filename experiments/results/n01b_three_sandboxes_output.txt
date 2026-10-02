@@ -1,0 +1,42 @@
+H=0.5 s | 40000 lần kiểm | ε=0.605 ms | lớp: lợi 60.1%, thờ ơ 8.1%, hại 31.8% | headroom=27.160 ms
+sandbox      duyệt   DN/mọi  TCN/mọi   DN|hại  TCN|lợi  regret ms
+biết trước   64.3%    0.00%    0.00%     0.0%     0.0%      0.000
+lý tưởng     64.7%    1.81%    1.63%     5.7%     2.7%      0.319
+thực tế      55.8%    8.79%   14.40%    27.7%    24.0%      4.599
+luôn từ chối    0.0%    0.00%   60.11%     0.0%   100.0%     27.160
+Phân rã regret: thực tế 4.599 = không tránh được 0.319 + do sandbox không hoàn hảo 4.279 ms
+
+Cùng sandbox THỰC TẾ, đổi BỘ SINH ĐỀ XUẤT:
+  G_all: mọi lần kiểm đều là đề xuất             hại/đề xuất=31.8%  DN|hại=27.7%  TCN|lợi=24.0%  P(hại|duyệt)=15.8%
+  G_greedy: đề xuất khi số đo thô nói B tốt hơn  hại/đề xuất=20.3%  DN|hại=57.7%  TCN|lợi=11.9%  P(hại|duyệt)=14.7%
+
+Neo rhohat/age/G_true: ĐẠT trên 10 seed; thời gian 1.917 s
+Đã lưu experiments/results/n01b_H0.5_metrics.csv; dữ liệu epoch: results/raw/n01/n01b_H0.5_epochs.npz
+H=5.0 s | 40000 lần kiểm | ε=0.605 ms | lớp: lợi 64.7%, thờ ơ 7.0%, hại 28.2% | headroom=29.624 ms
+sandbox      duyệt   DN/mọi  TCN/mọi   DN|hại  TCN|lợi  regret ms
+biết trước   68.5%    0.00%    0.00%     0.0%     0.0%      0.000
+lý tưởng     71.8%    7.57%    4.92%    26.8%     7.6%      2.386
+thực tế      68.3%   12.24%   11.19%    43.3%    17.3%      5.747
+luôn từ chối    0.0%    0.00%   64.74%     0.0%   100.0%     29.624
+Phân rã regret: thực tế 5.747 = không tránh được 2.386 + do sandbox không hoàn hảo 3.360 ms
+
+Cùng sandbox THỰC TẾ, đổi BỘ SINH ĐỀ XUẤT:
+  G_all: mọi lần kiểm đều là đề xuất             hại/đề xuất=28.2%  DN|hại=43.3%  TCN|lợi=17.3%  P(hại|duyệt)=17.9%
+  G_greedy: đề xuất khi số đo thô nói B tốt hơn  hại/đề xuất=18.8%  DN|hại=80.2%  TCN|lợi= 5.9%  P(hại|duyệt)=16.7%
+
+Neo rhohat/age/G_true: ĐẠT trên 10 seed; thời gian 1.999 s
+Đã lưu experiments/results/n01b_H5_metrics.csv; dữ liệu epoch: results/raw/n01/n01b_H5_epochs.npz
+H=30.0 s | 40000 lần kiểm | ε=0.605 ms | lớp: lợi 70.5%, thờ ơ 6.6%, hại 22.9% | headroom=28.267 ms
+sandbox      duyệt   DN/mọi  TCN/mọi   DN|hại  TCN|lợi  regret ms
+biết trước   74.0%    0.00%    0.00%     0.0%     0.0%      0.000
+lý tưởng     92.3%   18.66%    2.70%    81.4%     3.8%      4.708
+thực tế      97.4%   21.69%    1.00%    94.6%     1.4%      5.162
+luôn từ chối    0.0%    0.00%   70.48%     0.0%   100.0%     28.267
+Phân rã regret: thực tế 5.162 = không tránh được 4.708 + do sandbox không hoàn hảo 0.453 ms
+
+Cùng sandbox THỰC TẾ, đổi BỘ SINH ĐỀ XUẤT:
+  G_all: mọi lần kiểm đều là đề xuất             hại/đề xuất=22.9%  DN|hại=94.6%  TCN|lợi= 1.4%  P(hại|duyệt)=22.3%
+  G_greedy: đề xuất khi số đo thô nói B tốt hơn  hại/đề xuất=18.6%  DN|hại=100.0%  TCN|lợi= 0.0%  P(hại|duyệt)=18.6%
+
+Neo rhohat/age/G_true: ĐẠT trên 10 seed; thời gian 3.827 s
+Đã lưu experiments/results/n01b_H30_metrics.csv; dữ liệu epoch: results/raw/n01/n01b_H30_epochs.npz

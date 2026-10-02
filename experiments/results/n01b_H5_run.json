@@ -1,0 +1,56 @@
+{
+  "cell": {
+    "name": "POS_probeB",
+    "mbps": 10,
+    "k": 83,
+    "H": 5.0,
+    "a": 0.05,
+    "eps_over_s": 0.5,
+    "alpha": 0.002,
+    "n_epochs": 4000,
+    "A": {
+      "rho_bar": 0.95,
+      "sigma": 0.16881943016134132,
+      "tau": 10.0,
+      "T_tel": 0.5,
+      "d": 0.1,
+      "stall_p": 0.0,
+      "stall_mean": 0.0
+    },
+    "B": {
+      "rho_bar": 0.85,
+      "sigma": 0.15968719422671313,
+      "tau": 10.0,
+      "T_tel": 30.0,
+      "d": 0.1,
+      "stall_p": 0.0,
+      "stall_mean": 0.0
+    },
+    "n_flows_min": 28.333333333333332,
+    "axes": {
+      "r_f": 300000.0,
+      "tau": 10.0,
+      "T_tel_A": 0.5,
+      "probe_B": 30.0,
+      "rho_B": 0.85,
+      "alpha": 0.002
+    }
+  },
+  "seeds": [
+    9101,
+    9102,
+    9103,
+    9104,
+    9105,
+    9106,
+    9107,
+    9108,
+    9109,
+    9110
+  ],
+  "eps_ms": 0.6048,
+  "elapsed_seconds": 1.9991798920000292,
+  "world_anchor": "rhohat, age, G_true: bitwise equal for A/B on every seed",
+  "ideal_implementation": "lesson posterior W=1e-6, R=0; numerical approximation, not an exact oracle",
+  "raw_path": "results/raw/n01/n01b_H5_epochs.npz"
+}

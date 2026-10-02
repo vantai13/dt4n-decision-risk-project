@@ -1,0 +1,19 @@
+PASS: 264 dòng metrics (theo seed + pooled), sáu ô, DN/TCN và regret khớp 120.000 dòng epoch đã lưu.
+DIFF: H0.5: ideal regret ms: local=0.319318, lesson=0.324, delta=-0.004682
+MATCH: H0.5: real regret ms: local=4.598814, lesson=4.599, delta=-0.000186
+DIFF: H0.5: ideal DN|harm: local=0.057143, lesson=0.053, delta=+0.004143
+DIFF: H5: ideal regret ms: local=2.386218, lesson=2.38, delta=+0.006218
+MATCH: H5: real regret ms: local=5.746669, lesson=5.75, delta=-0.003331
+DIFF: H5: ideal DN|harm: local=0.267947, lesson=0.261, delta=+0.006947
+MATCH: H30: ideal regret ms: local=4.708451, lesson=4.71, delta=-0.001549
+MATCH: H30: real regret ms: local=5.161522, lesson=5.16, delta=+0.001522
+DIFF: H30: ideal DN|harm: local=0.813740, lesson=0.804, delta=+0.009740
+MATCH: n01c CRN: mean ms: local=8.046152, lesson=8.05, delta=-0.003848
+MATCH: n01c CRN: sd ms (ddof=0): local=7.722551, lesson=7.72, delta=+0.002551
+MATCH: n01c CRN: min ms: local=0.535310, lesson=0.54, delta=-0.004690
+MATCH: n01c CRN: P(effect<0): local=0.000000, lesson=0.0, delta=+0.000000
+MATCH: n01c Independent: mean ms: local=7.507848, lesson=7.51, delta=-0.002152
+MATCH: n01c Independent: sd ms (ddof=0): local=9.359230, lesson=9.36, delta=-0.000770
+MATCH: n01c Independent: min ms: local=-6.426893, lesson=-6.43, delta=+0.003107
+MATCH: n01c Independent: P(effect<0): local=0.093333, lesson=0.093, delta=+0.000333
+Đã lưu n01_report.md, n01b_summary.csv, n01c_summary.csv, n01_lesson_comparison.csv, n01_regret_decomposition.png, n01_manifest.json

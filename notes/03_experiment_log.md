@@ -805,3 +805,55 @@ Mẫu cho mỗi thí nghiệm (copy khối dưới):
   experiments/results/n00_trace_one_check_output.txt,
   experiments/results/n00_trace_one_check_epochs.csv,
   experiments/results/n00_validation_output.txt.
+
+## 2026-10-02 — Novelty/L1.2 · n01/n01b/n01c: sự thật, regret, bộ sinh và CRN
+
+- **Câu hỏi:** đúng so với cái gì; phân rã regret; tỉ lệ theo lớp khi đổi bộ sinh;
+  khác biệt ghép CRN và độc lập cho hai chế độ tải.
+- **Dự đoán:** KHÔNG mù, đã đọc outcome trong lesson trước local. Không gán
+  nội dung lesson hoặc diễn giải AI cho dự đoán/việc tự kiểm của tác giả.
+- **Config + seed:** n01 không RNG; n01b POS_probeB, 9101–9110,
+  H={0,5;5;30} s, mỗi H 40.000 epoch, luôn ở A, Ī>0, ε=0,6048 ms,
+  thế giới PSA. n01c nền hằng 0,85, thêm 0,10, 300 cặp, seed 9101.
+- **Neo:** rhohat, age, G_true A/B trùng từng bit với simulate_world tại
+  cả 30 tổ hợp H–seed. Chạy lại nguyên bản n01b trong attachment để đối chiếu:
+  I/real/ideal/plug trùng từng bit dữ liệu local; phần xuất bổ sung không đổi kết quả.
+- **Regret local (ms/lần kiểm), ideal / real / chênh:**
+  H=0,5: 0,319318 / 4,598814 / 4,279496 (93,0565%);
+  H=5: 2,386218 / 5,746669 / 3,360452 (58,4765%);
+  H=30: 4,708451 / 5,161522 / 0,453071 (8,7779%).
+  Lý tưởng DN|hại: 5,7143% / 26,7947% / 81,3740%.
+- **Bộ sinh H=0,5:** real DN|hại G_all≈27,7% → G_greedy≈57,7%; cùng
+  telemetry là giải thích ứng viên, chưa xác lập cơ chế nhân quả.
+- **CRN:** mean 8,046152 ms, sd 7,722551, min 0,535310, 0/300 hiệu ứng âm;
+  độc lập 7,507848 / 9,359230 / −6,426893 ms, 28/300 âm (9,3333%).
+- **Sai lệch lesson:** n01/n01c và real n01b khớp độ chính xác đã in;
+  ideal khác (ví dụ lesson H=0,5: 0,324 ms, DN|hại 5,3%). Không ép khớp.
+  W=1e-6 trong posterior có mất chính xác số khi tính var_box; phương sai
+  điều kiện lệch −1,812% so với giới hạn quan sát điểm OU ở H=0,5.
+  Chưa chứng minh đây là nguyên nhân duy nhất khác bảng lesson; thiếu môi trường
+  và bản code thực chạy của bên soạn. Ideal chưa là oracle chính xác của world rời rạc.
+- **Diễn giải sửa:** regret là trung bình (không tổng), vẫn tính vùng thờ ơ;
+  13,06% là toàn vùng thờ ơ, phần âm nằm trong I<0 là 6,44 điểm %.
+  Phân rã regret là đồng nhất thức mẫu; cách gọi không tránh được cần oracle đúng.
+  H tăng chỉ được báo xu hướng ba mức, không khẳng định đơn điệu toàn miền.
+- **Giới hạn CRN:** thêm nhóm từ warm-up, chưa rẽ nhánh từ cùng trạng thái tại t;
+  delay là probe ảo được nhận, chưa phải đo trực tiếp nhóm chuyển. Không chứng
+  minh dấu luôn dương cho buffer hữu hạn; độc lập vẫn ước lượng chênh kỳ vọng.
+- **Kiểm:** 73 passed in 2.82s (test_n01_verdict, test_scan, test_mdk);
+  264 dòng metric/6 ô/120.000 epoch khớp; 300 cặp DES hữu hạn; compile đạt.
+  n01b: 1,917 / 1,999 / 3,827 s theo ba mức H (không gồm xuất tệp).
+- **Tệp:** experiments/results/n01_report.md + n01_regret_decomposition.png;
+  n01*_output.txt; n01b_H*_metrics.csv, n01b_summary.csv, n01c_crn_trials.csv,
+  n01c_summary.csv, n01_lesson_comparison.csv, n01b_ideal_numerical_audit.csv,
+  n01b_H*_run.json, n01_manifest.json. Raw local/gitignored:
+  results/raw/n01/n01b_H{0.5,5,30}_epochs.npz.
+- **Tài liệu:** tạo notes/novelty/N1_verdict_concepts.md bằng số local,
+  cập nhật N0 liên kết N1; notes/plan/L1_2_execution_notes.md ghi lệch/đính chính.
+  N0 vẫn giữ Δρ và đối tượng hưởng lợi đã được tác giả chọn. H/mốc ideal
+  chỉ là đề xuất nháp chờ tác giả; bài tính giấy/tự kiểm chưa có xác nhận.
+- **Lệch kế hoạch:** theo lesson thêm n01b/n01c ngoài n01; Codex bổ sung
+  exporter, report, audit và 6 kiểm thử cho biên/mẫu số/neo/CRN rỗng.
+  Không sửa ndtrisk/, experiments/scan/ hay engine f04b; không mở seed test mới.
+- **Provenance:** ba script lõi và N1 từ lesson (ghi Claude); Codex thực thi,
+  đối chiếu và bổ sung. Các nguồn literature trong lesson chưa kiểm lại lần này.

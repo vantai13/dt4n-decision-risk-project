@@ -1,0 +1,4 @@
+CRN      TB= 8.05 ms  sd= 7.72  nhỏ nhất=  0.54  P(hiệu ứng < 0)=0.0%
+ĐỘC LẬP  TB= 7.51 ms  sd= 9.36  nhỏ nhất= -6.43  P(hiệu ứng < 0)=9.3%
+Đã lưu 300 cặp kết quả: n01c_crn_trials.csv
+Lưu ý: gói chuyển được thêm từ đầu warm-up; đây là so hai chế độ tải, chưa rẽ nhánh tại t từ cùng workload.

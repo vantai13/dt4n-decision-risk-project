@@ -1,0 +1,13 @@
+SHA256 script n01b trong attachment (LF, không newline cuối): e983ea12c8ee884db42a5088ceea5748f796014a45fe8c351b0a7724a6360db3
+H=0.5: NGUYÊN BẢN lesson khớp từng bit I/real/ideal/plug đã lưu, trên cả 10 seed.
+H=5: NGUYÊN BẢN lesson khớp từng bit I/real/ideal/plug đã lưu, trên cả 10 seed.
+H=30: NGUYÊN BẢN lesson khớp từng bit I/real/ideal/plug đã lưu, trên cả 10 seed.
+=> Sai lệch số ideal so với bảng lesson tái hiện cả khi chạy nguyên bản; không do phần xuất số liệu thêm.
+H=0.5, A: Var(W)/sigma²=0.999200722163; variance W=1e-6 0.00116352544698, point-limit 0.00118499721621, relative error -1.812%
+H=0.5, B: Var(W)/sigma²=0.999200722163; variance W=1e-6 0.00104104908414, point-limit 0.00106026066714, relative error -1.812%
+H=5, A: Var(W)/sigma²=0.999200722163; variance W=1e-6 0.00680136195563, point-limit 0.00681533766512, relative error -0.205%
+H=5, B: Var(W)/sigma²=0.999200722163; variance W=1e-6 0.00608542911819, point-limit 0.00609793370037, relative error -0.205%
+H=30, A: Var(W)/sigma²=0.999200722163; variance W=1e-6 0.0101489722341, point-limit 0.0101512363124, relative error -0.022%
+H=30, B: Var(W)/sigma²=0.999200722163; variance W=1e-6 0.00908065936732, point-limit 0.00908268512159, relative error -0.022%
+Giới hạn điểm tính cho OU liên tục: beta=exp(-a/tau)*(1-exp(-H/tau))/(H/tau); v=var_box(H)-sigma²*beta².
+Đây là audit xấp xỉ số, chưa xác định được nguyên nhân khác môi trường của bảng lesson; không thay kết quả chính.

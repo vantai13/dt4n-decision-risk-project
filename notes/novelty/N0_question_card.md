@@ -23,12 +23,12 @@ và trong điều kiện nào phán quyết đủ tin để dùng thẳng?
 | Đơn vị phân tích | Một lần kiểm = (thời điểm t, đề xuất, phán quyết, kết quả trên [t + a, t + a + H]) | đề xuất |
 | Thay đổi được kiểm | Chuyển nhóm lưu lượng tốc độ r từ A sang B; cỡ thay đổi Δρ = r / C | Nháp tác giả chọn 2026-10-02: Δρ ∈ {0; 0,0064; 0,03; 0,1}; chốt tại Gate N |
 | Trường hợp đối chứng | Δρ ≈ 0 (luồng nhỏ như repo cũ): sandbox suy biến thành so hai ước lượng trạng thái đang tồn tại | đề xuất |
-| Ai đề xuất | Bộ sinh đề xuất v0 | [L1.2] |
+| Ai đề xuất | Đề xuất N1: G_all + G_greedy (cùng telemetry với twin); bộ sinh là trục thí nghiệm | xem N1 §6, §8; chưa chốt |
 | Phán quyết | Nhị phân duyệt / từ chối, sinh từ đầu ra twin qua một luật | đề xuất |
 | Lợi ích tính cho ai | Chính: nhóm lưu lượng được chuyển. Tác động lên toàn bộ lưu lượng A/B: phần mở rộng | Nháp tác giả chọn 2026-10-02; chốt tại Gate N |
-| "Đúng" nghĩa là gì | sự thật thực hiện hay kỳ vọng; ε; H | [L1.2] |
+| "Đúng" nghĩa là gì | xem [N1 §8](N1_verdict_concepts.md#8-đề-xuất-chưa-chốt) (đề xuất): sự thật thực hiện ghép cặp, regret và cả hai chiều lỗi | H/mốc lý tưởng chờ tác giả; Gate N chốt |
 | Đối tượng được chấm | Phán quyết so với kết quả — KHÔNG phải dự báo so với kết quả | đề xuất |
-| Mẫu số | Mỗi tỉ lệ ghi rõ chia cho gì; ít nhất theo lớp thật và theo lần duyệt | [L1.2] |
+| Mẫu số | N1: DN/hại, TCN/lợi, P(hại/duyệt), regret trung bình trên tập đề xuất; luôn khai báo bộ sinh | đề xuất; xem N1 §8 |
 
 ## 3. Không thuộc câu hỏi
 
@@ -101,6 +101,8 @@ Các mức kiểm dưới đây được chép từ lesson, **không phải xác
 | configuration / change verification | LOẠI | phần lớn là kiểm chức năng → dùng để lọc ra | — |
 
 ## 7. Lịch sử sửa
+
+- 2026-10-02 L1.2: liên kết N1 cho sự thật, metric, mẫu số và bộ sinh; lưu kết quả local cùng sai lệch ideal. Lựa chọn Δρ/nhóm hưởng lợi đã xác nhận ở L1.1 giữ nguyên.
 
 - 2026-10-02 v0: nháp đầu (hỗ trợ AI). Thêm Δρ và "lợi ích tính cho ai" vì với luồng nhỏ, phán quyết sandbox
   suy biến thành quyết định đổi/giữ của khung cũ.
