@@ -1,0 +1,9 @@
+mức thông tin A / B     regret (ms/lần kiểm)   S tắt (cửa sổ kết thúc lúc t) | S bật (bản tin mới nhất)
+  inst  / inst                                  0.353           |  3.171
+  win   / win                                   2.900           |  3.899
+  noisy / noisy                                 3.671           |  4.562
+  inst  / win                                   2.406           |  3.505
+  noisy / inst                                  0.780           |  4.168
+  win   / inst                                  0.505           |  3.547
+Dòng win/inst là chẩn đoán bổ sung; noisy/inst gồm cả gộp và nhiễu A.
+Đã lưu n02b_measurement_split_seeds.csv; kiểm hash thế giới trước/sau: ĐẠT.

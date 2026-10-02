@@ -1,0 +1,70 @@
+H=0.5 s, 10 seed, twin tin ρ̄_B=0.8 khi P bật.
+Regret (ms/lần kiểm) của 8 cấu hình  [S M P; 1 = bật nguồn sai]
+  (0, 0, 0)    0.353 ± 0.042
+  (0, 0, 1)    0.357 ± 0.043
+  (0, 1, 0)    3.671 ± 0.292
+  (0, 1, 1)    3.675 ± 0.295
+  (1, 0, 0)    3.171 ± 0.315
+  (1, 0, 1)    3.275 ± 0.355
+  (1, 1, 0)    4.562 ± 0.343
+  (1, 1, 1)    4.823 ± 0.445
+
+Hiệu ứng (± CI95 ghép cặp theo seed: mọi cấu hình dùng CÙNG thế giới nên trừ nhau theo seed được):
+  chính S         +1.944 ± 0.222
+  chính M         +2.394 ± 0.211
+  chính P         +0.093 ± 0.077
+  S×M khi P=0     -1.928 ± 0.246   (y11 − y10 − y01 + y00)
+  S×M khi P=1     -1.770 ± 0.297   (y11 − y10 − y01 + y00)
+  S×P khi M=0     +0.099 ± 0.082   (y11 − y10 − y01 + y00)
+  S×P khi M=1     +0.257 ± 0.177   (y11 − y10 − y01 + y00)
+  M×P khi S=0     -0.001 ± 0.052   (y11 − y10 − y01 + y00)
+  M×P khi S=1     +0.157 ± 0.163   (y11 − y10 − y01 + y00)
+
+Bậc thang (thêm từng nguồn từ LÝ TƯỞNG) theo vài thứ tự — phần 'góp' của mỗi nguồn:
+  S→M→P   S:+2.819  M:+1.390  P:+0.261
+  P→M→S   P:+0.005  M:+3.318  S:+1.148
+  M→P→S   M:+3.319  P:+0.004  S:+1.148
+
+Shapley (trung bình phần góp qua cả 6 thứ tự):
+  S: +1.957
+  M: +2.407
+  P: +0.107
+  tổng +4.470 = regret(bật hết) − regret(lý tưởng) = +4.470
+
+Đã lưu n02_H0.5_rho0.80_seeds.csv, _contrasts_seeds.csv, _summary.csv, _run.json; thời gian 5.956 s
+Kiểm telemetry B: 39237/39322 cặp epoch cùng r_last có số đếm khác (n02 rút nhiễu theo epoch).
+H=0.5 s, 10 seed, twin tin ρ̄_B=0.7 khi P bật.
+Regret (ms/lần kiểm) của 8 cấu hình  [S M P; 1 = bật nguồn sai]
+  (0, 0, 0)    0.353 ± 0.042
+  (0, 0, 1)    0.359 ± 0.047
+  (0, 1, 0)    3.671 ± 0.292
+  (0, 1, 1)    3.868 ± 0.310
+  (1, 0, 0)    3.171 ± 0.315
+  (1, 0, 1)    4.316 ± 0.494
+  (1, 1, 0)    4.562 ± 0.343
+  (1, 1, 1)    6.034 ± 0.634
+
+Hiệu ứng (± CI95 ghép cặp theo seed: mọi cấu hình dùng CÙNG thế giới nên trừ nhau theo seed được):
+  chính S         +2.458 ± 0.283
+  chính M         +2.484 ± 0.198
+  chính P         +0.705 ± 0.225
+  S×M khi P=0     -1.928 ± 0.246   (y11 − y10 − y01 + y00)
+  S×M khi P=1     -1.790 ± 0.401   (y11 − y10 − y01 + y00)
+  S×P khi M=0     +1.138 ± 0.325   (y11 − y10 − y01 + y00)
+  S×P khi M=1     +1.276 ± 0.426   (y11 − y10 − y01 + y00)
+  M×P khi S=0     +0.190 ± 0.103   (y11 − y10 − y01 + y00)
+  M×P khi S=1     +0.327 ± 0.266   (y11 − y10 − y01 + y00)
+
+Bậc thang (thêm từng nguồn từ LÝ TƯỞNG) theo vài thứ tự — phần 'góp' của mỗi nguồn:
+  S→M→P   S:+2.819  M:+1.390  P:+1.472
+  P→M→S   P:+0.007  M:+3.508  S:+2.167
+  M→P→S   M:+3.319  P:+0.196  S:+2.167
+
+Shapley (trung bình phần góp qua cả 6 thứ tự):
+  S: +2.470
+  M: +2.495
+  P: +0.716
+  tổng +5.681 = regret(bật hết) − regret(lý tưởng) = +5.681
+
+Đã lưu n02_H0.5_rho0.70_seeds.csv, _contrasts_seeds.csv, _summary.csv, _run.json; thời gian 5.497 s
+Kiểm telemetry B: 39237/39322 cặp epoch cùng r_last có số đếm khác (n02 rút nhiễu theo epoch).

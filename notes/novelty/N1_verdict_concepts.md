@@ -106,3 +106,10 @@ Nguyên bản script trong attachment cũng cho đúng từng bit các mảng lo
 - [ ] RQ bằng lời tác giả và bài kiểm 3 phút L1.1 chưa có xác nhận hoàn thành.
 
 2026-10-02: Codex cập nhật bằng số đo local, lưu sai lệch với lesson, bổ sung giới hạn ideal/CRN và sửa “tổng” thành “trung bình” regret.
+
+## 12. Liên kết L1.3 (2026-10-02)
+
+[N2](N2_error_sources.md) phân biệt mô tả gap L=z+a với việc chọn chuẩn lý tưởng.
+Kết quả n01b và n02 đều giữ mốc t, a=0,05 s. Chưa có quyết định tác giả đổi sang t+a;
+không thay diễn giải kết quả L1.2 bằng một chuẩn chưa chạy. Cấu hình n02 (1,1,0)
+chỉ gần regret n01b về mặt mô tả, không neo từng bit vì lịch rút nhiễu khác.

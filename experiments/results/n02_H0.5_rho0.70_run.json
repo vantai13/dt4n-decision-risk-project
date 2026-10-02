@@ -1,0 +1,69 @@
+{
+  "cell": {
+    "name": "POS_probeB",
+    "mbps": 10,
+    "k": 83,
+    "H": 0.5,
+    "a": 0.05,
+    "eps_over_s": 0.5,
+    "alpha": 0.002,
+    "n_epochs": 4000,
+    "A": {
+      "rho_bar": 0.95,
+      "sigma": 0.16881943016134132,
+      "tau": 10.0,
+      "T_tel": 0.5,
+      "d": 0.1,
+      "stall_p": 0.0,
+      "stall_mean": 0.0
+    },
+    "B": {
+      "rho_bar": 0.85,
+      "sigma": 0.15968719422671313,
+      "tau": 10.0,
+      "T_tel": 30.0,
+      "d": 0.1,
+      "stall_p": 0.0,
+      "stall_mean": 0.0
+    },
+    "n_flows_min": 28.333333333333332,
+    "axes": {
+      "r_f": 300000.0,
+      "tau": 10.0,
+      "T_tel_A": 0.5,
+      "probe_B": 30.0,
+      "rho_B": 0.85,
+      "alpha": 0.002
+    }
+  },
+  "rho_b_wrong": 0.7,
+  "seeds": [
+    9101,
+    9102,
+    9103,
+    9104,
+    9105,
+    9106,
+    9107,
+    9108,
+    9109,
+    9110
+  ],
+  "elapsed_seconds": 5.497328017001564,
+  "world_hashes": [
+    "0e91ac8042efc1b07ad6b5f8c42e781e04df4f6521d1955eca533fa511993edb",
+    "b98cd7dcda5319759b3f14770d31381c4c23428d74fadd1e771f5c3b3ff2bc9c",
+    "a68b71dfa8e5192e37847a90f148e620f21dd43228f00db71b04a168b1d243fc",
+    "a3e25283091045f2117236b7dfa90b49de5ecfeb987558b9f5b1737b434a447d",
+    "592eae5536968605021c184f0f233c8cad6b559323df3d2c1fac820a9a7566b4",
+    "1dfb829553800beb82eb9c405e2bde42a40c16cef3d719d457ec6bce1370ae67",
+    "bd7e012891f91666eed3722ecb8a986ff64112b7c14423d602ee8a0dd1f26fa5",
+    "6d983c765d4636f343046b21b576178e741e1d512909f4b42ff40b92f30f3100",
+    "6b6121b5594a736e4d888ff00ebef9ed678ba9990b97e95839522b28dc842672",
+    "4c0601d0e9c674667dc861d216eabff96cf7b7ece4680ac34a3fcf73a326e334"
+  ],
+  "B_repeated_report_adjacent_epochs": 39322,
+  "B_changed_count_on_same_report": 39237,
+  "noise_coupling": "per-epoch uniform, not one fixed count per published report",
+  "ideal": "state at t; W=1e-6 approximation; a fixed in every configuration"
+}

@@ -857,3 +857,61 @@ Mẫu cho mỗi thí nghiệm (copy khối dưới):
   Không sửa ndtrisk/, experiments/scan/ hay engine f04b; không mở seed test mới.
 - **Provenance:** ba script lõi và N1 từ lesson (ghi Claude); Codex thực thi,
   đối chiếu và bổ sung. Các nguồn literature trong lesson chưa kiểm lại lần này.
+
+## 2026-10-02 — Novelty/L1.3 · n02/n02b: factorial cơ chế và tách gộp/nhiễu (minh hoạ)
+
+- **Câu hỏi:** phân rã regret theo nguồn phụ thuộc thứ tự, tương tác và mức nguồn thế nào;
+  phân biệt gộp cửa sổ với nhiễu đếm.
+- **Dự đoán:** KHÔNG mù (đã đọc kết quả lesson); cơ chế prior nhạy tuổi theo posterior
+  là diễn giải từ tài liệu/công thức, không phải dự đoán tác giả trước outcome.
+  Bài tính ở N2_calculation_examples.md được Codex ghi sau chạy, không xác nhận
+  tác giả đã làm bài trên giấy trước khi chạy như lesson yêu cầu.
+- **Config/seed:** POS_probeB, 9101–9110, 4.000 epoch/seed, H=0,5, a=0,05 s,
+  G_all, Ī>0, luôn ở A, PSA. n02: 2³ công tắc S/M/P, prior B={0,80;0,70};
+  n02b: 5 trường hợp nguồn + win/inst bổ sung để tách nhiễu A (2 mức S).
+- **Local factorial, prior=0,80 (ms/lần kiểm):** 000=0,352648; 001=0,357420;
+  010=3,671163; 011=3,675225; 100=3,171435; 101=3,275420;
+  110=4,561915; 111=4.822959. Prior=0,70: 111=6.034069.
+- **S×M khi P=0:** −1,928034 ±0,246005 ms (CI95 half ghép theo seed).
+  Bậc thang S→M: S=2,818787; M=1,390480. M→S: M=3,318515; S=0,890752.
+  Shapley hai nguồn (P=0): S=1,854770; M=2,354497; tổng=4,209267 ms.
+- **Shapley ba nguồn:** bảng CSV lưu đủ CI và seed, không trộn với Shapley
+  hai nguồn. P≈0.106613 (prior=0,80) → 0,716472 (prior=0,70) ms.
+  S×P prior=0,70: M=0 +1,138212 ±0,324971; M=1 +1,275757 ±0,425919 ms.
+- **Tách đo:** S=0, gộp A/B +2,547048; nhiễu sau gộp +0,771467 ms.
+  Gộp B riêng +2,052963/+0,333767 ms (S=0/1). Nhiễu A riêng qua đối chứng
+  win/inst mới là +0,274841/+0,621076 ms; số +0,427390/+0,996905 là gộp+nhiễu A.
+- **Kiểm:** 81 passed in 3.47s (test_n02_sources, test_n01_verdict, scan, mdk);
+  hash world không đổi trước/sau các công tắc, giống giữa hai prior;
+  P=0 và 4 endpoint n02b khớp bitwise theo seed. 160 dòng regret factorial,
+  640 dòng contrast theo seed (kể cả tương tác bậc ba/6 thứ tự/Shapley),
+  120 dòng regret đo lồng nhau. Audit AST xác nhận 4 hàm gốc không đổi.
+- **Sai lệch lesson:** các nhánh M=1 khớp số in; một số nhánh M=0 và contrasts
+  khác, ví dụ S×P khi M=0 prior=0,70 là +1,138 thay +0,944 ms.
+  Giữ W=1e-6, không sửa code để ép khớp; chưa xác định nguyên nhân ở môi trường
+  đã sinh bảng lesson. Numerical/continuous-vs-grid ideal caveats từ L1.2 còn áp dụng.
+- **Giới hạn neo:** n02 rút u theo epoch, nên 39.237/39.322 cặp epoch liên tiếp
+  cùng r_last B có đếm khác. World gốc tái sử dụng đếm của bản tin. Regret gần
+  n01b chỉ là kiểm mô tả; CI chồng lấp không chứng minh tương đương mô hình.
+  CRN hợp lệ nội bộ theo coupling n02, không khôi phục phụ thuộc thời gian gốc.
+- **Giới hạn diễn giải:** phép đo tức thời/trung bình không là các σ-algebra
+  lồng nhau hoàn toàn; factorial một luật xấp xỉ không tự động là VoI tối ưu.
+  Không kết luận mọi sai mô hình chỉ hại khi dữ liệu cũ. Giảm z/a tương đương
+  chỉ có điều kiện; công tắc hiện tại giữ a và ideal tại t. N-S2/N-S3 chưa được
+  tác giả chọn; không tự thay N1 bằng mốc t+a.
+- **Tài liệu:** N2_error_sources.md cập nhật số local/giới hạn; N1 thêm liên kết;
+  realism_sources.md gắn GIẢ ĐỊNH cho T_B=30 s, W=T_tel, sai prior −0,05/−0,15.
+  Kiểm abstract nguồn chính Owen 2014, Song et al. 2016, Kennedy–O'Hagan 2001;
+  Howard/Jain/Shapley nguyên bản chưa xác minh full text; không claim novelty.
+- **Lệch kế hoạch:** thêm n02/n02b dù L1.3 dự kiến không code; thêm xuất CSV,
+  report/manifest/hình, kiểm thử và một trường hợp win/inst. Không sửa ndtrisk,
+  scan, f04b hay f08; không mở seed test. Thời gian n02 khoảng 5,956/5,497 s
+  trước xuất tệp cho hai prior; không dùng thời gian này làm benchmark.
+- **Tệp:** experiments/results/n02_report.md; n02_decomposition.png;
+  n02_source_factorial_output.txt; n02b_measurement_split_output.txt;
+  n02_H0.5_rho{0.80,0.70}_{seeds,contrasts_seeds,summary}.csv và _run.json;
+  n02b_measurement_split_{seeds,summary}.csv; n02b_split_contrasts.csv;
+  n02_SM_P0_summary.csv; n02_lesson_comparison.csv; n02_source_audit.json;
+  n02_tests_output.txt, n02_validation_output.txt, n02_manifest.json.
+- **Provenance:** script lõi/N2 từ lesson người dùng cung cấp (ghi Claude),
+  Codex thực thi/kiểm và viết phần bổ sung; không gán tính giấy/tự kiểm cho tác giả.

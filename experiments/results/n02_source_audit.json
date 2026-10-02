@@ -1,0 +1,32 @@
+[
+  {
+    "file": "n02_source_factorial.py",
+    "function": "world",
+    "AST_identical_to_supplied": true
+  },
+  {
+    "file": "n02_source_factorial.py",
+    "function": "twin_info",
+    "AST_identical_to_supplied": true
+  },
+  {
+    "file": "n02_source_factorial.py",
+    "function": "regret_of",
+    "AST_identical_to_supplied": true
+  },
+  {
+    "file": "n02_source_factorial.py",
+    "supplied_code_sha256": "520de12f1a20674a0ee050f0f919a712b6978f0eb5f80a09aadcc45edeb77b27",
+    "hash_convention": "Python fence body with LF, no trailing newline"
+  },
+  {
+    "file": "n02b_measurement_split.py",
+    "function": "regret",
+    "AST_identical_to_supplied": true
+  },
+  {
+    "file": "n02b_measurement_split.py",
+    "supplied_code_sha256": "2a7f3e2ab5bb3bee8253c40c0501e2e51ccd13c4bc9805779dd25abdd99296c1",
+    "hash_convention": "Python fence body with LF, no trailing newline"
+  }
+]

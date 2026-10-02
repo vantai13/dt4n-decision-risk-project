@@ -1,0 +1,20 @@
+PASS: cùng hash thế giới giữa 2 mức sai tham số; P=0 trùng từng bit; mọi bậc thang/Shapley cộng đúng theo seed.
+PASS: 4 endpoint n02b trùng từng bit với n02 theo seed; 120 dòng đo lồng nhau hữu hạn.
+DIFF rho0.80 (0, 0, 0) mean: local=0.352648, lesson=0.355, delta=-0.002352
+DIFF rho0.80 (0, 0, 0) CI95 half: local=0.042191, lesson=0.038, delta=+0.004191
+DIFF rho0.80 (0, 0, 1) mean: local=0.357420, lesson=0.353, delta=+0.004420
+DIFF rho0.80 (0, 0, 1) CI95 half: local=0.043280, lesson=0.039, delta=+0.004280
+DIFF rho0.80 (1, 0, 0) mean: local=3.171435, lesson=3.156, delta=+0.015435
+DIFF rho0.80 (1, 0, 0) CI95 half: local=0.315041, lesson=0.314, delta=+0.001041
+DIFF rho0.80 (1, 0, 1) mean: local=3.275420, lesson=3.224, delta=+0.051420
+DIFF rho0.80 (1, 0, 1) CI95 half: local=0.354560, lesson=0.351, delta=+0.003560
+DIFF rho0.70 interaction:S*P|M=0 mean: local=1.138212, lesson=0.944, delta=+0.194212
+DIFF rho0.70 interaction:S*P|M=0 CI95 half: local=0.324971, lesson=0.345, delta=-0.020029
+DIFF rho0.70 Shapley P: local=0.716472, lesson=0.68, delta=+0.036472
+DIFF n02b S=0 ('inst', 'inst'): local=0.352648, lesson=0.355, delta=-0.002352
+DIFF n02b S=1 ('inst', 'inst'): local=3.171435, lesson=3.156, delta=+0.015435
+DIFF n02b S=0 ('inst', 'win'): local=2.405612, lesson=2.391, delta=+0.014612
+DIFF n02b S=1 ('inst', 'win'): local=3.505201, lesson=3.508, delta=-0.002799
+DIFF n02b S=0 ('noisy', 'inst'): local=0.780038, lesson=0.785, delta=-0.004962
+DIFF n02b S=1 ('noisy', 'inst'): local=4.168340, lesson=4.164, delta=+0.004340
+Đã lưu n02_report.md, n02_decomposition.png, các CSV tổng hợp/đối chiếu và manifest SHA-256.
