@@ -1,0 +1,37 @@
+--- epoch 99
+  A: rho_hat=0.808  tuổi= 0.28 s  |  tải thật khoảng giữ=0.810
+  B: rho_hat=0.771  tuổi=21.57 s  |  tải thật khoảng giữ=0.667
+  DỰ BÁO   : Iplug=+0.51 ms   Ibar=-13.58 ms   p_dn=0.472
+  PHÁN QUYẾT: TỪ CHỐI  (đề xuất: True)
+  KẾT QUẢ  : I=+1.37 ms  ->  có lợi
+--- epoch 23
+  A: rho_hat=0.946  tuổi= 0.28 s  |  tải thật khoảng giữ=1.022
+  B: rho_hat=0.899  tuổi=13.57 s  |  tải thật khoảng giữ=0.847
+  DỰ BÁO   : Iplug=+5.19 ms   Ibar=+6.53 ms   p_dn=0.289
+  PHÁN QUYẾT: DUYỆT  (đề xuất: True)
+  KẾT QUẢ  : I=+70.60 ms  ->  có lợi
+
+Số lần 'duyệt mà hại' = 292; chia cho các mẫu số khác nhau:
+  / mọi epoch            (4000) =   7.3%
+  / mọi đề xuất          (2552) =  11.4%
+  / mọi lần duyệt        (2012) =  14.5%
+  / mọi đề xuất có hại   ( 510) =  57.3%
+
+Chi tiết epoch 99 (ms, trừ tải và tuổi):
+  A: hậu nghiệm=0.827169 ± 0.073030; T(ρ̂)=3.755098; E[T]=5.817155; T thật=3.788983
+  B: hậu nghiệm=0.843846 ± 0.158144; T(ρ̂)=3.245447; E[T]=19.398592; T thật=2.420246
+
+Phép tính đường cong dừng — KHÔNG phải mô phỏng can thiệp:
+  T(0.85) = 4.636800 ms
+  T(0.95) = 12.677841 ms
+  T(1.00) = 50.602008 ms
+  Δρ=0.0064 tại ρ=0.85: tăng 0.180013 ms; ε=0.604800 ms
+  Δρ=0.0064 tại ρ=0.95: tăng 1.739993 ms; ε=0.604800 ms
+  ĐẠT: tử số và bốn mẫu số khớp lesson
+  ĐẠT: epoch 99 khớp số làm tròn của lesson
+  ĐẠT: epoch 23 khớp số làm tròn của lesson
+  ĐẠT: kỳ vọng từng đường khớp twin_inputs
+  ĐẠT: đầu ra hữu hạn
+
+Đã lưu experiments/results/n00_trace_one_check_epochs.csv và experiments/results/n00_report.md
+Thời gian tính/xuất: 0.653 s

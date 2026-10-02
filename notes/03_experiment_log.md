@@ -766,3 +766,42 @@ Mẫu cho mỗi thí nghiệm (copy khối dưới):
   reproduction_checks_output.txt, reproduction_environment.txt;
   fresh_output.txt, info_outcome_output.txt và hai posthoc_*_output.txt.
   Hồ sơ họp: notes/gocheck/GVHD_status.md.
+
+## 2026-10-02 — Novelty/L1.1 · n00: lần theo một lần kiểm (minh hoạ)
+
+- **Câu hỏi:** phân biệt dự báo, phán quyết, hành động, kết quả và tác động của mẫu số.
+- **Dự đoán theo lesson:** số đo B cũ hơn τ có thể làm Ī thấp hơn Iplug do bất định
+  kết hợp độ cong delay. KHÔNG mù: đã thấy kết quả lesson trước khi chạy local.
+- **Config + seed:** POS_probeB, seed pilot 9101, 4.000 epoch, luôn ở A;
+  đề xuất Iplug>0, duyệt nếu đề xuất và Ī>0; ε=0,6048 ms. Không tune/ngân sách harm.
+- **Nền:** git pull --ff-only báo Already up to date; nhánh rollout-v6,
+  base e669f5c (khác 7c60c76 trong lesson). Không sửa ndtrisk/ hoặc experiments/scan/.
+- **Kết quả:** epoch 99 Ī=−13,581437 ms, I=+1,368737 ms → từ chối nhầm;
+  epoch 23 Ī=+6,529966 ms, I=+70,604449 ms → duyệt đúng.
+  Duyệt mà hại 292 lần; chia cho 4000/2552/2012/510 được
+  7,3000%/11,4420%/14,5129%/57,2549%; hàng cuối là bỏ lọt đề xuất có hại.
+- **Phép tính tĩnh:** Δρ=0,0064 tăng delay 0,180013 ms ở ρ=0,85;
+  1,739993 ms ở ρ=0,95 (>ε). Không phải mô phỏng can thiệp Δρ>0.
+- **Đối chiếu:** 5/5 kiểm trong script đạt; các epoch và số đếm chính khớp
+  độ chính xác lesson. E[T_B] epoch 99 tính được 19,398592 ms (làm tròn 19,40),
+  khác 19,39 in ở bảng lesson khoảng 0,009 ms; không ép số cho khớp.
+- **Validation:** pytest tests/test_scan.py tests/test_mdk.py -q: 67 passed in 3.67s;
+  output lưu n00_validation_output.txt. CSV có 4.000 dòng dữ liệu, đối chiếu lại
+  số đếm bằng CSV đạt. Thời gian tính/xuất n00 0,653 s trong lần chạy này.
+- **Lệch kế hoạch:** lesson nói LUOT_1/L1.1 không code; n00 chỉ gọi hàm cũ
+  và thêm xuất CSV, báo cáo, kiểm đối chiếu; không thêm logic mô hình/luật.
+  Không thấy bản LUOT_1_NOVELTY.md/kế hoạch 02/10 để chép; đã ghi trong notes/plan/.
+- **Provenance:** script lõi và card từ lesson do người dùng cung cấp (ghi Claude);
+  Codex triển khai, bổ sung xuất/kiểm và diễn đạt RQ gợi ý. Không gán cho tác giả
+  việc đọc từng dòng, tự viết RQ hoặc tự kiểm 3 phút khi chưa có xác nhận.
+- **Lựa chọn tác giả trong chat:** nháp Δρ={0; 0,0064; 0,03; 0,1}; lợi ích cho
+  nhóm chuyển, tác động toàn mạng là mở rộng. Gate N chốt sau. RQ tự viết và
+  bài kiểm 3 phút còn để tác giả thực hiện.
+- **Đính chính diễn giải:** đúng tham số OU/K và cùng đường cong PSA không
+  chứng minh hậu nghiệm Gauss chính xác với đếm Poisson; xem execution notes.
+  Các mức kiểm literature chép từ lesson chưa được xác minh lại trong lượt này.
+- **Tệp:** notes/novelty/N0_question_card.md, notes/plan/L1_1_execution_notes.md,
+  experiments/n00_trace_one_check.py, experiments/results/n00_report.md,
+  experiments/results/n00_trace_one_check_output.txt,
+  experiments/results/n00_trace_one_check_epochs.csv,
+  experiments/results/n00_validation_output.txt.

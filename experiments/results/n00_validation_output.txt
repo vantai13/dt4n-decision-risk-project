@@ -1,0 +1,5 @@
+Command: .venv/bin/python -m pytest tests/test_scan.py tests/test_mdk.py -q
+...................................................................      [100%]
+67 passed in 3.67s
+
+Captured from local command output on 2026-10-02.
